@@ -1,7 +1,15 @@
+# -*- coding: utf-8 -*-
+"""
+策略模块
+【关键修复】加上 import polars as pl
+"""
+
+# 【关键修复】加上 Polars 导入
+import polars as pl
+
 def detect_uptrend(df):
     try:
-        # Polars和Pandas的iloc类似，用.slice()
-        window = df.slice(-40, 30)  # 最近40天~最近10天
+        window = df.slice(-40, 30)
         if len(window) < 20:
             return False
         close_start = window.select(pl.col("close").first()).item()

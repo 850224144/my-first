@@ -26,17 +26,17 @@ from core.market import market_filter
 from core.alert import push_results
 
 # ==============================================================================
-# 📝 【核心】可配置过滤条件区，True是该条件不参与过滤
+# 📝 【核心】可配置过滤条件区，True是该条件不参与过滤False
 # ==============================================================================
 FILTER_CONFIG = {
     "基础数据_数据长度": {"ENABLED": True, "THRESHOLD": 50, "DESC": "历史K线数量不足"},
-    "基础数据_收盘价大于0": {"ENABLED": False, "THRESHOLD": 0, "DESC": "最新收盘价<=0"},
-    "基础数据_不过滤停牌": {"ENABLED": False, "THRESHOLD": 0, "DESC": "近3天成交量=0（停牌）"},
+    "基础数据_收盘价大于0": {"ENABLED": True, "THRESHOLD": 0, "DESC": "最新收盘价<=0"},
+    "基础数据_不过滤停牌": {"ENABLED": True, "THRESHOLD": 0, "DESC": "近3天成交量=0（停牌）"},
     "基础数据_不过滤一字涨跌停": {"ENABLED": True, "THRESHOLD": 0, "DESC": "一字涨跌停"},
     "大盘环境_不过滤": {"ENABLED": True, "THRESHOLD": 0, "DESC": "大盘未站上20日线"},
     "特征计算_不过滤": {"ENABLED": True, "THRESHOLD": 0, "DESC": "特征计算失败"},
     "模型概率_不过滤": {"ENABLED": True, "THRESHOLD": 0.5, "DESC": "模型概率不足"},
-    "策略买点_不过滤": {"ENABLED": False, "THRESHOLD": 0, "DESC": "未满足策略买点条件"},
+    "策略买点_不过滤": {"ENABLED": True, "THRESHOLD": 0, "DESC": "未满足策略买点条件"},
     "量能确认_不过滤": {"ENABLED": True, "THRESHOLD": 0, "DESC": "量能不足"}
 }
 
