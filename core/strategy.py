@@ -31,10 +31,8 @@ def trade_plan(df, prob):
     bp = breakout_price(df)
     buy = bp * 1.01
     stop = min(df['low'].iloc[-10:].min(), buy * 0.95)
-
     risk = buy - stop
-    pos = min(0.2, 0.01 / (risk / buy))  # 最大20%
-
+    pos = min(0.2, 0.01 / (risk / buy))
     return {
         "buy": round(buy,2),
         "stop": round(stop,2),
