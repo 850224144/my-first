@@ -24,6 +24,9 @@ def get_all_stocks():
     # 科创板
     stocks += [f"688{i:03d}" for i in range(1, 999)]
 
+    #北交所
+    stocks += [f"920{i:03d}" for i in range(1, 999)]
+
     # 去重 + 过滤
     stocks = list(set([s for s in stocks if len(s) == 6]))
 
