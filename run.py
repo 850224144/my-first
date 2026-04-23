@@ -49,8 +49,6 @@ PUSH_PLATFORM = "wechat"
 MODE = "scan"
 DEBUG_PRINT_LIMIT = 100
 
-import os
-
 MAX_WORKERS = min(os.cpu_count() * 3, 32)
 
 # ==============================================================================
@@ -72,6 +70,9 @@ print("=" * 80)
 
 detailed_filter_stats = {name: 0 for name in FILTER_CONFIG.keys()}
 detailed_filter_stats["最终入选"] = 0
+
+# 全局计数器（修复语法错误核心）
+debug_count = [0]
 
 if MODE == "train":
     print("\n【模式】训练通用模型")
@@ -141,12 +142,9 @@ else:
 
     print("\n📥 第一阶段：预加载全市场数据并逐条件过滤...")
     stock_info_list = []
-    debug_count = 0
-
 
     def load_and_filter(code):
-        global debug_count
-        debug_print = (debug_count < DEBUG_PRINT_LIMIT)
+        debug_print = (debug_count[0] < DEBUG_PRINT_LIMIT)
         filter_reason = ""
         passed = True
 
@@ -229,8 +227,8 @@ else:
                 return {
                     "code": code,
                     "raw_df": df,
-                    "features": df_feat.select(FEATURES).slice(-1).to_numpy().ravel(),
-                    "prob": prob if 'prob' in locals() else 0.6
+                    "features": df_feat.select(FEATURES).slice(-1).to_numpy().ravel() if "df_feat" in locals() else [],
+                    "prob": prob if "prob" in locals() else 0.6
                 }
             else:
                 return None
@@ -241,10 +239,9 @@ else:
 
         finally:
             if debug_print:
-                debug_count += 1
+                debug_count[0] += 1
                 status = "✅ 通过" if passed else f"❌ 淘汰（{filter_reason}）"
-                print(f"[{debug_count:03d}] {code:6s} | {status}")
-
+                print(f"[{debug_count[0]:03d}] {code:6s} | {status}")
 
     with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
         futures = [executor.submit(load_and_filter, code) for code in stocks]
