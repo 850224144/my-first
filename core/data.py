@@ -1,12 +1,17 @@
 # -*- coding: utf-8 -*-
-
 import os
-import pandas as pd
+import polars as pl
+import duckdb
 import requests
 from functools import lru_cache
 
+# ========================= 核心配置 =========================
 CACHE_DIR = "data/daily"
-CACHE_EXT = ".parquet"          # 使用 Parquet 格式
+DB_PATH = "data/stock_data.duckdb"
+os.makedirs(CACHE_DIR, exist_ok=True)
+
+CACHE_KEEP_DAYS = 3 * 365
+SH_INDEX_CODE = "sh000001"
 
 HEADERS = {
     "User-Agent": ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
@@ -15,148 +20,221 @@ HEADERS = {
 }
 
 
+# ========================= 数据库连接 =========================
+def get_db_connection(read_only=False):
+    return duckdb.connect(DB_PATH, read_only=read_only)
+
+
+# ========================= 数据库&大盘数据初始化 =========================
+def init_db():
+    con = get_db_connection()
+    try:
+        con.execute("""
+            CREATE TABLE IF NOT EXISTS stock_daily (
+                code VARCHAR,
+                date DATE,
+                open DOUBLE,
+                high DOUBLE,
+                low DOUBLE,
+                close DOUBLE,
+                volume BIGINT,
+                adj_type VARCHAR,
+                source VARCHAR,
+                PRIMARY KEY (code, date)
+            )
+        """)
+        con.execute("CREATE INDEX IF NOT EXISTS idx_code ON stock_daily (code)")
+        con.execute("CREATE INDEX IF NOT EXISTS idx_date ON stock_daily (date)")
+    finally:
+        con.close()
+
+    print("📈 初始化上证指数数据...")
+    df = get_data(SH_INDEX_CODE)
+    if df is not None:
+        parquet_path = os.path.join(CACHE_DIR, f"{SH_INDEX_CODE}.parquet")
+        if os.path.exists(parquet_path):
+            try:
+                os.remove(parquet_path)
+            except:
+                pass
+        df.write_parquet(parquet_path, compression="snappy")
+    print("✅ 上证指数数据初始化完成")
+
+
 def get_exchange_prefix(code):
-    """
-        根据股票代码判断交易所前缀：sh(上海) / sz(深圳) / bj(北交所)
-        """
-    # 北交所 (现行代码：920)
+    if code.lower() == "sh000001" or code == "000001.SH":
+        return "sh"
+    if code.lower() == "sz399001" or code == "399001.SZ":
+        return "sz"
     if code.startswith('920'):
         return "bj"
-    # 上海 (主板 60xxxx, 科创板 688xxx)
     elif code.startswith(('6', '5')):
         return "sh"
-    # 深圳 (主板 00xxxx, 中小板 002xxx, 创业板 30xxxx)
     elif code.startswith(('0', '2', '3')):
         return "sz"
     else:
-        # 兜底
         return "sz"
 
 
-# =========================
-# 腾讯数据（主）
-# =========================
+# ========================= 腾讯接口 =========================
 def get_tencent(code):
     prefix = get_exchange_prefix(code)
-    symbol = prefix + code
+    symbol = code.lower() if code.lower().startswith(("sh", "sz", "bj")) else prefix + code
     url = f"http://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param={symbol},day,,,500,fq"
     try:
         r = requests.get(url, headers=HEADERS, timeout=5)
         r.raise_for_status()
         data = r.json()["data"][symbol]["day"]
-        df = pd.DataFrame(data, columns=["date","open","close","high","low","volume","x"])
-        df = df[["date","open","close","high","low","volume"]]
-        df.iloc[:, 1:] = df.iloc[:, 1:].astype(float)
-        df["date"] = pd.to_datetime(df["date"])
-        return df
+
+        df = pl.DataFrame(data, schema=["date", "open", "close", "high", "low", "volume", "x"])
+        df = df.select(["date", "open", "close", "high", "low", "volume"])
+
+        df = df.with_columns([
+            pl.col("date").str.strptime(pl.Date, "%Y-%m-%d", strict=False),
+            pl.col("open").cast(pl.Float64, strict=False),
+            pl.col("close").cast(pl.Float64, strict=False),
+            pl.col("high").cast(pl.Float64, strict=False),
+            pl.col("low").cast(pl.Float64, strict=False),
+            pl.col("volume").cast(pl.Int64, strict=False)
+        ])
+
+        df = df.drop_nulls()
+        df = df.filter(pl.col("volume") >= 0)
+
+        df = df.with_columns([
+            pl.lit("qfq").alias("adj_type"),
+            pl.lit("tencent").alias("source")
+        ])
+
+        return df if len(df) > 0 else None
     except:
         return None
 
 
-# =========================
-# 新浪备用（失败兜底）
-# =========================
+# ========================= 新浪备用 =========================
 def get_sina(code):
     try:
         prefix = get_exchange_prefix(code)
-        symbol = prefix + code
-        url = f"https://finance.sina.com.cn/realstock/company/{symbol}/hisdata/klc_kl.js"
+        symbol = code.lower() if code.lower().startswith(("sh", "sz", "bj")) else prefix + code
+        url = f"https://money.finance.sina.com.cn/quotes_service/api/json_v2.php/CN_MarketData.getKLineData?symbol={symbol}&scale=240&ma=no&datalen=500"
         r = requests.get(url, headers=HEADERS, timeout=5)
         if len(r.text) < 100:
             return None
-        # 这里保留接口结构，暂不实际解析
-        return None
+
+        import json
+        data = json.loads(r.text)
+        if not data:
+            return None
+
+        df = pl.DataFrame(data)
+        df = df.rename({
+            "day": "date",
+            "open": "open",
+            "high": "high",
+            "low": "low",
+            "close": "close",
+            "volume": "volume"
+        })
+
+        df = df.with_columns([
+            pl.col("date").str.strptime(pl.Date, "%Y-%m-%d", strict=False),
+            pl.col("open").cast(pl.Float64, strict=False),
+            pl.col("close").cast(pl.Float64, strict=False),
+            pl.col("high").cast(pl.Float64, strict=False),
+            pl.col("low").cast(pl.Float64, strict=False),
+            pl.col("volume").cast(pl.Int64, strict=False)
+        ])
+
+        df = df.drop_nulls()
+        df = df.filter(pl.col("volume") >= 0)
+
+        df = df.with_columns([
+            pl.lit("none").alias("adj_type"),
+            pl.lit("sina").alias("source")
+        ])
+
+        return df.select(["date", "open", "high", "low", "close", "volume", "adj_type", "source"]) if len(
+            df) > 0 else None
     except:
         return None
 
 
-# =========================
-# 缓存路径
-# =========================
-def cache_path(code):
-    return os.path.join(CACHE_DIR, f"{code}{CACHE_EXT}")
-
-
-# =========================
-# 读取本地缓存（Parquet）
-# =========================
-def load_cache(code):
-    path = cache_path(code)
-    if os.path.exists(path):
-        return pd.read_parquet(path)
-    return None
-
-
-# =========================
-# 保存缓存（Parquet）
-# =========================
-def save_cache(code, df):
-    os.makedirs(CACHE_DIR, exist_ok=True)
-    df.to_parquet(cache_path(code), index=False)
-
-
-# =========================
-# 判断是否最新
-# =========================
-def is_latest(old_df, new_df):
-    if old_df is None or new_df is None or old_df.empty or new_df.empty:
-        return False
-    if "date" not in old_df.columns or "date" not in new_df.columns:
-        return False
+# ========================= DuckDB数据库读写 =========================
+def load_from_db(code):
     try:
-        return new_df["date"].iloc[-1] == old_df["date"].iloc[-1]
-    except IndexError:
+        con = get_db_connection(read_only=True)
+        df = con.execute("""
+            SELECT date, open, high, low, close, volume
+            FROM stock_daily
+            WHERE code = ?
+            ORDER BY date
+        """, [code]).pl()
+        con.close()
+        return df if len(df) > 0 else None
+    except:
+        return None
+
+
+def save_to_db(code, df):
+    try:
+        con = get_db_connection()
+        con.execute("BEGIN TRANSACTION")
+        try:
+            con.execute("DELETE FROM stock_daily WHERE code = ?", [code])
+            df = df.with_columns(pl.lit(code).alias("code"))
+            con.execute("INSERT OR REPLACE INTO stock_daily SELECT * FROM df")
+            con.execute("COMMIT")
+            con.close()
+            return True
+        except:
+            con.execute("ROLLBACK")
+            con.close()
+            raise
+    except:
         return False
 
 
-# =========================
-# 增量合并（只追加新数据）
-# =========================
-def merge_incremental(old_df, new_df):
-    """将 new_df 中日期大于 old_df 最大日期的行追加到 old_df 末尾"""
-    max_old_date = old_df["date"].max()
-    new_data = new_df[new_df["date"] > max_old_date]
-    if new_data.empty:
-        return old_df
-    merged = pd.concat([old_df, new_data], ignore_index=True)
-    return merged
+# ========================= 【关键修复】加回 clean_old_cache 函数 =========================
+def clean_old_cache():
+    """清理超过3年的数据库数据"""
+    try:
+        cutoff_date = pl.date.today().sub(days=CACHE_KEEP_DAYS)
+        con = get_db_connection()
+        deleted = con.execute("""
+            DELETE FROM stock_daily
+            WHERE date < ?
+        """, [cutoff_date]).rowcount
+        con.close()
+        if deleted > 0:
+            print(f"缓存清理：已删除数据库中{deleted}条过期记录")
+    except:
+        pass
 
 
-# =========================
-# 核心数据获取（加内存缓存）
-# =========================
-@lru_cache(maxsize=512)
+# ========================= 统一数据获取入口 =========================
+@lru_cache(maxsize=10000)
 def get_data(code):
-    """
-    返回该股票的历史日线DataFrame（按日期升序）
-    - 优先从本地 Parquet 读取
-    - 再尝试腾讯接口、新浪接口
-    - 自动合并增量并写回 Parquet
-    """
-    # 1. 读本地缓存
-    local = load_cache(code)
+    df_db = load_from_db(code)
+    df_new = get_tencent(code)
+    if df_new is None:
+        df_new = get_sina(code)
+    if df_new is None:
+        return df_db
 
-    # 2. 拉腾讯数据
-    new = get_tencent(code)
+    if df_db is not None and len(df_db) > 0:
+        max_db_date = df_db.select(pl.max("date")).item()
+        df_incremental = df_new.filter(pl.col("date") > max_db_date)
 
-    # 3. 腾讯失败 → 新浪
-    if new is None:
-        new = get_sina(code)
+        if len(df_incremental) > 0:
+            df_merged = pl.concat([df_db, df_incremental]).unique("date").sort("date")
+            save_to_db(code, df_merged)
+            return df_merged
+        else:
+            return df_db
+    else:
+        save_to_db(code, df_new)
+        return df_new
 
-    # 4. 都失败 → 返回本地数据（如果有）
-    if new is None:
-        return local
 
-    # 5. 本地有数据，判断是否需要更新
-    if local is not None and not local.empty:
-        if is_latest(local, new):
-            return local
-        # 增量合并
-        merged = merge_incremental(local, new)
-        if merged is not local:      # 确实有新数据才写磁盘
-            save_cache(code, merged)
-        return merged
-
-    # 6. 首次写入（本地无数据）
-    save_cache(code, new)
-    return new
+# 初始化
+init_db()
