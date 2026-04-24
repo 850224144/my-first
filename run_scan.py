@@ -99,6 +99,7 @@ def scan_all(
     log_dir: str = "logs",
     log_file: Optional[str] = None,
     allow_remote_in_scan: bool = False,
+    strict_sector: bool = False,
 ) -> List[Dict[str, Any]]:
     setup_logger(log_dir=log_dir, level=log_level, log_file=log_file)
     init_db()
@@ -119,19 +120,29 @@ def scan_all(
 
     top_pct = float(market.get("sector_top_pct", 0.20))
     sector_table, top_sectors = get_top_sectors(universe, top_pct=top_pct, max_workers=max_workers)
+
     if not top_sectors:
-        print("⚠️ 板块强度计算失败，保守处理：不扫描")
-        summarize_rejects()
-        return []
-
-    print("\n强势行业：")
-    print(sector_table.head(20))
-
-    scan_universe = filter_universe_by_sectors(universe, top_sectors)
-    if scan_universe.is_empty():
-        print("⚠️ 强势行业内无股票，停止扫描")
-        summarize_rejects()
-        return []
+        msg = "⚠️ 板块强度计算失败或强势板块为空"
+        if strict_sector:
+            print(msg + "，严格模式停止扫描")
+            summarize_rejects()
+            return []
+        print(msg + "，调试模式跳过板块过滤继续扫描")
+        scan_universe = universe
+    else:
+        print("\n强势行业：")
+        print(sector_table.head(20))
+        filtered = filter_universe_by_sectors(universe, top_sectors)
+        if filtered.is_empty():
+            msg = "⚠️ 强势行业内无股票或板块成分匹配失败"
+            if strict_sector:
+                print(msg + "，严格模式停止扫描")
+                summarize_rejects()
+                return []
+            print(msg + "，调试模式跳过板块过滤继续扫描")
+            scan_universe = universe
+        else:
+            scan_universe = filtered
 
     weekly_universe, weekly_report = filter_universe_by_weekly_trend(scan_universe)
     print("\n周线过滤报告：")
@@ -219,6 +230,7 @@ def main():
     parser.add_argument("--mode", choices=["observe", "tail_confirm", "after_close"], default=None, help="扫描模式")
     parser.add_argument("--no-cache-universe", action="store_true", help="不使用股票池缓存，重新构建")
     parser.add_argument("--allow-remote-in-scan", action="store_true", help="扫描阶段允许远程补拉历史K，默认关闭")
+    parser.add_argument("--strict-sector", action="store_true", help="严格板块模式：板块数据失败或无命中则停止扫描；默认调试模式会跳过板块过滤继续扫描")
     parser.add_argument("--workers", type=int, default=2, help="扫描/股票池过滤线程数，默认2")
     parser.add_argument("--limit", type=int, default=None, help="限制股票池/扫描数量，调试用")
     parser.add_argument("--webhook", type=str, default=os.getenv("WECHAT_WEBHOOK", ""))
@@ -312,6 +324,7 @@ def main():
         log_dir=args.log_dir,
         log_file=args.log_file,
         allow_remote_in_scan=args.allow_remote_in_scan,
+        strict_sector=args.strict_sector,
     )
 
 

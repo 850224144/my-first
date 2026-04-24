@@ -1,0 +1,854 @@
+2026-04-24 20:43:19 | INFO | a_stock | 日志初始化完成：run_id=20260424_204319, log_dir=logs, reject_file=logs/rejects_20260424_204319.csv, raw_bad_rows_file=logs/raw_bad_rows_20260424_204319.jsonl
+2026-04-24 20:43:19 | INFO | a_stock | 本轮 run_id=20260424_204319
+2026-04-24 20:43:19 | INFO | a_stock | 日志初始化完成：run_id=20260424_204319, log_dir=logs, reject_file=logs/rejects_20260424_204319.csv, raw_bad_rows_file=logs/raw_bad_rows_20260424_204319.jsonl
+2026-04-24 20:43:19 | INFO | a_stock | 本轮 run_id=20260424_204319
+2026-04-24 20:43:21 | DEBUG | a_stock | 历史K远程成功 code=sh000001 source=sina_history rows=180
+2026-04-24 20:43:23 | DEBUG | a_stock | 历史K远程成功 code=sz399006 source=sina_history rows=180
+2026-04-24 20:43:23 | INFO | a_stock | 使用股票池缓存：95 只
+2026-04-24 20:43:25 | INFO | a_stock | 同花顺行业热度获取成功：90 个行业
+2026-04-24 20:43:30 | DEBUG | a_stock | 板块成分获取失败 sector=电池 | ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+Traceback (most recent call last):
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/connection.py", line 461, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/http/client.py", line 1374, in getresponse
+    response.begin()
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/http/client.py", line 318, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/http/client.py", line 287, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+http.client.RemoteDisconnected: Remote end closed connection without response
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/connectionpool.py", line 844, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/util/retry.py", line 470, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/util/util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/connection.py", line 461, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/http/client.py", line 1374, in getresponse
+    response.begin()
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/http/client.py", line 318, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/http/client.py", line 287, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+urllib3.exceptions.ProtocolError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/liujunying/Downloads/project/my-first/core/sector.py", line 211, in fetch_sector_members_for
+    df = ak.stock_board_industry_cons_em(symbol=sector)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/akshare/stock/stock_board_industry_em.py", line 473, in stock_board_industry_cons_em
+    stock_board_concept_em_map = __stock_board_industry_name_em()
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/akshare/stock/stock_board_industry_em.py", line 41, in __stock_board_industry_name_em
+    temp_df = fetch_paginated_data(url, params)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/akshare/utils/func.py", line 34, in fetch_paginated_data
+    r = request_with_retry(url, params=params, timeout=timeout)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/akshare/utils/request.py", line 64, in request_with_retry
+    raise last_exception
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/akshare/utils/request.py", line 52, in request_with_retry
+    response = session.get(url, params=params, timeout=timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/requests/sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/requests/adapters.py", line 501, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2026-04-24 20:43:36 | DEBUG | a_stock | 板块成分获取失败 sector=半导体 | ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+Traceback (most recent call last):
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/connection.py", line 461, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/http/client.py", line 1374, in getresponse
+    response.begin()
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/http/client.py", line 318, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/http/client.py", line 287, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+http.client.RemoteDisconnected: Remote end closed connection without response
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/connectionpool.py", line 844, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/util/retry.py", line 470, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/util/util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/connection.py", line 461, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/http/client.py", line 1374, in getresponse
+    response.begin()
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/http/client.py", line 318, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/http/client.py", line 287, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+urllib3.exceptions.ProtocolError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/liujunying/Downloads/project/my-first/core/sector.py", line 211, in fetch_sector_members_for
+    df = ak.stock_board_industry_cons_em(symbol=sector)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/akshare/stock/stock_board_industry_em.py", line 473, in stock_board_industry_cons_em
+    stock_board_concept_em_map = __stock_board_industry_name_em()
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/akshare/stock/stock_board_industry_em.py", line 41, in __stock_board_industry_name_em
+    temp_df = fetch_paginated_data(url, params)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/akshare/utils/func.py", line 34, in fetch_paginated_data
+    r = request_with_retry(url, params=params, timeout=timeout)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/akshare/utils/request.py", line 64, in request_with_retry
+    raise last_exception
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/akshare/utils/request.py", line 52, in request_with_retry
+    response = session.get(url, params=params, timeout=timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/requests/sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/requests/adapters.py", line 501, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2026-04-24 20:43:42 | DEBUG | a_stock | 板块成分获取失败 sector=能源金属 | ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+Traceback (most recent call last):
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/connection.py", line 461, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/http/client.py", line 1374, in getresponse
+    response.begin()
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/http/client.py", line 318, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/http/client.py", line 287, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+http.client.RemoteDisconnected: Remote end closed connection without response
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/connectionpool.py", line 844, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/util/retry.py", line 470, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/util/util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/connection.py", line 461, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/http/client.py", line 1374, in getresponse
+    response.begin()
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/http/client.py", line 318, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/http/client.py", line 287, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+urllib3.exceptions.ProtocolError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/liujunying/Downloads/project/my-first/core/sector.py", line 211, in fetch_sector_members_for
+    df = ak.stock_board_industry_cons_em(symbol=sector)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/akshare/stock/stock_board_industry_em.py", line 473, in stock_board_industry_cons_em
+    stock_board_concept_em_map = __stock_board_industry_name_em()
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/akshare/stock/stock_board_industry_em.py", line 41, in __stock_board_industry_name_em
+    temp_df = fetch_paginated_data(url, params)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/akshare/utils/func.py", line 34, in fetch_paginated_data
+    r = request_with_retry(url, params=params, timeout=timeout)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/akshare/utils/request.py", line 64, in request_with_retry
+    raise last_exception
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/akshare/utils/request.py", line 52, in request_with_retry
+    response = session.get(url, params=params, timeout=timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/requests/sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/requests/adapters.py", line 501, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2026-04-24 20:43:48 | DEBUG | a_stock | 板块成分获取失败 sector=工业金属 | ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+Traceback (most recent call last):
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/connection.py", line 461, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/http/client.py", line 1374, in getresponse
+    response.begin()
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/http/client.py", line 318, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/http/client.py", line 287, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+http.client.RemoteDisconnected: Remote end closed connection without response
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/connectionpool.py", line 844, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/util/retry.py", line 470, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/util/util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/connection.py", line 461, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/http/client.py", line 1374, in getresponse
+    response.begin()
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/http/client.py", line 318, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/http/client.py", line 287, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+urllib3.exceptions.ProtocolError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/liujunying/Downloads/project/my-first/core/sector.py", line 211, in fetch_sector_members_for
+    df = ak.stock_board_industry_cons_em(symbol=sector)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/akshare/stock/stock_board_industry_em.py", line 473, in stock_board_industry_cons_em
+    stock_board_concept_em_map = __stock_board_industry_name_em()
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/akshare/stock/stock_board_industry_em.py", line 41, in __stock_board_industry_name_em
+    temp_df = fetch_paginated_data(url, params)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/akshare/utils/func.py", line 34, in fetch_paginated_data
+    r = request_with_retry(url, params=params, timeout=timeout)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/akshare/utils/request.py", line 64, in request_with_retry
+    raise last_exception
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/akshare/utils/request.py", line 52, in request_with_retry
+    response = session.get(url, params=params, timeout=timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/requests/sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/requests/adapters.py", line 501, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2026-04-24 20:43:54 | DEBUG | a_stock | 板块成分获取失败 sector=电子化学品 | ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+Traceback (most recent call last):
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/connection.py", line 461, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/http/client.py", line 1374, in getresponse
+    response.begin()
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/http/client.py", line 318, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/http/client.py", line 287, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+http.client.RemoteDisconnected: Remote end closed connection without response
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/connectionpool.py", line 844, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/util/retry.py", line 470, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/util/util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/connection.py", line 461, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/http/client.py", line 1374, in getresponse
+    response.begin()
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/http/client.py", line 318, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/http/client.py", line 287, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+urllib3.exceptions.ProtocolError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/liujunying/Downloads/project/my-first/core/sector.py", line 211, in fetch_sector_members_for
+    df = ak.stock_board_industry_cons_em(symbol=sector)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/akshare/stock/stock_board_industry_em.py", line 473, in stock_board_industry_cons_em
+    stock_board_concept_em_map = __stock_board_industry_name_em()
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/akshare/stock/stock_board_industry_em.py", line 41, in __stock_board_industry_name_em
+    temp_df = fetch_paginated_data(url, params)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/akshare/utils/func.py", line 34, in fetch_paginated_data
+    r = request_with_retry(url, params=params, timeout=timeout)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/akshare/utils/request.py", line 64, in request_with_retry
+    raise last_exception
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/akshare/utils/request.py", line 52, in request_with_retry
+    response = session.get(url, params=params, timeout=timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/requests/sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/requests/adapters.py", line 501, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2026-04-24 20:44:00 | DEBUG | a_stock | 板块成分获取失败 sector=化学制品 | ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+Traceback (most recent call last):
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/connection.py", line 461, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/http/client.py", line 1374, in getresponse
+    response.begin()
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/http/client.py", line 318, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/http/client.py", line 287, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+http.client.RemoteDisconnected: Remote end closed connection without response
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/connectionpool.py", line 844, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/util/retry.py", line 470, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/util/util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/connection.py", line 461, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/http/client.py", line 1374, in getresponse
+    response.begin()
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/http/client.py", line 318, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/http/client.py", line 287, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+urllib3.exceptions.ProtocolError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/liujunying/Downloads/project/my-first/core/sector.py", line 211, in fetch_sector_members_for
+    df = ak.stock_board_industry_cons_em(symbol=sector)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/akshare/stock/stock_board_industry_em.py", line 473, in stock_board_industry_cons_em
+    stock_board_concept_em_map = __stock_board_industry_name_em()
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/akshare/stock/stock_board_industry_em.py", line 41, in __stock_board_industry_name_em
+    temp_df = fetch_paginated_data(url, params)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/akshare/utils/func.py", line 34, in fetch_paginated_data
+    r = request_with_retry(url, params=params, timeout=timeout)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/akshare/utils/request.py", line 64, in request_with_retry
+    raise last_exception
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/akshare/utils/request.py", line 52, in request_with_retry
+    response = session.get(url, params=params, timeout=timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/requests/sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/requests/adapters.py", line 501, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2026-04-24 20:44:06 | DEBUG | a_stock | 板块成分获取失败 sector=农化制品 | ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+Traceback (most recent call last):
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/connection.py", line 461, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/http/client.py", line 1374, in getresponse
+    response.begin()
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/http/client.py", line 318, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/http/client.py", line 287, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+http.client.RemoteDisconnected: Remote end closed connection without response
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/connectionpool.py", line 844, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/util/retry.py", line 470, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/util/util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/connection.py", line 461, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/http/client.py", line 1374, in getresponse
+    response.begin()
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/http/client.py", line 318, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/http/client.py", line 287, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+urllib3.exceptions.ProtocolError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/liujunying/Downloads/project/my-first/core/sector.py", line 211, in fetch_sector_members_for
+    df = ak.stock_board_industry_cons_em(symbol=sector)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/akshare/stock/stock_board_industry_em.py", line 473, in stock_board_industry_cons_em
+    stock_board_concept_em_map = __stock_board_industry_name_em()
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/akshare/stock/stock_board_industry_em.py", line 41, in __stock_board_industry_name_em
+    temp_df = fetch_paginated_data(url, params)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/akshare/utils/func.py", line 34, in fetch_paginated_data
+    r = request_with_retry(url, params=params, timeout=timeout)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/akshare/utils/request.py", line 64, in request_with_retry
+    raise last_exception
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/akshare/utils/request.py", line 52, in request_with_retry
+    response = session.get(url, params=params, timeout=timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/requests/sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/requests/adapters.py", line 501, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2026-04-24 20:44:12 | DEBUG | a_stock | 板块成分获取失败 sector=化学原料 | ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+Traceback (most recent call last):
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/connection.py", line 461, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/http/client.py", line 1374, in getresponse
+    response.begin()
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/http/client.py", line 318, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/http/client.py", line 287, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+http.client.RemoteDisconnected: Remote end closed connection without response
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/connectionpool.py", line 844, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/util/retry.py", line 470, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/util/util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/connection.py", line 461, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/http/client.py", line 1374, in getresponse
+    response.begin()
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/http/client.py", line 318, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/http/client.py", line 287, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+urllib3.exceptions.ProtocolError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/liujunying/Downloads/project/my-first/core/sector.py", line 211, in fetch_sector_members_for
+    df = ak.stock_board_industry_cons_em(symbol=sector)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/akshare/stock/stock_board_industry_em.py", line 473, in stock_board_industry_cons_em
+    stock_board_concept_em_map = __stock_board_industry_name_em()
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/akshare/stock/stock_board_industry_em.py", line 41, in __stock_board_industry_name_em
+    temp_df = fetch_paginated_data(url, params)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/akshare/utils/func.py", line 34, in fetch_paginated_data
+    r = request_with_retry(url, params=params, timeout=timeout)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/akshare/utils/request.py", line 64, in request_with_retry
+    raise last_exception
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/akshare/utils/request.py", line 52, in request_with_retry
+    response = session.get(url, params=params, timeout=timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/requests/sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/requests/adapters.py", line 501, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2026-04-24 20:44:18 | DEBUG | a_stock | 板块成分获取失败 sector=医疗服务 | ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+Traceback (most recent call last):
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/connection.py", line 461, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/http/client.py", line 1374, in getresponse
+    response.begin()
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/http/client.py", line 318, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/http/client.py", line 287, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+http.client.RemoteDisconnected: Remote end closed connection without response
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/connectionpool.py", line 844, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/util/retry.py", line 470, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/util/util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/connection.py", line 461, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/http/client.py", line 1374, in getresponse
+    response.begin()
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/http/client.py", line 318, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/http/client.py", line 287, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+urllib3.exceptions.ProtocolError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/liujunying/Downloads/project/my-first/core/sector.py", line 211, in fetch_sector_members_for
+    df = ak.stock_board_industry_cons_em(symbol=sector)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/akshare/stock/stock_board_industry_em.py", line 473, in stock_board_industry_cons_em
+    stock_board_concept_em_map = __stock_board_industry_name_em()
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/akshare/stock/stock_board_industry_em.py", line 41, in __stock_board_industry_name_em
+    temp_df = fetch_paginated_data(url, params)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/akshare/utils/func.py", line 34, in fetch_paginated_data
+    r = request_with_retry(url, params=params, timeout=timeout)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/akshare/utils/request.py", line 64, in request_with_retry
+    raise last_exception
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/akshare/utils/request.py", line 52, in request_with_retry
+    response = session.get(url, params=params, timeout=timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/requests/sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/requests/adapters.py", line 501, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2026-04-24 20:44:24 | DEBUG | a_stock | 板块成分获取失败 sector=小金属 | ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+Traceback (most recent call last):
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/connection.py", line 461, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/http/client.py", line 1374, in getresponse
+    response.begin()
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/http/client.py", line 318, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/http/client.py", line 287, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+http.client.RemoteDisconnected: Remote end closed connection without response
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/connectionpool.py", line 844, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/util/retry.py", line 470, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/util/util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/urllib3/connection.py", line 461, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/http/client.py", line 1374, in getresponse
+    response.begin()
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/http/client.py", line 318, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/http/client.py", line 287, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+urllib3.exceptions.ProtocolError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/liujunying/Downloads/project/my-first/core/sector.py", line 211, in fetch_sector_members_for
+    df = ak.stock_board_industry_cons_em(symbol=sector)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/akshare/stock/stock_board_industry_em.py", line 473, in stock_board_industry_cons_em
+    stock_board_concept_em_map = __stock_board_industry_name_em()
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/akshare/stock/stock_board_industry_em.py", line 41, in __stock_board_industry_name_em
+    temp_df = fetch_paginated_data(url, params)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/akshare/utils/func.py", line 34, in fetch_paginated_data
+    r = request_with_retry(url, params=params, timeout=timeout)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/akshare/utils/request.py", line 64, in request_with_retry
+    raise last_exception
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/akshare/utils/request.py", line 52, in request_with_retry
+    response = session.get(url, params=params, timeout=timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/requests/sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liujunying/.pyenv/versions/3.11.1/lib/python3.11/site-packages/requests/adapters.py", line 501, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2026-04-24 20:44:25 | WARNING | a_stock | 强势板块成分为空，可能是板块名称与成分接口不匹配
+2026-04-24 20:44:25 | WARNING | a_stock | 行业成分缓存为空，无法按板块过滤
+2026-04-24 20:44:25 | INFO | a_stock | 周线过滤完成：input=95 passed=0 rejected=95 no_daily=0 not_enough=95
+2026-04-24 20:44:25 | INFO | a_stock | 
+本轮过滤/跳过原因统计：
+  weekly_filter_fail             95
