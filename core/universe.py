@@ -22,7 +22,6 @@ from core.data import (
     build_daily_cache,
     load_stock_basic,
     load_from_db,
-    get_data,
     normalize_code,
     classify_market,
     valid_a_share_code,
@@ -55,12 +54,10 @@ def _history_filter_one(row: Dict[str, Any]) -> Optional[Dict[str, Any]]:
         log_reject(code, "universe", "invalid_prefix", "不属于确认后的 A 股代码段", name=name)
         return None
     try:
-        # 优先使用本地 qfq 缓存；没有再远程获取。此处是股票池构建的最终历史过滤。
+        # 方案F：股票池构建只读本地 stock_daily 缓存，不再远程拉历史K。
         df = load_from_db(code, adj_type="qfq")
-        if df is None or len(df) < MIN_LISTING_DAYS:
-            df = get_data(code, bars=520)
         if df is None or len(df) == 0:
-            log_reject(code, "universe", "no_kline_data", "无历史K线", name=name)
+            log_reject(code, "universe", "no_daily_cache", "无本地日线缓存；请先运行 build-daily-cache", name=name)
             return None
         if len(df) < MIN_LISTING_DAYS:
             log_reject(code, "universe", "listing_days_not_enough", f"bars={len(df)}", name=name)
@@ -193,6 +190,60 @@ def prepare_data(
     result["daily_stats"] = daily_stats
     return result
 
+
+
+def get_coverage_stats(universe_count: Optional[int] = None) -> Dict[str, Any]:
+    """读取本地缓存覆盖率。只查库，不请求远程。"""
+    from core.data import get_db_connection, init_db
+    init_db()
+    stats: Dict[str, Any] = {
+        "stock_basic": 0,
+        "valid_basic": 0,
+        "stock_daily_codes": 0,
+        "realtime_quote_codes": 0,
+        "daily_coverage_pct": 0.0,
+        "quote_coverage_pct": 0.0,
+        "universe": universe_count,
+    }
+    try:
+        con = get_db_connection()
+        try:
+            stats["stock_basic"] = int(con.execute("SELECT COUNT(*) FROM stock_basic").fetchone()[0] or 0)
+            stats["valid_basic"] = int(con.execute("SELECT COUNT(*) FROM stock_basic WHERE COALESCE(is_valid_quote, TRUE) = TRUE").fetchone()[0] or 0)
+            stats["stock_daily_codes"] = int(con.execute("SELECT COUNT(DISTINCT code) FROM stock_daily WHERE adj_type = 'qfq'").fetchone()[0] or 0)
+            stats["realtime_quote_codes"] = int(con.execute("SELECT COUNT(DISTINCT code) FROM realtime_quote").fetchone()[0] or 0)
+        finally:
+            con.close()
+    except Exception as e:
+        log_exception("读取覆盖率统计失败", e)
+    base = stats["stock_basic"] or 0
+    if base > 0:
+        stats["daily_coverage_pct"] = round(stats["stock_daily_codes"] / base * 100, 2)
+        stats["quote_coverage_pct"] = round(stats["realtime_quote_codes"] / base * 100, 2)
+    return stats
+
+
+def print_coverage_report(universe_count: Optional[int] = None) -> Dict[str, Any]:
+    """打印数据覆盖率报告。"""
+    stats = get_coverage_stats(universe_count=universe_count)
+    lines = [
+        "",
+        "数据覆盖率报告：",
+        f"  stock_basic：{stats['stock_basic']}",
+        f"  有效基础股票：{stats['valid_basic']}",
+        f"  stock_daily 覆盖股票：{stats['stock_daily_codes']} ({stats['daily_coverage_pct']}%)",
+        f"  realtime_quote 覆盖股票：{stats['realtime_quote_codes']} ({stats['quote_coverage_pct']}%)",
+    ]
+    if universe_count is not None:
+        lines.append(f"  universe：{universe_count}")
+    msg = "\n".join(lines)
+    print(msg)
+    get_logger().info(msg)
+    if stats["stock_basic"] and stats["daily_coverage_pct"] < 10:
+        warn = "⚠️ 当前日线缓存覆盖率较低，扫描结果只代表已缓存股票，不代表全市场。"
+        print(warn)
+        get_logger().warning(warn)
+    return stats
 
 if __name__ == "__main__":
     from core.logger import setup_logger

@@ -1,0 +1,2 @@
+2026-04-24 19:32:49 | INFO | a_stock | 日志初始化完成：run_id=20260424_193249, log_dir=logs, reject_file=logs/rejects_20260424_193249.csv, raw_bad_rows_file=logs/raw_bad_rows_20260424_193249.jsonl
+2026-04-24 19:32:49 | INFO | a_stock | 本轮 run_id=20260424_193249

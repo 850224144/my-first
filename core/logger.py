@@ -3,11 +3,8 @@
 core/logger.py
 
 统一日志模块：
-- 控制台：只输出关键进度和错误
-- 文件日志：记录详细调试信息
-- reject CSV：记录股票被过滤/跳过的原因
-- raw bad rows JSONL：记录数据源返回的异常原始行
-- reject summary：每次运行后汇总过滤原因，方便快速定位问题
+- 每次运行生成独立 run_id；scan / rejects / raw_bad_rows 按本轮隔离。
+- 控制台输出关键进度，文件日志记录详细调试信息。
 """
 
 from __future__ import annotations
@@ -33,6 +30,7 @@ _raw_lock = threading.Lock()
 _reject_file: Optional[str] = None
 _raw_bad_rows_file: Optional[str] = None
 _logger_configured = False
+_run_id: Optional[str] = None
 
 
 def now_str() -> str:
@@ -43,6 +41,17 @@ def today_str() -> str:
     return datetime.now(CN_TZ).strftime("%Y%m%d")
 
 
+def make_run_id() -> str:
+    return datetime.now(CN_TZ).strftime("%Y%m%d_%H%M%S")
+
+
+def get_run_id() -> str:
+    global _run_id
+    if _run_id is None:
+        _run_id = make_run_id()
+    return _run_id
+
+
 def setup_logger(
     log_dir: str = LOG_DIR,
     level: str = "INFO",
@@ -50,51 +59,49 @@ def setup_logger(
     console: bool = True,
     reject_file: Optional[str] = None,
     raw_bad_rows_file: Optional[str] = None,
+    run_id: Optional[str] = None,
 ) -> logging.Logger:
-    """初始化日志。重复调用不会重复添加 handler。"""
-    global _logger_configured, _reject_file, _raw_bad_rows_file
+    """初始化日志。默认每次进程生成一个独立 run_id。"""
+    global _logger_configured, _reject_file, _raw_bad_rows_file, _run_id
+
+    if run_id:
+        _run_id = run_id
+    elif _run_id is None:
+        _run_id = make_run_id()
 
     os.makedirs(log_dir, exist_ok=True)
     logger = logging.getLogger(LOGGER_NAME)
     logger.setLevel(logging.DEBUG)
     logger.propagate = False
 
-    # 避免重复 handler
     if not _logger_configured:
         fmt = logging.Formatter(
             fmt="%(asctime)s | %(levelname)s | %(name)s | %(message)s",
             datefmt="%Y-%m-%d %H:%M:%S",
         )
-
         if console:
             ch = logging.StreamHandler(sys.stdout)
             ch.setLevel(getattr(logging, level.upper(), logging.INFO))
             ch.setFormatter(fmt)
             logger.addHandler(ch)
-
         if log_file is None:
-            log_file = os.path.join(log_dir, f"scan_{today_str()}.log")
-        fh = RotatingFileHandler(
-            log_file,
-            maxBytes=10 * 1024 * 1024,
-            backupCount=10,
-            encoding="utf-8",
-        )
+            log_file = os.path.join(log_dir, f"scan_{get_run_id()}.log")
+        fh = RotatingFileHandler(log_file, maxBytes=10 * 1024 * 1024, backupCount=10, encoding="utf-8")
         fh.setLevel(logging.DEBUG)
         fh.setFormatter(fmt)
         logger.addHandler(fh)
         _logger_configured = True
 
     if reject_file is None:
-        reject_file = os.path.join(log_dir, f"rejects_{today_str()}.csv")
+        reject_file = os.path.join(log_dir, f"rejects_{get_run_id()}.csv")
     _reject_file = reject_file
     _init_reject_file(_reject_file)
 
     if raw_bad_rows_file is None:
-        raw_bad_rows_file = os.path.join(log_dir, f"raw_bad_rows_{today_str()}.jsonl")
+        raw_bad_rows_file = os.path.join(log_dir, f"raw_bad_rows_{get_run_id()}.jsonl")
     _raw_bad_rows_file = raw_bad_rows_file
 
-    logger.info("日志初始化完成：log_dir=%s, reject_file=%s, raw_bad_rows_file=%s", log_dir, _reject_file, _raw_bad_rows_file)
+    logger.info("日志初始化完成：run_id=%s, log_dir=%s, reject_file=%s, raw_bad_rows_file=%s", get_run_id(), log_dir, _reject_file, _raw_bad_rows_file)
     return logger
 
 
@@ -109,14 +116,14 @@ def get_reject_file() -> str:
     global _reject_file
     if _reject_file is None:
         setup_logger()
-    return _reject_file or os.path.join(LOG_DIR, f"rejects_{today_str()}.csv")
+    return _reject_file or os.path.join(LOG_DIR, f"rejects_{get_run_id()}.csv")
 
 
 def get_raw_bad_rows_file() -> str:
     global _raw_bad_rows_file
     if _raw_bad_rows_file is None:
         setup_logger()
-    return _raw_bad_rows_file or os.path.join(LOG_DIR, f"raw_bad_rows_{today_str()}.jsonl")
+    return _raw_bad_rows_file or os.path.join(LOG_DIR, f"raw_bad_rows_{get_run_id()}.jsonl")
 
 
 def _init_reject_file(path: str) -> None:
@@ -131,14 +138,7 @@ def _init_reject_file(path: str) -> None:
             writer.writerow(["time", "code", "name", "stage", "reason", "detail"])
 
 
-def log_reject(
-    code: str,
-    stage: str,
-    reason: str,
-    detail: Any = "",
-    name: str = "",
-) -> None:
-    """记录股票被过滤/跳过原因到 CSV，不刷屏。"""
+def log_reject(code: str, stage: str, reason: str, detail: Any = "", name: str = "") -> None:
     path = get_reject_file()
     try:
         with _reject_lock:
@@ -150,21 +150,13 @@ def log_reject(
 
 
 def log_source_failure(code: str, source: str, reason: str, detail: Any = "") -> None:
-    """记录数据源失败，写入 debug 日志 + reject CSV。"""
     get_logger().debug("数据源失败 | code=%s | source=%s | reason=%s | detail=%s", code, source, reason, detail)
     log_reject(code=code, stage=f"source:{source}", reason=reason, detail=detail)
 
 
 def log_raw_bad_row(code: str, source: str, row: Any, reason: str) -> None:
-    """记录无法进入主行情表的原始异常行。"""
     path = get_raw_bad_rows_file()
-    record = {
-        "time": now_str(),
-        "code": code,
-        "source": source,
-        "reason": reason,
-        "row": row,
-    }
+    record = {"time": now_str(), "code": code, "source": source, "reason": reason, "row": row}
     try:
         os.makedirs(os.path.dirname(path), exist_ok=True)
         with _raw_lock:
@@ -180,7 +172,7 @@ def log_exception(msg: str, exc: Exception, level: int = logging.DEBUG) -> None:
 
 
 def summarize_rejects(top_n: int = 20, print_console: bool = True) -> Counter:
-    """汇总 rejects_YYYYMMDD.csv 中的 reason，运行结束时打印。"""
+    """只汇总本轮 rejects 文件，不再混入当天旧记录。"""
     path = get_reject_file()
     counter: Counter = Counter()
     if not os.path.exists(path) or os.path.getsize(path) == 0:
@@ -196,7 +188,7 @@ def summarize_rejects(top_n: int = 20, print_console: bool = True) -> Counter:
         return counter
 
     if counter:
-        lines = ["过滤/跳过原因统计："]
+        lines = ["本轮过滤/跳过原因统计："]
         for reason, count in counter.most_common(top_n):
             lines.append(f"  {reason:<30} {count}")
         text = "\n".join(lines)

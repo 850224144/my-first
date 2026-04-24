@@ -4,12 +4,11 @@ run_scan.py
 
 A股类缠论二买 V1 主入口。
 
-方案 D 数据层新流程：
-1. build-basic：AkShare 获取真实 A 股基础表，并缓存。
-2. validate-basic：新浪实时批量校验，400只/批，单线程，10秒间隔。
-3. build-daily-cache：历史K分阶段缓存，腾讯主源，备用源兜底。
-4. prepare-data：依次执行 1-3。
-5. scan：只基于已经准备好的数据进行策略扫描。
+方案 F：
+1. 每次运行独立 run_id，日志/reject/raw_bad_rows 隔离。
+2. build-universe 只读 stock_daily 缓存，不远程拉历史K。
+3. 扫描阶段默认只读缓存，不远程拉历史K。
+4. 增加数据覆盖率、股票池构建和扫描报告。
 """
 
 from __future__ import annotations
@@ -22,6 +21,8 @@ from typing import Dict, Any, List, Optional
 from core.data import (
     init_db,
     get_data_with_status,
+    load_from_db,
+    infer_data_status,
     STATUS_NO_DATA,
     build_stock_basic,
     validate_stock_basic_with_sina,
@@ -32,25 +33,31 @@ from core.data import (
 from core.feature import compute_features
 from core.strategy import evaluate_second_buy, trade_plan, get_scan_mode, SIGNAL_NONE
 from core.market import get_market_state, MARKET_RISK_OFF
-from core.universe import build_stock_universe, prepare_data
+from core.universe import build_stock_universe, prepare_data, print_coverage_report
 from core.sector import get_top_sectors, filter_universe_by_sectors
+from core.weekly import filter_universe_by_weekly_trend
 from core.model import load_model, rank_candidates_by_model
 from core.alert import push_results
-from core.logger import setup_logger, get_logger, log_reject, log_exception, summarize_rejects
+from core.logger import setup_logger, get_logger, log_reject, log_exception, summarize_rejects, get_run_id
 
 
-def scan_one(row: Dict[str, Any], scan_mode: str, market_state: str) -> Optional[Dict[str, Any]]:
+def scan_one(row: Dict[str, Any], scan_mode: str, market_state: str, allow_remote: bool = False) -> Optional[Dict[str, Any]]:
     code = row["code"]
     name = row.get("name", "")
-    df, data_status = get_data_with_status(code, bars=360)
+    if allow_remote:
+        df, data_status = get_data_with_status(code, bars=360)
+    else:
+        df = load_from_db(code, adj_type="qfq")
+        data_status = infer_data_status(df)
+
     if df is None:
-        log_reject(code, "scan", "no_kline_data", f"data_status={data_status}", name=name)
+        log_reject(code, "scan", "no_daily_cache" if not allow_remote else "no_kline_data", f"data_status={data_status}", name=name)
         return None
     if len(df) < 260 or data_status == STATUS_NO_DATA:
         log_reject(code, "scan", "data_not_enough", f"bars={len(df)}, data_status={data_status}", name=name)
         return None
 
-    feat = compute_features(df)
+    feat = compute_features(df.tail(360))
     if feat.is_empty() or len(feat) < 130:
         log_reject(code, "scan", "feature_not_enough", f"feature_rows={len(feat) if feat is not None else 0}", name=name)
         return None
@@ -91,10 +98,12 @@ def scan_all(
     log_level: str = "INFO",
     log_dir: str = "logs",
     log_file: Optional[str] = None,
+    allow_remote_in_scan: bool = False,
 ) -> List[Dict[str, Any]]:
     setup_logger(log_dir=log_dir, level=log_level, log_file=log_file)
     init_db()
     scan_mode = mode or get_scan_mode()
+    get_logger().info("本轮 run_id=%s", get_run_id())
 
     market = get_market_state(debug=True)
     if market["state"] == MARKET_RISK_OFF:
@@ -124,23 +133,47 @@ def scan_all(
         summarize_rejects()
         return []
 
+    weekly_universe, weekly_report = filter_universe_by_weekly_trend(scan_universe)
+    print("\n周线过滤报告：")
+    print(f"  输入：{weekly_report.get('input', 0)}")
+    print(f"  通过：{weekly_report.get('passed', 0)}")
+    print(f"  剔除：{weekly_report.get('rejected', 0)}")
+    print(f"  无日线缓存：{weekly_report.get('no_daily', 0)}")
+    print(f"  周线不足：{weekly_report.get('not_enough', 0)}")
+
+    if weekly_universe.is_empty():
+        print("⚠️ 周线过滤后无股票，停止扫描")
+        summarize_rejects()
+        return []
+
+    scan_universe = weekly_universe
     rows = scan_universe.to_dicts()
     if limit:
         rows = rows[:limit]
 
+    print_coverage_report(universe_count=len(universe))
+    if allow_remote_in_scan:
+        get_logger().warning("扫描阶段已开启远程拉取 --allow-remote-in-scan；默认建议关闭。")
+    else:
+        get_logger().info("扫描阶段只读本地 stock_daily 缓存，不远程拉历史K")
+
     print(f"开始扫描：{len(rows)} 只，模式={scan_mode} ...")
     candidates: List[Dict[str, Any]] = []
     workers = max(1, int(max_workers or 1))
+    scanned_ok = 0
+    skipped = 0
     with ThreadPoolExecutor(max_workers=workers) as executor:
-        futures = {executor.submit(scan_one, row, scan_mode, market["state"]): row["code"] for row in rows}
+        futures = {executor.submit(scan_one, row, scan_mode, market["state"], allow_remote_in_scan): row["code"] for row in rows}
         done = 0
         for fut in as_completed(futures):
             done += 1
             try:
                 res = fut.result()
+                scanned_ok += 1
                 if res:
                     candidates.append(res)
             except Exception as e:
+                skipped += 1
                 code = futures.get(fut, "")
                 log_reject(code, "scan", "future_exception", e)
                 log_exception(f"扫描线程异常 code={code}", e)
@@ -151,6 +184,14 @@ def scan_all(
     ranked = rank_candidates_by_model(candidates, model=model)
     for item in ranked:
         item.pop("df_feat", None)
+
+    print("\n扫描报告：")
+    print(f"  股票池：{len(universe)}")
+    print(f"  强势行业内扫描：{len(rows)}")
+    print(f"  成功处理：{scanned_ok}")
+    print(f"  异常跳过：{skipped}")
+    print(f"  信号候选：{len(ranked)}")
+    get_logger().info("扫描报告：universe=%s scan_rows=%s processed=%s skipped=%s candidates=%s", len(universe), len(rows), scanned_ok, skipped, len(ranked))
 
     max_push = int(market.get("max_push", 10)) or 10
     push_results(ranked, webhook_url=webhook_url, platform=platform, market=market, scan_mode=scan_mode, top_n=max_push)
@@ -167,7 +208,8 @@ def main():
     parser.add_argument("--build-daily-cache", action="store_true", help="构建/更新历史K缓存")
     parser.add_argument("--patch-daily-from-sina", action="store_true", help="15:05后用新浪实时行情补当天日线")
     parser.add_argument("--prepare-data", action="store_true", help="依次执行 build-basic、validate-basic、build-daily-cache")
-    parser.add_argument("--build-universe", action="store_true", help="根据 stock_basic + 历史K过滤构建股票池")
+    parser.add_argument("--build-universe", action="store_true", help="根据 stock_basic + 本地历史K缓存过滤构建股票池")
+    parser.add_argument("--coverage", action="store_true", help="输出数据覆盖率报告")
     parser.add_argument("--refresh-basic", action="store_true", help="强制刷新 stock_basic，忽略7天缓存")
     parser.add_argument("--basic-cache-days", type=int, default=7, help="stock_basic 缓存有效天数，默认7天")
     parser.add_argument("--sina-batch-size", type=int, default=400, help="新浪实时批量大小，默认400只/批")
@@ -176,6 +218,7 @@ def main():
     parser.add_argument("--daily-workers", type=int, default=1, help="历史K缓存线程数，默认1")
     parser.add_argument("--mode", choices=["observe", "tail_confirm", "after_close"], default=None, help="扫描模式")
     parser.add_argument("--no-cache-universe", action="store_true", help="不使用股票池缓存，重新构建")
+    parser.add_argument("--allow-remote-in-scan", action="store_true", help="扫描阶段允许远程补拉历史K，默认关闭")
     parser.add_argument("--workers", type=int, default=2, help="扫描/股票池过滤线程数，默认2")
     parser.add_argument("--limit", type=int, default=None, help="限制股票池/扫描数量，调试用")
     parser.add_argument("--webhook", type=str, default=os.getenv("WECHAT_WEBHOOK", ""))
@@ -186,6 +229,7 @@ def main():
     args = parser.parse_args()
 
     setup_logger(log_dir=args.log_dir, level=args.log_level, log_file=args.log_file)
+    get_logger().info("本轮 run_id=%s", get_run_id())
 
     if args.init_db:
         init_db()
@@ -196,6 +240,11 @@ def main():
     if args.preflight:
         init_db()
         print(preflight_data_sources())
+        return
+
+    if args.coverage:
+        init_db()
+        print_coverage_report()
         return
 
     if args.build_basic:
@@ -262,6 +311,7 @@ def main():
         log_level=args.log_level,
         log_dir=args.log_dir,
         log_file=args.log_file,
+        allow_remote_in_scan=args.allow_remote_in_scan,
     )
 
 
