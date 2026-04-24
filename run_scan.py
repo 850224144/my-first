@@ -100,6 +100,7 @@ def scan_all(
     log_file: Optional[str] = None,
     allow_remote_in_scan: bool = False,
     strict_sector: bool = False,
+    strict_weekly: bool = False,
 ) -> List[Dict[str, Any]]:
     setup_logger(log_dir=log_dir, level=log_level, log_file=log_file)
     init_db()
@@ -144,13 +145,15 @@ def scan_all(
         else:
             scan_universe = filtered
 
-    weekly_universe, weekly_report = filter_universe_by_weekly_trend(scan_universe)
+    weekly_universe, weekly_report = filter_universe_by_weekly_trend(scan_universe, strict_weekly=strict_weekly)
     print("\n周线过滤报告：")
     print(f"  输入：{weekly_report.get('input', 0)}")
     print(f"  通过：{weekly_report.get('passed', 0)}")
     print(f"  剔除：{weekly_report.get('rejected', 0)}")
     print(f"  无日线缓存：{weekly_report.get('no_daily', 0)}")
     print(f"  周线不足：{weekly_report.get('not_enough', 0)}")
+    print(f"  周线不足但放行：{weekly_report.get('skipped_not_enough', 0)}")
+    print(f"  严格周线模式：{weekly_report.get('strict_weekly', False)}")
 
     if weekly_universe.is_empty():
         print("⚠️ 周线过滤后无股票，停止扫描")
@@ -231,6 +234,7 @@ def main():
     parser.add_argument("--no-cache-universe", action="store_true", help="不使用股票池缓存，重新构建")
     parser.add_argument("--allow-remote-in-scan", action="store_true", help="扫描阶段允许远程补拉历史K，默认关闭")
     parser.add_argument("--strict-sector", action="store_true", help="严格板块模式：板块数据失败或无命中则停止扫描；默认调试模式会跳过板块过滤继续扫描")
+    parser.add_argument("--strict-weekly", action="store_true", help="严格周线模式：周线数据不足也剔除；默认调试模式下周线不足会放行")
     parser.add_argument("--workers", type=int, default=2, help="扫描/股票池过滤线程数，默认2")
     parser.add_argument("--limit", type=int, default=None, help="限制股票池/扫描数量，调试用")
     parser.add_argument("--webhook", type=str, default=os.getenv("WECHAT_WEBHOOK", ""))
@@ -325,6 +329,7 @@ def main():
         log_file=args.log_file,
         allow_remote_in_scan=args.allow_remote_in_scan,
         strict_sector=args.strict_sector,
+        strict_weekly=args.strict_weekly,
     )
 
 

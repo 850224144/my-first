@@ -165,7 +165,7 @@ def evaluate_weekly_trend(code: str, daily: pl.DataFrame) -> Dict[str, Any]:
     }
 
 
-def filter_universe_by_weekly_trend(universe: pl.DataFrame) -> Tuple[pl.DataFrame, Dict[str, Any]]:
+def filter_universe_by_weekly_trend(universe: pl.DataFrame, strict_weekly: bool = False) -> Tuple[pl.DataFrame, Dict[str, Any]]:
     """周线过滤。返回过滤后 universe 和报告。"""
     report = {
         "input": 0,
@@ -173,6 +173,8 @@ def filter_universe_by_weekly_trend(universe: pl.DataFrame) -> Tuple[pl.DataFram
         "rejected": 0,
         "no_daily": 0,
         "not_enough": 0,
+        "skipped_not_enough": 0,
+        "strict_weekly": bool(strict_weekly),
     }
     if universe is None or universe.is_empty() or "code" not in universe.columns:
         return pl.DataFrame(), report
@@ -207,10 +209,21 @@ def filter_universe_by_weekly_trend(universe: pl.DataFrame) -> Tuple[pl.DataFram
 
         res = evaluate_weekly_trend(code, g)
         if not res.get("pass"):
-            report["rejected"] += 1
-            if str(res.get("reason", "")).startswith("weekly_not_enough"):
+            reason = str(res.get("reason", ""))
+            if reason.startswith("weekly_not_enough"):
                 report["not_enough"] += 1
-            log_reject(code, "weekly", "weekly_filter_fail", res.get("reason", ""), name=r.get("name", ""))
+                if not strict_weekly:
+                    # 调试默认：周线数据不足不剔除，先放行，避免缓存覆盖不足时全杀。
+                    out = dict(r)
+                    out.update({
+                        "weekly_bars": res.get("weekly_bars"),
+                        "weekly_status": "skipped_not_enough",
+                    })
+                    passed_rows.append(out)
+                    report["skipped_not_enough"] += 1
+                    continue
+            report["rejected"] += 1
+            log_reject(code, "weekly", "weekly_filter_fail", reason, name=r.get("name", ""))
             continue
 
         out = dict(r)
@@ -220,6 +233,7 @@ def filter_universe_by_weekly_trend(universe: pl.DataFrame) -> Tuple[pl.DataFram
             "weekly_ma5": res.get("weekly_ma5"),
             "weekly_ma10": res.get("weekly_ma10"),
             "weekly_ma20": res.get("weekly_ma20"),
+            "weekly_status": "passed",
         })
         passed_rows.append(out)
 
