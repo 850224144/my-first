@@ -2,7 +2,7 @@
 """
 core/data.py
 
-方案 D：真实股票基础表 + 新浪实时批量校验 + 历史K分阶段缓存
+方案 E：在方案 D 基础上增强历史 K 稳定性
 
 职责拆分：
 1. stock_basic：AkShare 获取真实 A 股代码，本地缓存，默认 7 天刷新一次。
@@ -68,6 +68,16 @@ SINA_BATCH_SIZE = 400
 SINA_BATCH_INTERVAL = 10.0
 SINA_CACHE_SECONDS = 5.0
 
+# 方案 E：历史 K 源稳定化参数
+HISTORY_RATE_LIMITS = {
+    "tencent": float(os.getenv("TENCENT_HISTORY_INTERVAL", "1.0")),
+    "sina_history": float(os.getenv("SINA_HISTORY_INTERVAL", "1.0")),
+    "efinance": float(os.getenv("EFINANCE_HISTORY_INTERVAL", "2.0")),
+}
+SOURCE_COOLDOWN_SECONDS = int(os.getenv("SOURCE_COOLDOWN_SECONDS", "1800"))
+CACHE_MAX_STALE_DAYS = int(os.getenv("CACHE_MAX_STALE_DAYS", "7"))
+HISTORY_MIN_BARS = int(os.getenv("HISTORY_MIN_BARS", "250"))
+
 STATUS_NO_DATA = "no_data"
 STATUS_YESTERDAY_CLOSE = "yesterday_close"
 STATUS_INTRADAY = "intraday_unfinished"
@@ -75,6 +85,9 @@ STATUS_AFTER_CLOSE = "after_close"
 
 _DB_LOCK = threading.RLock()
 _SINA_CACHE: Dict[str, tuple[float, str]] = {}
+_SOURCE_LOCK = threading.RLock()
+_SOURCE_LAST_CALL: Dict[str, float] = {}
+_SOURCE_COOLDOWN_UNTIL: Dict[tuple[str, str], float] = {}
 
 INDEX_CANONICAL = {
     "sh000001", "sh000016", "sh000300", "sh000905", "sh000852",
@@ -247,6 +260,75 @@ def infer_data_status(df: Optional[pl.DataFrame]) -> str:
         return STATUS_AFTER_CLOSE if close_ready else STATUS_INTRADAY
     except Exception:
         return STATUS_NO_DATA
+
+# ========================= 历史 K 稳定性工具 =========================
+
+def _source_throttle(source: str) -> None:
+    """每个历史 K 数据源独立限速，避免免费接口被打爆。"""
+    interval = HISTORY_RATE_LIMITS.get(source, 1.0)
+    if interval <= 0:
+        return
+    with _SOURCE_LOCK:
+        last = _SOURCE_LAST_CALL.get(source, 0.0)
+        wait = interval - (time.time() - last)
+        if wait > 0:
+            time.sleep(wait)
+        _SOURCE_LAST_CALL[source] = time.time()
+
+
+def _source_in_cooldown(code: str, source: str) -> bool:
+    key = (canonical_code(code), source)
+    return _SOURCE_COOLDOWN_UNTIL.get(key, 0.0) > time.time()
+
+
+def _mark_source_failure(code: str, source: str) -> None:
+    _SOURCE_COOLDOWN_UNTIL[(canonical_code(code), source)] = time.time() + SOURCE_COOLDOWN_SECONDS
+
+
+def _last_date_of(df: Optional[pl.DataFrame]) -> Optional[date]:
+    if df is None or len(df) == 0 or "date" not in df.columns:
+        return None
+    try:
+        d = df.select(pl.col("date").max()).item()
+        if isinstance(d, datetime):
+            return d.date()
+        return d
+    except Exception:
+        return None
+
+
+def cache_is_usable(df: Optional[pl.DataFrame], min_bars: int = HISTORY_MIN_BARS) -> bool:
+    return df is not None and len(df) >= min_bars
+
+
+def cache_is_fresh(df: Optional[pl.DataFrame], max_stale_days: int = CACHE_MAX_STALE_DAYS) -> bool:
+    if not cache_is_usable(df):
+        return False
+    d = _last_date_of(df)
+    if not d:
+        return False
+    # 非交易日无法精准判断，允许几天内的缓存继续使用。
+    return (today_cn() - d).days <= max_stale_days
+
+
+def _can_use_cache_first(df: Optional[pl.DataFrame], bars: int) -> bool:
+    """缓存优先：缓存足够且足够新，就不再请求远程。"""
+    if not cache_is_fresh(df):
+        return False
+    return len(df) >= min(max(bars, HISTORY_MIN_BARS), DEFAULT_BARS)
+
+
+def _history_source_of(df: Optional[pl.DataFrame]) -> str:
+    if df is None or len(df) == 0 or "source" not in df.columns:
+        return "unknown"
+    try:
+        vals = df.select(pl.col("source").drop_nulls().unique()).to_series().to_list()
+        if len(vals) == 1:
+            return str(vals[0])
+        return "+".join(sorted(str(v) for v in vals if v)) or "unknown"
+    except Exception:
+        return "unknown"
+
 
 # ========================= DuckDB =========================
 
@@ -834,22 +916,45 @@ def _parse_tencent_rows(code: str, rows: list[Any]) -> Optional[pl.DataFrame]:
 
 
 def get_tencent(code: str, bars: int = DEFAULT_BARS) -> Optional[pl.DataFrame]:
-    symbol = to_tencent_symbol(code)
-    url = f"http://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param={symbol},day,,,{bars},fq"
-    try:
-        r = requests.get(url, headers=HEADERS, timeout=8)
-        r.raise_for_status()
-        payload = r.json()
-        data = payload.get("data", {}).get(symbol, {})
-        rows = data.get("day") or data.get("qfqday") or []
-        if not rows:
-            return None
-        save_raw_rows(code, "tencent", rows)
-        return _parse_tencent_rows(code, rows)
-    except Exception as e:
-        log_source_failure(canonical_code(code), "tencent", "request_or_parse_failed", e)
+    """
+    腾讯历史 K 主源。
+    稳定性增强：
+    - 支持 qfq/fq 两种参数尝试；
+    - 兼容 qfqday/day 等返回 key；
+    - 行字段柔性解析，多余字段进 raw，少于 6 列记录 bad row；
+    - 每源限速 + 单代码失败冷却。
+    """
+    source = "tencent"
+    if _source_in_cooldown(code, source):
+        get_logger().debug("跳过腾讯历史K，仍在冷却期 code=%s", canonical_code(code))
         return None
 
+    symbol = to_tencent_symbol(code)
+    for fq_param in ("qfq", "fq"):
+        _source_throttle(source)
+        url = f"http://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param={symbol},day,,,{bars},{fq_param}"
+        try:
+            r = requests.get(url, headers=HEADERS, timeout=10)
+            r.raise_for_status()
+            payload = r.json()
+            data = payload.get("data", {}).get(symbol, {})
+            rows = None
+            for key in ("qfqday", "day", f"{fq_param}day"):
+                if isinstance(data, dict) and data.get(key):
+                    rows = data.get(key)
+                    break
+            if not rows:
+                continue
+            save_raw_rows(code, "tencent", rows)
+            df = _parse_tencent_rows(code, rows)
+            if df is not None and len(df) > 0:
+                return df.tail(bars)
+        except Exception as e:
+            log_source_failure(canonical_code(code), "tencent", "request_or_parse_failed", e)
+            continue
+
+    _mark_source_failure(code, source)
+    return None
 
 def get_ef_stock_api():
     try:
@@ -865,13 +970,18 @@ def get_ef_stock_api():
 
 
 def get_efinance(code: str, bars: int = DEFAULT_BARS) -> Optional[pl.DataFrame]:
+    source = "efinance"
     if is_index_code(code):
+        return None
+    if _source_in_cooldown(code, source):
+        get_logger().debug("跳过 efinance 历史K，仍在冷却期 code=%s", canonical_code(code))
         return None
     ef_stock = get_ef_stock_api()
     if ef_stock is None:
         return None
     c = normalize_code(code)
     try:
+        _source_throttle(source)
         buf = io.StringIO()
         with contextlib.redirect_stdout(buf), contextlib.redirect_stderr(buf):
             pdf = ef_stock.get_quote_history(c, beg="19900101", end="20500101", klt=101, fqt=1)
@@ -905,11 +1015,17 @@ def get_efinance(code: str, bars: int = DEFAULT_BARS) -> Optional[pl.DataFrame]:
         return ensure_columns(df.tail(bars)) if len(df) > 0 else None
     except Exception as e:
         log_source_failure(canonical_code(code), "efinance", "request_or_parse_failed", e)
+        _mark_source_failure(code, source)
         return None
 
 
 def get_sina_history(code: str, bars: int = DEFAULT_BARS) -> Optional[pl.DataFrame]:
+    source = "sina_history"
+    if _source_in_cooldown(code, source):
+        get_logger().debug("跳过新浪历史K，仍在冷却期 code=%s", canonical_code(code))
+        return None
     try:
+        _source_throttle(source)
         symbol = to_tencent_symbol(code)
         url = "https://money.finance.sina.com.cn/quotes_service/api/json_v2.php/" + f"CN_MarketData.getKLineData?symbol={symbol}&scale=240&ma=no&datalen={bars}"
         r = requests.get(url, headers=HEADERS, timeout=8)
@@ -937,6 +1053,7 @@ def get_sina_history(code: str, bars: int = DEFAULT_BARS) -> Optional[pl.DataFra
         return ensure_columns(df) if len(df) > 0 else None
     except Exception as e:
         log_source_failure(canonical_code(code), "sina_history", "request_or_parse_failed", e)
+        _mark_source_failure(code, source)
         return None
 
 
@@ -947,37 +1064,60 @@ def _merge_cache_and_new(df_db: Optional[pl.DataFrame], df_new: pl.DataFrame) ->
 
 
 def fetch_remote_data(code: str, bars: int = DEFAULT_BARS, allow_sina: bool = True) -> Optional[pl.DataFrame]:
-    for fn in (get_tencent, get_efinance):
+    """多源历史 K：腾讯 -> 新浪历史 -> efinance。每源限速、失败冷却。"""
+    sources = [get_tencent]
+    if allow_sina:
+        sources.append(get_sina_history)
+    sources.append(get_efinance)
+    for fn in sources:
         df = fn(code, bars=bars)
         if df is not None and len(df) > 0:
-            return df
-        time.sleep(0.05)
-    if allow_sina:
-        df = get_sina_history(code, bars=bars)
-        if df is not None and len(df) > 0:
-            return df
+            get_logger().debug(
+                "历史K远程成功 code=%s source=%s rows=%s",
+                canonical_code(code),
+                _history_source_of(df),
+                len(df),
+            )
+            return df.tail(bars)
     get_logger().debug("远程行情全部失败 code=%s", canonical_code(code))
     return None
 
-
-def get_data_with_status(code: str, bars: int = DEFAULT_BARS, force_refresh: bool = False, allow_sina_fallback: bool = True) -> Tuple[Optional[pl.DataFrame], str]:
+def get_data_with_status(
+    code: str,
+    bars: int = DEFAULT_BARS,
+    force_refresh: bool = False,
+    allow_sina_fallback: bool = True,
+) -> Tuple[Optional[pl.DataFrame], str]:
+    """
+    缓存优先的历史 K 入口。
+    - 缓存足够且近期：直接返回，不请求远程；
+    - 缓存不足/过旧：远程更新并 upsert；
+    - 远程失败但缓存可用：返回 stale cache；
+    - 远程失败且无缓存：失败。
+    """
     c = canonical_code(code)
     df_db = None if force_refresh else load_from_db(c, adj_type="qfq")
+
+    if not force_refresh and _can_use_cache_first(df_db, bars):
+        return df_db.tail(bars), infer_data_status(df_db)
+
     df_new = fetch_remote_data(c, bars=bars, allow_sina=allow_sina_fallback)
     if df_new is None or len(df_new) == 0:
-        if df_db is not None and len(df_db) > 0:
+        if cache_is_usable(df_db):
+            get_logger().debug("远程失败，使用缓存 code=%s rows=%s last_date=%s", c, len(df_db), _last_date_of(df_db))
             return df_db.tail(bars), infer_data_status(df_db)
-        log_source_failure(c, "all", "no_remote_and_no_cache", "所有行情源失败且无本地缓存")
+        log_source_failure(c, "all", "no_remote_and_no_cache", "所有历史K源失败且无本地缓存")
         return None, STATUS_NO_DATA
+
     new_adj = df_new.select(pl.col("adj_type").last()).item()
     if new_adj != "qfq" and df_db is not None and len(df_db) > 0:
         return df_db.tail(bars), infer_data_status(df_db)
+
     merged = _merge_cache_and_new(df_db, df_new) if new_adj == "qfq" else df_new
     status = infer_data_status(merged)
     if new_adj == "qfq" and status != STATUS_INTRADAY:
         save_to_db(c, merged)
     return merged.tail(bars), status
-
 
 def get_data(code: str, bars: int = DEFAULT_BARS, force_refresh: bool = False) -> Optional[pl.DataFrame]:
     df, _ = get_data_with_status(code, bars=bars, force_refresh=force_refresh)
@@ -986,7 +1126,7 @@ def get_data(code: str, bars: int = DEFAULT_BARS, force_refresh: bool = False) -
 # ========================= 分阶段缓存 / 预检 =========================
 
 def preflight_data_sources() -> Dict[str, bool]:
-    result = {"sina_index": False, "sina_stock": False, "stock_basic": False, "tencent_history": False, "duckdb": False}
+    result = {"sina_index": False, "sina_stock": False, "stock_basic": False, "tencent_history": False, "sina_history": False, "efinance_history": False, "history_any": False, "duckdb": False}
     try:
         init_db()
         result["duckdb"] = True
@@ -1006,6 +1146,15 @@ def preflight_data_sources() -> Dict[str, bool]:
         result["tencent_history"] = get_tencent("000001", bars=20) is not None
     except Exception:
         pass
+    try:
+        result["sina_history"] = get_sina_history("000001", bars=20) is not None
+    except Exception:
+        pass
+    try:
+        result["efinance_history"] = get_efinance("000001", bars=20) is not None
+    except Exception:
+        pass
+    result["history_any"] = bool(result["tencent_history"] or result["sina_history"] or result["efinance_history"])
     get_logger().info("数据源预检：%s", result)
     return result
 
@@ -1018,7 +1167,13 @@ def build_daily_cache(
     stop_consecutive_failures: int = 20,
     stop_failure_rate: float = 0.50,
 ) -> Dict[str, int]:
-    """历史K分阶段缓存。默认 workers=1，避免免费接口高频失败。"""
+    """
+    历史K分阶段缓存。方案 E 增强：
+    - 默认 workers=1，最大建议 2；
+    - 缓存优先，缓存足够且近期则不请求远程；
+    - 统计 cache/tencent/sina_history/efinance 等来源；
+    - 连续失败/失败率过高自动熔断。
+    """
     from concurrent.futures import ThreadPoolExecutor, as_completed
 
     basic = load_stock_basic()
@@ -1033,42 +1188,93 @@ def build_daily_cache(
     if not codes:
         return {"processed": 0, "success": 0, "failed": 0}
 
-    processed = success = failed = consecutive_fail = 0
+    stats: Dict[str, int] = {
+        "processed": 0,
+        "success": 0,
+        "failed": 0,
+        "cache_hit": 0,
+        "tencent": 0,
+        "sina_history": 0,
+        "efinance": 0,
+        "mixed": 0,
+        "unknown_source": 0,
+    }
+    consecutive_fail = 0
 
-    def one(c: str) -> bool:
+    def one(c: str) -> tuple[bool, str, int, str]:
+        c = normalize_code(c)
+        before = load_from_db(c, adj_type="qfq")
+        if _can_use_cache_first(before, bars):
+            return True, "cache_hit", len(before), infer_data_status(before)
+
         df, status = get_data_with_status(c, bars=bars)
-        ok = df is not None and len(df) >= 250 and status != STATUS_NO_DATA
+        ok = df is not None and len(df) >= HISTORY_MIN_BARS and status != STATUS_NO_DATA
         if not ok:
             log_reject(c, "daily_cache", "no_kline_data", f"status={status}, rows={len(df) if df is not None else 0}")
-        return ok
+            return False, "failed", len(df) if df is not None else 0, status
 
-    mw = max(1, int(workers or 1))
+        after = load_from_db(c, adj_type="qfq")
+        if after is not None and before is not None and len(after) == len(before) and _last_date_of(after) == _last_date_of(before):
+            src = "cache_hit"
+        else:
+            src = _history_source_of(df)
+            if "+" in src:
+                src = "mixed"
+            elif src not in {"tencent", "sina_history", "efinance", "cache_hit"}:
+                src = "unknown_source"
+        return True, src, len(df), status
+
+    mw = max(1, min(int(workers or 1), 2))
+    if workers and int(workers) > 2:
+        get_logger().warning("历史K缓存 workers=%s 过高，已强制降到 2", workers)
+
     with ThreadPoolExecutor(max_workers=mw) as ex:
         futures = {ex.submit(one, c): c for c in codes}
         for fut in as_completed(futures):
-            processed += 1
+            c = futures.get(fut, "")
             try:
-                ok = fut.result()
+                ok, src, rows, status = fut.result()
             except Exception as e:
-                ok = False
-                log_exception(f"历史K缓存线程异常 code={futures[fut]}", e)
+                log_reject(c, "daily_cache", "exception", e)
+                log_exception(f"历史K缓存异常 code={c}", e)
+                ok, src, rows, status = False, "failed", 0, STATUS_NO_DATA
+
+            stats["processed"] += 1
             if ok:
-                success += 1
+                stats["success"] += 1
                 consecutive_fail = 0
+                stats[src] = stats.get(src, 0) + 1
             else:
-                failed += 1
+                stats["failed"] += 1
                 consecutive_fail += 1
-            if processed % 50 == 0:
-                get_logger().info("历史K缓存进度：%s/%s 成功=%s 失败=%s", processed, len(codes), success, failed)
+
+            if stats["processed"] % 100 == 0:
+                get_logger().info(
+                    "历史K缓存进度：%s/%s 成功=%s 失败=%s cache=%s tencent=%s sina=%s efinance=%s",
+                    stats["processed"], len(codes), stats["success"], stats["failed"],
+                    stats.get("cache_hit", 0), stats.get("tencent", 0), stats.get("sina_history", 0), stats.get("efinance", 0),
+                )
+
             if consecutive_fail >= stop_consecutive_failures:
                 get_logger().error("历史K连续失败 %s 次，熔断停止。", consecutive_fail)
                 break
-            if processed >= 30 and failed / processed > stop_failure_rate:
-                get_logger().error("历史K失败率 %.2f 超过阈值 %.2f，熔断停止。", failed / processed, stop_failure_rate)
+            if stats["processed"] >= 30 and stats["failed"] / stats["processed"] > stop_failure_rate:
+                get_logger().error("历史K失败率 %.2f 超过阈值 %.2f，熔断停止。", stats["failed"] / stats["processed"], stop_failure_rate)
                 break
-    return {"processed": processed, "success": success, "failed": failed}
 
-
-if __name__ == "__main__":
-    init_db()
-    print(preflight_data_sources())
+    get_logger().info(
+        "\n历史K构建报告：\n"
+        "  总处理：%s\n"
+        "  成功：%s\n"
+        "  失败：%s\n"
+        "  缓存命中：%s\n"
+        "  腾讯成功：%s\n"
+        "  新浪历史成功：%s\n"
+        "  efinance成功：%s\n"
+        "  混合/合并：%s\n"
+        "  未知来源：%s",
+        stats["processed"], stats["success"], stats["failed"],
+        stats.get("cache_hit", 0), stats.get("tencent", 0), stats.get("sina_history", 0),
+        stats.get("efinance", 0), stats.get("mixed", 0), stats.get("unknown_source", 0),
+    )
+    return stats
