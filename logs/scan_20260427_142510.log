@@ -1,0 +1,98 @@
+2026-04-27 14:25:10 | INFO | a_stock | 日志初始化完成：run_id=20260427_142510, log_dir=logs, reject_file=logs/rejects_20260427_142510.csv, raw_bad_rows_file=logs/raw_bad_rows_20260427_142510.jsonl
+2026-04-27 14:25:10 | INFO | a_stock | run_scan 启动
+2026-04-27 14:25:10 | INFO | a_stock | 历史K优化候选池：30 只（实时有效 + 按成交额排序 + 未缓存）
+2026-04-27 14:25:10 | INFO | a_stock | 开始优化历史K缓存：候选=30 daily_limit=30
+2026-04-27 14:25:11 | DEBUG | a_stock | 历史K远程成功 code=300502 source=tencent rows=1
+2026-04-27 14:25:11 | INFO | a_stock | [reject] 300502 no_kline_data 历史K为空或不足250根
+2026-04-27 14:25:11 | DEBUG | a_stock | 历史K远程成功 code=300308 source=tencent rows=1
+2026-04-27 14:25:11 | INFO | a_stock | [reject] 300308 no_kline_data 历史K为空或不足250根
+2026-04-27 14:25:12 | DEBUG | a_stock | 历史K远程成功 code=002384 source=tencent rows=1
+2026-04-27 14:25:12 | INFO | a_stock | [reject] 002384 no_kline_data 历史K为空或不足250根
+2026-04-27 14:25:14 | DEBUG | a_stock | 历史K远程成功 code=300394 source=tencent rows=1
+2026-04-27 14:25:14 | INFO | a_stock | [reject] 300394 no_kline_data 历史K为空或不足250根
+2026-04-27 14:25:14 | DEBUG | a_stock | 历史K远程成功 code=300750 source=tencent rows=1
+2026-04-27 14:25:14 | INFO | a_stock | [reject] 300750 no_kline_data 历史K为空或不足250根
+2026-04-27 14:25:15 | DEBUG | a_stock | 历史K远程成功 code=601138 source=tencent rows=1
+2026-04-27 14:25:15 | INFO | a_stock | [reject] 601138 no_kline_data 历史K为空或不足250根
+2026-04-27 14:25:16 | DEBUG | a_stock | 历史K远程成功 code=002475 source=tencent rows=1
+2026-04-27 14:25:16 | INFO | a_stock | [reject] 002475 no_kline_data 历史K为空或不足250根
+2026-04-27 14:25:17 | DEBUG | a_stock | 历史K远程成功 code=688256 source=tencent rows=1
+2026-04-27 14:25:17 | INFO | a_stock | [reject] 688256 no_kline_data 历史K为空或不足250根
+2026-04-27 14:25:19 | DEBUG | a_stock | 历史K远程成功 code=300476 source=tencent rows=1
+2026-04-27 14:25:19 | INFO | a_stock | [reject] 300476 no_kline_data 历史K为空或不足250根
+2026-04-27 14:25:19 | DEBUG | a_stock | 历史K远程成功 code=600487 source=tencent rows=1
+2026-04-27 14:25:19 | INFO | a_stock | [reject] 600487 no_kline_data 历史K为空或不足250根
+2026-04-27 14:25:21 | DEBUG | a_stock | 历史K远程成功 code=688041 source=tencent rows=1
+2026-04-27 14:25:21 | INFO | a_stock | [reject] 688041 no_kline_data 历史K为空或不足250根
+2026-04-27 14:25:21 | DEBUG | a_stock | 历史K远程成功 code=300136 source=tencent rows=1
+2026-04-27 14:25:21 | INFO | a_stock | [reject] 300136 no_kline_data 历史K为空或不足250根
+2026-04-27 14:25:22 | DEBUG | a_stock | 历史K远程成功 code=300058 source=tencent rows=1
+2026-04-27 14:25:22 | INFO | a_stock | [reject] 300058 no_kline_data 历史K为空或不足250根
+2026-04-27 14:25:23 | DEBUG | a_stock | 历史K远程成功 code=688808 source=tencent rows=1
+2026-04-27 14:25:23 | INFO | a_stock | [reject] 688808 no_kline_data 历史K为空或不足250根
+2026-04-27 14:25:24 | DEBUG | a_stock | 历史K远程成功 code=002281 source=tencent rows=1
+2026-04-27 14:25:24 | INFO | a_stock | [reject] 002281 no_kline_data 历史K为空或不足250根
+2026-04-27 14:25:25 | DEBUG | a_stock | 历史K远程成功 code=300475 source=tencent rows=1
+2026-04-27 14:25:25 | INFO | a_stock | [reject] 300475 no_kline_data 历史K为空或不足250根
+2026-04-27 14:25:26 | DEBUG | a_stock | 历史K远程成功 code=002428 source=tencent rows=1
+2026-04-27 14:25:26 | INFO | a_stock | [reject] 002428 no_kline_data 历史K为空或不足250根
+2026-04-27 14:25:27 | DEBUG | a_stock | 历史K远程成功 code=603986 source=tencent rows=1
+2026-04-27 14:25:27 | INFO | a_stock | [reject] 603986 no_kline_data 历史K为空或不足250根
+2026-04-27 14:25:28 | DEBUG | a_stock | 历史K远程成功 code=688008 source=tencent rows=1
+2026-04-27 14:25:28 | INFO | a_stock | [reject] 688008 no_kline_data 历史K为空或不足250根
+2026-04-27 14:25:29 | DEBUG | a_stock | 历史K远程成功 code=688981 source=tencent rows=1
+2026-04-27 14:25:29 | INFO | a_stock | [reject] 688981 no_kline_data 历史K为空或不足250根
+2026-04-27 14:25:30 | DEBUG | a_stock | 历史K远程成功 code=002466 source=tencent rows=1
+2026-04-27 14:25:30 | INFO | a_stock | [reject] 002466 no_kline_data 历史K为空或不足250根
+2026-04-27 14:25:31 | DEBUG | a_stock | 历史K远程成功 code=600105 source=tencent rows=1
+2026-04-27 14:25:31 | INFO | a_stock | [reject] 600105 no_kline_data 历史K为空或不足250根
+2026-04-27 14:25:32 | DEBUG | a_stock | 历史K远程成功 code=002463 source=tencent rows=1
+2026-04-27 14:25:32 | INFO | a_stock | [reject] 002463 no_kline_data 历史K为空或不足250根
+2026-04-27 14:25:33 | DEBUG | a_stock | 历史K远程成功 code=300857 source=tencent rows=1
+2026-04-27 14:25:33 | INFO | a_stock | [reject] 300857 no_kline_data 历史K为空或不足250根
+2026-04-27 14:25:34 | DEBUG | a_stock | 历史K远程成功 code=601899 source=tencent rows=1
+2026-04-27 14:25:34 | INFO | a_stock | [reject] 601899 no_kline_data 历史K为空或不足250根
+2026-04-27 14:25:35 | DEBUG | a_stock | 历史K远程成功 code=300390 source=tencent rows=1
+2026-04-27 14:25:35 | INFO | a_stock | [reject] 300390 no_kline_data 历史K为空或不足250根
+2026-04-27 14:25:36 | DEBUG | a_stock | 历史K远程成功 code=002261 source=tencent rows=1
+2026-04-27 14:25:36 | INFO | a_stock | [reject] 002261 no_kline_data 历史K为空或不足250根
+2026-04-27 14:25:37 | DEBUG | a_stock | 历史K远程成功 code=002460 source=tencent rows=1
+2026-04-27 14:25:37 | INFO | a_stock | [reject] 002460 no_kline_data 历史K为空或不足250根
+2026-04-27 14:25:38 | DEBUG | a_stock | 历史K远程成功 code=600519 source=tencent rows=1
+2026-04-27 14:25:38 | INFO | a_stock | [reject] 600519 no_kline_data 历史K为空或不足250根
+2026-04-27 14:25:39 | DEBUG | a_stock | 历史K远程成功 code=000988 source=tencent rows=1
+2026-04-27 14:25:39 | INFO | a_stock | [reject] 000988 no_kline_data 历史K为空或不足250根
+2026-04-27 14:25:39 | INFO | a_stock | 历史K缓存进度：30/30 成功=0 失败=30 cache=0 tencent=0 sina=0 efinance=0
+2026-04-27 14:25:39 | ERROR | a_stock | 历史K失败率 1.00 超过阈值 0.80，熔断停止。
+2026-04-27 14:25:39 | INFO | a_stock | 
+历史K构建报告：
+  总处理：30
+  成功：0
+  失败：30
+  缓存命中：0
+  腾讯成功：0
+  新浪历史成功：0
+  efinance成功：0
+  混合/合并：0
+  未知来源：0
+2026-04-27 14:25:39 | WARNING | a_stock | 失败样本前20：
+2026-04-27 14:25:39 | WARNING | a_stock | 300502 -> no_kline_data rows=1
+2026-04-27 14:25:39 | WARNING | a_stock | 300308 -> no_kline_data rows=1
+2026-04-27 14:25:39 | WARNING | a_stock | 002384 -> no_kline_data rows=1
+2026-04-27 14:25:39 | WARNING | a_stock | 300394 -> no_kline_data rows=1
+2026-04-27 14:25:39 | WARNING | a_stock | 300750 -> no_kline_data rows=1
+2026-04-27 14:25:39 | WARNING | a_stock | 601138 -> no_kline_data rows=1
+2026-04-27 14:25:39 | WARNING | a_stock | 002475 -> no_kline_data rows=1
+2026-04-27 14:25:39 | WARNING | a_stock | 688256 -> no_kline_data rows=1
+2026-04-27 14:25:39 | WARNING | a_stock | 300476 -> no_kline_data rows=1
+2026-04-27 14:25:39 | WARNING | a_stock | 600487 -> no_kline_data rows=1
+2026-04-27 14:25:39 | WARNING | a_stock | 688041 -> no_kline_data rows=1
+2026-04-27 14:25:39 | WARNING | a_stock | 300136 -> no_kline_data rows=1
+2026-04-27 14:25:39 | WARNING | a_stock | 300058 -> no_kline_data rows=1
+2026-04-27 14:25:39 | WARNING | a_stock | 688808 -> no_kline_data rows=1
+2026-04-27 14:25:39 | WARNING | a_stock | 002281 -> no_kline_data rows=1
+2026-04-27 14:25:39 | WARNING | a_stock | 300475 -> no_kline_data rows=1
+2026-04-27 14:25:39 | WARNING | a_stock | 002428 -> no_kline_data rows=1
+2026-04-27 14:25:39 | WARNING | a_stock | 603986 -> no_kline_data rows=1
+2026-04-27 14:25:39 | WARNING | a_stock | 688008 -> no_kline_data rows=1
+2026-04-27 14:25:39 | WARNING | a_stock | 688981 -> no_kline_data rows=1

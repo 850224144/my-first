@@ -1,0 +1,28 @@
+2026-04-27 14:57:47 | INFO | a_stock | 日志初始化完成：run_id=20260427_145747, log_dir=logs, reject_file=logs/rejects_20260427_145747.csv, raw_bad_rows_file=logs/raw_bad_rows_20260427_145747.jsonl
+2026-04-27 14:57:47 | INFO | a_stock | run_scan 启动
+2026-04-27 14:57:47 | INFO | a_stock | 历史K优化候选池：100 只（实时有效 + 按成交额排序 + 未缓存）
+2026-04-27 14:57:47 | INFO | a_stock | 开始优化历史K缓存：候选=100 daily_limit=100
+2026-04-27 14:57:47 | DEBUG | a_stock | 历史K源无效 code=688808 source=sina_history rows=1
+2026-04-27 14:57:48 | DEBUG | a_stock | 历史K源无效 code=688808 source=efinance rows=2
+2026-04-27 14:57:48 | DEBUG | a_stock | 历史K源无效 code=688808 source=tencent rows=1
+2026-04-27 14:57:48 | INFO | a_stock | [reject] 688808 no_kline_data 历史K为空或不足250根 source=failed
+2026-04-27 14:58:04 | DEBUG | a_stock | 历史K源无效 code=688820 source=sina_history rows=4
+2026-04-27 14:58:04 | DEBUG | a_stock | 历史K源无效 code=688820 source=efinance rows=5
+2026-04-27 14:58:04 | DEBUG | a_stock | 历史K源无效 code=688820 source=tencent rows=1
+2026-04-27 14:58:04 | INFO | a_stock | [reject] 688820 no_kline_data 历史K为空或不足250根 source=failed
+2026-04-27 14:58:37 | INFO | a_stock | 历史K缓存进度：50/100 成功=48 失败=2 cache=0 tencent=0 sina=48 efinance=0
+2026-04-27 14:59:27 | INFO | a_stock | 历史K缓存进度：100/100 成功=98 失败=2 cache=0 tencent=0 sina=98 efinance=0
+2026-04-27 14:59:27 | INFO | a_stock | 
+历史K构建报告：
+  总处理：100
+  成功：98
+  失败：2
+  缓存命中：0
+  腾讯成功：0
+  新浪历史成功：98
+  efinance成功：0
+  混合/合并：0
+  未知来源：0
+2026-04-27 14:59:27 | WARNING | a_stock | 失败样本前20：
+2026-04-27 14:59:27 | WARNING | a_stock | 688808 -> no_kline_data source=failed
+2026-04-27 14:59:27 | WARNING | a_stock | 688820 -> no_kline_data source=failed

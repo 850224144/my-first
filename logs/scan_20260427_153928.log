@@ -1,0 +1,9 @@
+2026-04-27 15:39:28 | INFO | a_stock | 日志初始化完成：run_id=20260427_153928, log_dir=logs, reject_file=logs/rejects_20260427_153928.csv, raw_bad_rows_file=logs/raw_bad_rows_20260427_153928.jsonl
+2026-04-27 15:39:28 | INFO | a_stock | run_scan 启动
+2026-04-27 15:39:28 | INFO | a_stock | 
+数据覆盖率报告：
+  stock_basic：5323
+  有效基础股票：5317
+  stock_daily 覆盖股票：9 (0.17%)
+  realtime_quote 覆盖股票：5317 (99.89%)
+2026-04-27 15:39:28 | WARNING | a_stock | ⚠️ 当前日线缓存覆盖率较低，扫描结果只代表已缓存股票，不代表全市场。

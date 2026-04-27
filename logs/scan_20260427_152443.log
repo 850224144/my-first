@@ -1,0 +1,62 @@
+2026-04-27 15:24:43 | INFO | a_stock | 日志初始化完成：run_id=20260427_152443, log_dir=logs, reject_file=logs/rejects_20260427_152443.csv, raw_bad_rows_file=logs/raw_bad_rows_20260427_152443.jsonl
+2026-04-27 15:24:43 | INFO | a_stock | run_scan 启动
+2026-04-27 15:24:43 | INFO | a_stock | 历史K优化候选池：30 只（实时有效 + 按成交额排序 + 未缓存）
+2026-04-27 15:24:43 | INFO | a_stock | 开始优化历史K缓存：候选=30 daily_limit=30
+2026-04-27 15:24:43 | DEBUG | a_stock | 历史K源无效 code=688808 source=sina_history rows=1
+2026-04-27 15:24:44 | DEBUG | a_stock | 历史K源无效 code=688808 source=efinance rows=2
+2026-04-27 15:24:44 | DEBUG | a_stock | 历史K源无效 code=688808 source=tencent rows=1
+2026-04-27 15:24:44 | INFO | a_stock | [reject] 688808 no_kline_data 历史K为空或不足250根 source=failed
+2026-04-27 15:24:44 | DEBUG | a_stock | 历史K源无效 code=688820 source=sina_history rows=4
+2026-04-27 15:24:46 | DEBUG | a_stock | 历史K源无效 code=688820 source=efinance rows=5
+2026-04-27 15:24:46 | DEBUG | a_stock | 历史K源无效 code=688820 source=tencent rows=1
+2026-04-27 15:24:46 | INFO | a_stock | [reject] 688820 no_kline_data 历史K为空或不足250根 source=failed
+2026-04-27 15:24:46 | DEBUG | a_stock | 历史K源无效 code=688802 source=sina_history rows=84
+2026-04-27 15:24:48 | DEBUG | a_stock | 历史K源无效 code=688802 source=efinance rows=85
+2026-04-27 15:24:48 | DEBUG | a_stock | 历史K源无效 code=688802 source=tencent rows=1
+2026-04-27 15:24:48 | INFO | a_stock | [reject] 688802 no_kline_data 历史K为空或不足250根 source=failed
+2026-04-27 15:24:48 | DEBUG | a_stock | 历史K源无效 code=688795 source=sina_history rows=92
+2026-04-27 15:24:50 | DEBUG | a_stock | 历史K源无效 code=688795 source=efinance rows=93
+2026-04-27 15:24:50 | DEBUG | a_stock | 历史K源无效 code=688795 source=tencent rows=1
+2026-04-27 15:24:50 | INFO | a_stock | [reject] 688795 no_kline_data 历史K为空或不足250根 source=failed
+2026-04-27 15:24:50 | DEBUG | a_stock | 历史K源无效 code=301666 source=sina_history rows=7
+2026-04-27 15:24:52 | DEBUG | a_stock | 历史K源无效 code=301666 source=efinance rows=8
+2026-04-27 15:24:52 | DEBUG | a_stock | 历史K源无效 code=301666 source=tencent rows=1
+2026-04-27 15:24:52 | INFO | a_stock | [reject] 301666 no_kline_data 历史K为空或不足250根 source=failed
+2026-04-27 15:24:52 | DEBUG | a_stock | 历史K源无效 code=600930 source=sina_history rows=188
+2026-04-27 15:24:54 | DEBUG | a_stock | 历史K源无效 code=600930 source=efinance rows=189
+2026-04-27 15:24:54 | DEBUG | a_stock | 历史K源无效 code=600930 source=tencent rows=1
+2026-04-27 15:24:54 | INFO | a_stock | [reject] 600930 no_kline_data 历史K为空或不足250根 source=failed
+2026-04-27 15:24:54 | DEBUG | a_stock | 历史K源无效 code=688807 source=sina_history rows=82
+2026-04-27 15:24:56 | DEBUG | a_stock | 历史K源无效 code=688807 source=efinance rows=83
+2026-04-27 15:24:56 | DEBUG | a_stock | 历史K源无效 code=688807 source=tencent rows=1
+2026-04-27 15:24:56 | INFO | a_stock | [reject] 688807 no_kline_data 历史K为空或不足250根 source=failed
+2026-04-27 15:24:56 | DEBUG | a_stock | 历史K源无效 code=301667 source=sina_history rows=80
+2026-04-27 15:24:58 | DEBUG | a_stock | 历史K源无效 code=301667 source=efinance rows=81
+2026-04-27 15:24:58 | DEBUG | a_stock | 历史K源无效 code=301667 source=tencent rows=1
+2026-04-27 15:24:58 | INFO | a_stock | [reject] 301667 no_kline_data 历史K为空或不足250根 source=failed
+2026-04-27 15:25:02 | DEBUG | a_stock | 历史K源无效 code=688818 source=sina_history rows=47
+2026-04-27 15:25:02 | DEBUG | a_stock | 历史K源无效 code=688818 source=efinance rows=48
+2026-04-27 15:25:03 | DEBUG | a_stock | 历史K源无效 code=688818 source=tencent rows=1
+2026-04-27 15:25:03 | INFO | a_stock | [reject] 688818 no_kline_data 历史K为空或不足250根 source=failed
+2026-04-27 15:25:19 | INFO | a_stock | 历史K缓存进度：30/30 成功=21 失败=9 cache=0 tencent=0 sina=21 efinance=0
+2026-04-27 15:25:20 | INFO | a_stock | 
+历史K构建报告：
+  总处理：30
+  成功：21
+  失败：9
+  缓存命中：0
+  腾讯成功：0
+  新浪历史成功：21
+  efinance成功：0
+  混合/合并：0
+  未知来源：0
+2026-04-27 15:25:20 | WARNING | a_stock | 失败样本前20：
+2026-04-27 15:25:20 | WARNING | a_stock | 688808 -> no_kline_data source=failed
+2026-04-27 15:25:20 | WARNING | a_stock | 688820 -> no_kline_data source=failed
+2026-04-27 15:25:20 | WARNING | a_stock | 688802 -> no_kline_data source=failed
+2026-04-27 15:25:20 | WARNING | a_stock | 688795 -> no_kline_data source=failed
+2026-04-27 15:25:20 | WARNING | a_stock | 301666 -> no_kline_data source=failed
+2026-04-27 15:25:20 | WARNING | a_stock | 600930 -> no_kline_data source=failed
+2026-04-27 15:25:20 | WARNING | a_stock | 688807 -> no_kline_data source=failed
+2026-04-27 15:25:20 | WARNING | a_stock | 301667 -> no_kline_data source=failed
+2026-04-27 15:25:20 | WARNING | a_stock | 688818 -> no_kline_data source=failed

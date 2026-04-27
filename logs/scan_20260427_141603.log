@@ -1,0 +1,2 @@
+2026-04-27 14:16:03 | INFO | a_stock | 日志初始化完成：run_id=20260427_141603, log_dir=logs, reject_file=logs/rejects_20260427_141603.csv, raw_bad_rows_file=logs/raw_bad_rows_20260427_141603.jsonl
+2026-04-27 14:16:03 | INFO | a_stock | 历史K优化候选池：30 只（实时有效 + 按成交额排序 + 未缓存）

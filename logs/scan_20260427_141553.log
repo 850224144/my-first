@@ -1,0 +1,6 @@
+2026-04-27 14:15:53 | INFO | a_stock | 日志初始化完成：run_id=20260427_141553, log_dir=logs, reject_file=logs/rejects_20260427_141553.csv, raw_bad_rows_file=logs/raw_bad_rows_20260427_141553.jsonl
+2026-04-27 14:15:53 | DEBUG | a_stock | 历史K远程成功 code=000001 source=tencent rows=1
+2026-04-27 14:15:54 | DEBUG | a_stock | 历史K远程成功 code=000002 source=tencent rows=1
+2026-04-27 14:15:55 | DEBUG | a_stock | 历史K远程成功 code=600519 source=tencent rows=1
+2026-04-27 14:15:56 | DEBUG | a_stock | 历史K远程成功 code=300750 source=tencent rows=1
+2026-04-27 14:15:57 | DEBUG | a_stock | 历史K远程成功 code=002594 source=tencent rows=1

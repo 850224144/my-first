@@ -1,0 +1,25 @@
+2026-04-24 20:56:40 | INFO | a_stock | 日志初始化完成：run_id=20260424_205640, log_dir=logs, reject_file=logs/rejects_20260424_205640.csv, raw_bad_rows_file=logs/raw_bad_rows_20260424_205640.jsonl
+2026-04-24 20:56:40 | INFO | a_stock | 本轮 run_id=20260424_205640
+2026-04-24 20:57:41 | ERROR | a_stock | 历史K失败率 0.93 超过阈值 0.50，熔断停止。
+2026-04-26 12:36:04 | INFO | a_stock | 
+历史K构建报告：
+  总处理：30
+  成功：2
+  失败：28
+  缓存命中：0
+  腾讯成功：0
+  新浪历史成功：2
+  efinance成功：0
+  混合/合并：0
+  未知来源：0
+{'processed': 30, 'success': 2, 'failed': 28, 'cache_hit': 0, 'tencent': 0, 'sina_history': 2, 'efinance': 0, 'mixed': 0, 'unknown_source': 0}
+2026-04-26 12:36:04 | INFO | a_stock | 
+本轮过滤/跳过原因统计：
+  no_kline_data                  489
+  request_or_parse_failed        52
+  no_remote_and_no_cache         2
+
+本轮过滤/跳过原因统计：
+  no_kline_data                  489
+  request_or_parse_failed        52
+  no_remote_and_no_cache         2

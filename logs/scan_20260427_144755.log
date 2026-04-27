@@ -1,0 +1,215 @@
+2026-04-27 14:47:55 | INFO | a_stock | 日志初始化完成：run_id=20260427_144755, log_dir=logs, reject_file=logs/rejects_20260427_144755.csv, raw_bad_rows_file=logs/raw_bad_rows_20260427_144755.jsonl
+2026-04-27 14:47:56 | INFO | a_stock | run_scan 启动
+2026-04-27 14:47:56 | INFO | a_stock | 历史K优化候选池：100 只（实时有效 + 按成交额排序 + 未缓存）
+2026-04-27 14:47:56 | INFO | a_stock | 开始优化历史K缓存：候选=100 daily_limit=100
+2026-04-27 14:47:56 | INFO | a_stock | [reject] 300502 exception save_to_db() missing 1 required positional argument: 'df'
+2026-04-27 14:47:56 | DEBUG | a_stock | 历史K缓存异常 code=300502 | save_to_db() missing 1 required positional argument: 'df'
+Traceback (most recent call last):
+  File "/Users/liujunying/Downloads/project/my-first/core/daily_cache_builder.py", line 216, in build_daily_cache_optimized
+    save_to_db(df)
+TypeError: save_to_db() missing 1 required positional argument: 'df'
+2026-04-27 14:47:57 | INFO | a_stock | [reject] 300308 exception save_to_db() missing 1 required positional argument: 'df'
+2026-04-27 14:47:57 | DEBUG | a_stock | 历史K缓存异常 code=300308 | save_to_db() missing 1 required positional argument: 'df'
+Traceback (most recent call last):
+  File "/Users/liujunying/Downloads/project/my-first/core/daily_cache_builder.py", line 216, in build_daily_cache_optimized
+    save_to_db(df)
+TypeError: save_to_db() missing 1 required positional argument: 'df'
+2026-04-27 14:47:58 | INFO | a_stock | [reject] 002384 exception save_to_db() missing 1 required positional argument: 'df'
+2026-04-27 14:47:58 | DEBUG | a_stock | 历史K缓存异常 code=002384 | save_to_db() missing 1 required positional argument: 'df'
+Traceback (most recent call last):
+  File "/Users/liujunying/Downloads/project/my-first/core/daily_cache_builder.py", line 216, in build_daily_cache_optimized
+    save_to_db(df)
+TypeError: save_to_db() missing 1 required positional argument: 'df'
+2026-04-27 14:47:59 | INFO | a_stock | [reject] 300394 exception save_to_db() missing 1 required positional argument: 'df'
+2026-04-27 14:47:59 | DEBUG | a_stock | 历史K缓存异常 code=300394 | save_to_db() missing 1 required positional argument: 'df'
+Traceback (most recent call last):
+  File "/Users/liujunying/Downloads/project/my-first/core/daily_cache_builder.py", line 216, in build_daily_cache_optimized
+    save_to_db(df)
+TypeError: save_to_db() missing 1 required positional argument: 'df'
+2026-04-27 14:48:00 | INFO | a_stock | [reject] 300750 exception save_to_db() missing 1 required positional argument: 'df'
+2026-04-27 14:48:00 | DEBUG | a_stock | 历史K缓存异常 code=300750 | save_to_db() missing 1 required positional argument: 'df'
+Traceback (most recent call last):
+  File "/Users/liujunying/Downloads/project/my-first/core/daily_cache_builder.py", line 216, in build_daily_cache_optimized
+    save_to_db(df)
+TypeError: save_to_db() missing 1 required positional argument: 'df'
+2026-04-27 14:48:01 | INFO | a_stock | [reject] 601138 exception save_to_db() missing 1 required positional argument: 'df'
+2026-04-27 14:48:01 | DEBUG | a_stock | 历史K缓存异常 code=601138 | save_to_db() missing 1 required positional argument: 'df'
+Traceback (most recent call last):
+  File "/Users/liujunying/Downloads/project/my-first/core/daily_cache_builder.py", line 216, in build_daily_cache_optimized
+    save_to_db(df)
+TypeError: save_to_db() missing 1 required positional argument: 'df'
+2026-04-27 14:48:02 | INFO | a_stock | [reject] 002475 exception save_to_db() missing 1 required positional argument: 'df'
+2026-04-27 14:48:02 | DEBUG | a_stock | 历史K缓存异常 code=002475 | save_to_db() missing 1 required positional argument: 'df'
+Traceback (most recent call last):
+  File "/Users/liujunying/Downloads/project/my-first/core/daily_cache_builder.py", line 216, in build_daily_cache_optimized
+    save_to_db(df)
+TypeError: save_to_db() missing 1 required positional argument: 'df'
+2026-04-27 14:48:03 | INFO | a_stock | [reject] 688256 exception save_to_db() missing 1 required positional argument: 'df'
+2026-04-27 14:48:03 | DEBUG | a_stock | 历史K缓存异常 code=688256 | save_to_db() missing 1 required positional argument: 'df'
+Traceback (most recent call last):
+  File "/Users/liujunying/Downloads/project/my-first/core/daily_cache_builder.py", line 216, in build_daily_cache_optimized
+    save_to_db(df)
+TypeError: save_to_db() missing 1 required positional argument: 'df'
+2026-04-27 14:48:04 | INFO | a_stock | [reject] 300476 exception save_to_db() missing 1 required positional argument: 'df'
+2026-04-27 14:48:04 | DEBUG | a_stock | 历史K缓存异常 code=300476 | save_to_db() missing 1 required positional argument: 'df'
+Traceback (most recent call last):
+  File "/Users/liujunying/Downloads/project/my-first/core/daily_cache_builder.py", line 216, in build_daily_cache_optimized
+    save_to_db(df)
+TypeError: save_to_db() missing 1 required positional argument: 'df'
+2026-04-27 14:48:05 | INFO | a_stock | [reject] 600487 exception save_to_db() missing 1 required positional argument: 'df'
+2026-04-27 14:48:05 | DEBUG | a_stock | 历史K缓存异常 code=600487 | save_to_db() missing 1 required positional argument: 'df'
+Traceback (most recent call last):
+  File "/Users/liujunying/Downloads/project/my-first/core/daily_cache_builder.py", line 216, in build_daily_cache_optimized
+    save_to_db(df)
+TypeError: save_to_db() missing 1 required positional argument: 'df'
+2026-04-27 14:48:06 | INFO | a_stock | [reject] 688041 exception save_to_db() missing 1 required positional argument: 'df'
+2026-04-27 14:48:06 | DEBUG | a_stock | 历史K缓存异常 code=688041 | save_to_db() missing 1 required positional argument: 'df'
+Traceback (most recent call last):
+  File "/Users/liujunying/Downloads/project/my-first/core/daily_cache_builder.py", line 216, in build_daily_cache_optimized
+    save_to_db(df)
+TypeError: save_to_db() missing 1 required positional argument: 'df'
+2026-04-27 14:48:07 | INFO | a_stock | [reject] 300136 exception save_to_db() missing 1 required positional argument: 'df'
+2026-04-27 14:48:07 | DEBUG | a_stock | 历史K缓存异常 code=300136 | save_to_db() missing 1 required positional argument: 'df'
+Traceback (most recent call last):
+  File "/Users/liujunying/Downloads/project/my-first/core/daily_cache_builder.py", line 216, in build_daily_cache_optimized
+    save_to_db(df)
+TypeError: save_to_db() missing 1 required positional argument: 'df'
+2026-04-27 14:48:08 | INFO | a_stock | [reject] 300058 exception save_to_db() missing 1 required positional argument: 'df'
+2026-04-27 14:48:08 | DEBUG | a_stock | 历史K缓存异常 code=300058 | save_to_db() missing 1 required positional argument: 'df'
+Traceback (most recent call last):
+  File "/Users/liujunying/Downloads/project/my-first/core/daily_cache_builder.py", line 216, in build_daily_cache_optimized
+    save_to_db(df)
+TypeError: save_to_db() missing 1 required positional argument: 'df'
+2026-04-27 14:48:09 | DEBUG | a_stock | 历史K源无效 code=688808 source=sina_history rows=1
+2026-04-27 14:48:15 | DEBUG | a_stock | 历史K源无效 code=688808 source=efinance rows=2
+2026-04-27 14:48:16 | DEBUG | a_stock | 历史K源无效 code=688808 source=tencent rows=1
+2026-04-27 14:48:16 | INFO | a_stock | [reject] 688808 no_kline_data 历史K为空或不足250根 source=failed
+2026-04-27 14:48:16 | INFO | a_stock | [reject] 002281 exception save_to_db() missing 1 required positional argument: 'df'
+2026-04-27 14:48:16 | DEBUG | a_stock | 历史K缓存异常 code=002281 | save_to_db() missing 1 required positional argument: 'df'
+Traceback (most recent call last):
+  File "/Users/liujunying/Downloads/project/my-first/core/daily_cache_builder.py", line 216, in build_daily_cache_optimized
+    save_to_db(df)
+TypeError: save_to_db() missing 1 required positional argument: 'df'
+2026-04-27 14:48:17 | INFO | a_stock | [reject] 300475 exception save_to_db() missing 1 required positional argument: 'df'
+2026-04-27 14:48:17 | DEBUG | a_stock | 历史K缓存异常 code=300475 | save_to_db() missing 1 required positional argument: 'df'
+Traceback (most recent call last):
+  File "/Users/liujunying/Downloads/project/my-first/core/daily_cache_builder.py", line 216, in build_daily_cache_optimized
+    save_to_db(df)
+TypeError: save_to_db() missing 1 required positional argument: 'df'
+2026-04-27 14:48:18 | INFO | a_stock | [reject] 002428 exception save_to_db() missing 1 required positional argument: 'df'
+2026-04-27 14:48:18 | DEBUG | a_stock | 历史K缓存异常 code=002428 | save_to_db() missing 1 required positional argument: 'df'
+Traceback (most recent call last):
+  File "/Users/liujunying/Downloads/project/my-first/core/daily_cache_builder.py", line 216, in build_daily_cache_optimized
+    save_to_db(df)
+TypeError: save_to_db() missing 1 required positional argument: 'df'
+2026-04-27 14:48:19 | INFO | a_stock | [reject] 603986 exception save_to_db() missing 1 required positional argument: 'df'
+2026-04-27 14:48:19 | DEBUG | a_stock | 历史K缓存异常 code=603986 | save_to_db() missing 1 required positional argument: 'df'
+Traceback (most recent call last):
+  File "/Users/liujunying/Downloads/project/my-first/core/daily_cache_builder.py", line 216, in build_daily_cache_optimized
+    save_to_db(df)
+TypeError: save_to_db() missing 1 required positional argument: 'df'
+2026-04-27 14:48:20 | INFO | a_stock | [reject] 688008 exception save_to_db() missing 1 required positional argument: 'df'
+2026-04-27 14:48:20 | DEBUG | a_stock | 历史K缓存异常 code=688008 | save_to_db() missing 1 required positional argument: 'df'
+Traceback (most recent call last):
+  File "/Users/liujunying/Downloads/project/my-first/core/daily_cache_builder.py", line 216, in build_daily_cache_optimized
+    save_to_db(df)
+TypeError: save_to_db() missing 1 required positional argument: 'df'
+2026-04-27 14:48:21 | INFO | a_stock | [reject] 688981 exception save_to_db() missing 1 required positional argument: 'df'
+2026-04-27 14:48:21 | DEBUG | a_stock | 历史K缓存异常 code=688981 | save_to_db() missing 1 required positional argument: 'df'
+Traceback (most recent call last):
+  File "/Users/liujunying/Downloads/project/my-first/core/daily_cache_builder.py", line 216, in build_daily_cache_optimized
+    save_to_db(df)
+TypeError: save_to_db() missing 1 required positional argument: 'df'
+2026-04-27 14:48:22 | INFO | a_stock | [reject] 002466 exception save_to_db() missing 1 required positional argument: 'df'
+2026-04-27 14:48:22 | DEBUG | a_stock | 历史K缓存异常 code=002466 | save_to_db() missing 1 required positional argument: 'df'
+Traceback (most recent call last):
+  File "/Users/liujunying/Downloads/project/my-first/core/daily_cache_builder.py", line 216, in build_daily_cache_optimized
+    save_to_db(df)
+TypeError: save_to_db() missing 1 required positional argument: 'df'
+2026-04-27 14:48:23 | INFO | a_stock | [reject] 600105 exception save_to_db() missing 1 required positional argument: 'df'
+2026-04-27 14:48:23 | DEBUG | a_stock | 历史K缓存异常 code=600105 | save_to_db() missing 1 required positional argument: 'df'
+Traceback (most recent call last):
+  File "/Users/liujunying/Downloads/project/my-first/core/daily_cache_builder.py", line 216, in build_daily_cache_optimized
+    save_to_db(df)
+TypeError: save_to_db() missing 1 required positional argument: 'df'
+2026-04-27 14:48:24 | INFO | a_stock | [reject] 002463 exception save_to_db() missing 1 required positional argument: 'df'
+2026-04-27 14:48:24 | DEBUG | a_stock | 历史K缓存异常 code=002463 | save_to_db() missing 1 required positional argument: 'df'
+Traceback (most recent call last):
+  File "/Users/liujunying/Downloads/project/my-first/core/daily_cache_builder.py", line 216, in build_daily_cache_optimized
+    save_to_db(df)
+TypeError: save_to_db() missing 1 required positional argument: 'df'
+2026-04-27 14:48:25 | INFO | a_stock | [reject] 300857 exception save_to_db() missing 1 required positional argument: 'df'
+2026-04-27 14:48:25 | DEBUG | a_stock | 历史K缓存异常 code=300857 | save_to_db() missing 1 required positional argument: 'df'
+Traceback (most recent call last):
+  File "/Users/liujunying/Downloads/project/my-first/core/daily_cache_builder.py", line 216, in build_daily_cache_optimized
+    save_to_db(df)
+TypeError: save_to_db() missing 1 required positional argument: 'df'
+2026-04-27 14:48:26 | INFO | a_stock | [reject] 601899 exception save_to_db() missing 1 required positional argument: 'df'
+2026-04-27 14:48:26 | DEBUG | a_stock | 历史K缓存异常 code=601899 | save_to_db() missing 1 required positional argument: 'df'
+Traceback (most recent call last):
+  File "/Users/liujunying/Downloads/project/my-first/core/daily_cache_builder.py", line 216, in build_daily_cache_optimized
+    save_to_db(df)
+TypeError: save_to_db() missing 1 required positional argument: 'df'
+2026-04-27 14:48:27 | INFO | a_stock | [reject] 300390 exception save_to_db() missing 1 required positional argument: 'df'
+2026-04-27 14:48:27 | DEBUG | a_stock | 历史K缓存异常 code=300390 | save_to_db() missing 1 required positional argument: 'df'
+Traceback (most recent call last):
+  File "/Users/liujunying/Downloads/project/my-first/core/daily_cache_builder.py", line 216, in build_daily_cache_optimized
+    save_to_db(df)
+TypeError: save_to_db() missing 1 required positional argument: 'df'
+2026-04-27 14:48:28 | INFO | a_stock | [reject] 002261 exception save_to_db() missing 1 required positional argument: 'df'
+2026-04-27 14:48:28 | DEBUG | a_stock | 历史K缓存异常 code=002261 | save_to_db() missing 1 required positional argument: 'df'
+Traceback (most recent call last):
+  File "/Users/liujunying/Downloads/project/my-first/core/daily_cache_builder.py", line 216, in build_daily_cache_optimized
+    save_to_db(df)
+TypeError: save_to_db() missing 1 required positional argument: 'df'
+2026-04-27 14:48:29 | INFO | a_stock | [reject] 002460 exception save_to_db() missing 1 required positional argument: 'df'
+2026-04-27 14:48:29 | DEBUG | a_stock | 历史K缓存异常 code=002460 | save_to_db() missing 1 required positional argument: 'df'
+Traceback (most recent call last):
+  File "/Users/liujunying/Downloads/project/my-first/core/daily_cache_builder.py", line 216, in build_daily_cache_optimized
+    save_to_db(df)
+TypeError: save_to_db() missing 1 required positional argument: 'df'
+2026-04-27 14:48:30 | INFO | a_stock | [reject] 600519 exception save_to_db() missing 1 required positional argument: 'df'
+2026-04-27 14:48:30 | DEBUG | a_stock | 历史K缓存异常 code=600519 | save_to_db() missing 1 required positional argument: 'df'
+Traceback (most recent call last):
+  File "/Users/liujunying/Downloads/project/my-first/core/daily_cache_builder.py", line 216, in build_daily_cache_optimized
+    save_to_db(df)
+TypeError: save_to_db() missing 1 required positional argument: 'df'
+2026-04-27 14:48:31 | INFO | a_stock | [reject] 000988 exception save_to_db() missing 1 required positional argument: 'df'
+2026-04-27 14:48:31 | DEBUG | a_stock | 历史K缓存异常 code=000988 | save_to_db() missing 1 required positional argument: 'df'
+Traceback (most recent call last):
+  File "/Users/liujunying/Downloads/project/my-first/core/daily_cache_builder.py", line 216, in build_daily_cache_optimized
+    save_to_db(df)
+TypeError: save_to_db() missing 1 required positional argument: 'df'
+2026-04-27 14:48:31 | ERROR | a_stock | 历史K失败率 1.00 超过阈值 0.80，熔断停止。
+2026-04-27 14:48:31 | INFO | a_stock | 
+历史K构建报告：
+  总处理：30
+  成功：0
+  失败：30
+  缓存命中：0
+  腾讯成功：0
+  新浪历史成功：0
+  efinance成功：0
+  混合/合并：0
+  未知来源：0
+2026-04-27 14:48:31 | WARNING | a_stock | 失败样本前20：
+2026-04-27 14:48:31 | WARNING | a_stock | 300502 -> exception: save_to_db() missing 1 required positional argument: 'df'
+2026-04-27 14:48:31 | WARNING | a_stock | 300308 -> exception: save_to_db() missing 1 required positional argument: 'df'
+2026-04-27 14:48:31 | WARNING | a_stock | 002384 -> exception: save_to_db() missing 1 required positional argument: 'df'
+2026-04-27 14:48:31 | WARNING | a_stock | 300394 -> exception: save_to_db() missing 1 required positional argument: 'df'
+2026-04-27 14:48:31 | WARNING | a_stock | 300750 -> exception: save_to_db() missing 1 required positional argument: 'df'
+2026-04-27 14:48:31 | WARNING | a_stock | 601138 -> exception: save_to_db() missing 1 required positional argument: 'df'
+2026-04-27 14:48:31 | WARNING | a_stock | 002475 -> exception: save_to_db() missing 1 required positional argument: 'df'
+2026-04-27 14:48:31 | WARNING | a_stock | 688256 -> exception: save_to_db() missing 1 required positional argument: 'df'
+2026-04-27 14:48:31 | WARNING | a_stock | 300476 -> exception: save_to_db() missing 1 required positional argument: 'df'
+2026-04-27 14:48:31 | WARNING | a_stock | 600487 -> exception: save_to_db() missing 1 required positional argument: 'df'
+2026-04-27 14:48:31 | WARNING | a_stock | 688041 -> exception: save_to_db() missing 1 required positional argument: 'df'
+2026-04-27 14:48:31 | WARNING | a_stock | 300136 -> exception: save_to_db() missing 1 required positional argument: 'df'
+2026-04-27 14:48:31 | WARNING | a_stock | 300058 -> exception: save_to_db() missing 1 required positional argument: 'df'
+2026-04-27 14:48:31 | WARNING | a_stock | 688808 -> no_kline_data source=failed
+2026-04-27 14:48:31 | WARNING | a_stock | 002281 -> exception: save_to_db() missing 1 required positional argument: 'df'
+2026-04-27 14:48:31 | WARNING | a_stock | 300475 -> exception: save_to_db() missing 1 required positional argument: 'df'
+2026-04-27 14:48:31 | WARNING | a_stock | 002428 -> exception: save_to_db() missing 1 required positional argument: 'df'
+2026-04-27 14:48:31 | WARNING | a_stock | 603986 -> exception: save_to_db() missing 1 required positional argument: 'df'
+2026-04-27 14:48:31 | WARNING | a_stock | 688008 -> exception: save_to_db() missing 1 required positional argument: 'df'
+2026-04-27 14:48:31 | WARNING | a_stock | 688981 -> exception: save_to_db() missing 1 required positional argument: 'df'

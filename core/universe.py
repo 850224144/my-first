@@ -244,6 +244,225 @@ def print_coverage_report(universe_count: Optional[int] = None) -> Dict[str, Any
         print(warn)
         get_logger().warning(warn)
     return stats
+# ===== universe 修复版：直接基于 stock_daily 有效缓存构建股票池 =====
+
+def _read_sql_df(sql: str):
+    import polars as pl
+    from core.data import get_db_connection
+
+    con = get_db_connection()
+    try:
+        rows = con.execute(sql).fetchall()
+        cols = [x[0] for x in con.description]
+        if not rows:
+            return pl.DataFrame()
+        return pl.DataFrame(rows, schema=cols, orient="row")
+    finally:
+        con.close()
+
+
+def print_coverage_report():
+    """打印真实有效覆盖率：只统计 stock_daily >=250 根的股票"""
+    try:
+        from core.data import get_db_connection
+
+        con = get_db_connection()
+
+        def one(sql: str):
+            try:
+                row = con.execute(sql).fetchone()
+                return int(row[0]) if row and row[0] is not None else 0
+            except Exception:
+                return 0
+
+        stock_basic = one("SELECT COUNT(*) FROM stock_basic")
+
+        valid_basic = one("""
+        SELECT COUNT(*)
+        FROM stock_basic
+        WHERE code IS NOT NULL
+        """)
+
+        valid_daily = one("""
+        SELECT COUNT(*)
+        FROM (
+            SELECT code
+            FROM stock_daily
+            GROUP BY code
+            HAVING COUNT(*) >= 250
+        )
+        """)
+
+        realtime_quote = one("""
+        SELECT COUNT(DISTINCT code)
+        FROM realtime_quote
+        """)
+
+        universe_count = 0
+        try:
+            import os
+            import polars as pl
+            if os.path.exists("data/universe.parquet"):
+                universe_count = len(pl.read_parquet("data/universe.parquet"))
+        except Exception:
+            universe_count = 0
+
+        cov = valid_daily / valid_basic * 100 if valid_basic else 0
+
+        print("\n数据覆盖率报告：")
+        print(f"  stock_basic：{stock_basic}")
+        print(f"  有效基础股票：{valid_basic}")
+        print(f"  stock_daily 有效缓存股票：{valid_daily} ({cov:.2f}%)")
+        print(f"  realtime_quote 覆盖股票：{realtime_quote}")
+        print(f"  universe 股票池：{universe_count}")
+
+        if cov < 20:
+            print("⚠️ 当前日线缓存覆盖率较低，扫描结果只代表已缓存股票，不代表全市场。")
+
+        con.close()
+
+    except Exception as e:
+        print(f"⚠️ 覆盖率报告失败：{e}")
+
+
+def build_stock_universe(limit=None, workers=1, **kwargs):
+    """
+    修复版股票池构建：
+    1. 不再遍历 5317 只逐只拉数据
+    2. 只读取 stock_daily 中已有 >=250 根日线的股票
+    3. 与 stock_basic 关联
+    4. 剔除 ST、低价、低成交额
+    5. 写入 data/universe.parquet
+    """
+    import os
+    import polars as pl
+
+    try:
+        from core.logger import get_logger
+        logger = get_logger()
+    except Exception:
+        import logging
+        logging.basicConfig(level=logging.INFO)
+        logger = logging.getLogger("a_stock")
+
+    sql = """
+    WITH daily_ranked AS (
+        SELECT
+            code,
+            date,
+            close,
+            amount,
+            ROW_NUMBER() OVER (PARTITION BY code ORDER BY date DESC) AS rn
+        FROM stock_daily
+    ),
+    bars AS (
+        SELECT
+            code,
+            COUNT(*) AS bars,
+            MAX(date) AS last_date
+        FROM stock_daily
+        GROUP BY code
+        HAVING COUNT(*) >= 250
+    ),
+    latest AS (
+        SELECT
+            code,
+            close AS last_close
+        FROM daily_ranked
+        WHERE rn = 1
+    ),
+    amount20 AS (
+        SELECT
+            code,
+            AVG(amount) AS amount20
+        FROM daily_ranked
+        WHERE rn <= 20
+        GROUP BY code
+    )
+    SELECT
+        b.*,
+        bars.bars,
+        bars.last_date,
+        latest.last_close,
+        amount20.amount20
+    FROM stock_basic b
+    INNER JOIN bars
+        ON b.code = bars.code
+    INNER JOIN latest
+        ON b.code = latest.code
+    INNER JOIN amount20
+        ON b.code = amount20.code
+    """
+
+    df = _read_sql_df(sql)
+
+    if df.is_empty():
+        print("⚠️ 没有找到有效日线缓存股票，请先执行 build-daily-cache")
+        logger.warning("没有找到有效日线缓存股票")
+        return pl.DataFrame()
+
+    # 兼容字段缺失
+    if "name" not in df.columns:
+        df = df.with_columns(pl.lit("").alias("name"))
+
+    if "market" not in df.columns:
+        df = df.with_columns(pl.lit("").alias("market"))
+
+    if "board" not in df.columns:
+        df = df.with_columns(pl.lit("").alias("board"))
+
+    if "is_st" not in df.columns:
+        df = df.with_columns(pl.lit(False).alias("is_st"))
+
+    # 类型整理
+    df = df.with_columns([
+        pl.col("code").cast(pl.Utf8),
+        pl.col("name").cast(pl.Utf8),
+        pl.col("last_close").cast(pl.Float64, strict=False),
+        pl.col("amount20").cast(pl.Float64, strict=False),
+        pl.col("bars").cast(pl.Int64, strict=False),
+        pl.col("last_date").cast(pl.Utf8),
+    ])
+
+    before = len(df)
+
+    # 股票池过滤
+    df = df.filter(
+        (pl.col("last_close").fill_null(0) >= 3)
+        & (pl.col("amount20").fill_null(0) >= 80_000_000)
+        & (~pl.col("name").str.contains("ST", literal=False).fill_null(False))
+        & (~pl.col("name").str.contains("退", literal=False).fill_null(False))
+    )
+
+    filtered = len(df)
+
+    # 按成交额排序，优先活跃股
+    df = df.sort("amount20", descending=True)
+
+    if limit:
+        df = df.head(limit)
+
+    os.makedirs("data", exist_ok=True)
+    df.write_parquet("data/universe.parquet")
+
+    print("\n股票池构建报告：")
+    print(f"  有效日线缓存股票：{before}")
+    print(f"  过滤后股票池：{filtered}")
+    print(f"  输出股票池：{len(df)}")
+    print("  过滤条件：价格>=3，20日均成交额>=8000万，剔除ST/退市")
+
+    logger.info(
+        f"股票池完成：valid_daily={before}, filtered={filtered}, output={len(df)}，已写入 data/universe.parquet"
+    )
+
+    return df
+
+
+def prepare_data(*args, **kwargs):
+    """
+    兼容旧 run_scan.py 的 prepare_data 引用。
+    """
+    return None
 
 if __name__ == "__main__":
     from core.logger import setup_logger
