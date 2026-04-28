@@ -1,0 +1,15 @@
+
+################################################################################
+[2026-04-28 10:44:24] JOB START: observe_morning
+################################################################################
+
+================================================================================
+[2026-04-28 10:44:24] START COMMAND: /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --mode observe --workers 1
+[2026-04-28 10:44:24] TIMEOUT: 1200
+================================================================================
+Traceback (most recent call last):
+  File "/Users/liujunying/Downloads/project/my-first/run_scan.py", line 34, in <module>
+    from core.data import init_db, get_data_with_status, get_db_connection
+ModuleNotFoundError: No module named 'core.data'
+[2026-04-28 10:44:24] END COMMAND returncode=1
+[2026-04-28 10:44:24] JOB FAILED: observe_morning, command=['run_scan.py', '--mode', 'observe', '--workers', '1'], rc=1

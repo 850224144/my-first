@@ -35,8 +35,11 @@ from core.daily_cache_builder import build_daily_cache_optimized
 from core.universe import build_stock_universe, print_coverage_report
 from core.market import get_market_state
 from core.alert import push_results
+from core.intraday import append_realtime_bar
+from core.realtime_refresh import refresh_realtime_quotes
 from core.lifecycle import (
     save_watchlist,
+    load_watchlist,
     load_watchlist_codes,
     save_trade_plan,
     generate_daily_report,
@@ -63,6 +66,7 @@ def parse_args():
         help="observe盘中观察 / tail_confirm尾盘确认 / after_close收盘复盘",
     )
 
+    parser.add_argument("--watchlist-refresh", action="store_true", help="只刷新今日 watchlist；如果今日 watchlist 为空则自动补跑全市场 observe")
     parser.add_argument("--daily-report", action="store_true", help="生成交易日报")
 
     parser.add_argument("--limit", type=int, default=None, help="扫描/股票池限制数量")
@@ -73,6 +77,12 @@ def parse_args():
     parser.add_argument("--allow-remote-in-scan", action="store_true", help="扫描时允许远程补拉历史K")
     parser.add_argument("--strict-sector", action="store_true", help="严格板块过滤")
     parser.add_argument("--strict-weekly", action="store_true", help="严格周线过滤")
+
+    # 方案 O：扫描前刷新实时行情
+    parser.add_argument("--skip-realtime-refresh", action="store_true", help="盘中扫描前不刷新新浪实时行情，仅用于调试")
+    parser.add_argument("--realtime-batch-size", type=int, default=400, help="新浪实时行情批量大小，默认400")
+    parser.add_argument("--realtime-batch-interval", type=float, default=10.0, help="新浪实时行情批次间隔秒数，默认10秒")
+    parser.add_argument("--realtime-min-success-rate", type=float, default=0.5, help="实时行情最低成功率，低于则停止本轮盘中扫描")
 
     parser.add_argument("--webhook", type=str, default="", help="企业微信/钉钉 webhook")
     parser.add_argument("--platform", choices=["wechat", "dingtalk"], default="wechat")
@@ -317,6 +327,11 @@ def scan_one(code: str, mode: str, allow_remote: bool = False) -> Optional[Dict[
             df = load_daily_from_cache(code, bars=520)
             status = "cache"
 
+        # 盘中模式：把 realtime_quote 合成今日临时K线
+        intraday_mode = "watchlist_refresh" if mode == "watchlist_refresh" else mode
+        if intraday_mode in {"observe", "tail_confirm", "watchlist_refresh"}:
+            df = append_realtime_bar(df, code, mode=intraday_mode)
+
         if df is None or df.is_empty() or len(df) < 250:
             record_reject(code, "data_not_enough", "日线不足250根")
             return None
@@ -327,8 +342,10 @@ def scan_one(code: str, mode: str, allow_remote: bool = False) -> Optional[Dict[
             record_reject(code, "strategy_missing", "strategy.py 中没有 score_second_buy/is_second_buy")
             return None
 
+        score_mode = "observe" if mode == "watchlist_refresh" else mode
+
         try:
-            score_result = score_func(df, mode=mode)
+            score_result = score_func(df, mode=score_mode)
         except TypeError:
             score_result = score_func(df)
 
@@ -346,7 +363,7 @@ def scan_one(code: str, mode: str, allow_remote: bool = False) -> Optional[Dict[
         else:
             total_score = 70 if score_result is True else 0
 
-        min_score = 70 if mode == "observe" else 80
+        min_score = 70 if score_mode == "observe" else 80
 
         if total_score < min_score:
             record_reject(code, "score_too_low", f"score={total_score}")
@@ -412,32 +429,127 @@ def _filter_universe_by_codes(universe_df: pl.DataFrame, codes: List[str]) -> pl
     return universe_df.filter(pl.col("code").cast(pl.Utf8).is_in(codes))
 
 
+def load_today_watchlist_codes() -> List[str]:
+    """
+    只读取今天生成/更新过的 watchlist。
+    如果今天没有 watchlist，返回空，让调用方自动回退全市场 observe。
+    """
+    try:
+        from datetime import datetime
+
+        today = datetime.now().strftime("%Y-%m-%d")
+        df = load_watchlist(active_only=True)
+
+        if df.is_empty() or "code" not in df.columns:
+            return []
+
+        if "date" in df.columns:
+            today_df = df.filter(pl.col("date").cast(pl.Utf8) == today)
+            if not today_df.is_empty():
+                return today_df["code"].cast(pl.Utf8).unique().to_list()
+
+        if "last_seen_at" in df.columns:
+            today_df = df.filter(pl.col("last_seen_at").cast(pl.Utf8).str.starts_with(today))
+            if not today_df.is_empty():
+                return today_df["code"].cast(pl.Utf8).unique().to_list()
+
+        return []
+
+    except Exception:
+        return []
+
+
 def _load_scan_universe(args, mode: str) -> pl.DataFrame:
     universe_df = load_universe(limit=args.limit)
 
     if universe_df.is_empty():
         return universe_df
 
-    if mode == "tail_confirm":
-        watch_codes = load_watchlist_codes(active_only=True)
+    # watchlist_refresh：
+    # 如果今天已有 watchlist，只扫 watchlist；
+    # 如果今天没有 watchlist，自动回退全市场 observe，相当于补跑。
+    if getattr(args, "watchlist_refresh", False):
+        today_codes = load_today_watchlist_codes()
 
-        if watch_codes:
-            filtered = _filter_universe_by_codes(universe_df, watch_codes)
+        if today_codes:
+            filtered = _filter_universe_by_codes(universe_df, today_codes)
             if not filtered.is_empty():
-                print(f"📌 tail_confirm 优先扫描 watchlist：{len(filtered)} 只")
-                logger.info(f"tail_confirm 使用 watchlist 扫描：{len(filtered)} 只")
+                print(f"📌 watchlist_refresh 扫描今日 watchlist：{len(filtered)} 只")
+                logger.info(f"watchlist_refresh 使用今日 watchlist 扫描：{len(filtered)} 只")
                 return filtered
 
-            print("⚠️ watchlist 与 universe 无交集，回退扫描全部 universe")
+        print("⚠️ 今日 watchlist 为空或过期，watchlist_refresh 自动回退为全市场 observe")
+        logger.warning("watchlist_refresh 今日 watchlist 为空，回退全市场 observe")
+        return universe_df
+
+    # tail_confirm：优先扫今天 watchlist；没有则回退全部 universe。
+    if mode == "tail_confirm":
+        today_codes = load_today_watchlist_codes()
+
+        if today_codes:
+            filtered = _filter_universe_by_codes(universe_df, today_codes)
+            if not filtered.is_empty():
+                print(f"📌 tail_confirm 优先扫描今日 watchlist：{len(filtered)} 只")
+                logger.info(f"tail_confirm 使用今日 watchlist 扫描：{len(filtered)} 只")
+                return filtered
+
+            print("⚠️ 今日 watchlist 与 universe 无交集，回退扫描全部 universe")
 
         else:
-            print("⚠️ watchlist 为空，tail_confirm 回退扫描全部 universe")
+            print("⚠️ 今日 watchlist 为空，tail_confirm 回退扫描全部 universe")
 
     return universe_df
 
 
+def _refresh_realtime_before_scan(args, mode: str, codes: List[str]) -> bool:
+    """
+    盘中扫描前刷新新浪实时行情。
+    如果实时行情明显失败，则本轮不扫描，符合“数据失败默认不交易”。
+    """
+    if mode not in {"observe", "tail_confirm", "watchlist_refresh"}:
+        return True
+
+    if getattr(args, "skip_realtime_refresh", False):
+        print("⚠️ 已跳过实时行情刷新，仅用于调试")
+        logger.warning("跳过实时行情刷新")
+        return True
+
+    if not codes:
+        return False
+
+    print(f"🔄 刷新新浪实时行情：{len(codes)} 只，batch={args.realtime_batch_size}，interval={args.realtime_batch_interval}s")
+
+    try:
+        stats = refresh_realtime_quotes(
+            codes=codes,
+            batch_size=args.realtime_batch_size,
+            batch_interval=args.realtime_batch_interval,
+            min_success_rate=args.realtime_min_success_rate,
+        )
+    except Exception as e:
+        print(f"⚠️ 实时行情刷新异常，停止本轮扫描：{e}")
+        logger.error(f"实时行情刷新异常：{e}", exc_info=True)
+        return False
+
+    requested = int(stats.get("requested", 0) or 0)
+    success = int(stats.get("success", 0) or 0)
+    success_rate = float(stats.get("success_rate", 0) or 0)
+
+    print(f"实时行情刷新结果：请求={requested} 成功={success} 成功率={success_rate:.2%}")
+
+    if requested <= 0 or success <= 0:
+        print("⚠️ 实时行情全部失败，停止本轮扫描")
+        return False
+
+    if success_rate < float(args.realtime_min_success_rate):
+        print(f"⚠️ 实时行情成功率过低 {success_rate:.2%}，停止本轮扫描")
+        return False
+
+    return True
+
+
 def run_scan(args, market_state: Dict[str, Any]) -> List[Dict[str, Any]]:
-    mode = args.mode or auto_mode()
+    mode = "watchlist_refresh" if getattr(args, "watchlist_refresh", False) else (args.mode or auto_mode())
 
     universe_df = _load_scan_universe(args, mode)
 
@@ -445,7 +557,6 @@ def run_scan(args, market_state: Dict[str, Any]) -> List[Dict[str, Any]]:
         print("⚠️ 股票池为空，停止扫描")
         return []
 
-    # observe / after_close 保持全池过滤；tail_confirm 已经优先 watchlist
     universe_df = apply_sector_filter(
         universe_df,
         market_state=market_state,
@@ -468,6 +579,11 @@ def run_scan(args, market_state: Dict[str, Any]) -> List[Dict[str, Any]]:
     print_coverage_report()
 
     codes = universe_df["code"].cast(pl.Utf8).to_list()
+
+    # 方案 O：盘中扫描前刷新对应股票实时行情
+    if not _refresh_realtime_before_scan(args, mode, codes):
+        logger.warning("实时行情刷新失败，本轮扫描停止")
+        return []
 
     if args.allow_remote_in_scan:
         logger.info("扫描阶段允许远程补拉历史K")
@@ -522,17 +638,19 @@ def run_scan(args, market_state: Dict[str, Any]) -> List[Dict[str, Any]]:
     )
 
     # ===== 生命周期持久化 =====
-    if mode == "observe":
-        watch = save_watchlist(results, mode=mode, market_state=market_state)
+    persist_mode = "observe" if mode == "watchlist_refresh" else mode
+
+    if persist_mode == "observe":
+        watch = save_watchlist(results, mode=persist_mode, market_state=market_state)
         print(f"📌 watchlist 已更新：{len(watch)} 条")
 
-    elif mode == "tail_confirm":
-        watch = save_watchlist(results, mode=mode, market_state=market_state)
+    elif persist_mode == "tail_confirm":
+        watch = save_watchlist(results, mode=persist_mode, market_state=market_state)
         print(f"📌 watchlist 尾盘状态已更新：{len(watch)} 条")
 
-    elif mode == "after_close":
-        watch = save_watchlist(results, mode=mode, market_state=market_state)
-        plan = save_trade_plan(results, mode=mode, market_state=market_state)
+    elif persist_mode == "after_close":
+        watch = save_watchlist(results, mode=persist_mode, market_state=market_state)
+        plan = save_trade_plan(results, mode=persist_mode, market_state=market_state)
         print(f"📌 watchlist 已更新：{len(watch)} 条")
         print(f"📝 trade_plan 已生成：{len(plan)} 条")
 
@@ -611,7 +729,8 @@ def main():
         print(content)
         return
 
-    mode = args.mode or auto_mode()
+    mode = "watchlist_refresh" if args.watchlist_refresh else (args.mode or auto_mode())
+    display_mode = "observe" if mode == "watchlist_refresh" else mode
 
     market_state = get_market_state()
     print_market_state(market_state)
@@ -629,7 +748,7 @@ def main():
         push_results(
             results,
             market_state=market_state,
-            mode=mode,
+            mode=display_mode,
             webhook=webhook,
             platform=args.platform,
         )

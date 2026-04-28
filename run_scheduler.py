@@ -26,9 +26,8 @@ PYTHON = sys.executable
 
 LOG_DIR = PROJECT_ROOT / "logs" / "scheduler"
 STATE_DIR = PROJECT_ROOT / "data" / "scheduler_state"
-
+HEARTBEAT_LOG = PROJECT_ROOT / "logs" / "scheduler_heartbeat.log"
 TIMEZONE = "Asia/Shanghai"
-
 SCHEDULER_LOCK_FILE = STATE_DIR / "scheduler.lock"
 
 
@@ -36,36 +35,34 @@ JOB_COMMANDS: Dict[str, List[List[str]]] = {
     "preflight": [
         ["run_scan.py", "--coverage"],
     ],
-
     "observe_morning": [
         ["run_scan.py", "--mode", "observe", "--workers", "1"],
     ],
-
-    "observe_midday": [
+    "watchlist_refresh_1030": [
+        ["run_scan.py", "--watchlist-refresh", "--workers", "1"],
+    ],
+    "watchlist_refresh_1120": [
+        ["run_scan.py", "--watchlist-refresh", "--workers", "1"],
+    ],
+    "observe_afternoon": [
         ["run_scan.py", "--mode", "observe", "--workers", "1"],
     ],
-
+    "watchlist_refresh_1420": [
+        ["run_scan.py", "--watchlist-refresh", "--workers", "1"],
+    ],
     "tail_confirm": [
         ["run_scan.py", "--mode", "tail_confirm", "--workers", "1"],
     ],
-
     "after_close": [
         ["run_scan.py", "--build-daily-cache", "--daily-limit", "300", "--daily-workers", "1"],
         ["run_scan.py", "--build-universe", "--workers", "1"],
         ["run_scan.py", "--mode", "after_close", "--workers", "1"],
     ],
-
     "daily_report": [
         ["run_scan.py", "--daily-report"],
     ],
-
     "night_cache_expand": [
         ["run_scan.py", "--build-daily-cache", "--daily-limit", "300", "--daily-workers", "1"],
-    ],
-
-    # 方案 M：持仓跟踪
-    "track_positions_morning": [
-        ["run_positions.py", "--track"],
     ],
     "track_positions_midday": [
         ["run_positions.py", "--track"],
@@ -81,13 +78,15 @@ JOB_COMMANDS: Dict[str, List[List[str]]] = {
 
 JOB_TIMEOUTS = {
     "preflight": 5 * 60,
-    "observe_morning": 15 * 60,
-    "observe_midday": 15 * 60,
+    "observe_morning": 20 * 60,
+    "watchlist_refresh_1030": 10 * 60,
+    "watchlist_refresh_1120": 10 * 60,
+    "observe_afternoon": 20 * 60,
+    "watchlist_refresh_1420": 10 * 60,
     "tail_confirm": 10 * 60,
     "after_close": 60 * 60,
     "daily_report": 10 * 60,
     "night_cache_expand": 60 * 60,
-    "track_positions_morning": 5 * 60,
     "track_positions_midday": 5 * 60,
     "track_positions_tail": 5 * 60,
     "track_positions_evening": 5 * 60,
@@ -115,7 +114,26 @@ def write_line(path: Path, text: str):
     with open(path, "a", encoding="utf-8") as f:
         f.write(text.rstrip() + "\n")
 
+def heartbeat():
+    """
+    调度器心跳。
+    只证明 run_scheduler.py 主进程还活着，不代表每个任务都成功。
+    """
+    ensure_dirs()
 
+    pid = os.getpid()
+    lock_pid = _read_scheduler_lock()
+
+    line = (
+        f"[{now_str()}] heartbeat "
+        f"pid={pid} lock_pid={lock_pid} "
+        f"project={PROJECT_ROOT}"
+    )
+
+    with open(HEARTBEAT_LOG, "a", encoding="utf-8") as f:
+        f.write(line + "\n")
+
+    print(line)
 def _pid_alive(pid: int) -> bool:
     try:
         os.kill(pid, 0)
@@ -131,7 +149,6 @@ def _pid_alive(pid: int) -> bool:
 def _read_scheduler_lock() -> Optional[int]:
     if not SCHEDULER_LOCK_FILE.exists():
         return None
-
     try:
         text = SCHEDULER_LOCK_FILE.read_text(encoding="utf-8")
         for part in text.replace("\n", " ").split():
@@ -139,7 +156,6 @@ def _read_scheduler_lock() -> Optional[int]:
                 return int(part.replace("pid=", "").strip())
     except Exception:
         return None
-
     return None
 
 
@@ -154,21 +170,17 @@ def _remove_scheduler_lock():
 def _kill_pid(pid: int, wait_seconds: int = 5):
     if not _pid_alive(pid):
         return
-
     print(f"[{now_str()}] 正在停止旧调度器 pid={pid} ...")
-
     try:
         os.kill(pid, signal.SIGTERM)
     except Exception:
         pass
-
     start = time.time()
     while time.time() - start < wait_seconds:
         if not _pid_alive(pid):
             print(f"[{now_str()}] 旧调度器已退出 pid={pid}")
             return
         time.sleep(0.5)
-
     if _pid_alive(pid):
         print(f"[{now_str()}] 旧调度器未退出，强制 kill -9 pid={pid}")
         try:
@@ -178,22 +190,11 @@ def _kill_pid(pid: int, wait_seconds: int = 5):
 
 
 def acquire_scheduler_singleton(replace: bool = False):
-    """
-    调度器级别单例锁。
-
-    默认行为：
-    - 如果已有调度器进程存活，新进程直接退出。
-    --replace：
-    - 先停止旧调度器，再启动当前调度器。
-    """
     ensure_dirs()
-
     old_pid = _read_scheduler_lock()
-
     if old_pid and _pid_alive(old_pid):
         if old_pid == os.getpid():
             return
-
         if replace:
             _kill_pid(old_pid)
             _remove_scheduler_lock()
@@ -201,35 +202,22 @@ def acquire_scheduler_singleton(replace: bool = False):
             print("=" * 80)
             print("已有 run_scheduler.py 正在运行，本次启动自动退出。")
             print(f"旧进程 PID：{old_pid}")
-            print("")
-            print("查看进程：")
-            print("ps aux | grep run_scheduler.py | grep -v grep")
-            print("")
-            print("如需重启调度器，请执行：")
-            print("python run_scheduler.py --replace")
+            print("如需重启调度器，请执行：python run_scheduler.py --replace")
             print("=" * 80)
             sys.exit(0)
-
-    # 如果 lock 残留但 pid 不存在，清理
     if old_pid and not _pid_alive(old_pid):
         _remove_scheduler_lock()
-
     try:
         fd = os.open(str(SCHEDULER_LOCK_FILE), os.O_CREAT | os.O_EXCL | os.O_WRONLY)
-        os.write(
-            fd,
-            f"pid={os.getpid()} started_at={now_str()} project={PROJECT_ROOT}\n".encode("utf-8"),
-        )
+        os.write(fd, f"pid={os.getpid()} started_at={now_str()} project={PROJECT_ROOT}\n".encode("utf-8"))
         os.close(fd)
     except FileExistsError:
-        # 极小概率并发启动
         pid = _read_scheduler_lock()
         if pid and _pid_alive(pid):
             print(f"已有调度器正在运行 pid={pid}，本次启动退出。")
             sys.exit(0)
         _remove_scheduler_lock()
         return acquire_scheduler_singleton(replace=replace)
-
     atexit.register(_remove_scheduler_lock)
 
 
@@ -245,26 +233,17 @@ signal.signal(signal.SIGINT, _handle_exit_signal)
 
 @contextmanager
 def job_lock(job_name: str, stale_seconds: int = 7200):
-    """
-    任务级别锁，防止同一个任务重叠执行。
-    """
     ensure_dirs()
-
     lock_file = STATE_DIR / f"{job_name}.lock"
-
     if lock_file.exists():
         age = time.time() - lock_file.stat().st_mtime
-
         if age < stale_seconds:
             raise RuntimeError(f"任务 {job_name} 正在运行，跳过本次触发。lock={lock_file}")
-
         try:
             lock_file.unlink()
         except Exception:
             raise RuntimeError(f"任务 {job_name} 存在过期锁但无法删除：{lock_file}")
-
     fd = os.open(str(lock_file), os.O_CREAT | os.O_EXCL | os.O_WRONLY)
-
     try:
         os.write(fd, f"pid={os.getpid()} started_at={now_str()}\n".encode("utf-8"))
         yield
@@ -273,7 +252,6 @@ def job_lock(job_name: str, stale_seconds: int = 7200):
             os.close(fd)
         except Exception:
             pass
-
         try:
             lock_file.unlink()
         except Exception:
@@ -282,37 +260,32 @@ def job_lock(job_name: str, stale_seconds: int = 7200):
 
 def run_one_command(job_name: str, cmd: List[str], timeout: Optional[int] = None) -> int:
     ensure_dirs()
-
     path = log_path(job_name)
     full_cmd = [PYTHON] + cmd
-
     write_line(path, "")
     write_line(path, "=" * 80)
     write_line(path, f"[{now_str()}] START COMMAND: {' '.join(full_cmd)}")
     write_line(path, f"[{now_str()}] TIMEOUT: {timeout}")
     write_line(path, "=" * 80)
-
     print(f"[{now_str()}] {job_name} -> {' '.join(full_cmd)}")
-
     try:
         with open(path, "a", encoding="utf-8") as f:
             proc = subprocess.run(
                 full_cmd,
                 cwd=str(PROJECT_ROOT),
+                stdin=subprocess.DEVNULL,  # 关键修复：避免后台进程 stdin 失效
                 stdout=f,
                 stderr=subprocess.STDOUT,
                 text=True,
                 timeout=timeout,
+                close_fds=True,
             )
-
         write_line(path, f"[{now_str()}] END COMMAND returncode={proc.returncode}")
         return proc.returncode
-
     except subprocess.TimeoutExpired:
         write_line(path, f"[{now_str()}] COMMAND TIMEOUT, killed: {' '.join(full_cmd)}")
         print(f"[{now_str()}] 任务超时，已终止子任务：{job_name}")
         return 124
-
     except Exception as e:
         write_line(path, f"[{now_str()}] COMMAND ERROR: {e}")
         print(f"[{now_str()}] 任务异常：{job_name} | {e}")
@@ -321,46 +294,32 @@ def run_one_command(job_name: str, cmd: List[str], timeout: Optional[int] = None
 
 def run_job(job_name: str):
     ensure_dirs()
-
     if job_name not in JOB_COMMANDS:
         print(f"未知任务：{job_name}")
         return
-
     path = log_path(job_name)
-
     try:
         with job_lock(job_name):
             write_line(path, "")
             write_line(path, "#" * 80)
             write_line(path, f"[{now_str()}] JOB START: {job_name}")
             write_line(path, "#" * 80)
-
             commands = JOB_COMMANDS[job_name]
             timeout = JOB_TIMEOUTS.get(job_name)
-
             for cmd in commands:
                 rc = run_one_command(job_name, cmd, timeout=timeout)
-
                 if rc != 0:
                     write_line(path, f"[{now_str()}] JOB FAILED: {job_name}, command={cmd}, rc={rc}")
                     print(f"[{now_str()}] 任务失败：{job_name}, rc={rc}")
                     return
-
             write_line(path, f"[{now_str()}] JOB DONE: {job_name}")
             print(f"[{now_str()}] 任务完成：{job_name}")
-
     except Exception as e:
         write_line(path, f"[{now_str()}] JOB SKIPPED/ERROR: {job_name} | {e}")
         print(f"[{now_str()}] 任务跳过/异常：{job_name} | {e}")
 
 
-def add_job(
-    scheduler: BlockingScheduler,
-    job_name: str,
-    hour: int,
-    minute: int,
-    misfire_grace_time: int = 600,
-):
+def add_job(scheduler: BlockingScheduler, job_name: str, hour: int, minute: int, misfire_grace_time: int = 1800):
     scheduler.add_job(
         run_job,
         trigger=CronTrigger(
@@ -381,25 +340,93 @@ def add_job(
 
 def build_scheduler() -> BlockingScheduler:
     scheduler = BlockingScheduler(timezone=TIMEZONE)
+    # 调度器心跳：交易日 09:05-15:05 每小时一次，晚间再补两次
+    scheduler.add_job(
+        heartbeat,
+        trigger=CronTrigger(
+            day_of_week="mon-fri",
+            hour="9-15",
+            minute=5,
+            timezone=TIMEZONE,
+        ),
+        id="heartbeat_trading",
+        name="heartbeat_trading",
+        replace_existing=True,
+        max_instances=1,
+        coalesce=True,
+        misfire_grace_time=1800,
+    )
 
-    add_job(scheduler, "preflight", 9, 15, misfire_grace_time=900)
-    add_job(scheduler, "observe_morning", 9, 35, misfire_grace_time=900)
-    add_job(scheduler, "track_positions_morning", 9, 45, misfire_grace_time=900)
-
-    add_job(scheduler, "observe_midday", 11, 25, misfire_grace_time=900)
-    add_job(scheduler, "track_positions_midday", 11, 30, misfire_grace_time=900)
-
-    add_job(scheduler, "tail_confirm", 14, 50, misfire_grace_time=900)
-    add_job(scheduler, "track_positions_tail", 14, 55, misfire_grace_time=900)
-
+    scheduler.add_job(
+        heartbeat,
+        trigger=CronTrigger(
+            day_of_week="mon-fri",
+            hour="17,20,22",
+            minute=5,
+            timezone=TIMEZONE,
+        ),
+        id="heartbeat_evening",
+        name="heartbeat_evening",
+        replace_existing=True,
+        max_instances=1,
+        coalesce=True,
+        misfire_grace_time=1800,
+    )
+    add_job(scheduler, "preflight", 9, 15, misfire_grace_time=1800)
+    add_job(scheduler, "observe_morning", 9, 45, misfire_grace_time=1800)
+    add_job(scheduler, "watchlist_refresh_1030", 10, 30, misfire_grace_time=1800)
+    add_job(scheduler, "watchlist_refresh_1120", 11, 20, misfire_grace_time=1800)
+    add_job(scheduler, "track_positions_midday", 11, 30, misfire_grace_time=1800)
+    add_job(scheduler, "observe_afternoon", 13, 20, misfire_grace_time=1800)
+    add_job(scheduler, "watchlist_refresh_1420", 14, 20, misfire_grace_time=1800)
+    add_job(scheduler, "tail_confirm", 14, 50, misfire_grace_time=1800)
+    add_job(scheduler, "track_positions_tail", 14, 55, misfire_grace_time=1800)
     add_job(scheduler, "after_close", 17, 30, misfire_grace_time=3600)
-
     add_job(scheduler, "track_positions_evening", 20, 0, misfire_grace_time=3600)
     add_job(scheduler, "daily_report", 20, 30, misfire_grace_time=3600)
-
     add_job(scheduler, "night_cache_expand", 22, 30, misfire_grace_time=3600)
-
     return scheduler
+
+
+def has_today_watchlist() -> bool:
+    try:
+        import polars as pl
+        path = PROJECT_ROOT / "data" / "watchlist.parquet"
+        if not path.exists():
+            return False
+        df = pl.read_parquet(path)
+        if df.is_empty():
+            return False
+        today = datetime.now().strftime("%Y-%m-%d")
+        if "date" in df.columns:
+            today_df = df.filter(pl.col("date").cast(pl.Utf8) == today)
+            if not today_df.is_empty():
+                return True
+        if "last_seen_at" in df.columns:
+            today_df = df.filter(pl.col("last_seen_at").cast(pl.Utf8).str.starts_with(today))
+            if not today_df.is_empty():
+                return True
+        return False
+    except Exception:
+        return False
+
+
+def maybe_catch_up_on_start():
+    """
+    启动调度器时补跑：
+    如果当前是交易时间段，且今天还没有 watchlist，则立即跑一次 observe_morning。
+    解决 10:30 才启动，09:45 已错过的问题。
+    """
+    now = datetime.now()
+    if now.weekday() >= 5:
+        return
+    hhmm = now.hour * 100 + now.minute
+    if 945 <= hhmm <= 1445:
+        if not has_today_watchlist():
+            print(f"[{now_str()}] 启动补跑：当前在交易时间内，且今日 watchlist 不存在，立即执行 observe_morning")
+            run_job("observe_morning")
+        else:
+            print(f"[{now_str()}] 今日 watchlist 已存在，启动时不补跑 observe")
 
 
 def print_jobs():
@@ -408,14 +435,15 @@ def print_jobs():
         print(f"- {name}")
         for cmd in commands:
             print(f"  {PYTHON} {' '.join(cmd)}")
-
     print("")
     print("默认调度时间：")
     print("- 09:15 preflight")
-    print("- 09:35 observe_morning")
-    print("- 09:45 track_positions_morning")
-    print("- 11:25 observe_midday")
+    print("- 09:45 observe_morning")
+    print("- 10:30 watchlist_refresh_1030")
+    print("- 11:20 watchlist_refresh_1120")
     print("- 11:30 track_positions_midday")
+    print("- 13:20 observe_afternoon")
+    print("- 14:20 watchlist_refresh_1420")
     print("- 14:50 tail_confirm")
     print("- 14:55 track_positions_tail")
     print("- 17:30 after_close")
@@ -426,42 +454,22 @@ def print_jobs():
 
 def parse_args():
     parser = argparse.ArgumentParser(description="A股二买系统 APScheduler 自动调度器")
-
-    parser.add_argument(
-        "--run-once",
-        choices=list(JOB_COMMANDS.keys()),
-        help="立即执行某个任务一次，用于测试",
-    )
-
-    parser.add_argument(
-        "--list",
-        action="store_true",
-        help="列出任务与命令",
-    )
-
-    parser.add_argument(
-        "--replace",
-        action="store_true",
-        help="如果已有调度器在运行，先停止旧调度器，再启动当前调度器",
-    )
-
+    parser.add_argument("--run-once", choices=list(JOB_COMMANDS.keys()), help="立即执行某个任务一次，用于测试")
+    parser.add_argument("--list", action="store_true", help="列出任务与命令")
+    parser.add_argument("--replace", action="store_true", help="如果已有调度器在运行，先停止旧调度器，再启动当前调度器")
     return parser.parse_args()
 
 
 def main():
     args = parse_args()
     ensure_dirs()
-
     if args.list:
         print_jobs()
         return
-
     if args.run_once:
         run_job(args.run_once)
         return
-
     acquire_scheduler_singleton(replace=args.replace)
-
     print("=" * 80)
     print("A股二买系统自动调度器已启动")
     print(f"项目目录：{PROJECT_ROOT}")
@@ -475,9 +483,8 @@ def main():
     print("=" * 80)
     print("按 Ctrl+C 停止调度器")
     print("=" * 80)
-
+    maybe_catch_up_on_start()
     scheduler = build_scheduler()
-
     try:
         scheduler.start()
     except KeyboardInterrupt:

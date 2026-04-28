@@ -1,0 +1,41 @@
+2026-04-28 11:03:34 | INFO | a_stock | 日志初始化完成：run_id=20260428_110334, log_dir=logs, reject_file=logs/rejects_20260428_110334.csv, raw_bad_rows_file=logs/raw_bad_rows_20260428_110334.jsonl
+2026-04-28 11:03:34 | INFO | a_stock | run_scan 启动
+2026-04-28 11:03:35 | INFO | a_stock | 使用股票池缓存：909 只
+2026-04-28 11:03:35 | INFO | a_stock | watchlist_refresh 使用今日 watchlist 扫描：42 只
+2026-04-28 11:03:35 | WARNING | a_stock | 板块过滤失败：cannot import name 'filter_universe_by_strong_sector' from 'core.sector' (/Users/liujunying/Downloads/project/my-first/core/sector.py)
+2026-04-28 11:03:35 | WARNING | a_stock | 周线过滤失败：cannot import name 'filter_by_weekly_trend' from 'core.weekly' (/Users/liujunying/Downloads/project/my-first/core/weekly.py)
+2026-04-28 11:03:35 | INFO | a_stock | 新浪实时批次 1/1 完成：请求 42，有效 42，缺失 0
+2026-04-28 11:03:35 | INFO | a_stock | 实时行情刷新完成：{'requested': 42, 'success': 42, 'failed': 0, 'batches': 1, 'empty_response': 0, 'parse_failed': 0, 'written': 42, 'success_rate': 1.0}
+2026-04-28 11:03:35 | INFO | a_stock | 扫描阶段只读本地 stock_daily 缓存，不远程拉历史K
+2026-04-28 11:03:35 | INFO | a_stock | reject 002475 score_too_low score=61
+2026-04-28 11:03:35 | INFO | a_stock | reject 600487 score_too_low score=57
+2026-04-28 11:03:35 | INFO | a_stock | reject 002463 score_too_low score=68
+2026-04-28 11:03:35 | INFO | a_stock | reject 002594 score_too_low score=63
+2026-04-28 11:03:35 | INFO | a_stock | reject 301308 score_too_low score=52
+2026-04-28 11:03:35 | INFO | a_stock | reject 300390 score_too_low score=60
+2026-04-28 11:03:35 | INFO | a_stock | reject 000938 score_too_low score=53
+2026-04-28 11:03:35 | INFO | a_stock | reject 002916 score_too_low score=59
+2026-04-28 11:03:35 | INFO | a_stock | reject 603026 score_too_low score=69
+2026-04-28 11:03:35 | INFO | a_stock | reject 688183 score_too_low score=66
+2026-04-28 11:03:35 | INFO | a_stock | reject 000155 score_too_low score=64
+2026-04-28 11:03:35 | INFO | a_stock | reject 000062 score_too_low score=60
+2026-04-28 11:03:35 | INFO | a_stock | reject 688630 score_too_low score=46
+2026-04-28 11:03:35 | INFO | a_stock | reject 002176 score_too_low score=53
+2026-04-28 11:03:35 | INFO | a_stock | reject 603063 score_too_low score=69
+2026-04-28 11:03:35 | INFO | a_stock | reject 000973 score_too_low score=52
+2026-04-28 11:03:35 | INFO | a_stock | reject 002756 score_too_low score=65
+2026-04-28 11:03:35 | INFO | a_stock | reject 300037 score_too_low score=58
+2026-04-28 11:03:35 | INFO | a_stock | reject 605589 score_too_low score=56
+2026-04-28 11:03:35 | INFO | a_stock | reject 688519 score_too_low score=56
+2026-04-28 11:03:35 | INFO | a_stock | reject 002213 score_too_low score=67
+2026-04-28 11:03:35 | INFO | a_stock | reject 002181 score_too_low score=51
+2026-04-28 11:03:35 | INFO | a_stock | reject 688002 score_too_low score=69
+2026-04-28 11:03:35 | INFO | a_stock | reject 300769 score_too_low score=69
+2026-04-28 11:03:35 | INFO | a_stock | reject 603002 score_too_low score=66
+2026-04-28 11:03:35 | INFO | a_stock | reject 688099 score_too_low score=57
+2026-04-28 11:03:35 | INFO | a_stock | reject 002730 score_too_low score=60
+2026-04-28 11:03:35 | INFO | a_stock | reject 003816 score_too_low score=68
+2026-04-28 11:03:35 | INFO | a_stock | reject 300137 score_too_low score=59
+2026-04-28 11:03:35 | INFO | a_stock | reject 002606 score_too_low score=55
+2026-04-28 11:03:35 | INFO | a_stock | reject 600433 score_too_low score=68
+2026-04-28 11:03:35 | INFO | a_stock | 扫描报告：universe=42 processed=42 skipped=31 candidates=11
