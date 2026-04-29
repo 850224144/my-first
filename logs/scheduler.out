@@ -604,3 +604,154 @@ PID：5044
 按 Ctrl+C 停止调度器
 ================================================================================
 [2026-04-28 13:50:02] 今日 watchlist 已存在，启动时不补跑 observe
+[2026-04-28 14:05:00] heartbeat pid=5044 lock_pid=5044 project=/Users/liujunying/Downloads/project/my-first
+[2026-04-28 14:20:00] watchlist_refresh_1420 -> /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --watchlist-refresh --workers 1
+[2026-04-28 14:20:02] 任务完成：watchlist_refresh_1420
+[2026-04-28 14:50:00] tail_confirm -> /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --mode tail_confirm --workers 1
+[2026-04-28 14:50:03] 任务完成：tail_confirm
+[2026-04-28 14:55:00] track_positions_tail -> /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_positions.py --track
+[2026-04-28 14:55:00] 任务完成：track_positions_tail
+[2026-04-28 15:05:00] heartbeat pid=5044 lock_pid=5044 project=/Users/liujunying/Downloads/project/my-first
+[2026-04-28 17:05:00] heartbeat pid=5044 lock_pid=5044 project=/Users/liujunying/Downloads/project/my-first
+[2026-04-28 17:30:00] after_close -> /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --build-daily-cache --daily-limit 300 --daily-workers 1
+[2026-04-28 17:38:35] after_close -> /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --build-universe --workers 1
+[2026-04-28 17:38:37] after_close -> /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --mode after_close --workers 1
+[2026-04-28 17:41:05] 任务完成：after_close
+[2026-04-28 20:00:00] track_positions_evening -> /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_positions.py --track
+[2026-04-28 20:00:04] 任务完成：track_positions_evening
+[2026-04-28 20:05:00] heartbeat pid=5044 lock_pid=5044 project=/Users/liujunying/Downloads/project/my-first
+[2026-04-28 20:30:00] daily_report -> /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --daily-report
+[2026-04-28 20:30:00] 任务完成：daily_report
+[2026-04-28 20:55:26] 收到退出信号 15，清理 scheduler.lock
+调度器退出。
+================================================================================
+A股二买系统自动调度器已启动
+项目目录：/Users/liujunying/Downloads/project/my-first
+Python：/Users/liujunying/.pyenv/versions/3.11.1/bin/python
+时区：Asia/Shanghai
+日志目录：/Users/liujunying/Downloads/project/my-first/logs/scheduler
+单例锁：/Users/liujunying/Downloads/project/my-first/data/scheduler_state/scheduler.lock
+PID：26390
+================================================================================
+可用任务：
+- preflight
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --coverage
+- observe_morning
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --mode observe --workers 1
+- watchlist_refresh_1030
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --watchlist-refresh --workers 1
+- watchlist_refresh_1120
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --watchlist-refresh --workers 1
+- observe_afternoon
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --mode observe --workers 1
+- watchlist_refresh_1420
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --watchlist-refresh --workers 1
+- tail_confirm
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --mode tail_confirm --workers 1
+- after_close
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --build-daily-cache --daily-limit 300 --daily-workers 1
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --build-universe --workers 1
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --mode after_close --workers 1
+- daily_report
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --daily-report
+- night_cache_expand
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --build-daily-cache --daily-limit 300 --daily-workers 1
+- track_positions_midday
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_positions.py --track
+- track_positions_tail
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_positions.py --track
+- track_positions_evening
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_positions.py --track
+
+默认调度时间：
+- 09:15 preflight
+- 09:45 observe_morning
+- 10:30 watchlist_refresh_1030
+- 11:20 watchlist_refresh_1120
+- 11:30 track_positions_midday
+- 13:20 observe_afternoon
+- 14:20 watchlist_refresh_1420
+- 14:50 tail_confirm
+- 14:55 track_positions_tail
+- 17:30 after_close
+- 20:00 track_positions_evening
+- 20:30 daily_report
+- 22:30 night_cache_expand
+================================================================================
+按 Ctrl+C 停止调度器
+================================================================================
+[2026-04-28 22:05:00] heartbeat pid=26390 lock_pid=26390 project=/Users/liujunying/Downloads/project/my-first
+[2026-04-28 22:30:00] night_cache_expand -> /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --build-daily-cache --daily-limit 300 --daily-workers 1
+[2026-04-28 22:30:57] 任务完成：night_cache_expand
+[2026-04-29 09:05:00] heartbeat pid=26390 lock_pid=26390 project=/Users/liujunying/Downloads/project/my-first
+[2026-04-29 09:15:00] preflight -> /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --coverage
+[2026-04-29 09:15:00] 任务完成：preflight
+[2026-04-29 09:45:00] observe_morning -> /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --mode observe --workers 1
+[2026-04-29 09:45:53] 任务完成：observe_morning
+[2026-04-29 10:05:00] heartbeat pid=26390 lock_pid=26390 project=/Users/liujunying/Downloads/project/my-first
+[2026-04-29 10:30:00] watchlist_refresh_1030 -> /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --watchlist-refresh --workers 1
+[2026-04-29 10:30:04] 任务完成：watchlist_refresh_1030
+[2026-04-29 11:05:00] heartbeat pid=26390 lock_pid=26390 project=/Users/liujunying/Downloads/project/my-first
+[2026-04-29 11:20:00] watchlist_refresh_1120 -> /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --watchlist-refresh --workers 1
+[2026-04-29 11:20:16] 任务完成：watchlist_refresh_1120
+[2026-04-29 11:30:00] track_positions_midday -> /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_positions.py --track
+[2026-04-29 11:30:04] 任务完成：track_positions_midday
+[2026-04-29 11:35:13] 收到退出信号 15，清理 scheduler.lock
+调度器退出。
+================================================================================
+A股二买系统自动调度器已启动
+项目目录：/Users/liujunying/Downloads/project/my-first
+Python：/Users/liujunying/.pyenv/versions/3.11.1/bin/python
+时区：Asia/Shanghai
+日志目录：/Users/liujunying/Downloads/project/my-first/logs/scheduler
+单例锁：/Users/liujunying/Downloads/project/my-first/data/scheduler_state/scheduler.lock
+PID：44128
+================================================================================
+可用任务：
+- preflight
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --coverage
+- observe_morning
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --mode observe --workers 1
+- watchlist_refresh_1030
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --watchlist-refresh --workers 1
+- watchlist_refresh_1120
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --watchlist-refresh --workers 1
+- observe_afternoon
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --mode observe --workers 1
+- watchlist_refresh_1420
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --watchlist-refresh --workers 1
+- tail_confirm
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --mode tail_confirm --workers 1
+- after_close
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --refresh-daily-existing --daily-limit 1200 --daily-workers 1
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --build-universe --workers 1
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --mode after_close --workers 1
+- daily_report
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --daily-report
+- night_cache_expand
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --build-daily-cache --daily-limit 300 --daily-workers 1
+- track_positions_midday
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_positions.py --track
+- track_positions_tail
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_positions.py --track
+- track_positions_evening
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_positions.py --track
+
+默认调度时间：
+- 09:15 preflight
+- 09:45 observe_morning
+- 10:30 watchlist_refresh_1030
+- 11:20 watchlist_refresh_1120
+- 11:30 track_positions_midday
+- 13:20 observe_afternoon
+- 14:20 watchlist_refresh_1420
+- 14:50 tail_confirm
+- 14:55 track_positions_tail
+- 17:30 after_close
+- 20:00 track_positions_evening
+- 20:30 daily_report
+- 22:30 night_cache_expand
+================================================================================
+按 Ctrl+C 停止调度器
+================================================================================
+[2026-04-29 11:35:28] 今日 watchlist 已存在，启动时不补跑 observe

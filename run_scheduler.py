@@ -23,58 +23,37 @@ except ImportError:
 
 PROJECT_ROOT = Path(__file__).resolve().parent
 PYTHON = sys.executable
-
 LOG_DIR = PROJECT_ROOT / "logs" / "scheduler"
 STATE_DIR = PROJECT_ROOT / "data" / "scheduler_state"
 HEARTBEAT_LOG = PROJECT_ROOT / "logs" / "scheduler_heartbeat.log"
 TIMEZONE = "Asia/Shanghai"
 SCHEDULER_LOCK_FILE = STATE_DIR / "scheduler.lock"
 
+# 你提供的企业微信 webhook。不要提交到公开仓库。
+DEFAULT_WECHAT_WEBHOOK = os.getenv(
+    "WECHAT_WEBHOOK",
+    "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=2e322113-3ba9-4d90-8257-412971cbc55b",
+)
 
 JOB_COMMANDS: Dict[str, List[List[str]]] = {
-    "preflight": [
-        ["run_scan.py", "--coverage"],
-    ],
-    "observe_morning": [
-        ["run_scan.py", "--mode", "observe", "--workers", "1"],
-    ],
-    "watchlist_refresh_1030": [
-        ["run_scan.py", "--watchlist-refresh", "--workers", "1"],
-    ],
-    "watchlist_refresh_1120": [
-        ["run_scan.py", "--watchlist-refresh", "--workers", "1"],
-    ],
-    "observe_afternoon": [
-        ["run_scan.py", "--mode", "observe", "--workers", "1"],
-    ],
-    "watchlist_refresh_1420": [
-        ["run_scan.py", "--watchlist-refresh", "--workers", "1"],
-    ],
-    "tail_confirm": [
-        ["run_scan.py", "--mode", "tail_confirm", "--workers", "1"],
-    ],
+    "preflight": [["run_scan.py", "--coverage"]],
+    "observe_morning": [["run_scan.py", "--mode", "observe", "--workers", "1"]],
+    "watchlist_refresh_1030": [["run_scan.py", "--watchlist-refresh", "--workers", "1"]],
+    "watchlist_refresh_1120": [["run_scan.py", "--watchlist-refresh", "--workers", "1"]],
+    "observe_afternoon": [["run_scan.py", "--mode", "observe", "--workers", "1"]],
+    "watchlist_refresh_1420": [["run_scan.py", "--watchlist-refresh", "--workers", "1"]],
+    "tail_confirm": [["run_scan.py", "--mode", "tail_confirm", "--workers", "1"]],
     "after_close": [
-        ["run_scan.py", "--build-daily-cache", "--daily-limit", "300", "--daily-workers", "1"],
+        ["run_scan.py", "--refresh-daily-existing", "--daily-limit", "1200", "--daily-workers", "1"],
         ["run_scan.py", "--build-universe", "--workers", "1"],
         ["run_scan.py", "--mode", "after_close", "--workers", "1"],
     ],
-    "daily_report": [
-        ["run_scan.py", "--daily-report"],
-    ],
-    "night_cache_expand": [
-        ["run_scan.py", "--build-daily-cache", "--daily-limit", "300", "--daily-workers", "1"],
-    ],
-    "track_positions_midday": [
-        ["run_positions.py", "--track"],
-    ],
-    "track_positions_tail": [
-        ["run_positions.py", "--track"],
-    ],
-    "track_positions_evening": [
-        ["run_positions.py", "--track"],
-    ],
+    "daily_report": [["run_scan.py", "--daily-report"]],
+    "night_cache_expand": [["run_scan.py", "--build-daily-cache", "--daily-limit", "300", "--daily-workers", "1"]],
+    "track_positions_midday": [["run_positions.py", "--track"]],
+    "track_positions_tail": [["run_positions.py", "--track"]],
+    "track_positions_evening": [["run_positions.py", "--track"]],
 }
-
 
 JOB_TIMEOUTS = {
     "preflight": 5 * 60,
@@ -84,7 +63,7 @@ JOB_TIMEOUTS = {
     "observe_afternoon": 20 * 60,
     "watchlist_refresh_1420": 10 * 60,
     "tail_confirm": 10 * 60,
-    "after_close": 60 * 60,
+    "after_close": 90 * 60,
     "daily_report": 10 * 60,
     "night_cache_expand": 60 * 60,
     "track_positions_midday": 5 * 60,
@@ -96,6 +75,7 @@ JOB_TIMEOUTS = {
 def ensure_dirs():
     LOG_DIR.mkdir(parents=True, exist_ok=True)
     STATE_DIR.mkdir(parents=True, exist_ok=True)
+    HEARTBEAT_LOG.parent.mkdir(parents=True, exist_ok=True)
 
 
 def now_str() -> str:
@@ -114,26 +94,7 @@ def write_line(path: Path, text: str):
     with open(path, "a", encoding="utf-8") as f:
         f.write(text.rstrip() + "\n")
 
-def heartbeat():
-    """
-    调度器心跳。
-    只证明 run_scheduler.py 主进程还活着，不代表每个任务都成功。
-    """
-    ensure_dirs()
 
-    pid = os.getpid()
-    lock_pid = _read_scheduler_lock()
-
-    line = (
-        f"[{now_str()}] heartbeat "
-        f"pid={pid} lock_pid={lock_pid} "
-        f"project={PROJECT_ROOT}"
-    )
-
-    with open(HEARTBEAT_LOG, "a", encoding="utf-8") as f:
-        f.write(line + "\n")
-
-    print(line)
 def _pid_alive(pid: int) -> bool:
     try:
         os.kill(pid, 0)
@@ -159,6 +120,16 @@ def _read_scheduler_lock() -> Optional[int]:
     return None
 
 
+def heartbeat():
+    ensure_dirs()
+    pid = os.getpid()
+    lock_pid = _read_scheduler_lock()
+    line = f"[{now_str()}] heartbeat pid={pid} lock_pid={lock_pid} project={PROJECT_ROOT}"
+    with open(HEARTBEAT_LOG, "a", encoding="utf-8") as f:
+        f.write(line + "\n")
+    print(line, flush=True)
+
+
 def _remove_scheduler_lock():
     try:
         if SCHEDULER_LOCK_FILE.exists():
@@ -170,7 +141,7 @@ def _remove_scheduler_lock():
 def _kill_pid(pid: int, wait_seconds: int = 5):
     if not _pid_alive(pid):
         return
-    print(f"[{now_str()}] 正在停止旧调度器 pid={pid} ...")
+    print(f"[{now_str()}] 正在停止旧调度器 pid={pid} ...", flush=True)
     try:
         os.kill(pid, signal.SIGTERM)
     except Exception:
@@ -178,11 +149,11 @@ def _kill_pid(pid: int, wait_seconds: int = 5):
     start = time.time()
     while time.time() - start < wait_seconds:
         if not _pid_alive(pid):
-            print(f"[{now_str()}] 旧调度器已退出 pid={pid}")
+            print(f"[{now_str()}] 旧调度器已退出 pid={pid}", flush=True)
             return
         time.sleep(0.5)
     if _pid_alive(pid):
-        print(f"[{now_str()}] 旧调度器未退出，强制 kill -9 pid={pid}")
+        print(f"[{now_str()}] 旧调度器未退出，强制 kill -9 pid={pid}", flush=True)
         try:
             os.kill(pid, signal.SIGKILL)
         except Exception:
@@ -222,7 +193,7 @@ def acquire_scheduler_singleton(replace: bool = False):
 
 
 def _handle_exit_signal(signum, frame):
-    print(f"[{now_str()}] 收到退出信号 {signum}，清理 scheduler.lock")
+    print(f"[{now_str()}] 收到退出信号 {signum}，清理 scheduler.lock", flush=True)
     _remove_scheduler_lock()
     sys.exit(0)
 
@@ -267,28 +238,34 @@ def run_one_command(job_name: str, cmd: List[str], timeout: Optional[int] = None
     write_line(path, f"[{now_str()}] START COMMAND: {' '.join(full_cmd)}")
     write_line(path, f"[{now_str()}] TIMEOUT: {timeout}")
     write_line(path, "=" * 80)
-    print(f"[{now_str()}] {job_name} -> {' '.join(full_cmd)}")
+    print(f"[{now_str()}] {job_name} -> {' '.join(full_cmd)}", flush=True)
+
+    env = os.environ.copy()
+    if DEFAULT_WECHAT_WEBHOOK:
+        env["WECHAT_WEBHOOK"] = DEFAULT_WECHAT_WEBHOOK
+
     try:
         with open(path, "a", encoding="utf-8") as f:
             proc = subprocess.run(
                 full_cmd,
                 cwd=str(PROJECT_ROOT),
-                stdin=subprocess.DEVNULL,  # 关键修复：避免后台进程 stdin 失效
+                stdin=subprocess.DEVNULL,
                 stdout=f,
                 stderr=subprocess.STDOUT,
                 text=True,
                 timeout=timeout,
                 close_fds=True,
+                env=env,
             )
         write_line(path, f"[{now_str()}] END COMMAND returncode={proc.returncode}")
         return proc.returncode
     except subprocess.TimeoutExpired:
         write_line(path, f"[{now_str()}] COMMAND TIMEOUT, killed: {' '.join(full_cmd)}")
-        print(f"[{now_str()}] 任务超时，已终止子任务：{job_name}")
+        print(f"[{now_str()}] 任务超时，已终止子任务：{job_name}", flush=True)
         return 124
     except Exception as e:
         write_line(path, f"[{now_str()}] COMMAND ERROR: {e}")
-        print(f"[{now_str()}] 任务异常：{job_name} | {e}")
+        print(f"[{now_str()}] 任务异常：{job_name} | {e}", flush=True)
         return 1
 
 
@@ -304,30 +281,46 @@ def run_job(job_name: str):
             write_line(path, "#" * 80)
             write_line(path, f"[{now_str()}] JOB START: {job_name}")
             write_line(path, "#" * 80)
-            commands = JOB_COMMANDS[job_name]
             timeout = JOB_TIMEOUTS.get(job_name)
-            for cmd in commands:
+            for cmd in JOB_COMMANDS[job_name]:
                 rc = run_one_command(job_name, cmd, timeout=timeout)
                 if rc != 0:
                     write_line(path, f"[{now_str()}] JOB FAILED: {job_name}, command={cmd}, rc={rc}")
-                    print(f"[{now_str()}] 任务失败：{job_name}, rc={rc}")
+                    print(f"[{now_str()}] 任务失败：{job_name}, rc={rc}", flush=True)
+                    try:
+                        from core.notify import notify_system_event
+                        notify_system_event(
+                            title="调度任务失败",
+                            message=f"任务执行失败，已停止后续命令。\n\n命令：{cmd}\n返回码：{rc}\n日志：{path}",
+                            level="ERROR",
+                            job_name=job_name,
+                            extra={"returncode": rc, "log": str(path)},
+                        )
+                    except Exception as notify_error:
+                        write_line(path, f"[{now_str()}] NOTIFY FAILED: {notify_error}")
                     return
             write_line(path, f"[{now_str()}] JOB DONE: {job_name}")
-            print(f"[{now_str()}] 任务完成：{job_name}")
+            print(f"[{now_str()}] 任务完成：{job_name}", flush=True)
     except Exception as e:
         write_line(path, f"[{now_str()}] JOB SKIPPED/ERROR: {job_name} | {e}")
-        print(f"[{now_str()}] 任务跳过/异常：{job_name} | {e}")
+        print(f"[{now_str()}] 任务跳过/异常：{job_name} | {e}", flush=True)
+        try:
+            from core.notify import notify_system_event
+            notify_system_event(
+                title="调度任务异常或跳过",
+                message=f"任务未正常执行。\n\n原因：{e}\n日志：{path}",
+                level="WARN",
+                job_name=job_name,
+                extra={"error": str(e), "log": str(path)},
+            )
+        except Exception as notify_error:
+            write_line(path, f"[{now_str()}] NOTIFY FAILED: {notify_error}")
 
 
-def add_job(scheduler: BlockingScheduler, job_name: str, hour: int, minute: int, misfire_grace_time: int = 1800):
+def add_job(scheduler: BlockingScheduler, job_name: str, hour: int, minute: int, misfire_grace_time: int = 600):
     scheduler.add_job(
         run_job,
-        trigger=CronTrigger(
-            day_of_week="mon-fri",
-            hour=hour,
-            minute=minute,
-            timezone=TIMEZONE,
-        ),
+        trigger=CronTrigger(day_of_week="mon-fri", hour=hour, minute=minute, timezone=TIMEZONE),
         args=[job_name],
         id=job_name,
         name=job_name,
@@ -340,15 +333,10 @@ def add_job(scheduler: BlockingScheduler, job_name: str, hour: int, minute: int,
 
 def build_scheduler() -> BlockingScheduler:
     scheduler = BlockingScheduler(timezone=TIMEZONE)
-    # 调度器心跳：交易日 09:05-15:05 每小时一次，晚间再补两次
+
     scheduler.add_job(
         heartbeat,
-        trigger=CronTrigger(
-            day_of_week="mon-fri",
-            hour="9-15",
-            minute=5,
-            timezone=TIMEZONE,
-        ),
+        trigger=CronTrigger(day_of_week="mon-fri", hour="9-15", minute=5, timezone=TIMEZONE),
         id="heartbeat_trading",
         name="heartbeat_trading",
         replace_existing=True,
@@ -356,15 +344,9 @@ def build_scheduler() -> BlockingScheduler:
         coalesce=True,
         misfire_grace_time=1800,
     )
-
     scheduler.add_job(
         heartbeat,
-        trigger=CronTrigger(
-            day_of_week="mon-fri",
-            hour="17,20,22",
-            minute=5,
-            timezone=TIMEZONE,
-        ),
+        trigger=CronTrigger(day_of_week="mon-fri", hour="17,20,22", minute=5, timezone=TIMEZONE),
         id="heartbeat_evening",
         name="heartbeat_evening",
         replace_existing=True,
@@ -372,6 +354,7 @@ def build_scheduler() -> BlockingScheduler:
         coalesce=True,
         misfire_grace_time=1800,
     )
+
     add_job(scheduler, "preflight", 9, 15, misfire_grace_time=1800)
     add_job(scheduler, "observe_morning", 9, 45, misfire_grace_time=1800)
     add_job(scheduler, "watchlist_refresh_1030", 10, 30, misfire_grace_time=1800)
@@ -399,12 +382,10 @@ def has_today_watchlist() -> bool:
             return False
         today = datetime.now().strftime("%Y-%m-%d")
         if "date" in df.columns:
-            today_df = df.filter(pl.col("date").cast(pl.Utf8) == today)
-            if not today_df.is_empty():
+            if not df.filter(pl.col("date").cast(pl.Utf8) == today).is_empty():
                 return True
         if "last_seen_at" in df.columns:
-            today_df = df.filter(pl.col("last_seen_at").cast(pl.Utf8).str.starts_with(today))
-            if not today_df.is_empty():
+            if not df.filter(pl.col("last_seen_at").cast(pl.Utf8).str.starts_with(today)).is_empty():
                 return True
         return False
     except Exception:
@@ -412,21 +393,16 @@ def has_today_watchlist() -> bool:
 
 
 def maybe_catch_up_on_start():
-    """
-    启动调度器时补跑：
-    如果当前是交易时间段，且今天还没有 watchlist，则立即跑一次 observe_morning。
-    解决 10:30 才启动，09:45 已错过的问题。
-    """
     now = datetime.now()
     if now.weekday() >= 5:
         return
     hhmm = now.hour * 100 + now.minute
     if 945 <= hhmm <= 1445:
         if not has_today_watchlist():
-            print(f"[{now_str()}] 启动补跑：当前在交易时间内，且今日 watchlist 不存在，立即执行 observe_morning")
+            print(f"[{now_str()}] 启动补跑：交易时间内且今日 watchlist 不存在，立即执行 observe_morning", flush=True)
             run_job("observe_morning")
         else:
-            print(f"[{now_str()}] 今日 watchlist 已存在，启动时不补跑 observe")
+            print(f"[{now_str()}] 今日 watchlist 已存在，启动时不补跑 observe", flush=True)
 
 
 def print_jobs():
@@ -435,8 +411,7 @@ def print_jobs():
         print(f"- {name}")
         for cmd in commands:
             print(f"  {PYTHON} {' '.join(cmd)}")
-    print("")
-    print("默认调度时间：")
+    print("\n默认调度时间：")
     print("- 09:15 preflight")
     print("- 09:45 observe_morning")
     print("- 10:30 watchlist_refresh_1030")
@@ -452,11 +427,31 @@ def print_jobs():
     print("- 22:30 night_cache_expand")
 
 
+def print_status():
+    ensure_dirs()
+    print("===== scheduler status =====")
+    print(f"now={now_str()}")
+    print(f"project={PROJECT_ROOT}")
+    print(f"lock_pid={_read_scheduler_lock()}")
+    print(f"lock_file={SCHEDULER_LOCK_FILE}")
+    print("heartbeat tail:")
+    if HEARTBEAT_LOG.exists():
+        lines = HEARTBEAT_LOG.read_text(encoding="utf-8").splitlines()[-10:]
+        for line in lines:
+            print(line)
+    else:
+        print("no heartbeat log")
+    print("today logs:")
+    for p in sorted(LOG_DIR.glob(f"{date_str()}_*.log"))[-20:]:
+        print(f"- {p.name} size={p.stat().st_size}")
+
+
 def parse_args():
     parser = argparse.ArgumentParser(description="A股二买系统 APScheduler 自动调度器")
-    parser.add_argument("--run-once", choices=list(JOB_COMMANDS.keys()), help="立即执行某个任务一次，用于测试")
+    parser.add_argument("--run-once", choices=list(JOB_COMMANDS.keys()), help="立即执行某个任务一次")
     parser.add_argument("--list", action="store_true", help="列出任务与命令")
-    parser.add_argument("--replace", action="store_true", help="如果已有调度器在运行，先停止旧调度器，再启动当前调度器")
+    parser.add_argument("--replace", action="store_true", help="已有调度器运行时先停止旧调度器")
+    parser.add_argument("--status", action="store_true", help="打印调度器状态")
     return parser.parse_args()
 
 
@@ -466,9 +461,13 @@ def main():
     if args.list:
         print_jobs()
         return
+    if args.status:
+        print_status()
+        return
     if args.run_once:
         run_job(args.run_once)
         return
+
     acquire_scheduler_singleton(replace=args.replace)
     print("=" * 80)
     print("A股二买系统自动调度器已启动")

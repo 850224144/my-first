@@ -1,0 +1,173 @@
+
+################################################################################
+[2026-04-28 14:20:00] JOB START: watchlist_refresh_1420
+################################################################################
+
+================================================================================
+[2026-04-28 14:20:00] START COMMAND: /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --watchlist-refresh --workers 1
+[2026-04-28 14:20:00] TIMEOUT: 600
+================================================================================
+2026-04-28 14:20:00 | INFO | a_stock | 日志初始化完成：run_id=20260428_142000, log_dir=logs, reject_file=logs/rejects_20260428_142000.csv, raw_bad_rows_file=logs/raw_bad_rows_20260428_142000.jsonl
+2026-04-28 14:20:00 | INFO | a_stock | run_scan 启动
+======================================================================
+📈 大盘状态：震荡 | 指数分化，只做最强板块，仓位减半
+上证：2026-04-28 close=4073.31 ma20=4073.31 ma60=4073.31 data=intraday+local_ma
+创业板：2026-04-28 close=3593.41 ma20=3593.41 ma60=3593.41 data=intraday+local_ma
+======================================================================
+2026-04-28 14:20:00 | INFO | a_stock | 使用股票池缓存：909 只
+📌 watchlist_refresh 扫描今日 watchlist：72 只
+2026-04-28 14:20:00 | INFO | a_stock | watchlist_refresh 使用今日 watchlist 扫描：72 只
+2026-04-28 14:20:00 | WARNING | a_stock | 板块过滤失败：cannot import name 'filter_universe_by_strong_sector' from 'core.sector' (/Users/liujunying/Downloads/project/my-first/core/sector.py)
+⚠️ 板块过滤失败，调试模式跳过板块过滤继续扫描
+2026-04-28 14:20:00 | WARNING | a_stock | 周线过滤失败：cannot import name 'filter_by_weekly_trend' from 'core.weekly' (/Users/liujunying/Downloads/project/my-first/core/weekly.py)
+⚠️ 周线过滤失败，调试模式跳过周线过滤继续扫描
+
+数据覆盖率报告：
+  stock_basic：5323
+  有效基础股票：5323
+  stock_daily 有效缓存股票：1193 (22.41%)
+  realtime_quote 覆盖股票：5317
+  universe 股票池：909
+🔄 刷新新浪实时行情：72 只，batch=400，interval=10.0s
+2026-04-28 14:20:01 | INFO | a_stock | 新浪实时批次 1/1 完成：请求 72，有效 72，缺失 0
+2026-04-28 14:20:01 | INFO | a_stock | 实时行情刷新完成：{'requested': 72, 'success': 72, 'failed': 0, 'batches': 1, 'empty_response': 0, 'parse_failed': 0, 'written': 72, 'success_rate': 1.0}
+实时行情刷新结果：请求=72 成功=72 成功率=100.00%
+2026-04-28 14:20:01 | INFO | a_stock | 扫描阶段只读本地 stock_daily 缓存，不远程拉历史K
+开始扫描：72 只，模式=watchlist_refresh ...
+2026-04-28 14:20:01 | INFO | a_stock | reject 300750 score_too_low score=67
+2026-04-28 14:20:01 | INFO | a_stock | reject 002475 score_too_low score=59
+2026-04-28 14:20:01 | INFO | a_stock | reject 600487 score_too_low score=55
+2026-04-28 14:20:01 | INFO | a_stock | reject 002463 score_too_low score=68
+2026-04-28 14:20:01 | INFO | a_stock | reject 002709 score_too_low score=56
+2026-04-28 14:20:01 | INFO | a_stock | reject 002594 score_too_low score=63
+2026-04-28 14:20:01 | INFO | a_stock | reject 301308 score_too_low score=52
+2026-04-28 14:20:01 | INFO | a_stock | reject 300390 score_too_low score=60
+2026-04-28 14:20:01 | INFO | a_stock | reject 000938 score_too_low score=51
+2026-04-28 14:20:01 | INFO | a_stock | reject 002008 score_too_low score=61
+2026-04-28 14:20:01 | INFO | a_stock | reject 002916 score_too_low score=60
+2026-04-28 14:20:01 | INFO | a_stock | reject 301396 score_too_low score=68
+2026-04-28 14:20:01 | INFO | a_stock | reject 300604 score_too_low score=66
+2026-04-28 14:20:01 | INFO | a_stock | reject 301526 score_too_low score=65
+2026-04-28 14:20:01 | INFO | a_stock | reject 300054 score_too_low score=64
+2026-04-28 14:20:01 | INFO | a_stock | reject 605117 score_too_low score=64
+2026-04-28 14:20:01 | INFO | a_stock | reject 603026 score_too_low score=66
+2026-04-28 14:20:01 | INFO | a_stock | reject 688183 score_too_low score=66
+2026-04-28 14:20:01 | INFO | a_stock | reject 000062 score_too_low score=60
+2026-04-28 14:20:01 | INFO | a_stock | reject 688630 score_too_low score=46
+2026-04-28 14:20:01 | INFO | a_stock | reject 002176 score_too_low score=67
+2026-04-28 14:20:01 | INFO | a_stock | reject 603063 score_too_low score=61
+2026-04-28 14:20:01 | INFO | a_stock | reject 000973 score_too_low score=52
+2026-04-28 14:20:01 | INFO | a_stock | reject 002756 score_too_low score=67
+2026-04-28 14:20:01 | INFO | a_stock | reject 300037 score_too_low score=57
+2026-04-28 14:20:01 | INFO | a_stock | reject 605589 score_too_low score=61
+2026-04-28 14:20:01 | INFO | a_stock | reject 688519 score_too_low score=56
+2026-04-28 14:20:01 | INFO | a_stock | reject 002181 score_too_low score=56
+2026-04-28 14:20:01 | INFO | a_stock | reject 600641 score_too_low score=68
+2026-04-28 14:20:01 | INFO | a_stock | reject 688002 score_too_low score=66
+2026-04-28 14:20:01 | INFO | a_stock | reject 603002 score_too_low score=60
+2026-04-28 14:20:01 | INFO | a_stock | reject 688099 score_too_low score=56
+2026-04-28 14:20:01 | INFO | a_stock | reject 003816 score_too_low score=68
+2026-04-28 14:20:01 | INFO | a_stock | reject 300057 score_too_low score=64
+2026-04-28 14:20:01 | INFO | a_stock | reject 300480 score_too_low score=66
+2026-04-28 14:20:01 | INFO | a_stock | reject 300137 score_too_low score=56
+2026-04-28 14:20:01 | INFO | a_stock | reject 688020 score_too_low score=65
+2026-04-28 14:20:02 | INFO | a_stock | reject 002606 score_too_low score=53
+2026-04-28 14:20:02 | INFO | a_stock | reject 688401 score_too_low score=65
+
+扫描报告：
+  股票池：72
+  成功处理：72
+  异常/无信号跳过：39
+  信号候选：33
+2026-04-28 14:20:02 | INFO | a_stock | 扫描报告：universe=72 processed=72 skipped=39 candidates=33
+📌 watchlist 已更新：72 条
+
+======================================================================
+📤 推送内容
+======================================================================
+【盘中观察候选】
+大盘：震荡 | 指数分化，只做最强板块，仓位减半
+可重点跟踪：2 只；总候选：33 只
+展示前 10 只：
+----------------------------------------
+1.  688180 | 君实生物
+   操作:轻仓观察 | 类型:风险偏高，只能轻仓 | 风险:7.49%（偏高）
+   信号:observe | 总分:72 | 趋势:25 回调:18 企稳:19 确认:10
+   买入:41.41 | 触发:46.55 | 止损:38.31 | 仓位:5%-10%
+   目标1:46.06 | 目标2:49.16
+   提醒:pullback_volume_too_high, no_breakout, kline_quality_weak
+   备注:操作建议：轻仓观察；入场类型：风险偏高，只能轻仓；风险等级：偏高；风险偏高，只适合小仓位观察。
+
+2.  002213 | 大为股份
+   操作:轻仓观察 | 类型:风险偏高，只能轻仓 | 风险:7.63%（偏高）
+   信号:observe | 总分:70 | 趋势:23 回调:21 企稳:23 确认:3
+   买入:35.68 | 触发:39.45 | 止损:32.96 | 仓位:5%-10%
+   目标1:39.76 | 目标2:42.49
+   提醒:no_breakout, today_pct_weak, kline_quality_weak
+   备注:操作建议：轻仓观察；入场类型：风险偏高，只能轻仓；风险等级：偏高；风险偏高，只适合小仓位观察。
+
+3.  002648 | 卫星化学
+   操作:只观察 | 类型:风险过大，等待回踩 | 风险:13.24%（过高）
+   信号:strong_observe | 总分:85 | 趋势:23 回调:23 企稳:16 确认:23
+   买入:29.12 | 触发:29.12 | 止损:25.26 | 仓位:不建议开仓
+   目标:风险过高，暂不作为交易目标参考
+   备注:操作建议：只观察；入场类型：风险过大，等待回踩；风险等级：过高；结构止损距离过远，当前不适合直接开仓。
+
+4.  000155 | 川能动力
+   操作:只观察 | 类型:风险过大，等待回踩 | 风险:15.32%（过高）
+   信号:strong_observe | 总分:84 | 趋势:25 回调:13 企稳:23 确认:23
+   买入:18.40 | 触发:18.40 | 止损:15.58 | 仓位:不建议开仓
+   目标:风险过高，暂不作为交易目标参考
+   提醒:pullback_days_not_ideal
+   备注:操作建议：只观察；入场类型：风险过大，等待回踩；风险等级：过高；结构止损距离过远，当前不适合直接开仓。
+
+5.  600773 | 西藏城投
+   操作:只观察 | 类型:风险过大，等待回踩 | 风险:27.62%（过高）
+   信号:observe | 总分:78 | 趋势:19 回调:13 企稳:23 确认:23
+   买入:27.08 | 触发:27.08 | 止损:19.60 | 仓位:不建议开仓
+   目标:风险过高，暂不作为交易目标参考
+   提醒:trend_too_hot, pullback_days_not_ideal
+   备注:操作建议：只观察；入场类型：风险过大，等待回踩；风险等级：过高；结构止损距离过远，当前不适合直接开仓。
+
+6.  300769 | 德方纳米
+   操作:只观察 | 类型:风险过大，等待回踩 | 风险:15.51%（过高）
+   信号:observe | 总分:76 | 趋势:25 回调:10 企稳:21 确认:20
+   买入:53.18 | 触发:53.18 | 止损:44.93 | 仓位:不建议开仓
+   目标:风险过高，暂不作为交易目标参考
+   提醒:pullback_too_shallow, pullback_days_not_ideal, kline_quality_weak
+   备注:操作建议：只观察；入场类型：风险过大，等待回踩；风险等级：过高；结构止损距离过远，当前不适合直接开仓。
+
+7.  601088 | 中国神华
+   操作:只观察 | 类型:风险过大，等待回踩 | 风险:8.32%（过高）
+   信号:strong_observe | 总分:83 | 趋势:18 回调:22 企稳:18 确认:25
+   买入:48.10 | 触发:48.10 | 止损:44.10 | 仓位:不建议开仓
+   目标:风险过高，暂不作为交易目标参考
+   提醒:volatility_not_contracting
+   备注:操作建议：只观察；入场类型：风险过大，等待回踩；风险等级：过高；结构止损距离过远，当前不适合直接开仓。
+
+8.  002655 | 共达电声
+   操作:只观察 | 类型:风险过大，等待回踩 | 风险:24.87%（过高）
+   信号:strong_observe | 总分:81 | 趋势:19 回调:18 企稳:20 确认:24
+   买入:27.55 | 触发:27.55 | 止损:20.70 | 仓位:不建议开仓
+   目标:风险过高，暂不作为交易目标参考
+   提醒:trend_too_hot, pullback_days_not_ideal, volatility_not_contracting
+   备注:操作建议：只观察；入场类型：风险过大，等待回踩；风险等级：过高；结构止损距离过远，当前不适合直接开仓。
+
+9.  002080 | 中材科技
+   操作:只观察 | 类型:风险过大，等待回踩 | 风险:11.88%（过高）
+   信号:observe | 总分:70 | 趋势:19 回调:22 企稳:21 确认:8
+   买入:53.08 | 触发:55.30 | 止损:46.78 | 仓位:不建议开仓
+   目标:风险过高，暂不作为交易目标参考
+   提醒:rise_without_volume, pullback_too_fast, no_breakout, kline_quality_weak
+   备注:操作建议：只观察；入场类型：风险过大，等待回踩；风险等级：过高；结构止损距离过远，当前不适合直接开仓。
+
+10.  002484 | 江海股份
+   操作:只观察 | 类型:风险过大，等待回踩 | 风险:16.65%（过高）
+   信号:observe | 总分:70 | 趋势:25 回调:10 企稳:19 确认:16
+   买入:37.73 | 触发:37.73 | 止损:31.45 | 仓位:不建议开仓
+   目标:风险过高，暂不作为交易目标参考
+   提醒:pullback_too_shallow, pullback_days_not_ideal, today_pct_weak, kline_quality_weak
+   备注:操作建议：只观察；入场类型：风险过大，等待回踩；风险等级：过高；结构止损距离过远，当前不适合直接开仓。
+======================================================================
+[2026-04-28 14:20:02] END COMMAND returncode=0
+[2026-04-28 14:20:02] JOB DONE: watchlist_refresh_1420

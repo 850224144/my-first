@@ -1,0 +1,2 @@
+2026-04-29 09:15:00 | INFO | a_stock | 日志初始化完成：run_id=20260429_091500, log_dir=logs, reject_file=logs/rejects_20260429_091500.csv, raw_bad_rows_file=logs/raw_bad_rows_20260429_091500.jsonl
+2026-04-29 09:15:00 | INFO | a_stock | run_scan 启动

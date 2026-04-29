@@ -1,0 +1,4 @@
+2026-04-28 17:38:36 | INFO | a_stock | 日志初始化完成：run_id=20260428_173836, log_dir=logs, reject_file=logs/rejects_20260428_173836.csv, raw_bad_rows_file=logs/raw_bad_rows_20260428_173836.jsonl
+2026-04-28 17:38:36 | INFO | a_stock | run_scan 启动
+2026-04-28 17:38:36 | INFO | a_stock | 股票池完成：valid_daily=1467, filtered=1463, output=1463，已写入 data/universe.parquet
+2026-04-28 17:38:36 | INFO | a_stock | 构建股票池完成，数量=1463
