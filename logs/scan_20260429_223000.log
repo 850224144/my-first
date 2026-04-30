@@ -1,0 +1,149 @@
+2026-04-29 22:30:00 | INFO | a_stock | 日志初始化完成：run_id=20260429_223000, log_dir=logs, reject_file=logs/rejects_20260429_223000.csv, raw_bad_rows_file=logs/raw_bad_rows_20260429_223000.jsonl
+2026-04-29 22:30:00 | INFO | a_stock | run_scan 启动
+2026-04-29 22:30:00 | INFO | a_stock | 历史K优化候选池：300 只（实时有效 + 按成交额排序 + 未缓存）
+2026-04-29 22:30:00 | INFO | a_stock | 开始优化历史K缓存：候选=300 daily_limit=300
+2026-04-29 22:30:00 | DEBUG | a_stock | 历史K源无效 code=688808 source=sina_history rows=4
+2026-04-29 22:30:01 | DEBUG | a_stock | 历史K源无效 code=688808 source=efinance rows=4
+2026-04-29 22:30:03 | DEBUG | a_stock | 历史K源无效 code=688808 source=tencent rows=0
+2026-04-29 22:30:03 | INFO | a_stock | [reject] 688808 no_kline_data 历史K为空或不足250根 source=failed
+2026-04-29 22:30:03 | DEBUG | a_stock | 历史K源无效 code=688820 source=sina_history rows=7
+2026-04-29 22:30:03 | DEBUG | a_stock | 历史K源无效 code=688820 source=efinance rows=7
+2026-04-29 22:30:05 | DEBUG | a_stock | 历史K源无效 code=688820 source=tencent rows=0
+2026-04-29 22:30:05 | INFO | a_stock | [reject] 688820 no_kline_data 历史K为空或不足250根 source=failed
+2026-04-29 22:30:05 | DEBUG | a_stock | 历史K源无效 code=688802 source=sina_history rows=87
+2026-04-29 22:30:05 | DEBUG | a_stock | 历史K源无效 code=688802 source=efinance rows=87
+2026-04-29 22:30:07 | DEBUG | a_stock | 历史K源无效 code=688802 source=tencent rows=0
+2026-04-29 22:30:07 | INFO | a_stock | [reject] 688802 no_kline_data 历史K为空或不足250根 source=failed
+2026-04-29 22:30:07 | DEBUG | a_stock | 历史K源无效 code=688795 source=sina_history rows=95
+2026-04-29 22:30:07 | DEBUG | a_stock | 历史K源无效 code=688795 source=efinance rows=95
+2026-04-29 22:30:09 | DEBUG | a_stock | 历史K源无效 code=688795 source=tencent rows=0
+2026-04-29 22:30:09 | INFO | a_stock | [reject] 688795 no_kline_data 历史K为空或不足250根 source=failed
+2026-04-29 22:30:09 | DEBUG | a_stock | 历史K源无效 code=301666 source=sina_history rows=10
+2026-04-29 22:30:09 | DEBUG | a_stock | 历史K源无效 code=301666 source=efinance rows=10
+2026-04-29 22:30:11 | DEBUG | a_stock | 历史K源无效 code=301666 source=tencent rows=0
+2026-04-29 22:30:11 | INFO | a_stock | [reject] 301666 no_kline_data 历史K为空或不足250根 source=failed
+2026-04-29 22:30:11 | DEBUG | a_stock | 历史K源无效 code=600930 source=sina_history rows=191
+2026-04-29 22:30:11 | DEBUG | a_stock | 历史K源无效 code=600930 source=efinance rows=191
+2026-04-29 22:30:13 | DEBUG | a_stock | 历史K源无效 code=600930 source=tencent rows=0
+2026-04-29 22:30:13 | INFO | a_stock | [reject] 600930 no_kline_data 历史K为空或不足250根 source=failed
+2026-04-29 22:30:13 | DEBUG | a_stock | 历史K源无效 code=688807 source=sina_history rows=85
+2026-04-29 22:30:13 | DEBUG | a_stock | 历史K源无效 code=688807 source=efinance rows=85
+2026-04-29 22:30:15 | DEBUG | a_stock | 历史K源无效 code=688807 source=tencent rows=0
+2026-04-29 22:30:15 | INFO | a_stock | [reject] 688807 no_kline_data 历史K为空或不足250根 source=failed
+2026-04-29 22:30:15 | DEBUG | a_stock | 历史K源无效 code=301667 source=sina_history rows=83
+2026-04-29 22:30:15 | DEBUG | a_stock | 历史K源无效 code=301667 source=efinance rows=83
+2026-04-29 22:30:17 | DEBUG | a_stock | 历史K源无效 code=301667 source=tencent rows=0
+2026-04-29 22:30:17 | INFO | a_stock | [reject] 301667 no_kline_data 历史K为空或不足250根 source=failed
+2026-04-29 22:30:17 | DEBUG | a_stock | 历史K源无效 code=688818 source=sina_history rows=50
+2026-04-29 22:30:17 | DEBUG | a_stock | 历史K源无效 code=688818 source=efinance rows=50
+2026-04-29 22:30:19 | DEBUG | a_stock | 历史K源无效 code=688818 source=tencent rows=0
+2026-04-29 22:30:19 | INFO | a_stock | [reject] 688818 no_kline_data 历史K为空或不足250根 source=failed
+2026-04-29 22:30:19 | DEBUG | a_stock | 历史K源无效 code=603459 source=sina_history rows=16
+2026-04-29 22:30:19 | DEBUG | a_stock | 历史K源无效 code=603459 source=efinance rows=16
+2026-04-29 22:30:21 | DEBUG | a_stock | 历史K源无效 code=603459 source=tencent rows=0
+2026-04-29 22:30:21 | INFO | a_stock | [reject] 603459 no_kline_data 历史K为空或不足250根 source=failed
+2026-04-29 22:30:21 | DEBUG | a_stock | 历史K源无效 code=688809 source=sina_history rows=78
+2026-04-29 22:30:21 | DEBUG | a_stock | 历史K源无效 code=688809 source=efinance rows=78
+2026-04-29 22:30:23 | DEBUG | a_stock | 历史K源无效 code=688809 source=tencent rows=0
+2026-04-29 22:30:23 | INFO | a_stock | [reject] 688809 no_kline_data 历史K为空或不足250根 source=failed
+2026-04-29 22:30:23 | DEBUG | a_stock | 历史K源无效 code=920045 source=sina_history rows=77
+2026-04-29 22:30:23 | DEBUG | a_stock | 历史K源无效 code=920045 source=efinance rows=77
+2026-04-29 22:30:24 | DEBUG | a_stock | 历史K源无效 code=920045 source=tencent rows=1
+2026-04-29 22:30:24 | INFO | a_stock | [reject] 920045 no_kline_data 历史K为空或不足250根 source=failed
+2026-04-29 22:30:24 | DEBUG | a_stock | 历史K源无效 code=301638 source=sina_history rows=108
+2026-04-29 22:30:25 | DEBUG | a_stock | 历史K源无效 code=301638 source=efinance rows=108
+2026-04-29 22:30:27 | DEBUG | a_stock | 历史K源无效 code=301638 source=tencent rows=0
+2026-04-29 22:30:27 | INFO | a_stock | [reject] 301638 no_kline_data 历史K为空或不足250根 source=failed
+2026-04-29 22:30:27 | DEBUG | a_stock | 历史K源无效 code=001280 source=sina_history rows=97
+2026-04-29 22:30:27 | DEBUG | a_stock | 历史K源无效 code=001280 source=efinance rows=97
+2026-04-29 22:30:29 | DEBUG | a_stock | 历史K源无效 code=001280 source=tencent rows=0
+2026-04-29 22:30:29 | INFO | a_stock | [reject] 001280 no_kline_data 历史K为空或不足250根 source=failed
+2026-04-29 22:30:29 | DEBUG | a_stock | 历史K源无效 code=688813 source=sina_history rows=21
+2026-04-29 22:30:29 | DEBUG | a_stock | 历史K源无效 code=688813 source=efinance rows=21
+2026-04-29 22:30:31 | DEBUG | a_stock | 历史K源无效 code=688813 source=tencent rows=0
+2026-04-29 22:30:31 | INFO | a_stock | [reject] 688813 no_kline_data 历史K为空或不足250根 source=failed
+2026-04-29 22:30:31 | DEBUG | a_stock | 历史K源无效 code=301630 source=sina_history rows=195
+2026-04-29 22:30:31 | DEBUG | a_stock | 历史K源无效 code=301630 source=efinance rows=195
+2026-04-29 22:30:33 | DEBUG | a_stock | 历史K源无效 code=301630 source=tencent rows=0
+2026-04-29 22:30:33 | INFO | a_stock | [reject] 301630 no_kline_data 历史K为空或不足250根 source=failed
+2026-04-29 22:30:33 | DEBUG | a_stock | 历史K源无效 code=920125 source=sina_history rows=4
+2026-04-29 22:30:33 | DEBUG | a_stock | 历史K源无效 code=920125 source=efinance rows=4
+2026-04-29 22:30:34 | DEBUG | a_stock | 历史K源无效 code=920125 source=tencent rows=1
+2026-04-29 22:30:34 | INFO | a_stock | [reject] 920125 no_kline_data 历史K为空或不足250根 source=failed
+2026-04-29 22:30:34 | DEBUG | a_stock | 历史K源无效 code=688811 source=sina_history rows=14
+2026-04-29 22:30:35 | DEBUG | a_stock | 历史K源无效 code=688811 source=efinance rows=14
+2026-04-29 22:30:37 | DEBUG | a_stock | 历史K源无效 code=688811 source=tencent rows=0
+2026-04-29 22:30:37 | INFO | a_stock | [reject] 688811 no_kline_data 历史K为空或不足250根 source=failed
+2026-04-29 22:30:37 | DEBUG | a_stock | 历史K源无效 code=301696 source=sina_history rows=14
+2026-04-29 22:30:38 | DEBUG | a_stock | 数据源失败 | code=301696 | source=efinance | reason=request_or_parse_failed | detail=HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf11%2Cf12%2Cf13&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61&beg=19900101&end=20500101&rtntype=6&secid=0.301696&klt=101&fqt=1 (Caused by ProtocolError('Connection aborted.', RemoteDisconnected('Remote end closed connection without response')))
+2026-04-29 22:30:38 | DEBUG | a_stock | 历史K源无效 code=301696 source=efinance rows=0
+2026-04-29 22:30:39 | DEBUG | a_stock | 历史K源无效 code=301696 source=tencent rows=0
+2026-04-29 22:30:39 | INFO | a_stock | [reject] 301696 no_kline_data 历史K为空或不足250根 source=failed
+2026-04-29 22:30:39 | DEBUG | a_stock | 历史K源无效 code=001312 source=sina_history rows=7
+2026-04-29 22:30:40 | DEBUG | a_stock | 数据源失败 | code=001312 | source=efinance | reason=request_or_parse_failed | detail=HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf11%2Cf12%2Cf13&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61&beg=19900101&end=20500101&rtntype=6&secid=0.001312&klt=101&fqt=1 (Caused by ProtocolError('Connection aborted.', RemoteDisconnected('Remote end closed connection without response')))
+2026-04-29 22:30:40 | DEBUG | a_stock | 历史K源无效 code=001312 source=efinance rows=0
+2026-04-29 22:30:41 | DEBUG | a_stock | 历史K源无效 code=001312 source=tencent rows=0
+2026-04-29 22:30:41 | INFO | a_stock | [reject] 001312 no_kline_data 历史K为空或不足250根 source=failed
+2026-04-29 22:30:41 | DEBUG | a_stock | 历史K源无效 code=001400 source=sina_history rows=246
+2026-04-29 22:30:42 | DEBUG | a_stock | 数据源失败 | code=001400 | source=efinance | reason=request_or_parse_failed | detail=HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf11%2Cf12%2Cf13&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61&beg=19900101&end=20500101&rtntype=6&secid=0.001400&klt=101&fqt=1 (Caused by ProtocolError('Connection aborted.', RemoteDisconnected('Remote end closed connection without response')))
+2026-04-29 22:30:42 | DEBUG | a_stock | 历史K源无效 code=001400 source=efinance rows=0
+2026-04-29 22:30:43 | DEBUG | a_stock | 历史K源无效 code=001400 source=tencent rows=0
+2026-04-29 22:30:43 | INFO | a_stock | [reject] 001400 no_kline_data 历史K为空或不足250根 source=failed
+2026-04-29 22:30:43 | DEBUG | a_stock | 历史K源无效 code=301513 source=sina_history rows=9
+2026-04-29 22:30:44 | DEBUG | a_stock | 数据源失败 | code=301513 | source=efinance | reason=request_or_parse_failed | detail=HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf11%2Cf12%2Cf13&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61&beg=19900101&end=20500101&rtntype=6&secid=0.301513&klt=101&fqt=1 (Caused by ProtocolError('Connection aborted.', RemoteDisconnected('Remote end closed connection without response')))
+2026-04-29 22:30:44 | DEBUG | a_stock | 历史K源无效 code=301513 source=efinance rows=0
+2026-04-29 22:30:45 | DEBUG | a_stock | 历史K源无效 code=301513 source=tencent rows=0
+2026-04-29 22:30:45 | INFO | a_stock | [reject] 301513 no_kline_data 历史K为空或不足250根 source=failed
+2026-04-29 22:30:45 | DEBUG | a_stock | 历史K源无效 code=301682 source=sina_history rows=25
+2026-04-29 22:30:46 | DEBUG | a_stock | 数据源失败 | code=301682 | source=efinance | reason=request_or_parse_failed | detail=HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf11%2Cf12%2Cf13&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61&beg=19900101&end=20500101&rtntype=6&secid=0.301682&klt=101&fqt=1 (Caused by ProtocolError('Connection aborted.', RemoteDisconnected('Remote end closed connection without response')))
+2026-04-29 22:30:46 | DEBUG | a_stock | 历史K源无效 code=301682 source=efinance rows=0
+2026-04-29 22:30:47 | DEBUG | a_stock | 历史K源无效 code=301682 source=tencent rows=0
+2026-04-29 22:30:47 | INFO | a_stock | [reject] 301682 no_kline_data 历史K为空或不足250根 source=failed
+2026-04-29 22:30:47 | DEBUG | a_stock | 历史K源无效 code=001257 source=sina_history rows=21
+2026-04-29 22:30:48 | DEBUG | a_stock | 数据源失败 | code=001257 | source=efinance | reason=request_or_parse_failed | detail=HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf11%2Cf12%2Cf13&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61&beg=19900101&end=20500101&rtntype=6&secid=0.001257&klt=101&fqt=1 (Caused by ProtocolError('Connection aborted.', RemoteDisconnected('Remote end closed connection without response')))
+2026-04-29 22:30:48 | DEBUG | a_stock | 历史K源无效 code=001257 source=efinance rows=0
+2026-04-29 22:30:49 | DEBUG | a_stock | 历史K源无效 code=001257 source=tencent rows=0
+2026-04-29 22:30:49 | INFO | a_stock | [reject] 001257 no_kline_data 历史K为空或不足250根 source=failed
+2026-04-29 22:30:49 | DEBUG | a_stock | 历史K源无效 code=603175 source=sina_history rows=125
+2026-04-29 22:30:50 | DEBUG | a_stock | 数据源失败 | code=603175 | source=efinance | reason=request_or_parse_failed | detail=HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf11%2Cf12%2Cf13&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61&beg=19900101&end=20500101&rtntype=6&secid=1.603175&klt=101&fqt=1 (Caused by ProtocolError('Connection aborted.', RemoteDisconnected('Remote end closed connection without response')))
+2026-04-29 22:30:50 | DEBUG | a_stock | 历史K源无效 code=603175 source=efinance rows=0
+2026-04-29 22:30:51 | DEBUG | a_stock | 历史K源无效 code=603175 source=tencent rows=0
+2026-04-29 22:30:51 | INFO | a_stock | [reject] 603175 no_kline_data 历史K为空或不足250根 source=failed
+2026-04-29 22:30:51 | DEBUG | a_stock | 历史K源无效 code=301683 source=sina_history rows=20
+2026-04-29 22:30:52 | DEBUG | a_stock | 数据源失败 | code=301683 | source=efinance | reason=request_or_parse_failed | detail=HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf11%2Cf12%2Cf13&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61&beg=19900101&end=20500101&rtntype=6&secid=0.301683&klt=101&fqt=1 (Caused by ProtocolError('Connection aborted.', RemoteDisconnected('Remote end closed connection without response')))
+2026-04-29 22:30:52 | DEBUG | a_stock | 历史K源无效 code=301683 source=efinance rows=0
+2026-04-29 22:30:53 | DEBUG | a_stock | 历史K源无效 code=301683 source=tencent rows=0
+2026-04-29 22:30:53 | INFO | a_stock | [reject] 301683 no_kline_data 历史K为空或不足250根 source=failed
+2026-04-29 22:30:57 | ERROR | a_stock | 历史K失败率 0.87 超过阈值 0.80，熔断停止。
+2026-04-29 22:30:57 | INFO | a_stock | 
+历史K构建报告：
+  总处理：30
+  成功：4
+  失败：26
+  缓存命中：0
+  腾讯成功：0
+  新浪历史成功：4
+  efinance成功：0
+  混合/合并：0
+  未知来源：0
+2026-04-29 22:30:57 | WARNING | a_stock | 失败样本前20：
+2026-04-29 22:30:57 | WARNING | a_stock | 688808 -> no_kline_data source=failed
+2026-04-29 22:30:57 | WARNING | a_stock | 688820 -> no_kline_data source=failed
+2026-04-29 22:30:57 | WARNING | a_stock | 688802 -> no_kline_data source=failed
+2026-04-29 22:30:57 | WARNING | a_stock | 688795 -> no_kline_data source=failed
+2026-04-29 22:30:57 | WARNING | a_stock | 301666 -> no_kline_data source=failed
+2026-04-29 22:30:57 | WARNING | a_stock | 600930 -> no_kline_data source=failed
+2026-04-29 22:30:57 | WARNING | a_stock | 688807 -> no_kline_data source=failed
+2026-04-29 22:30:57 | WARNING | a_stock | 301667 -> no_kline_data source=failed
+2026-04-29 22:30:57 | WARNING | a_stock | 688818 -> no_kline_data source=failed
+2026-04-29 22:30:57 | WARNING | a_stock | 603459 -> no_kline_data source=failed
+2026-04-29 22:30:57 | WARNING | a_stock | 688809 -> no_kline_data source=failed
+2026-04-29 22:30:57 | WARNING | a_stock | 920045 -> no_kline_data source=failed
+2026-04-29 22:30:57 | WARNING | a_stock | 301638 -> no_kline_data source=failed
+2026-04-29 22:30:57 | WARNING | a_stock | 001280 -> no_kline_data source=failed
+2026-04-29 22:30:57 | WARNING | a_stock | 688813 -> no_kline_data source=failed
+2026-04-29 22:30:57 | WARNING | a_stock | 301630 -> no_kline_data source=failed
+2026-04-29 22:30:57 | WARNING | a_stock | 920125 -> no_kline_data source=failed
+2026-04-29 22:30:57 | WARNING | a_stock | 688811 -> no_kline_data source=failed
+2026-04-29 22:30:57 | WARNING | a_stock | 301696 -> no_kline_data source=failed
+2026-04-29 22:30:57 | WARNING | a_stock | 001312 -> no_kline_data source=failed

@@ -67,11 +67,8 @@ JOB_TIMEOUTS = {
     "daily_report": 10 * 60,
     "night_cache_expand": 60 * 60,
     "track_positions_midday": 5 * 60,
-    "paper_track_midday": 5 * 60,
     "track_positions_tail": 5 * 60,
-    "paper_track_tail": 5 * 60,
     "track_positions_evening": 5 * 60,
-    "paper_track_evening": 5 * 60,
 }
 
 
@@ -280,7 +277,6 @@ def run_job(job_name: str):
     path = log_path(job_name)
     try:
         with job_lock(job_name):
-            job_heartbeat(job_name, stage="before")
             write_line(path, "")
             write_line(path, "#" * 80)
             write_line(path, f"[{now_str()}] JOB START: {job_name}")
@@ -320,25 +316,6 @@ def run_job(job_name: str):
         except Exception as notify_error:
             write_line(path, f"[{now_str()}] NOTIFY FAILED: {notify_error}")
 
-
-
-
-def job_heartbeat(job_name: str, stage: str = "before"):
-    """任务级心跳：任务执行前1分钟/开始前写入并打印，证明调度器正常触发。"""
-    ensure_dirs()
-    try:
-        pid = os.getpid()
-        lock_pid = _read_scheduler_lock()
-    except Exception:
-        pid = os.getpid()
-        lock_pid = ""
-    line = f"[{now_str()}] job_heartbeat stage={stage} job={job_name} pid={pid} lock_pid={lock_pid}"
-    try:
-        with open(HEARTBEAT_LOG, "a", encoding="utf-8") as f:
-            f.write(line + "\n")
-    except Exception:
-        pass
-    print(line)
 
 def add_job(scheduler: BlockingScheduler, job_name: str, hour: int, minute: int, misfire_grace_time: int = 600):
     scheduler.add_job(
@@ -383,15 +360,12 @@ def build_scheduler() -> BlockingScheduler:
     add_job(scheduler, "watchlist_refresh_1030", 10, 30, misfire_grace_time=1800)
     add_job(scheduler, "watchlist_refresh_1120", 11, 20, misfire_grace_time=1800)
     add_job(scheduler, "track_positions_midday", 11, 30, misfire_grace_time=1800)
-    add_job(scheduler, "paper_track_midday", 11, 31, misfire_grace_time=1800)
     add_job(scheduler, "observe_afternoon", 13, 20, misfire_grace_time=1800)
     add_job(scheduler, "watchlist_refresh_1420", 14, 20, misfire_grace_time=1800)
     add_job(scheduler, "tail_confirm", 14, 50, misfire_grace_time=1800)
     add_job(scheduler, "track_positions_tail", 14, 55, misfire_grace_time=1800)
-    add_job(scheduler, "paper_track_tail", 14, 56, misfire_grace_time=1800)
     add_job(scheduler, "after_close", 17, 30, misfire_grace_time=3600)
     add_job(scheduler, "track_positions_evening", 20, 0, misfire_grace_time=3600)
-    add_job(scheduler, "paper_track_evening", 20, 1, misfire_grace_time=3600)
     add_job(scheduler, "daily_report", 20, 30, misfire_grace_time=3600)
     add_job(scheduler, "night_cache_expand", 22, 30, misfire_grace_time=3600)
     return scheduler
@@ -443,15 +417,12 @@ def print_jobs():
     print("- 10:30 watchlist_refresh_1030")
     print("- 11:20 watchlist_refresh_1120")
     print("- 11:30 track_positions_midday")
-    print("- 11:31 paper_track_midday")
     print("- 13:20 observe_afternoon")
     print("- 14:20 watchlist_refresh_1420")
     print("- 14:50 tail_confirm")
     print("- 14:55 track_positions_tail")
-    print("- 14:56 paper_track_tail")
     print("- 17:30 after_close")
     print("- 20:00 track_positions_evening")
-    print("- 20:01 paper_track_evening")
     print("- 20:30 daily_report")
     print("- 22:30 night_cache_expand")
 

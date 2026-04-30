@@ -31,7 +31,6 @@ from core.daily_cache_builder import build_daily_cache_optimized
 from core.universe import build_stock_universe, print_coverage_report
 from core.market import get_market_state
 from core.alert import push_results
-from core.paper_trader import process_scan_results_for_paper, generate_paper_report
 from core.intraday import append_realtime_bar
 from core.realtime_guard import refresh_and_validate_realtime, should_require_realtime
 from core.daily_refresher import refresh_daily_existing
@@ -470,12 +469,6 @@ def run_scan(args, market_state: Dict[str, Any]) -> List[Dict[str, Any]]:
         update_forward_stats()
         print(f"📌 watchlist 已更新：{len(watch)} 条")
         print(f"📝 trade_plan 已生成：{len(plan)} 条")
-    # ===== 方案S：纸面交易买入触发/T+1账本 =====
-    try:
-        process_scan_results_for_paper(results, market_state=market_state, mode=mode)
-    except Exception as e:
-        logger.warning(f"纸面交易触发处理失败：{e}", exc_info=True)
-
     return results
 
 

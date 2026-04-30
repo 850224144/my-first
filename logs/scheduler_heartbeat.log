@@ -6,3 +6,9 @@
 [2026-04-29 09:05:00] heartbeat pid=26390 lock_pid=26390 project=/Users/liujunying/Downloads/project/my-first
 [2026-04-29 10:05:00] heartbeat pid=26390 lock_pid=26390 project=/Users/liujunying/Downloads/project/my-first
 [2026-04-29 11:05:00] heartbeat pid=26390 lock_pid=26390 project=/Users/liujunying/Downloads/project/my-first
+[2026-04-29 12:05:00] heartbeat pid=44128 lock_pid=44128 project=/Users/liujunying/Downloads/project/my-first
+[2026-04-29 22:05:00] heartbeat pid=60162 lock_pid=60162 project=/Users/liujunying/Downloads/project/my-first
+[2026-04-30 09:05:00] heartbeat pid=60162 lock_pid=60162 project=/Users/liujunying/Downloads/project/my-first
+[2026-04-30 10:05:00] heartbeat pid=60162 lock_pid=60162 project=/Users/liujunying/Downloads/project/my-first
+[2026-04-30 10:18:11] job_heartbeat stage=before job=watchlist_refresh_1030 pid=72060 lock_pid=71977
+[2026-04-30 10:30:00] job_heartbeat stage=before job=watchlist_refresh_1030 pid=71977 lock_pid=71977
