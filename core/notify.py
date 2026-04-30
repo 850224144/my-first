@@ -21,12 +21,16 @@ DEFAULT_WECHAT_WEBHOOK = os.getenv(
     "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=2e322113-3ba9-4d90-8257-412971cbc55b",
 )
 
-# 企业微信 markdown 单条上限约 4096 字符。这里保守控制在 3000，避免中文/转义/标题导致 40058。
-WECHAT_MARKDOWN_SAFE_LIMIT = int(os.getenv("WECHAT_MARKDOWN_SAFE_LIMIT", "3000"))
-# 多页推送最小间隔，避免瞬间连发。
-WECHAT_NOTIFY_DELAY_SECONDS = max(1.2, float(os.getenv("WECHAT_NOTIFY_DELAY_SECONDS", "1.5")))
+# 企业微信 markdown.content 标称 4096，但实际要按 UTF-8 bytes 控制。
+# 中文 1 个字通常 3 bytes；再加上标题、换行、JSON 传输，必须留足余量。
+# 默认单页内容压到 2000 bytes 以内，远低于 4096，避免 40058。
+WECHAT_MARKDOWN_SAFE_BYTES = int(os.getenv("WECHAT_MARKDOWN_SAFE_BYTES", "2000"))
+WECHAT_TEXT_SAFE_BYTES = int(os.getenv("WECHAT_TEXT_SAFE_BYTES", "1800"))
+
+# 多页推送延迟，禁止瞬间连发。
+WECHAT_NOTIFY_DELAY_SECONDS = max(1.2, float(os.getenv("WECHAT_NOTIFY_DELAY_SECONDS", "1.8")))
 # 跨进程限流：不同脚本连续发消息时也至少间隔这么久。
-WECHAT_GLOBAL_MIN_INTERVAL = max(1.0, float(os.getenv("WECHAT_GLOBAL_MIN_INTERVAL", "1.2")))
+WECHAT_GLOBAL_MIN_INTERVAL = max(1.0, float(os.getenv("WECHAT_GLOBAL_MIN_INTERVAL", "1.3")))
 NOTIFY_STATE_DIR = os.getenv("NOTIFY_STATE_DIR", "data/notify_state")
 LAST_SEND_FILE = os.path.join(NOTIFY_STATE_DIR, "last_wechat_send.json")
 
@@ -37,6 +41,7 @@ CATEGORY_DISPLAY = {
     "TAIL_CONFIRM": "尾盘确认",
     "AFTER_CLOSE": "收盘复盘",
     "BUY_TRIGGER": "买入触发",
+    "STRONG_BUY_TRIGGER": "强买入触发",
     "NEAR_TRIGGER": "接近触发",
     "PAPER_TRADE": "纸面交易",
     "PAPER_BUY": "纸面买入",
@@ -48,9 +53,80 @@ CATEGORY_DISPLAY = {
     "INFO": "系统信息",
 }
 
+# 企业微信展示时，把策略内部英文 key 补上中文解释。
+# 这里做在通知统一入口，所以扫描报告、买入触发、纸面交易、持仓、日报、异常都生效。
+WARNING_CN_MAP = {
+    "no_breakout": "未突破触发价",
+    "near_breakout": "接近突破",
+    "volume_not_confirm": "量能未确认",
+    "rise_without_volume": "上涨缺量",
+    "kline_quality_weak": "K线质量偏弱",
+    "today_pct_weak": "当日表现偏弱",
+    "too_hot_today": "当日过热",
+    "trend_too_hot": "趋势过热",
+    "pullback_too_fast": "回调过快",
+    "pullback_too_shallow": "回调过浅",
+    "pullback_days_not_ideal": "回调天数不理想",
+    "pullback_volume_too_high": "回调量能偏高",
+    "volatility_not_contracting": "波动未明显收敛",
+    "lows_not_rising": "低点抬高不足",
+    "stabilize_volume_high": "企稳量能偏高",
+    "ma60_slight_break": "轻微跌破MA60",
+    "risk_too_high": "风险过高",
+    "market_weak": "大盘弱势",
+    "risk_off": "风险关闭",
+    "data_stale": "行情过期",
+    "realtime_failed": "实时行情失败",
+    "realtime_low_success_rate": "实时行情成功率过低",
+    "price_too_far_from_trigger": "价格远离触发价",
+    "already_open": "已有持仓",
+    "already_paper_open": "已有纸面持仓",
+    "cooldown_skip": "冷却期跳过",
+    "t_plus_1_locked": "T+1锁定不可卖",
+    "trend_break": "趋势破坏",
+    "trend_break_warn": "趋势破坏预警",
+    "time_warn": "时间预警",
+    "time_exit_warn": "时间止损预警",
+    "time_exit": "时间止损",
+    "target1_hit": "达到目标1",
+    "target2_hit": "达到目标2",
+    "take_profit_1": "目标1止盈",
+    "take_profit_2": "目标2止盈",
+    "exit_stop": "触发止损",
+    "stop_loss": "止损",
+    "strong_observe": "强观察",
+    "observe": "观察",
+    "confirm": "确认",
+    "waiting": "等待确认",
+    "confirmed": "已确认",
+    "high_risk": "高风险",
+    "rejected": "已剔除",
+    "expired": "已过期",
+}
+
 
 def _now_str() -> str:
     return datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+
+def _byte_len(text: str) -> int:
+    return len(str(text or "").encode("utf-8"))
+
+
+def _cut_utf8_bytes(text: str, max_bytes: int) -> str:
+    """按 UTF-8 byte 安全截断，不截断半个中文。"""
+    text = str(text or "")
+    if _byte_len(text) <= max_bytes:
+        return text
+    out: List[str] = []
+    used = 0
+    for ch in text:
+        b = _byte_len(ch)
+        if used + b > max_bytes:
+            break
+        out.append(ch)
+        used += b
+    return "".join(out)
 
 
 def get_webhook(webhook: str = "") -> str:
@@ -89,30 +165,53 @@ def _strip_existing_project_prefix(content: str) -> str:
     return str(content)
 
 
-def _strip_other_bracket_title(content: str) -> str:
-    """如果内容第一行是旧式【盘中观察候选】这类标题，保留但不重复复杂格式。"""
-    if not content:
-        return ""
-    return str(content)
+def _translate_warning_keys(text: str) -> str:
+    """把内部英文提醒 key 补充中文说明。"""
+    text = str(text or "")
+    if not text:
+        return text
+
+    # 长 key 先替换，避免局部误替换。
+    for key in sorted(WARNING_CN_MAP.keys(), key=len, reverse=True):
+        cn = WARNING_CN_MAP[key]
+        # 不重复替换已经是 中文(key) 的内容。
+        pattern = rf"(?<![A-Za-z0-9_\(]){re.escape(key)}(?![A-Za-z0-9_\)])"
+        text = re.sub(pattern, f"{cn}({key})", text)
+    return text
+
+
+def _compress_common_phrases(text: str) -> str:
+    """压缩企业微信里反复出现的长句，减少 byte 长度。"""
+    replacements = {
+        "操作建议：": "建议：",
+        "入场类型：": "类型：",
+        "风险等级：": "风险：",
+        "结构止损距离过远，当前不适合直接开仓。": "止损远，不适合直接开仓。",
+        "风险偏高，只适合小仓位观察。": "风险偏高，仅小仓观察。",
+        "量能未确认，突破有效性不足。": "量能未确认。",
+        "当日涨幅偏大，避免追高，等待回踩或次日确认。": "当日偏热，不追。",
+        "波动未明显收敛，可能仍在震荡。": "波动未收敛。",
+        "低点抬高不充分，止跌结构一般。": "低点抬高不足。",
+        "仅作为规则系统生成的交易计划，不代表确定性买入建议。": "系统计划，仅供复盘。",
+    }
+    out = str(text or "")
+    for a, b in replacements.items():
+        out = out.replace(a, b)
+    return out
 
 
 def _simplify_markdown(content: str) -> str:
     """
-    企业微信 markdown 对长文、表格、代码块较敏感，容易报 40058。
-    全项目通知统一经过这里：扫描报告、买入触发、纸面交易、持仓、日报、系统异常都会被处理。
-
-    策略：
-    - 去掉代码块/行内反引号
-    - 表格转普通文本，删除表格分隔行
-    - 标题转加粗
-    - 引用转普通行
-    - 连续空行压缩
-    - 只保留简单加粗 + 分行
+    企业微信全项目通知统一处理：
+    - 按 byte 安全拆分前，先简化 Markdown。
+    - 不用代码块、不用表格；保留简单加粗和分行。
+    - 英文提醒 key 自动补中文。
     """
     text = str(content or "")
     text = text.replace("\r\n", "\n").replace("\r", "\n").replace("\x00", "")
     text = _strip_existing_project_prefix(text)
-    text = _strip_other_bracket_title(text)
+    text = _translate_warning_keys(text)
+    text = _compress_common_phrases(text)
 
     out: List[str] = []
     in_code_block = False
@@ -125,22 +224,26 @@ def _simplify_markdown(content: str) -> str:
         if stripped.startswith("```"):
             in_code_block = not in_code_block
             continue
-
-        line = line.replace("`", "")
-        stripped = line.strip()
+        if in_code_block:
+            # 代码块内容按普通文本保留，但不保留 ```。
+            line = line.replace("`", "")
+            stripped = line.strip()
+        else:
+            line = line.replace("`", "")
+            stripped = line.strip()
 
         # 删除表格分隔行：|---|---| 或 :---:
         if re.fullmatch(r"[\|\s:\-]+", stripped or ""):
             continue
 
-        # Markdown 表格行转成简单中文分隔，避免复杂 MD。
+        # Markdown 表格行转简单分隔。
         if stripped.count("|") >= 2:
             parts = [p.strip() for p in stripped.strip("|").split("|") if p.strip()]
             if parts:
                 line = " / ".join(parts)
                 stripped = line.strip()
 
-        # Markdown 标题转加粗。
+        # 标题转加粗。
         m = re.match(r"^(#{1,6})\s+(.+)$", line)
         if m:
             line = f"**{m.group(2).strip()}**"
@@ -151,7 +254,7 @@ def _simplify_markdown(content: str) -> str:
             line = line.lstrip()[1:].strip()
             stripped = line.strip()
 
-        # 删除过多列表缩进，保留简单符号。
+        # 删除过多列表缩进。
         line = re.sub(r"^\s{2,}[-*]\s+", "- ", line)
 
         if not stripped:
@@ -166,58 +269,93 @@ def _simplify_markdown(content: str) -> str:
     return "\n".join(out).strip()
 
 
-def _split_long_line(line: str, limit: int) -> List[str]:
-    line = str(line)
-    if len(line) <= limit:
+def _split_line_by_bytes(line: str, max_bytes: int) -> List[str]:
+    line = str(line or "")
+    if _byte_len(line) <= max_bytes:
         return [line]
-    return [line[i:i + limit] for i in range(0, len(line), limit)]
+    pieces: List[str] = []
+    current: List[str] = []
+    used = 0
+    for ch in line:
+        b = _byte_len(ch)
+        if current and used + b > max_bytes:
+            pieces.append("".join(current))
+            current = []
+            used = 0
+        current.append(ch)
+        used += b
+    if current:
+        pieces.append("".join(current))
+    return pieces
 
 
-def _split_body_by_lines(body: str, title_budget: int, safe_limit: int) -> List[str]:
-    # 再留 100 字余量，避免企业微信服务端转义后超过限制。
-    body_limit = max(800, safe_limit - title_budget - 100)
+def _split_body_by_bytes(body: str, header_max_bytes: int, safe_bytes: int) -> List[str]:
+    # 预留标题、换行、服务端处理余量。
+    body_limit = max(500, safe_bytes - header_max_bytes - 120)
     chunks: List[str] = []
     current: List[str] = []
-    current_len = 0
+    current_bytes = 0
 
     for line in str(body or "").splitlines():
-        # 单行过长先硬切。
-        for piece in _split_long_line(line, body_limit):
-            add_len = len(piece) + 1
-            if current and current_len + add_len > body_limit:
+        # 单行也必须按 bytes 硬切。
+        for piece in _split_line_by_bytes(line, body_limit):
+            piece_bytes = _byte_len(piece) + 1  # 换行
+            if current and current_bytes + piece_bytes > body_limit:
                 chunks.append("\n".join(current).strip())
                 current = []
-                current_len = 0
+                current_bytes = 0
             current.append(piece)
-            current_len += add_len
+            current_bytes += piece_bytes
 
     if current:
         chunks.append("\n".join(current).strip())
+
     return [c for c in chunks if c]
 
 
 def _build_pages(content: str, category: str = "INFO", title: str = "") -> List[str]:
     body = _simplify_markdown(content or "")
     sample_title = _project_title(category, title, page=99, total=99)
-    chunks = _split_body_by_lines(body, title_budget=len(sample_title), safe_limit=WECHAT_MARKDOWN_SAFE_LIMIT)
+    chunks = _split_body_by_bytes(
+        body,
+        header_max_bytes=_byte_len(sample_title) + 2,
+        safe_bytes=WECHAT_MARKDOWN_SAFE_BYTES,
+    )
     if not chunks:
         chunks = ["无内容。"]
 
-    total = len(chunks)
+    # 第一次得到 total 后，重新按真实页码标题再校验一次。
     pages: List[str] = []
+    total = len(chunks)
     for idx, chunk in enumerate(chunks, start=1):
         header = _project_title(category, title, page=idx, total=total)
-        page = f"{header}\n{chunk}".strip()
+        max_body_bytes = max(300, WECHAT_MARKDOWN_SAFE_BYTES - _byte_len(header) - 2)
 
-        # 双保险：如果标题 + 分块仍超限，继续硬切。
-        if len(page) > WECHAT_MARKDOWN_SAFE_LIMIT:
-            sub_limit = max(600, WECHAT_MARKDOWN_SAFE_LIMIT - len(header) - 100)
-            subs = _split_long_line(chunk, sub_limit)
-            for j, sub in enumerate(subs, start=1):
-                sub_header = _project_title(category, f"{title} {idx}.{j}".strip(), page=idx, total=total)
-                pages.append(f"{sub_header}\n{sub}".strip())
+        if _byte_len(chunk) > max_body_bytes:
+            sub_pieces = _split_line_by_bytes(chunk, max_body_bytes)
         else:
+            sub_pieces = [chunk]
+
+        for sub in sub_pieces:
+            page = f"{header}\n{sub}".strip()
+            if _byte_len(page) > WECHAT_MARKDOWN_SAFE_BYTES:
+                # 最后保险：按 bytes 截断，绝不让单页超限。
+                page = _cut_utf8_bytes(page, WECHAT_MARKDOWN_SAFE_BYTES)
             pages.append(page)
+
+    # 如果二次切分导致页数变化，重新补正确页码。
+    if len(pages) != total:
+        rebuilt: List[str] = []
+        total2 = len(pages)
+        for i, old_page in enumerate(pages, start=1):
+            body_lines = old_page.split("\n", 1)
+            page_body = body_lines[1] if len(body_lines) > 1 else old_page
+            header = _project_title(category, title, page=i, total=total2)
+            max_body_bytes = max(300, WECHAT_MARKDOWN_SAFE_BYTES - _byte_len(header) - 2)
+            page_body = _cut_utf8_bytes(page_body, max_body_bytes)
+            rebuilt.append(f"{header}\n{page_body}".strip())
+        pages = rebuilt
+
     return pages
 
 
@@ -226,7 +364,6 @@ def _ensure_state_dir() -> None:
 
 
 def _wait_global_rate_limit() -> None:
-    """跨进程简单限流，避免多个任务连续瞬间推送。"""
     _ensure_state_dir()
     now = time.time()
     last = 0.0
@@ -254,35 +391,39 @@ def _mark_global_sent() -> None:
         pass
 
 
-def _send_wechat_markdown(webhook: str, content: str, timeout: int = 10) -> Dict[str, Any]:
+def _post_json_utf8(webhook: str, payload: Dict[str, Any], timeout: int = 10) -> Dict[str, Any]:
     if requests is None:
         raise RuntimeError("requests 未安装，无法推送企业微信")
     if not webhook:
         return {"ok": False, "reason": "webhook_empty"}
 
-    payload = {"msgtype": "markdown", "markdown": {"content": content}}
-    resp = requests.post(webhook, json=payload, timeout=timeout)
+    # 不用 requests.post(json=payload)，避免 ensure_ascii=True 把中文转成 \uXXXX 导致请求体膨胀。
+    data = json.dumps(payload, ensure_ascii=False, separators=(",", ":")).encode("utf-8")
+    headers = {"Content-Type": "application/json; charset=utf-8"}
+    resp = requests.post(webhook, data=data, headers=headers, timeout=timeout)
     resp.raise_for_status()
     try:
         return resp.json()
     except Exception:
         return {"ok": True, "text": resp.text}
+
+
+def _send_wechat_markdown(webhook: str, content: str, timeout: int = 10) -> Dict[str, Any]:
+    payload = {"msgtype": "markdown", "markdown": {"content": content}}
+    result = _post_json_utf8(webhook, payload, timeout=timeout)
+    if isinstance(result, dict):
+        result["_bytes"] = _byte_len(content)
+    return result
 
 
 def _send_wechat_text(webhook: str, content: str, timeout: int = 10) -> Dict[str, Any]:
-    if requests is None:
-        raise RuntimeError("requests 未安装，无法推送企业微信")
-    if not webhook:
-        return {"ok": False, "reason": "webhook_empty"}
-    # text 消息也不要太长，企业微信文本通常也有长度限制。
-    content = str(content or "")[:1800]
+    # text 兜底同样按 bytes 截断。
+    content = _cut_utf8_bytes(str(content or ""), WECHAT_TEXT_SAFE_BYTES)
     payload = {"msgtype": "text", "text": {"content": content}}
-    resp = requests.post(webhook, json=payload, timeout=timeout)
-    resp.raise_for_status()
-    try:
-        return resp.json()
-    except Exception:
-        return {"ok": True, "text": resp.text}
+    result = _post_json_utf8(webhook, payload, timeout=timeout)
+    if isinstance(result, dict):
+        result["_bytes"] = _byte_len(content)
+    return result
 
 
 def _is_wechat_ok(result: Dict[str, Any]) -> bool:
@@ -306,20 +447,15 @@ def send_markdown(
     """
     全项目企业微信统一入口。
 
-    所有通知类型都会走这里：
-    - 扫描报告 / 交易信号 / 观察池刷新 / 尾盘确认
-    - 买入触发 / 接近触发
-    - 纸面交易 / 纸面止损止盈
-    - 持仓风控
-    - 交易日报
-    - 系统异常
+    适用：扫描报告、观察池刷新、尾盘确认、买入触发、纸面交易、持仓风控、日报、系统异常。
 
-    保护机制：
-    1. 自动简化 Markdown，不用表格/代码块。
-    2. 自动拆成多页，每页小于 WECHAT_MARKDOWN_SAFE_LIMIT。
-    3. 多页之间默认延迟 >= 1.2 秒。
-    4. 跨进程简单限流，禁止瞬间连发。
-    5. 如果 markdown 被企业微信拒绝，单页自动降级成 text 兜底。
+    关键保护：
+    - 严格按 UTF-8 bytes 拆分，不按字符数。
+    - 默认单页 <= 2000 bytes，远低于企业微信 4096 限制。
+    - 简化 Markdown，不用表格/代码块。
+    - 英文提醒 key 自动中文化。
+    - 多页限流延迟。
+    - Markdown 返回 40058 时，自动 text 兜底。
     """
     webhook = get_webhook(webhook)
     category = str(category or "INFO").upper()
@@ -330,8 +466,8 @@ def send_markdown(
         print(f"📤 企业微信通知 | {PROJECT_NOTIFY_NAME} | {category} | pages={len(pages)}")
         print("=" * 70)
         for i, page in enumerate(pages, start=1):
-            preview = page if len(page) <= 1500 else page[:1500] + "\n...（日志预览截断，实际按分页推送）"
-            print(f"----- page {i}/{len(pages)} | chars={len(page)} -----")
+            preview = page if _byte_len(page) <= 1800 else _cut_utf8_bytes(page, 1800) + "\n...（日志预览截断，实际按分页推送）"
+            print(f"----- page {i}/{len(pages)} | chars={len(page)} | bytes={_byte_len(page)} -----")
             print(preview)
         print("=" * 70)
 
@@ -342,20 +478,23 @@ def send_markdown(
     results: List[Dict[str, Any]] = []
     for i, page in enumerate(pages, start=1):
         _wait_global_rate_limit()
+        page_bytes = _byte_len(page)
         try:
             result = _send_wechat_markdown(webhook, page)
-            # 如果企业微信返回参数错误，尝试 text 兜底，避免整条消息丢失。
             if isinstance(result, dict) and result.get("errcode") not in (None, 0):
-                print(f"⚠️ 企业微信 markdown 返回异常 page={i}/{len(pages)} chars={len(page)}：{result}")
+                print(
+                    f"⚠️ 企业微信 markdown 返回异常 page={i}/{len(pages)} "
+                    f"chars={len(page)} bytes={page_bytes}：{result}"
+                )
                 fallback = _send_wechat_text(webhook, page)
-                result = {"markdown_result": result, "text_fallback_result": fallback}
+                result = {"markdown_result": result, "text_fallback_result": fallback, "_bytes": page_bytes}
             results.append(result)
             _mark_global_sent()
-            print(f"✅ 企业微信返回 page={i}/{len(pages)} chars={len(page)}：{result}")
+            print(f"✅ 企业微信返回 page={i}/{len(pages)} chars={len(page)} bytes={page_bytes}：{result}")
         except Exception as e:
-            err = {"ok": False, "reason": str(e), "page": i, "chars": len(page)}
+            err = {"ok": False, "reason": str(e), "page": i, "chars": len(page), "bytes": page_bytes}
             results.append(err)
-            print(f"⚠️ 企业微信推送失败 page={i}/{len(pages)} chars={len(page)}：{e}")
+            print(f"⚠️ 企业微信推送失败 page={i}/{len(pages)} chars={len(page)} bytes={page_bytes}：{e}")
 
         if i < len(pages):
             time.sleep(WECHAT_NOTIFY_DELAY_SECONDS)
@@ -370,7 +509,6 @@ def send_markdown(
 
 
 def send_text(content: str, webhook: str = "", category: str = "INFO", title: str = "", **kwargs: Any) -> Dict[str, Any]:
-    """统一走 send_markdown，避免不同路径遗漏分页和限流。"""
     return send_markdown(content, webhook=webhook, category=category, title=title, **kwargs)
 
 
@@ -456,15 +594,24 @@ def notify_paper_exit(content: str, webhook: str = "", title: str = "", **kwargs
     return send_markdown(content or "无纸面退出内容。", webhook=webhook, category="PAPER_EXIT", title=title, **kwargs)
 
 
+# 兼容某些旧代码可能导入的名称。
+send_wechat_markdown = send_markdown
+send_wechat_text = send_text
+wechat_markdown = send_markdown
+
+
 __all__ = [
     "PROJECT_NOTIFY_NAME",
     "DEFAULT_WECHAT_WEBHOOK",
-    "WECHAT_MARKDOWN_SAFE_LIMIT",
+    "WECHAT_MARKDOWN_SAFE_BYTES",
+    "WECHAT_TEXT_SAFE_BYTES",
     "WECHAT_NOTIFY_DELAY_SECONDS",
     "WECHAT_GLOBAL_MIN_INTERVAL",
     "get_webhook",
     "send_markdown",
     "send_text",
+    "send_wechat_markdown",
+    "send_wechat_text",
     "notify_system_event",
     "notify_daily_report",
     "notify_position_report",

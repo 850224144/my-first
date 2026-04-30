@@ -1,0 +1,23 @@
+2026-04-30 11:18:17 | INFO | a_stock | 日志初始化完成：run_id=20260430_111817, log_dir=logs, reject_file=logs/rejects_20260430_111817.csv, raw_bad_rows_file=logs/raw_bad_rows_20260430_111817.jsonl
+2026-04-30 11:18:17 | INFO | a_stock | run_scan 启动
+2026-04-30 11:18:19 | INFO | a_stock | 使用股票池缓存：1463 只
+2026-04-30 11:18:19 | WARNING | a_stock | 板块过滤失败：cannot import name 'filter_universe_by_strong_sector' from 'core.sector' (/Users/liujunying/Downloads/project/my-first/core/sector.py)
+2026-04-30 11:18:19 | WARNING | a_stock | 周线过滤失败：cannot import name 'filter_by_weekly_trend' from 'core.weekly' (/Users/liujunying/Downloads/project/my-first/core/weekly.py)
+2026-04-30 11:18:20 | INFO | a_stock | 实时行情刷新结果：请求=35 成功=35 成功率=100.00% fresh=35 stale=0 最新=2026-04-30 11:18:18
+2026-04-30 11:18:20 | INFO | a_stock | reject 300750 score_too_low score=69
+2026-04-30 11:18:21 | INFO | a_stock | reject 300054 score_too_low score=69
+2026-04-30 11:18:21 | INFO | a_stock | reject 000155 score_too_low score=66
+2026-04-30 11:18:21 | INFO | a_stock | reject 688025 score_too_low score=65
+2026-04-30 11:18:22 | INFO | a_stock | reject 002487 score_too_low score=66
+2026-04-30 11:18:22 | INFO | a_stock | reject 600641 score_too_low score=68
+2026-04-30 11:18:22 | INFO | a_stock | reject 002213 score_too_low score=68
+2026-04-30 11:18:23 | INFO | a_stock | reject 688002 score_too_low score=67
+2026-04-30 11:18:23 | INFO | a_stock | reject 301219 score_too_low score=67
+2026-04-30 11:18:23 | INFO | a_stock | reject 301200 score_too_low score=62
+2026-04-30 11:18:23 | INFO | a_stock | reject 301392 score_too_low score=69
+2026-04-30 11:18:23 | INFO | a_stock | reject 300769 score_too_low score=65
+2026-04-30 11:18:24 | INFO | a_stock | reject 605366 score_too_low score=68
+2026-04-30 11:18:25 | INFO | a_stock | reject 603315 score_too_low score=63
+2026-04-30 11:18:25 | INFO | a_stock | reject 600791 score_too_low score=67
+2026-04-30 11:18:25 | INFO | a_stock | reject 688633 score_too_low score=66
+2026-04-30 11:18:25 | INFO | a_stock | 扫描报告：universe=35 processed=35 skipped=16 candidates=19
