@@ -1,287 +1,371 @@
-# -*- coding: utf-8 -*-
 """
-core/sector.py
+板块 / 龙头评分模块。
 
-方案 H：板块过滤 V2
-
-核心思路：
-1. 先获取行业板块行情，判断哪些板块热；
-2. 只对强势板块获取成分股，减少请求量；
-3. 默认调试模式下，板块数据失败时由 run_scan.py 跳过板块过滤；
-4. 严格模式 --strict-sector 下，板块数据失败则停止扫描。
-
-数据源优先级：
-- 同花顺行业一览表：ak.stock_board_industry_summary_ths()
-- 东方财富行业板块：ak.stock_board_industry_name_em()
-- 本地缓存：data/sector_hot.parquet / data/sector_members.parquet
+v2.4.0 目标：
+- 提供 sector_score、leader_score、sector_state、sector_flags
+- 兼容旧调用 filter_universe_by_strong_sector
+- 不把板块过滤一刀切做死
 """
 
 from __future__ import annotations
 
-import os
-import time
-from datetime import datetime, timedelta
-from typing import Iterable, List, Tuple, Optional
+from typing import Any, Dict, List, Optional, Iterable, Tuple
+from dataclasses import dataclass, asdict
+import json
+import re
 
-import polars as pl
-
-from core.logger import get_logger, log_exception
-
-SECTOR_HOT_CACHE = "data/sector_hot.parquet"
-SECTOR_MEMBER_CACHE = "data/sector_members.parquet"
-SECTOR_CACHE_DAYS = 3
-
-
-def _cache_fresh(path: str, days: int = SECTOR_CACHE_DAYS) -> bool:
-    if not os.path.exists(path):
-        return False
-    mtime = datetime.fromtimestamp(os.path.getmtime(path))
-    return datetime.now() - mtime <= timedelta(days=days)
+try:
+    from .data_normalizer import normalize_symbol, standardize_xgb_pool_item, clamp_score
+except Exception:
+    def normalize_symbol(x): return str(x)
+    def standardize_xgb_pool_item(item, **kwargs): return dict(item)
+    def clamp_score(value, low=0, high=100): return max(low, min(high, float(value)))
 
 
-def _pick_col(cols: Iterable[str], candidates: Iterable[str]) -> Optional[str]:
-    col_set = set(cols)
-    for c in candidates:
-        if c in col_set:
-            return c
+@dataclass
+class SectorScore:
+    symbol: str
+    sector_score: float
+    leader_score: float
+    sector_state: str
+    leader_type: str
+    theme_name: Optional[str]
+    sector_flags: List[str]
+    sector_reasons: List[str]
+
+    def to_dict(self) -> Dict[str, Any]:
+        return asdict(self)
+
+
+def _safe_float(value: Any, default: float = 0.0) -> float:
+    try:
+        if value is None:
+            return default
+        return float(str(value).replace(",", ""))
+    except Exception:
+        return default
+
+
+def _safe_int(value: Any, default: int = 0) -> int:
+    try:
+        if value is None:
+            return default
+        return int(float(str(value).replace(",", "")))
+    except Exception:
+        return default
+
+
+def extract_theme_from_surge_reason(surge_reason: Any) -> List[str]:
+    """
+    轻量解析 surge_reason。
+    第一版不做复杂 NLP，只做常见分隔符切分。
+    """
+    if surge_reason is None:
+        return []
+    if isinstance(surge_reason, dict):
+        text = json.dumps(surge_reason, ensure_ascii=False)
+    else:
+        text = str(surge_reason)
+
+    # 去掉明显解释文本，只保留候选关键词
+    parts = re.split(r"[、,，;/；\|\n\r]+", text)
+    themes: List[str] = []
+    for p in parts:
+        t = re.sub(r"[：:【】\[\]{}（）()]", " ", p).strip()
+        if not t:
+            continue
+        # 避免太长的句子当主题
+        if len(t) > 18:
+            continue
+        # 去除纯数字
+        if re.fullmatch(r"\d+", t):
+            continue
+        themes.append(t)
+
+    # 去重
+    out: List[str] = []
+    for t in themes:
+        if t not in out:
+            out.append(t)
+    return out[:5]
+
+
+def build_theme_stats(core_pools: Dict[str, Any]) -> Dict[str, Dict[str, Any]]:
+    """
+    根据选股宝核心股池构建主题热度统计。
+
+    core_pools 可传：
+    {
+      "limit_up": [...],
+      "continuous_limit_up": [...],
+      "strong_stock": [...],
+      "limit_up_broken": [...],
+      "limit_down": [...]
+    }
+
+    也兼容 xgb_cache.get_core_pools 返回：
+    {"limit_up": {"data": [...]}}
+    """
+    def pool(name: str) -> List[Dict[str, Any]]:
+        v = core_pools.get(name, [])
+        if isinstance(v, dict):
+            return v.get("data") or []
+        return v or []
+
+    stats: Dict[str, Dict[str, Any]] = {}
+
+    def add(theme: str, key: str, item: Dict[str, Any]):
+        s = stats.setdefault(theme, {
+            "theme": theme,
+            "limit_up_count": 0,
+            "continuous_limit_up_count": 0,
+            "strong_stock_count": 0,
+            "broken_count": 0,
+            "limit_down_count": 0,
+            "max_limit_up_days": 0,
+            "symbols": set(),
+        })
+        s[key] += 1
+        sym = item.get("symbol")
+        if sym:
+            try:
+                s["symbols"].add(normalize_symbol(sym))
+            except Exception:
+                s["symbols"].add(str(sym))
+        s["max_limit_up_days"] = max(s["max_limit_up_days"], _safe_int(item.get("limit_up_days"), 0))
+
+    for name, key in [
+        ("limit_up", "limit_up_count"),
+        ("continuous_limit_up", "continuous_limit_up_count"),
+        ("strong_stock", "strong_stock_count"),
+        ("limit_up_broken", "broken_count"),
+        ("limit_down", "limit_down_count"),
+    ]:
+        for item in pool(name):
+            themes = extract_theme_from_surge_reason(item.get("surge_reason"))
+            if not themes:
+                continue
+            for t in themes:
+                add(t, key, item)
+
+    for s in stats.values():
+        score = (
+            s["limit_up_count"] * 8
+            + s["continuous_limit_up_count"] * 12
+            + s["strong_stock_count"] * 5
+            + s["max_limit_up_days"] * 5
+            - s["broken_count"] * 6
+            - s["limit_down_count"] * 10
+        )
+        s["theme_heat_score"] = clamp_score(score)
+        s["symbols"] = list(s["symbols"])
+
+    return stats
+
+
+def _symbol_in_pool(symbol: str, items: Iterable[Dict[str, Any]]) -> Optional[Dict[str, Any]]:
+    std = normalize_symbol(symbol)
+    for x in items or []:
+        try:
+            if normalize_symbol(x.get("symbol")) == std:
+                return x
+        except Exception:
+            continue
     return None
 
 
-def _to_float_expr(col: str) -> pl.Expr:
-    return (
-        pl.col(col)
-        .cast(pl.Utf8, strict=False)
-        .str.replace_all("%", "")
-        .str.replace_all(",", "")
-        .cast(pl.Float64, strict=False)
-    )
+def score_sector_for_stock(
+    symbol: str,
+    *,
+    core_pools: Optional[Dict[str, Any]] = None,
+    stock_daily_bars: Optional[Any] = None,
+    trade_date: Optional[str] = None,
+    config: Optional[Dict[str, Any]] = None,
+) -> Dict[str, Any]:
+    """
+    给单只股票评分。
 
+    第一版数据优先来自选股宝股池：
+    - limit_up
+    - continuous_limit_up
+    - strong_stock
+    - limit_up_broken
+    - limit_down
+    """
+    std = normalize_symbol(symbol)
+    pools = core_pools or {}
 
-def normalize_code(code: str) -> str:
-    s = str(code).strip()
-    if not s:
-        return ""
-    s = s.replace(".SH", "").replace(".SZ", "").replace(".BJ", "")
-    s = s.replace("sh", "").replace("sz", "").replace("bj", "")
-    return s.zfill(6) if s.isdigit() else s
+    def pool(name: str) -> List[Dict[str, Any]]:
+        v = pools.get(name, [])
+        if isinstance(v, dict):
+            return v.get("data") or []
+        return v or []
 
+    limit_up = pool("limit_up")
+    cont = pool("continuous_limit_up")
+    strong = pool("strong_stock")
+    broken = pool("limit_up_broken")
+    limit_down = pool("limit_down")
 
-def valid_a_share_code(code: str) -> bool:
-    c = normalize_code(code)
-    return c.startswith(("600", "601", "603", "605", "688", "000", "001", "002", "003", "300", "301", "920"))
+    flags: List[str] = []
+    reasons: List[str] = []
 
+    lu_item = _symbol_in_pool(std, limit_up)
+    cont_item = _symbol_in_pool(std, cont)
+    strong_item = _symbol_in_pool(std, strong)
+    broken_item = _symbol_in_pool(std, broken)
+    down_item = _symbol_in_pool(std, limit_down)
 
-def _standardize_hot(df, source: str) -> pl.DataFrame:
-    """把 AkShare 行业行情表统一为 sector/pct_chg/amount/turnover/source。"""
-    if df is None or len(df) == 0:
-        return pl.DataFrame()
+    theme_stats = build_theme_stats(pools)
+    candidate_themes: List[str] = []
 
-    pdf_cols = list(df.columns)
-    sector_col = _pick_col(pdf_cols, ["板块名称", "行业名称", "板块", "名称", "行业"])
-    pct_col = _pick_col(pdf_cols, ["涨跌幅", "涨幅", "涨跌幅%", "涨幅%"])
-    amount_col = _pick_col(pdf_cols, ["成交额", "总成交额", "金额", "成交金额"])
-    turnover_col = _pick_col(pdf_cols, ["换手率", "换手", "总换手率", "换手率%"])
+    for item in [lu_item, cont_item, strong_item, broken_item, down_item]:
+        if item:
+            candidate_themes.extend(extract_theme_from_surge_reason(item.get("surge_reason")))
 
-    if not sector_col:
-        get_logger().warning("板块行情字段不含名称列 source=%s cols=%s", source, pdf_cols)
-        return pl.DataFrame()
+    # 如果个股不在池内，第一版可能拿不到主题，给未知
+    candidate_themes = list(dict.fromkeys([x for x in candidate_themes if x]))
+    theme_name = None
+    theme_heat_score = 50.0
 
-    pldf = pl.from_pandas(df)
-    exprs = [
-        pl.col(sector_col).cast(pl.Utf8).alias("sector"),
-        pl.lit(source).alias("source"),
-        pl.lit(datetime.now().strftime("%Y-%m-%d %H:%M:%S")).alias("updated_at"),
-    ]
-    exprs.append(_to_float_expr(pct_col).alias("pct_chg") if pct_col else pl.lit(None).cast(pl.Float64).alias("pct_chg"))
-    exprs.append(_to_float_expr(amount_col).alias("amount") if amount_col else pl.lit(None).cast(pl.Float64).alias("amount"))
-    exprs.append(_to_float_expr(turnover_col).alias("turnover") if turnover_col else pl.lit(None).cast(pl.Float64).alias("turnover"))
-
-    out = pldf.select(exprs).filter(pl.col("sector").is_not_null() & (pl.col("sector") != ""))
-    return out.unique(subset=["sector"], keep="first")
-
-
-def fetch_sector_hot(force_refresh: bool = False) -> pl.DataFrame:
-    """获取行业热度行情表，优先 THS，备用 EM，失败用缓存。"""
-    os.makedirs("data", exist_ok=True)
-    if not force_refresh and _cache_fresh(SECTOR_HOT_CACHE):
-        try:
-            cached = pl.read_parquet(SECTOR_HOT_CACHE)
-            if not cached.is_empty():
-                get_logger().info("使用板块热度缓存：%s 个行业", len(cached))
-                return cached
-        except Exception as e:
-            log_exception("读取板块热度缓存失败", e)
-
-    try:
-        import akshare as ak
-        df = ak.stock_board_industry_summary_ths()
-        hot = _standardize_hot(df, source="ths")
-        if not hot.is_empty():
-            hot.write_parquet(SECTOR_HOT_CACHE)
-            get_logger().info("同花顺行业热度获取成功：%s 个行业", len(hot))
-            return hot
-    except Exception as e:
-        log_exception("同花顺行业热度获取失败", e)
-
-    try:
-        import akshare as ak
-        df = ak.stock_board_industry_name_em()
-        hot = _standardize_hot(df, source="eastmoney")
-        if not hot.is_empty():
-            hot.write_parquet(SECTOR_HOT_CACHE)
-            get_logger().info("东方财富行业热度获取成功：%s 个行业", len(hot))
-            return hot
-    except Exception as e:
-        log_exception("东方财富行业热度获取失败", e)
-
-    if os.path.exists(SECTOR_HOT_CACHE):
-        try:
-            cached = pl.read_parquet(SECTOR_HOT_CACHE)
-            if not cached.is_empty():
-                get_logger().warning("行业热度远程失败，使用旧缓存：%s 个行业", len(cached))
-                return cached
-        except Exception as e:
-            log_exception("读取旧板块热度缓存失败", e)
-
-    return pl.DataFrame()
-
-
-def score_sector_hot(hot: pl.DataFrame) -> pl.DataFrame:
-    """板块热度评分：涨跌幅50、成交额30、换手20；缺字段自动降级。"""
-    if hot is None or hot.is_empty():
-        return pl.DataFrame()
-
-    df = hot.clone()
-    n = max(1, len(df))
-
-    score_exprs = []
-    if "pct_chg" in df.columns and df["pct_chg"].drop_nulls().len() > 0:
-        df = df.with_columns(pl.col("pct_chg").rank("average", descending=False).alias("pct_rank"))
-        score_exprs.append((pl.col("pct_rank") / n * 50).fill_null(0))
-    if "amount" in df.columns and df["amount"].drop_nulls().len() > 0:
-        df = df.with_columns(pl.col("amount").rank("average", descending=False).alias("amount_rank"))
-        score_exprs.append((pl.col("amount_rank") / n * 30).fill_null(0))
-    if "turnover" in df.columns and df["turnover"].drop_nulls().len() > 0:
-        df = df.with_columns(pl.col("turnover").rank("average", descending=False).alias("turnover_rank"))
-        score_exprs.append((pl.col("turnover_rank") / n * 20).fill_null(0))
-
-    if not score_exprs:
-        df = df.with_columns(pl.lit(0.0).alias("score"))
+    if candidate_themes:
+        best = None
+        for t in candidate_themes:
+            s = theme_stats.get(t)
+            if s and (best is None or s["theme_heat_score"] > best["theme_heat_score"]):
+                best = s
+        if best:
+            theme_name = best["theme"]
+            theme_heat_score = float(best["theme_heat_score"])
+            reasons.append(f"所属题材 {theme_name} 热度分 {theme_heat_score:.1f}")
+        else:
+            theme_name = candidate_themes[0]
+            flags.append("题材统计不足(sector_theme_stats_missing)")
     else:
-        total = score_exprs[0]
-        for expr in score_exprs[1:]:
-            total = total + expr
-        df = df.with_columns(total.alias("score"))
+        flags.append("题材归属不明确(sector_unknown)")
 
-    keep_cols = [c for c in ["sector", "score", "pct_chg", "amount", "turnover", "source", "updated_at"] if c in df.columns]
-    return df.select(keep_cols).sort("score", descending=True)
+    sector_score = theme_heat_score
+    leader_score = 45.0
 
+    if lu_item:
+        leader_score += 15
+        reasons.append("入选涨停池")
+    if cont_item:
+        leader_score += 25
+        reasons.append("入选连板池")
+    if strong_item:
+        leader_score += 15
+        reasons.append("入选强势股池")
+    if broken_item:
+        leader_score -= 15
+        flags.append("炸板风险(limit_up_broken)")
+    if down_item:
+        leader_score -= 30
+        flags.append("跌停风险(limit_down)")
 
-def _standardize_members(df, sector: str, source: str) -> pl.DataFrame:
-    if df is None or len(df) == 0:
-        return pl.DataFrame()
-    cols = list(df.columns)
-    code_col = _pick_col(cols, ["代码", "股票代码", "成分股代码", "证券代码"])
-    name_col = _pick_col(cols, ["名称", "股票名称", "成分股名称", "证券简称"])
-    if not code_col:
-        get_logger().warning("行业成分字段不含代码列 sector=%s source=%s cols=%s", sector, source, cols)
-        return pl.DataFrame()
-    pldf = pl.from_pandas(df)
-    out = pldf.select([
-        pl.col(code_col).cast(pl.Utf8).map_elements(normalize_code, return_dtype=pl.Utf8).alias("code"),
-        (pl.col(name_col).cast(pl.Utf8) if name_col else pl.lit("")) .alias("name"),
-        pl.lit(sector).alias("sector"),
-        pl.lit(source).alias("member_source"),
-        pl.lit(datetime.now().strftime("%Y-%m-%d %H:%M:%S")).alias("updated_at"),
-    ])
-    return out.filter(pl.col("code").map_elements(valid_a_share_code, return_dtype=pl.Boolean)).unique(subset=["code", "sector"])
+    # 连板天数加权
+    source_item = cont_item or lu_item or strong_item or {}
+    limit_up_days = _safe_int(source_item.get("limit_up_days"), 0)
+    if limit_up_days >= 2:
+        leader_score += min(20, limit_up_days * 5)
+        reasons.append(f"连板高度 {limit_up_days}")
 
+    # 首封时间越早越强，粗略加分：如果字段存在即可少量加分
+    if source_item.get("first_limit_up_time"):
+        leader_score += 5
+        reasons.append("存在首次涨停时间，具备辨识度")
 
-def fetch_sector_members_for(sectors: List[str], sleep_sec: float = 0.8) -> pl.DataFrame:
-    """只对强势板块拉成分股。优先 EM 成分接口。"""
-    rows: List[pl.DataFrame] = []
-    try:
-        import akshare as ak
-    except Exception as e:
-        log_exception("导入 AkShare 失败，无法获取板块成分", e)
-        return pl.DataFrame()
+    leader_score = clamp_score(leader_score)
 
-    for sector in sectors:
-        try:
-            df = ak.stock_board_industry_cons_em(symbol=sector)
-            part = _standardize_members(df, sector=sector, source="eastmoney_cons")
-            if not part.is_empty():
-                rows.append(part)
-                get_logger().info("板块成分获取成功 sector=%s count=%s", sector, len(part))
-            else:
-                get_logger().warning("板块成分为空 sector=%s", sector)
-        except Exception as e:
-            log_exception(f"板块成分获取失败 sector={sector}", e)
-        time.sleep(max(0.0, sleep_sec))
-
-    if not rows:
-        return pl.DataFrame()
-    out = pl.concat(rows, how="vertical_relaxed").unique(subset=["code", "sector"])
-    os.makedirs("data", exist_ok=True)
-    out.write_parquet(SECTOR_MEMBER_CACHE)
-    return out
-
-
-def get_top_sectors(universe: pl.DataFrame | None = None, top_pct: float = 0.2, max_workers: int = 1, force_refresh: bool = False) -> Tuple[pl.DataFrame, List[str]]:
-    """返回板块热度表与强势板块列表。"""
-    hot = fetch_sector_hot(force_refresh=force_refresh)
-    table = score_sector_hot(hot)
-    if table.is_empty():
-        get_logger().warning("板块热度表为空，无法计算强势板块")
-        return pl.DataFrame(), []
-
-    pct = min(max(float(top_pct or 0.2), 0.01), 1.0)
-    top_n = max(1, int(len(table) * pct))
-    top = table.head(top_n)
-    sectors = top["sector"].to_list()
-
-    members = fetch_sector_members_for(sectors)
-    if members.is_empty():
-        get_logger().warning("强势板块成分为空，可能是板块名称与成分接口不匹配")
+    if leader_score >= 85:
+        leader_type = "total_leader"
+    elif leader_score >= 70:
+        leader_type = "turnover_leader"
+    elif leader_score >= 60:
+        leader_type = "front_runner"
+    elif leader_score >= 50:
+        leader_type = "normal_stock"
     else:
-        get_logger().info("强势板块成分合计：%s 条", len(members))
+        leader_type = "follower"
+        flags.append("非板块前排/后排跟风(leader_follower)")
 
-    print("\n板块过滤报告：")
-    print(f"  行业行情源：{top['source'][0] if 'source' in top.columns and len(top) else 'unknown'}")
-    print(f"  强势板块数量：{len(sectors)}")
-    print(f"  保留比例：{pct:.0%}")
-    print("  强势板块Top：")
-    print(top.select([c for c in ["sector", "score", "pct_chg", "amount", "turnover"] if c in top.columns]).head(20))
+    if sector_score >= 80:
+        sector_state = "strong_mainline"
+    elif sector_score >= 70:
+        sector_state = "active_mainline"
+    elif sector_score >= 55:
+        sector_state = "active_sector"
+    elif sector_score >= 45:
+        sector_state = "neutral_sector"
+    else:
+        sector_state = "weak_sector"
+        flags.append("板块强度不足(sector_weak)")
 
-    return table, sectors
+    return SectorScore(
+        symbol=std,
+        sector_score=round(clamp_score(sector_score), 2),
+        leader_score=round(leader_score, 2),
+        sector_state=sector_state,
+        leader_type=leader_type,
+        theme_name=theme_name,
+        sector_flags=list(dict.fromkeys(flags)),
+        sector_reasons=list(dict.fromkeys(reasons)),
+    ).to_dict()
 
 
-def _load_member_cache() -> pl.DataFrame:
-    if not os.path.exists(SECTOR_MEMBER_CACHE):
-        return pl.DataFrame()
-    try:
-        df = pl.read_parquet(SECTOR_MEMBER_CACHE)
-        if df is not None and not df.is_empty():
-            return df.with_columns(pl.col("code").cast(pl.Utf8).map_elements(normalize_code, return_dtype=pl.Utf8).alias("code"))
-    except Exception as e:
-        log_exception("读取板块成分缓存失败", e)
-    return pl.DataFrame()
+def filter_universe_by_strong_sector(
+    candidates: List[Dict[str, Any]],
+    *,
+    core_pools: Optional[Dict[str, Any]] = None,
+    trade_date: Optional[str] = None,
+    mode: str = "observe",
+    config: Optional[Dict[str, Any]] = None,
+) -> Dict[str, Any]:
+    """
+    兼容旧调用：filter_universe_by_strong_sector
 
+    observe 阶段宽松，tail_confirm 阶段严格。
+    """
+    cfg = config or {}
+    hard_reject_score = float(cfg.get("hard_reject_score", 45))
+    leader_reject_score = float(cfg.get("leader_reject_score", 50))
 
-def filter_universe_by_sectors(universe: pl.DataFrame, top_sectors: List[str]) -> pl.DataFrame:
-    """按强势板块成分过滤股票池。"""
-    if universe is None or universe.is_empty() or not top_sectors:
-        return pl.DataFrame()
-    members = _load_member_cache()
-    if members.is_empty():
-        get_logger().warning("行业成分缓存为空，无法按板块过滤")
-        return pl.DataFrame()
-    members = members.filter(pl.col("sector").is_in(top_sectors)).select(["code", "sector"]).unique()
-    if members.is_empty():
-        get_logger().warning("强势板块命中成分为空")
-        return pl.DataFrame()
+    passed: List[Dict[str, Any]] = []
+    rejected: List[Dict[str, Any]] = []
+    scored: List[Dict[str, Any]] = []
 
-    uni = universe.with_columns(pl.col("code").cast(pl.Utf8).map_elements(normalize_code, return_dtype=pl.Utf8).alias("code"))
-    out = uni.join(members, on="code", how="inner")
-    print(f"📊 板块过滤后剩余：{len(out)} / {len(universe)}")
-    return out
+    for c in candidates:
+        symbol = c.get("symbol") or c.get("code")
+        if not symbol:
+            item = dict(c)
+            item["sector_flags"] = ["缺少股票代码(symbol_missing)"]
+            rejected.append(item)
+            scored.append(item)
+            continue
+
+        ss = score_sector_for_stock(
+            symbol,
+            core_pools=core_pools,
+            trade_date=trade_date,
+            config=cfg,
+        )
+        item = dict(c)
+        item.update(ss)
+        scored.append(item)
+
+        hard_reject = (
+            ss["sector_score"] < hard_reject_score
+            or ss["leader_score"] < leader_reject_score
+            or ss["leader_type"] == "follower"
+        )
+
+        # observe 阶段先宽进
+        if mode == "observe":
+            hard_reject = ss["sector_score"] < 35 or ss["leader_score"] < 35
+
+        if hard_reject:
+            rejected.append(item)
+        else:
+            passed.append(item)
+
+    return {"passed": passed, "rejected": rejected, "scored": scored}

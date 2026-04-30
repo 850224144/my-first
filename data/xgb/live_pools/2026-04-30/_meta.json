@@ -1,0 +1,50 @@
+{
+  "trade_date": "2026-04-30",
+  "cache_root": "/Users/liujunying/Downloads/project/my-first/data/xgb/live_pools/2026-04-30",
+  "param_key": "pool_name",
+  "fetched_at": "2026-04-30T13:46:04",
+  "summary": {
+    "limit_up": {
+      "count": 88,
+      "ok": true,
+      "code": 20000,
+      "error": null,
+      "url": "https://flash-api.xuangubao.cn/api/pool/detail?pool_name=limit_up"
+    },
+    "continuous_limit_up": {
+      "count": 88,
+      "ok": true,
+      "code": 20000,
+      "error": null,
+      "url": "https://flash-api.xuangubao.cn/api/pool/detail?pool_name=continuous_limit_up"
+    },
+    "strong_stock": {
+      "count": 87,
+      "ok": true,
+      "code": 20000,
+      "error": null,
+      "url": "https://flash-api.xuangubao.cn/api/pool/detail?pool_name=strong_stock"
+    },
+    "yesterday_limit_up": {
+      "count": 118,
+      "ok": true,
+      "code": 20000,
+      "error": null,
+      "url": "https://flash-api.xuangubao.cn/api/pool/detail?pool_name=yesterday_limit_up"
+    },
+    "limit_up_broken": {
+      "count": 20,
+      "ok": true,
+      "code": 20000,
+      "error": null,
+      "url": "https://flash-api.xuangubao.cn/api/pool/detail?pool_name=limit_up_broken"
+    },
+    "limit_down": {
+      "count": 46,
+      "ok": true,
+      "code": 20000,
+      "error": null,
+      "url": "https://flash-api.xuangubao.cn/api/pool/detail?pool_name=limit_down"
+    }
+  }
+}

@@ -1,0 +1,152 @@
+
+################################################################################
+[2026-04-30 14:50:00] JOB START: tail_confirm
+################################################################################
+
+================================================================================
+[2026-04-30 14:50:00] START COMMAND: /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --mode tail_confirm --workers 1
+[2026-04-30 14:50:00] TIMEOUT: 600
+================================================================================
+2026-04-30 14:50:06 | INFO | a_stock | 日志初始化完成：run_id=20260430_145006, log_dir=logs, reject_file=logs/rejects_20260430_145006.csv, raw_bad_rows_file=logs/raw_bad_rows_20260430_145006.jsonl
+2026-04-30 14:50:06 | INFO | a_stock | run_scan 启动
+======================================================================
+📈 大盘状态：强势 | 双指数强势，可正常筛选，优先强势板块
+上证：2026-04-30 close=4114.18 ma20=4114.18 ma60=4114.18 data=intraday+local_ma
+创业板：2026-04-30 close=3681.28 ma20=3681.28 ma60=3681.28 data=intraday+local_ma
+======================================================================
+2026-04-30 14:50:11 | INFO | a_stock | 使用股票池缓存：1463 只
+📌 tail_confirm 优先扫描今日 watchlist：73 只
+2026-04-30 14:50:11 | WARNING | a_stock | 板块过滤失败：filter_universe_by_strong_sector() got an unexpected keyword argument 'market_state'
+⚠️ 板块过滤失败，调试模式跳过板块过滤继续扫描
+2026-04-30 14:50:11 | WARNING | a_stock | 周线过滤失败：filter_by_weekly_trend() got an unexpected keyword argument 'strict'
+⚠️ 周线过滤失败，调试模式跳过周线过滤继续扫描
+实时行情刷新结果：请求=73 成功=73 成功率=100.00% fresh=73 stale=0 最新=2026-04-30 14:50:10
+2026-04-30 14:50:14 | INFO | a_stock | 实时行情刷新结果：请求=73 成功=73 成功率=100.00% fresh=73 stale=0 最新=2026-04-30 14:50:10
+
+数据覆盖率报告：
+  stock_basic：5323
+  有效基础股票：5323
+  stock_daily 有效缓存股票：1475 (27.71%)
+  realtime_quote 覆盖股票：5317
+  universe 股票池：1463
+开始扫描：73 只，模式=tail_confirm ...
+2026-04-30 14:50:15 | INFO | a_stock | reject 300750 score_too_low score=67
+2026-04-30 14:50:15 | INFO | a_stock | reject 002281 score_too_low score=76
+2026-04-30 14:50:16 | INFO | a_stock | reject 000338 score_too_low score=71
+2026-04-30 14:50:17 | INFO | a_stock | reject 002353 score_too_low score=79
+2026-04-30 14:50:17 | INFO | a_stock | reject 002273 score_too_low score=71
+2026-04-30 14:50:18 | INFO | a_stock | reject 300438 score_too_low score=71
+2026-04-30 14:50:18 | INFO | a_stock | reject 600938 score_too_low score=70
+2026-04-30 14:50:19 | INFO | a_stock | reject 300054 score_too_low score=72
+2026-04-30 14:50:19 | INFO | a_stock | reject 301217 score_too_low score=75
+2026-04-30 14:50:19 | INFO | a_stock | reject 301358 score_too_low score=70
+2026-04-30 14:50:20 | INFO | a_stock | reject 301511 score_too_low score=73
+2026-04-30 14:50:20 | INFO | a_stock | reject 300870 score_too_low score=62
+2026-04-30 14:50:21 | INFO | a_stock | reject 000155 score_too_low score=64
+2026-04-30 14:50:21 | INFO | a_stock | reject 002648 score_too_low score=79
+2026-04-30 14:50:21 | INFO | a_stock | reject 688025 score_too_low score=69
+2026-04-30 14:50:22 | INFO | a_stock | reject 002245 score_too_low score=68
+2026-04-30 14:50:22 | INFO | a_stock | reject 300953 score_too_low score=77
+2026-04-30 14:50:23 | INFO | a_stock | reject 002487 score_too_low score=66
+2026-04-30 14:50:23 | INFO | a_stock | reject 002821 score_too_low score=70
+2026-04-30 14:50:24 | INFO | a_stock | reject 603063 score_too_low score=77
+2026-04-30 14:50:24 | INFO | a_stock | reject 601088 score_too_low score=76
+2026-04-30 14:50:24 | INFO | a_stock | reject 300184 score_too_low score=59
+2026-04-30 14:50:25 | INFO | a_stock | reject 002484 score_too_low score=79
+2026-04-30 14:50:25 | INFO | a_stock | reject 002497 score_too_low score=72
+2026-04-30 14:50:26 | INFO | a_stock | reject 300209 score_too_low score=71
+2026-04-30 14:50:27 | INFO | a_stock | reject 600641 score_too_low score=66
+2026-04-30 14:50:27 | INFO | a_stock | reject 002213 score_too_low score=75
+2026-04-30 14:50:28 | INFO | a_stock | reject 600152 score_too_low score=64
+2026-04-30 14:50:28 | INFO | a_stock | reject 300657 score_too_low score=71
+2026-04-30 14:50:29 | INFO | a_stock | reject 002929 score_too_low score=74
+2026-04-30 14:50:30 | INFO | a_stock | reject 688002 score_too_low score=70
+2026-04-30 14:50:30 | INFO | a_stock | reject 000833 score_too_low score=79
+2026-04-30 14:50:31 | INFO | a_stock | reject 688536 score_too_low score=76
+2026-04-30 14:50:31 | INFO | a_stock | reject 300919 score_too_low score=69
+2026-04-30 14:50:32 | INFO | a_stock | reject 301219 score_too_low score=67
+2026-04-30 14:50:32 | INFO | a_stock | reject 002645 score_too_low score=74
+2026-04-30 14:50:34 | INFO | a_stock | reject 301200 score_too_low score=62
+2026-04-30 14:50:34 | INFO | a_stock | reject 301392 score_too_low score=66
+2026-04-30 14:50:35 | INFO | a_stock | reject 688166 score_too_low score=67
+2026-04-30 14:50:36 | INFO | a_stock | reject 300769 score_too_low score=65
+2026-04-30 14:50:36 | INFO | a_stock | reject 300866 score_too_low score=79
+2026-04-30 14:50:37 | INFO | a_stock | reject 600773 score_too_low score=74
+2026-04-30 14:50:38 | INFO | a_stock | reject 000628 score_too_low score=77
+2026-04-30 14:50:39 | INFO | a_stock | reject 301196 score_too_low score=71
+2026-04-30 14:50:39 | INFO | a_stock | reject 301626 score_too_low score=79
+2026-04-30 14:50:40 | INFO | a_stock | reject 300057 score_too_low score=68
+2026-04-30 14:50:40 | INFO | a_stock | reject 688127 score_too_low score=67
+2026-04-30 14:50:41 | INFO | a_stock | reject 300651 score_too_low score=72
+2026-04-30 14:50:41 | INFO | a_stock | reject 300843 score_too_low score=72
+2026-04-30 14:50:42 | INFO | a_stock | reject 301246 score_too_low score=65
+2026-04-30 14:50:43 | INFO | a_stock | reject 002685 score_too_low score=73
+2026-04-30 14:50:43 | INFO | a_stock | reject 688409 score_too_low score=67
+2026-04-30 14:50:44 | INFO | a_stock | reject 688020 score_too_low score=74
+2026-04-30 14:50:44 | INFO | a_stock | reject 605006 score_too_low score=74
+2026-04-30 14:50:45 | INFO | a_stock | reject 002859 score_too_low score=72
+2026-04-30 14:50:46 | INFO | a_stock | reject 300558 score_too_low score=70
+2026-04-30 14:50:46 | INFO | a_stock | reject 605366 score_too_low score=68
+2026-04-30 14:50:47 | INFO | a_stock | reject 002635 score_too_low score=70
+2026-04-30 14:50:47 | INFO | a_stock | reject 603315 score_too_low score=63
+2026-04-30 14:50:48 | INFO | a_stock | reject 002386 score_too_low score=71
+2026-04-30 14:50:48 | INFO | a_stock | reject 688359 score_too_low score=75
+2026-04-30 14:50:48 | INFO | a_stock | reject 300540 score_too_low score=70
+2026-04-30 14:50:49 | INFO | a_stock | reject 301349 score_too_low score=72
+2026-04-30 14:50:49 | INFO | a_stock | reject 600791 score_too_low score=55
+2026-04-30 14:50:50 | INFO | a_stock | reject 300696 score_too_low score=70
+2026-04-30 14:50:50 | INFO | a_stock | reject 603637 score_too_low score=70
+2026-04-30 14:50:51 | INFO | a_stock | reject 600433 score_too_low score=70
+2026-04-30 14:50:51 | INFO | a_stock | reject 601101 score_too_low score=73
+2026-04-30 14:50:52 | INFO | a_stock | reject 301588 score_too_low score=69
+2026-04-30 14:50:52 | INFO | a_stock | reject 688633 score_too_low score=66
+
+扫描报告：
+  股票池：73
+  成功处理：73
+  异常/无信号跳过：70
+  信号候选：3
+2026-04-30 14:50:52 | INFO | a_stock | 扫描报告：universe=73 processed=73 skipped=70 candidates=3
+📌 watchlist 尾盘状态已更新：138 条
+
+======================================================================
+📤 企业微信通知 | A股二买交易助手 | TRADE_SCAN | pages=2
+======================================================================
+----- page 1/2 | chars=1014 | bytes=1832 -----
+【A股二买交易助手｜交易信号｜第1/2页】
+【尾盘确认信号】
+大盘：强势 | 双指数强势，可正常筛选，优先强势板块
+行情快照：2026-04-30 14:50:10 | 实时行情：73/73 成功率:100.00% fresh:73 stale:0
+可重点跟踪：1 只；总候选：3 只
+展示前 3 只：
+1.  600732 | 爱旭股份
+操作:轻仓观察 / 类型:风险偏高，只能轻仓 / 风险:7.46%（偏高）
+信号:确认(confirm) / 总分:81 / 趋势:23 回调:25 企稳:18 确认:15
+买入:15.43 / 触发:16.54 / 止损:14.28 / 仓位:5%-10%
+   目标1:17.16 | 目标2:18.31
+   提醒:低点抬高不足(lows_not_rising), 未突破触发价(no_breakout)
+   备注:建议：轻仓观察；类型：风险偏高，只能轻仓；风险：偏高；风险偏高，仅小仓观察。
+
+2.  002655 | 共达电声
+操作:只观察 / 类型:风险过大，等待回踩 / 风险:34.13%（过高）
+信号:确认(confirm) / 总分:80 / 趋势:19 回调:18 企稳:23 确认:20
+买入:31.42 / 触发:31.42 / 止损:20.70 / 仓位:不建议开仓
+   目标:风险过高，暂不作为交易目标参考
+   提醒:趋势过热(trend_too_hot), 回调天数不理想(pullback_days_not_ideal), 当日过热(too_hot_today)
+   备注:建议：只观察；类型：风险过大，等待回踩；风险：过高；止损远，不适合直接开仓。
+
+3.  002466 | 天齐锂业
+操作:只观察 / 类型:风险过大，等待回踩 / 风险:24.69%（过高）
+信号:确认(confirm) / 总分:80 / 趋势:25 回调:18 企稳:15 确认:22
+买入:80.03 / 触发:80.03 / 止损:60.27 / 仓位:不建议开仓
+   目标:风险过高，暂不作为交易目标参考
+   提醒:回调天数不理想(pullback_days_not_ideal), 波动未明显收敛(volatility_not_contracting), 企稳量能偏高(stabilize_volume_hi
+...（日志预览截断，实际按分页推送）
+----- page 2/2 | chars=63 | bytes=177 -----
+【A股二买交易助手｜交易信号｜第2/2页】
+备注:建议：只观察；类型：风险过大，等待回踩；风险：过高；止损远，不适合直接开仓。
+======================================================================
+✅ 企业微信返回 page=1/2 chars=1014 bytes=1832：{'errcode': 0, 'errmsg': 'ok', '_bytes': 1832}
+✅ 企业微信返回 page=2/2 chars=63 bytes=177：{'errcode': 0, 'errmsg': 'ok', '_bytes': 177}
+[2026-04-30 14:50:59] END COMMAND returncode=0
+[2026-04-30 14:50:59] JOB DONE: tail_confirm

@@ -42,13 +42,16 @@ JOB_COMMANDS: Dict[str, List[List[str]]] = {
     "watchlist_refresh_1120": [["run_scan.py", "--watchlist-refresh", "--workers", "1"]],
     "observe_afternoon": [["run_scan.py", "--mode", "observe", "--workers", "1"]],
     "watchlist_refresh_1420": [["run_scan.py", "--watchlist-refresh", "--workers", "1"]],
-    "tail_confirm": [["run_scan.py", "--mode", "tail_confirm", "--workers", "1"]],
+    "tail_confirm": [["scripts/run_v270_jobs_once.py", "--job", "tail"]],
+    "buy_bridge_v280": [["scripts/build_buy_bridge_v280.py"]],
+    "observe_gate_v270": [["scripts/run_v270_jobs_once.py", "--job", "observe"]],
     "after_close": [
         ["run_scan.py", "--refresh-daily-existing", "--daily-limit", "1200", "--daily-workers", "1"],
         ["run_scan.py", "--build-universe", "--workers", "1"],
         ["run_scan.py", "--mode", "after_close", "--workers", "1"],
     ],
     "daily_report": [["run_scan.py", "--daily-report"]],
+    "daily_report_v290_build": [["scripts/build_daily_report_v290.py"]],
     "night_cache_expand": [["run_scan.py", "--build-daily-cache", "--daily-limit", "300", "--daily-workers", "1"]],
     "track_positions_midday": [["run_positions.py", "--track"]],
     "track_positions_tail": [["run_positions.py", "--track"]],
@@ -386,12 +389,15 @@ def build_scheduler() -> BlockingScheduler:
     add_job(scheduler, "paper_track_midday", 11, 31, misfire_grace_time=1800)
     add_job(scheduler, "observe_afternoon", 13, 20, misfire_grace_time=1800)
     add_job(scheduler, "watchlist_refresh_1420", 14, 20, misfire_grace_time=1800)
+    add_job(scheduler, "observe_gate_v270", 14, 40, misfire_grace_time=1800)
     add_job(scheduler, "tail_confirm", 14, 50, misfire_grace_time=1800)
+    add_job(scheduler, "buy_bridge_v280", 14, 52, misfire_grace_time=1800)
     add_job(scheduler, "track_positions_tail", 14, 55, misfire_grace_time=1800)
     add_job(scheduler, "paper_track_tail", 14, 56, misfire_grace_time=1800)
     add_job(scheduler, "after_close", 17, 30, misfire_grace_time=3600)
     add_job(scheduler, "track_positions_evening", 20, 0, misfire_grace_time=3600)
     add_job(scheduler, "paper_track_evening", 20, 1, misfire_grace_time=3600)
+    add_job(scheduler, "daily_report_v290_build", 20, 25, misfire_grace_time=3600)
     add_job(scheduler, "daily_report", 20, 30, misfire_grace_time=3600)
     add_job(scheduler, "night_cache_expand", 22, 30, misfire_grace_time=3600)
     return scheduler
@@ -446,12 +452,15 @@ def print_jobs():
     print("- 11:31 paper_track_midday")
     print("- 13:20 observe_afternoon")
     print("- 14:20 watchlist_refresh_1420")
+    print("- 14:40 observe_gate_v270")
     print("- 14:50 tail_confirm")
+    print("- 14:52 buy_bridge_v280")
     print("- 14:55 track_positions_tail")
     print("- 14:56 paper_track_tail")
     print("- 17:30 after_close")
     print("- 20:00 track_positions_evening")
     print("- 20:01 paper_track_evening")
+    print("- 20:25 daily_report_v290_build")
     print("- 20:30 daily_report")
     print("- 22:30 night_cache_expand")
 

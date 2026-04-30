@@ -18,3 +18,11 @@
 [2026-04-30 11:08:18] job_heartbeat stage=before job=watchlist_refresh_1030 pid=74137 lock_pid=74073
 [2026-04-30 11:18:16] job_heartbeat stage=before job=watchlist_refresh_1030 pid=74529 lock_pid=74473
 [2026-04-30 11:20:00] job_heartbeat stage=before job=watchlist_refresh_1120 pid=74473 lock_pid=74473
+[2026-04-30 11:30:00] job_heartbeat stage=before job=track_positions_midday pid=74473 lock_pid=74473
+[2026-04-30 12:05:00] heartbeat pid=74473 lock_pid=74473 project=/Users/liujunying/Downloads/project/my-first
+[2026-04-30 13:05:00] heartbeat pid=74473 lock_pid=74473 project=/Users/liujunying/Downloads/project/my-first
+[2026-04-30 13:20:00] job_heartbeat stage=before job=observe_afternoon pid=74473 lock_pid=74473
+[2026-04-30 14:05:00] heartbeat pid=74473 lock_pid=74473 project=/Users/liujunying/Downloads/project/my-first
+[2026-04-30 14:20:00] job_heartbeat stage=before job=watchlist_refresh_1420 pid=74473 lock_pid=74473
+[2026-04-30 14:50:00] job_heartbeat stage=before job=tail_confirm pid=74473 lock_pid=74473
+[2026-04-30 14:55:00] job_heartbeat stage=before job=track_positions_tail pid=74473 lock_pid=74473

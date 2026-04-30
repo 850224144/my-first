@@ -1,0 +1,189 @@
+{
+  "trade_date": "2026-04-30",
+  "total": 138,
+  "tail_focus_count": 10,
+  "low_priority_count": 117,
+  "quality_counter": {
+    "observe_keep": 10,
+    "observe_light": 11,
+    "noise_high_risk": 117
+  },
+  "risk_bucket_counter": {
+    "<=5": 3,
+    "5-8": 7,
+    "8-12": 16,
+    "12-20": 55,
+    "20-30": 40,
+    ">30": 17
+  },
+  "status_counter": {
+    "REJECTED": 137,
+    "WATCH_ONLY": 1
+  },
+  "tail_focus_symbols": [
+    {
+      "symbol": "301349.SZ",
+      "stock_name": "",
+      "observe_quality": "observe_keep",
+      "observe_priority": 70,
+      "risk_pct": 3.05,
+      "daily_2buy_score": 72.0,
+      "current_price": 58.78,
+      "trigger_price": 65.5,
+      "signal_status": "REJECTED",
+      "risk_reasons": [
+        "价格未突破触发价",
+        "未突破",
+        "量能未确认"
+      ]
+    },
+    {
+      "symbol": "002468.SZ",
+      "stock_name": "",
+      "observe_quality": "observe_keep",
+      "observe_priority": 70,
+      "risk_pct": 3.58,
+      "daily_2buy_score": 71.0,
+      "current_price": 16.32,
+      "trigger_price": 18.04,
+      "signal_status": "REJECTED",
+      "risk_reasons": [
+        "价格未突破触发价",
+        "未突破",
+        "量能未确认",
+        "低点抬高不充分"
+      ]
+    },
+    {
+      "symbol": "300693.SZ",
+      "stock_name": "",
+      "observe_quality": "observe_keep",
+      "observe_priority": 70,
+      "risk_pct": 4.11,
+      "daily_2buy_score": 71.0,
+      "current_price": 46.71,
+      "trigger_price": 55.18,
+      "signal_status": "REJECTED",
+      "risk_reasons": [
+        "价格未突破触发价",
+        "未突破",
+        "量能未确认",
+        "低点抬高不充分"
+      ]
+    },
+    {
+      "symbol": "301200.SZ",
+      "stock_name": "",
+      "observe_quality": "observe_keep",
+      "observe_priority": 70,
+      "risk_pct": 5.07,
+      "daily_2buy_score": 73.0,
+      "current_price": 183.28,
+      "trigger_price": 207.94,
+      "signal_status": "REJECTED",
+      "risk_reasons": [
+        "价格未突破触发价",
+        "未突破",
+        "量能未确认"
+      ]
+    },
+    {
+      "symbol": "300750.SZ",
+      "stock_name": "",
+      "observe_quality": "observe_keep",
+      "observe_priority": 70,
+      "risk_pct": 5.4,
+      "daily_2buy_score": 72.0,
+      "current_price": 436.19,
+      "trigger_price": 457.64,
+      "signal_status": "REJECTED",
+      "risk_reasons": [
+        "价格未突破触发价",
+        "未突破",
+        "量能未确认"
+      ]
+    },
+    {
+      "symbol": "002635.SZ",
+      "stock_name": "",
+      "observe_quality": "observe_keep",
+      "observe_priority": 70,
+      "risk_pct": 6.48,
+      "daily_2buy_score": 72.0,
+      "current_price": 16.45,
+      "trigger_price": 17.63,
+      "signal_status": "REJECTED",
+      "risk_reasons": [
+        "价格未突破触发价",
+        "未突破",
+        "量能未确认"
+      ]
+    },
+    {
+      "symbol": "688180.SH",
+      "stock_name": "",
+      "observe_quality": "observe_keep",
+      "observe_priority": 70,
+      "risk_pct": 6.86,
+      "daily_2buy_score": 70.0,
+      "current_price": 40.22,
+      "trigger_price": 46.55,
+      "signal_status": "REJECTED",
+      "risk_reasons": [
+        "价格未突破触发价",
+        "未突破",
+        "量能未确认"
+      ]
+    },
+    {
+      "symbol": "600732.SH",
+      "stock_name": "",
+      "observe_quality": "observe_keep",
+      "observe_priority": 70,
+      "risk_pct": 7.46,
+      "daily_2buy_score": 81.0,
+      "current_price": 15.43,
+      "trigger_price": 16.54,
+      "signal_status": "REJECTED",
+      "risk_reasons": [
+        "价格未突破触发价",
+        "未突破",
+        "低点抬高不充分"
+      ]
+    },
+    {
+      "symbol": "003816.SZ",
+      "stock_name": "",
+      "observe_quality": "observe_keep",
+      "observe_priority": 70,
+      "risk_pct": 7.73,
+      "daily_2buy_score": 70.0,
+      "current_price": 4.57,
+      "trigger_price": 4.69,
+      "signal_status": "WATCH_ONLY",
+      "risk_reasons": [
+        "价格未突破触发价",
+        "波动未收敛",
+        "量能未确认"
+      ]
+    },
+    {
+      "symbol": "605366.SH",
+      "stock_name": "",
+      "observe_quality": "observe_keep",
+      "observe_priority": 60,
+      "risk_pct": 7.41,
+      "daily_2buy_score": 70.0,
+      "current_price": 13.42,
+      "trigger_price": 14.57,
+      "signal_status": "REJECTED",
+      "risk_reasons": [
+        "价格未突破触发价",
+        "周线/趋势过热",
+        "未突破",
+        "量能未确认",
+        "低点抬高不充分"
+      ]
+    }
+  ]
+}

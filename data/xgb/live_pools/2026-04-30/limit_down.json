@@ -1,0 +1,2901 @@
+{
+  "meta": {
+    "count": 46,
+    "ok": true,
+    "code": 20000,
+    "error": null,
+    "url": "https://flash-api.xuangubao.cn/api/pool/detail?pool_name=limit_down"
+  },
+  "data": [
+    {
+      "break_limit_down_times": 2,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0,
+      "change_percent": -0.0504347826,
+      "first_break_limit_down": 1777512870,
+      "first_break_limit_up": 0,
+      "first_limit_down": 1777512711,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 7.4,
+      "last_break_limit_down": 1777513029,
+      "last_break_limit_up": 0,
+      "last_limit_down": 1777513032,
+      "last_limit_up": 0,
+      "limit_down_days": 1,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1777512711,
+            "status": 3
+          },
+          {
+            "timestamp": 1777512870,
+            "status": 4
+          },
+          {
+            "timestamp": 1777512873,
+            "status": 3
+          },
+          {
+            "timestamp": 1777513029,
+            "status": 4
+          },
+          {
+            "timestamp": 1777513032,
+            "status": 3
+          }
+        ]
+      },
+      "limit_up_days": 0,
+      "listed_date": 1343664000,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": -0.2621621622,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 1834447687.8,
+      "price": 5.46,
+      "sell_lock_volume_ratio": 0.0173057776,
+      "stock_chi_name": "*ST冀凯",
+      "stock_type": 1,
+      "surge_reason": null,
+      "symbol": "002691.SZ",
+      "total_capital": 1856400000,
+      "turnover_ratio": 0.0445476677,
+      "volume_bias_ratio": 1.7175963222,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 0,
+      "yesterday_last_limit_up": 0,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 0
+    },
+    {
+      "break_limit_down_times": 13,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0,
+      "change_percent": -0.0491803279,
+      "first_break_limit_down": 1777513959,
+      "first_break_limit_up": 0,
+      "first_limit_down": 1777513269,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 4.78,
+      "last_break_limit_down": 1777525845,
+      "last_break_limit_up": 0,
+      "last_limit_down": 1777527417,
+      "last_limit_up": 0,
+      "limit_down_days": 3,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1777513269,
+            "status": 3
+          },
+          {
+            "timestamp": 1777513959,
+            "status": 4
+          },
+          {
+            "timestamp": 1777514013,
+            "status": 3
+          },
+          {
+            "timestamp": 1777514028,
+            "status": 4
+          },
+          {
+            "timestamp": 1777514094,
+            "status": 3
+          },
+          {
+            "timestamp": 1777514103,
+            "status": 4
+          },
+          {
+            "timestamp": 1777514109,
+            "status": 3
+          },
+          {
+            "timestamp": 1777514115,
+            "status": 4
+          },
+          {
+            "timestamp": 1777514145,
+            "status": 3
+          },
+          {
+            "timestamp": 1777514151,
+            "status": 4
+          },
+          {
+            "timestamp": 1777514154,
+            "status": 3
+          },
+          {
+            "timestamp": 1777514214,
+            "status": 4
+          },
+          {
+            "timestamp": 1777517799,
+            "status": 3
+          },
+          {
+            "timestamp": 1777517979,
+            "status": 4
+          },
+          {
+            "timestamp": 1777517985,
+            "status": 3
+          },
+          {
+            "timestamp": 1777517991,
+            "status": 4
+          },
+          {
+            "timestamp": 1777517994,
+            "status": 3
+          },
+          {
+            "timestamp": 1777518015,
+            "status": 4
+          },
+          {
+            "timestamp": 1777518069,
+            "status": 3
+          },
+          {
+            "timestamp": 1777518072,
+            "status": 4
+          },
+          {
+            "timestamp": 1777518141,
+            "status": 3
+          },
+          {
+            "timestamp": 1777518309,
+            "status": 4
+          },
+          {
+            "timestamp": 1777518561,
+            "status": 3
+          },
+          {
+            "timestamp": 1777525827,
+            "status": 4
+          },
+          {
+            "timestamp": 1777525839,
+            "status": 3
+          },
+          {
+            "timestamp": 1777525845,
+            "status": 4
+          },
+          {
+            "timestamp": 1777527417,
+            "status": 3
+          }
+        ]
+      },
+      "limit_up_days": 0,
+      "listed_date": 836755200,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": -0.6359832636,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 1572495781.92,
+      "price": 1.74,
+      "sell_lock_volume_ratio": 0.0083924064,
+      "stock_chi_name": "*ST皇庭",
+      "stock_type": 1,
+      "surge_reason": null,
+      "symbol": "000056.SZ",
+      "total_capital": 2057599102.8,
+      "turnover_ratio": 0.114878607,
+      "volume_bias_ratio": 1.0784425723,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 0,
+      "yesterday_last_limit_up": 0,
+      "yesterday_limit_down_days": 2,
+      "yesterday_limit_up_days": 0
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0,
+      "change_percent": -0.04784689,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 1777512300,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 17,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 1777512300,
+      "last_limit_up": 0,
+      "limit_down_days": 1,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1777512300,
+            "status": 3
+          }
+        ]
+      },
+      "limit_up_days": 0,
+      "listed_date": 1320940800,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": -0.8829411765,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 2142312241.85,
+      "price": 1.99,
+      "sell_lock_volume_ratio": 0.0292386874,
+      "stock_chi_name": "*ST华西",
+      "stock_type": 1,
+      "surge_reason": null,
+      "symbol": "002630.SZ",
+      "total_capital": 2349792000,
+      "turnover_ratio": 0.0156482978,
+      "volume_bias_ratio": 0.6569608366,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 0,
+      "yesterday_last_limit_up": 0,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 0
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0,
+      "change_percent": -0.0503144654,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 1777512300,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 16,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 1777512300,
+      "last_limit_up": 0,
+      "limit_down_days": 1,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1777512300,
+            "status": 3
+          }
+        ]
+      },
+      "limit_up_days": 0,
+      "listed_date": 1297958400,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": -0.81125,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 3336517641.32,
+      "price": 3.02,
+      "sell_lock_volume_ratio": 0.0932746338,
+      "stock_chi_name": "*ST春兴",
+      "stock_type": 1,
+      "surge_reason": null,
+      "symbol": "002547.SZ",
+      "total_capital": 3406732647.36,
+      "turnover_ratio": 0.0079436487,
+      "volume_bias_ratio": 0.2016992128,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 0,
+      "yesterday_last_limit_up": 0,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 0
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0,
+      "change_percent": -0.0504451039,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 1777512300,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 6,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 1777512300,
+      "last_limit_up": 0,
+      "limit_down_days": 2,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1777512300,
+            "status": 3
+          }
+        ]
+      },
+      "limit_up_days": 0,
+      "listed_date": 1043251200,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": -0.4666666667,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 3787888057.6000004,
+      "price": 3.2,
+      "sell_lock_volume_ratio": 0.1363214912,
+      "stock_chi_name": "*ST亿晶",
+      "stock_type": 1,
+      "surge_reason": null,
+      "symbol": "600537.SS",
+      "total_capital": 3787888057.6000004,
+      "turnover_ratio": 0.0048114621,
+      "volume_bias_ratio": 0.0449566432,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 0,
+      "yesterday_last_limit_up": 0,
+      "yesterday_limit_down_days": 1,
+      "yesterday_limit_up_days": 0
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0,
+      "change_percent": -0.0503432494,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 1777512300,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 8.31,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 1777512300,
+      "last_limit_up": 0,
+      "limit_down_days": 9,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1777512300,
+            "status": 3
+          }
+        ]
+      },
+      "limit_up_days": 0,
+      "listed_date": 1505145600,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": -0.0012033694,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 840479256.3000001,
+      "price": 8.3,
+      "sell_lock_volume_ratio": 0.2994435125,
+      "stock_chi_name": "*ST赛隆",
+      "stock_type": 1,
+      "surge_reason": null,
+      "symbol": "002898.SZ",
+      "total_capital": 1460800000.0000002,
+      "turnover_ratio": 0.0004799405,
+      "volume_bias_ratio": 0.1176299739,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 0,
+      "yesterday_last_limit_up": 0,
+      "yesterday_limit_down_days": 8,
+      "yesterday_limit_up_days": 0
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0,
+      "change_percent": -0.0506329114,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 1777512300,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 19,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 1777512300,
+      "last_limit_up": 0,
+      "limit_down_days": 1,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1777512300,
+            "status": 3
+          }
+        ]
+      },
+      "limit_up_days": 0,
+      "listed_date": 1305820800,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": -0.6447368421,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 2705340336.75,
+      "price": 6.75,
+      "sell_lock_volume_ratio": 0.0500463584,
+      "stock_chi_name": "*ST未名",
+      "stock_type": 1,
+      "surge_reason": null,
+      "symbol": "002581.SZ",
+      "total_capital": 4453215205.5,
+      "turnover_ratio": 0.0023723078,
+      "volume_bias_ratio": 0.209207967,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 0,
+      "yesterday_last_limit_up": 0,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 0
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0,
+      "change_percent": -0.0493421053,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 1777512300,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 1,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 1777512300,
+      "last_limit_up": 0,
+      "limit_down_days": 1,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1777512300,
+            "status": 3
+          }
+        ]
+      },
+      "limit_up_days": 0,
+      "listed_date": 814723200,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 1.89,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 2508930770.15,
+      "price": 2.89,
+      "sell_lock_volume_ratio": 0.126023579,
+      "stock_chi_name": "*ST美丽",
+      "stock_type": 1,
+      "surge_reason": null,
+      "symbol": "000010.SZ",
+      "total_capital": 3322495123.88,
+      "turnover_ratio": 0.0021352494,
+      "volume_bias_ratio": 0.0873529127,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 0,
+      "yesterday_last_limit_up": 0,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 0
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0,
+      "change_percent": -0.0490196078,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 1777512300,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 5.2,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 1777512300,
+      "last_limit_up": 0,
+      "limit_down_days": 1,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1777512300,
+            "status": 3
+          }
+        ]
+      },
+      "limit_up_days": 0,
+      "listed_date": 899395200,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": -0.4403846154,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 3162085920.2400002,
+      "price": 2.91,
+      "sell_lock_volume_ratio": 0.0549639012,
+      "stock_chi_name": "*ST瑞茂",
+      "stock_type": 1,
+      "surge_reason": null,
+      "symbol": "600180.SS",
+      "total_capital": 3162085920.2400002,
+      "turnover_ratio": 0.0003174961,
+      "volume_bias_ratio": 0.0211974742,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 0,
+      "yesterday_last_limit_up": 0,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 0
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0,
+      "change_percent": -0.1998191682,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 1777512300,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 33,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 1777512300,
+      "last_limit_up": 0,
+      "limit_down_days": 1,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1777512300,
+            "status": 3
+          }
+        ]
+      },
+      "limit_up_days": 0,
+      "listed_date": 1271779200,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": -0.7318181818,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 7555082593.65,
+      "price": 8.85,
+      "sell_lock_volume_ratio": 0.1398179609,
+      "stock_chi_name": "ST南都",
+      "stock_type": 5,
+      "surge_reason": null,
+      "symbol": "300068.SZ",
+      "total_capital": 7950550596.15,
+      "turnover_ratio": 0.0023331883,
+      "volume_bias_ratio": 0.0744337404,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 0,
+      "yesterday_last_limit_up": 0,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 0
+    },
+    {
+      "break_limit_down_times": 1,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0,
+      "change_percent": -0.0998227998,
+      "first_break_limit_down": 1777516551,
+      "first_break_limit_up": 0,
+      "first_limit_down": 1777516323,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 3.36,
+      "last_break_limit_down": 1777516551,
+      "last_break_limit_up": 0,
+      "last_limit_down": 1777518249,
+      "last_limit_up": 0,
+      "limit_down_days": 1,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1777516323,
+            "status": 3
+          },
+          {
+            "timestamp": 1777516551,
+            "status": 4
+          },
+          {
+            "timestamp": 1777518249,
+            "status": 3
+          }
+        ]
+      },
+      "limit_up_days": 0,
+      "listed_date": 885398400,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 3.5357142857,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 23252907469.2,
+      "price": 15.24,
+      "sell_lock_volume_ratio": 0.0040162334,
+      "stock_chi_name": "豫能控股",
+      "stock_type": 0,
+      "surge_reason": null,
+      "symbol": "001896.SZ",
+      "total_capital": 23252907469.2,
+      "turnover_ratio": 0.0974685534,
+      "volume_bias_ratio": 1.2106306655,
+      "yesterday_break_limit_up_times": 3,
+      "yesterday_first_limit_up": 1777429614,
+      "yesterday_last_limit_up": 1777429998,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 0
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0,
+      "change_percent": -0.0502183406,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 1777512300,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 11.92,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 1777512300,
+      "last_limit_up": 0,
+      "limit_down_days": 9,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1777512300,
+            "status": 3
+          }
+        ]
+      },
+      "limit_up_days": 0,
+      "listed_date": 1415030400,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": -0.6350671141,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 999005339.9999999,
+      "price": 4.35,
+      "sell_lock_volume_ratio": 0.1394856001,
+      "stock_chi_name": "ST萃华",
+      "stock_type": 1,
+      "surge_reason": null,
+      "symbol": "002731.SZ",
+      "total_capital": 1114278600,
+      "turnover_ratio": 0.0091863323,
+      "volume_bias_ratio": 0.2040871605,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 0,
+      "yesterday_last_limit_up": 0,
+      "yesterday_limit_down_days": 8,
+      "yesterday_limit_up_days": 0
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0,
+      "change_percent": -0.0509164969,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 1777512300,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 5.18,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 1777512300,
+      "last_limit_up": 0,
+      "limit_down_days": 6,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1777512300,
+            "status": 3
+          }
+        ]
+      },
+      "limit_up_days": 0,
+      "listed_date": 926006400,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": -0.1003861004,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 2039731256.2,
+      "price": 4.66,
+      "sell_lock_volume_ratio": 0.0229729541,
+      "stock_chi_name": "*ST数源",
+      "stock_type": 1,
+      "surge_reason": null,
+      "symbol": "000909.SZ",
+      "total_capital": 2039748381.7,
+      "turnover_ratio": 0.0090792873,
+      "volume_bias_ratio": 0.6793054644,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 0,
+      "yesterday_last_limit_up": 0,
+      "yesterday_limit_down_days": 5,
+      "yesterday_limit_up_days": 0
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0,
+      "change_percent": -0.0498753117,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 1777512301,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 6.16,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 1777512301,
+      "last_limit_up": 0,
+      "limit_down_days": 1,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1777512301,
+            "status": 3
+          }
+        ]
+      },
+      "limit_up_days": 0,
+      "listed_date": 866044800,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 0.237012987,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 2844319571.7,
+      "price": 7.62,
+      "sell_lock_volume_ratio": 0.105756477,
+      "stock_chi_name": "ST金花",
+      "stock_type": 1,
+      "surge_reason": null,
+      "symbol": "600080.SS",
+      "total_capital": 2844319571.7,
+      "turnover_ratio": 0.0003836362,
+      "volume_bias_ratio": 0.0275815524,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 0,
+      "yesterday_last_limit_up": 0,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 0
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0,
+      "change_percent": -0.0492610837,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 1777512301,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 5.44,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 1777512301,
+      "last_limit_up": 0,
+      "limit_down_days": 1,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1777512301,
+            "status": 3
+          }
+        ]
+      },
+      "limit_up_days": 0,
+      "listed_date": 944064000,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": -0.6452205882,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 3098975734.37,
+      "price": 1.93,
+      "sell_lock_volume_ratio": 0.040848513,
+      "stock_chi_name": "ST云城",
+      "stock_type": 1,
+      "surge_reason": null,
+      "symbol": "600239.SS",
+      "total_capital": 3098975734.37,
+      "turnover_ratio": 0.0016686939,
+      "volume_bias_ratio": 0.1673543891,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 0,
+      "yesterday_last_limit_up": 0,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 0
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0,
+      "change_percent": -0.0515021459,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 1777512300,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 20,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 1777512300,
+      "last_limit_up": 0,
+      "limit_down_days": 1,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1777512300,
+            "status": 3
+          }
+        ]
+      },
+      "limit_up_days": 0,
+      "listed_date": 1307030400,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": -0.8895,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 4084080000,
+      "price": 2.21,
+      "sell_lock_volume_ratio": 0.0908007186,
+      "stock_chi_name": "ST文峰",
+      "stock_type": 1,
+      "surge_reason": null,
+      "symbol": "601010.SS",
+      "total_capital": 4084080000,
+      "turnover_ratio": 0.0006899892,
+      "volume_bias_ratio": 0.051727135,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 0,
+      "yesterday_last_limit_up": 0,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 0
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0,
+      "change_percent": -0.0486891386,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 1777512300,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 7.62,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 1777512300,
+      "last_limit_up": 0,
+      "limit_down_days": 1,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1777512300,
+            "status": 3
+          }
+        ]
+      },
+      "limit_up_days": 0,
+      "listed_date": 1046880000,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": -0.6666666667,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 10206309467.960001,
+      "price": 2.54,
+      "sell_lock_volume_ratio": 0.0501096034,
+      "stock_chi_name": "*ST三房",
+      "stock_type": 1,
+      "surge_reason": null,
+      "symbol": "600370.SS",
+      "total_capital": 10206309467.960001,
+      "turnover_ratio": 0.0003621493,
+      "volume_bias_ratio": 0.0173602599,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 0,
+      "yesterday_last_limit_up": 0,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 0
+    },
+    {
+      "break_limit_down_times": 3,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0,
+      "change_percent": -0.1003460208,
+      "first_break_limit_down": 1777525937,
+      "first_break_limit_up": 0,
+      "first_limit_down": 1777525674,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 1.85,
+      "last_break_limit_down": 1777527123,
+      "last_break_limit_up": 0,
+      "last_limit_down": 1777527138,
+      "last_limit_up": 0,
+      "limit_down_days": 1,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1777525674,
+            "status": 3
+          },
+          {
+            "timestamp": 1777525937,
+            "status": 4
+          },
+          {
+            "timestamp": 1777527105,
+            "status": 3
+          },
+          {
+            "timestamp": 1777527113,
+            "status": 4
+          },
+          {
+            "timestamp": 1777527117,
+            "status": 3
+          },
+          {
+            "timestamp": 1777527123,
+            "status": 4
+          },
+          {
+            "timestamp": 1777527138,
+            "status": 3
+          }
+        ]
+      },
+      "limit_up_days": 0,
+      "listed_date": 759686400,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 3.2162162162,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 15345134633.4,
+      "price": 7.8,
+      "sell_lock_volume_ratio": 0.0012552755,
+      "stock_chi_name": "金开新能",
+      "stock_type": 0,
+      "surge_reason": null,
+      "symbol": "600821.SS",
+      "total_capital": 15345134633.4,
+      "turnover_ratio": 0.128671921,
+      "volume_bias_ratio": 1.4022737888,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 0,
+      "yesterday_last_limit_up": 0,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 0
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0,
+      "change_percent": -0.0503202196,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 1777512300,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 1,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 1777512300,
+      "last_limit_up": 0,
+      "limit_down_days": 1,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1777512300,
+            "status": 3
+          }
+        ]
+      },
+      "limit_up_days": 0,
+      "listed_date": 750009600,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 9.38,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 3622516200.0000005,
+      "price": 10.38,
+      "sell_lock_volume_ratio": 0.2352308519,
+      "stock_chi_name": "ST金顶",
+      "stock_type": 1,
+      "surge_reason": null,
+      "symbol": "600678.SS",
+      "total_capital": 3622516200.0000005,
+      "turnover_ratio": 0.0005215049,
+      "volume_bias_ratio": 0.0050324974,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 0,
+      "yesterday_last_limit_up": 0,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 0
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0,
+      "change_percent": -0.0510638298,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 1777512669,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 7.35,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 1777512669,
+      "last_limit_up": 0,
+      "limit_down_days": 1,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1777512669,
+            "status": 3
+          }
+        ]
+      },
+      "limit_up_days": 0,
+      "listed_date": 839433600,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": -0.6965986395,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 4856612426.38,
+      "price": 2.23,
+      "sell_lock_volume_ratio": 0.0286518301,
+      "stock_chi_name": "*ST实达",
+      "stock_type": 1,
+      "surge_reason": null,
+      "symbol": "600734.SS",
+      "total_capital": 4857615926.38,
+      "turnover_ratio": 0.0272008244,
+      "volume_bias_ratio": 0.3292949545,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 0,
+      "yesterday_last_limit_up": 0,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 0
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0,
+      "change_percent": -0.0508130081,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 1777512300,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 1,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 1777512300,
+      "last_limit_up": 0,
+      "limit_down_days": 2,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1777512300,
+            "status": 3
+          }
+        ]
+      },
+      "limit_up_days": 0,
+      "listed_date": 844704000,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 3.67,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 19351012592.6,
+      "price": 4.67,
+      "sell_lock_volume_ratio": 0.1284762972,
+      "stock_chi_name": "ST洲际",
+      "stock_type": 1,
+      "surge_reason": null,
+      "symbol": "600759.SS",
+      "total_capital": 19375873337.6,
+      "turnover_ratio": 0.0014771149,
+      "volume_bias_ratio": 0.0274290257,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 0,
+      "yesterday_last_limit_up": 0,
+      "yesterday_limit_down_days": 1,
+      "yesterday_limit_up_days": 0
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0,
+      "change_percent": -0.0511363636,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 1777512300,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 30,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 1777512300,
+      "last_limit_up": 0,
+      "limit_down_days": 1,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1777512300,
+            "status": 3
+          }
+        ]
+      },
+      "limit_up_days": 0,
+      "listed_date": 1261065600,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": -0.9443333333,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 3541219873.14,
+      "price": 1.67,
+      "sell_lock_volume_ratio": 0.1728424438,
+      "stock_chi_name": "*ST雅博",
+      "stock_type": 1,
+      "surge_reason": null,
+      "symbol": "002323.SZ",
+      "total_capital": 3541828087.14,
+      "turnover_ratio": 0.0012516913,
+      "volume_bias_ratio": 0.0454682072,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 0,
+      "yesterday_last_limit_up": 0,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 0
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0,
+      "change_percent": -0.0501792115,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 1777512300,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 5.96,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 1777512300,
+      "last_limit_up": 0,
+      "limit_down_days": 1,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1777512300,
+            "status": 3
+          }
+        ]
+      },
+      "limit_up_days": 0,
+      "listed_date": 1167321600,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": -0.5553691275,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 5757943807.599999,
+      "price": 2.65,
+      "sell_lock_volume_ratio": 0.0641449566,
+      "stock_chi_name": "ST能特",
+      "stock_type": 1,
+      "surge_reason": null,
+      "symbol": "002102.SZ",
+      "total_capital": 6560410993.5,
+      "turnover_ratio": 0.0015878984,
+      "volume_bias_ratio": 0.0745396257,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 0,
+      "yesterday_last_limit_up": 0,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 0
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0,
+      "change_percent": -0.0501222494,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 1777512301,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 5.5,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 1777512301,
+      "last_limit_up": 0,
+      "limit_down_days": 2,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1777512301,
+            "status": 3
+          }
+        ]
+      },
+      "limit_up_days": 0,
+      "listed_date": 759686400,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 0.4127272727,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 1848932960.6999998,
+      "price": 7.77,
+      "sell_lock_volume_ratio": 0.1600644748,
+      "stock_chi_name": "ST中路",
+      "stock_type": 1,
+      "surge_reason": null,
+      "symbol": "600818.SS",
+      "total_capital": 2497650260.7,
+      "turnover_ratio": 0.0005143767,
+      "volume_bias_ratio": 0.0388060052,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 0,
+      "yesterday_last_limit_up": 0,
+      "yesterday_limit_down_days": 1,
+      "yesterday_limit_up_days": 0
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0,
+      "change_percent": -0.0484429066,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 1777512300,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 11.09,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 1777512300,
+      "last_limit_up": 0,
+      "limit_down_days": 1,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1777512300,
+            "status": 3
+          }
+        ]
+      },
+      "limit_up_days": 0,
+      "listed_date": 1192118400,
+      "m_days_n_boards_boards": 2,
+      "m_days_n_boards_days": 4,
+      "mtm": 0,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": -0.7520288548,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 3511146999.25,
+      "price": 2.75,
+      "sell_lock_volume_ratio": 0.1012802557,
+      "stock_chi_name": "*ST东智",
+      "stock_type": 1,
+      "surge_reason": null,
+      "symbol": "002175.SZ",
+      "total_capital": 3511146999.25,
+      "turnover_ratio": 0.0043977011,
+      "volume_bias_ratio": 0.1078903553,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 0,
+      "yesterday_last_limit_up": 0,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 0
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0,
+      "change_percent": -0.0500954198,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 1777512301,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 17.54,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 1777512301,
+      "last_limit_up": 0,
+      "limit_down_days": 1,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1777512301,
+            "status": 3
+          }
+        ]
+      },
+      "limit_up_days": 0,
+      "listed_date": 1508688000,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 0.1351197263,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 3567872000,
+      "price": 19.91,
+      "sell_lock_volume_ratio": 0.081601792,
+      "stock_chi_name": "ST金鸿顺",
+      "stock_type": 1,
+      "surge_reason": null,
+      "symbol": "603922.SS",
+      "total_capital": 3567872000,
+      "turnover_ratio": 0.0012511161,
+      "volume_bias_ratio": 0.0312974627,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 0,
+      "yesterday_last_limit_up": 0,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 0
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0,
+      "change_percent": -0.0497237569,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 1777512300,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 12.5,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 1777512300,
+      "last_limit_up": 0,
+      "limit_down_days": 3,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1777512300,
+            "status": 3
+          }
+        ]
+      },
+      "limit_up_days": 0,
+      "listed_date": 1342454400,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": -0.1744,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 3800777929.2000003,
+      "price": 10.32,
+      "sell_lock_volume_ratio": 0.0780771255,
+      "stock_chi_name": "ST喜临门",
+      "stock_type": 1,
+      "surge_reason": null,
+      "symbol": "603008.SS",
+      "total_capital": 3800777929.2000003,
+      "turnover_ratio": 0.0006217885,
+      "volume_bias_ratio": 0.0211968344,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 0,
+      "yesterday_last_limit_up": 0,
+      "yesterday_limit_down_days": 2,
+      "yesterday_limit_up_days": 0
+    },
+    {
+      "break_limit_down_times": 21,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0,
+      "change_percent": -0.1992818671,
+      "first_break_limit_down": 1777515471,
+      "first_break_limit_up": 0,
+      "first_limit_down": 1777512963,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 0,
+      "last_break_limit_down": 1777519634,
+      "last_break_limit_up": 0,
+      "last_limit_down": 1777525206,
+      "last_limit_up": 0,
+      "limit_down_days": 1,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1777512963,
+            "status": 3
+          },
+          {
+            "timestamp": 1777515471,
+            "status": 4
+          },
+          {
+            "timestamp": 1777515476,
+            "status": 3
+          },
+          {
+            "timestamp": 1777515492,
+            "status": 4
+          },
+          {
+            "timestamp": 1777515508,
+            "status": 3
+          },
+          {
+            "timestamp": 1777515525,
+            "status": 4
+          },
+          {
+            "timestamp": 1777515785,
+            "status": 3
+          },
+          {
+            "timestamp": 1777515804,
+            "status": 4
+          },
+          {
+            "timestamp": 1777516242,
+            "status": 3
+          },
+          {
+            "timestamp": 1777516271,
+            "status": 4
+          },
+          {
+            "timestamp": 1777516279,
+            "status": 3
+          },
+          {
+            "timestamp": 1777516287,
+            "status": 4
+          },
+          {
+            "timestamp": 1777516293,
+            "status": 3
+          },
+          {
+            "timestamp": 1777516299,
+            "status": 4
+          },
+          {
+            "timestamp": 1777516382,
+            "status": 3
+          },
+          {
+            "timestamp": 1777516403,
+            "status": 4
+          },
+          {
+            "timestamp": 1777516425,
+            "status": 3
+          },
+          {
+            "timestamp": 1777516437,
+            "status": 4
+          },
+          {
+            "timestamp": 1777516622,
+            "status": 3
+          },
+          {
+            "timestamp": 1777518084,
+            "status": 4
+          },
+          {
+            "timestamp": 1777518086,
+            "status": 3
+          },
+          {
+            "timestamp": 1777518106,
+            "status": 4
+          },
+          {
+            "timestamp": 1777518183,
+            "status": 3
+          },
+          {
+            "timestamp": 1777518363,
+            "status": 4
+          },
+          {
+            "timestamp": 1777518380,
+            "status": 3
+          },
+          {
+            "timestamp": 1777518383,
+            "status": 4
+          },
+          {
+            "timestamp": 1777518658,
+            "status": 3
+          },
+          {
+            "timestamp": 1777518816,
+            "status": 4
+          },
+          {
+            "timestamp": 1777518822,
+            "status": 3
+          },
+          {
+            "timestamp": 1777518900,
+            "status": 4
+          },
+          {
+            "timestamp": 1777518904,
+            "status": 3
+          },
+          {
+            "timestamp": 1777519121,
+            "status": 4
+          },
+          {
+            "timestamp": 1777519130,
+            "status": 3
+          },
+          {
+            "timestamp": 1777519138,
+            "status": 4
+          },
+          {
+            "timestamp": 1777519248,
+            "status": 3
+          },
+          {
+            "timestamp": 1777519283,
+            "status": 4
+          },
+          {
+            "timestamp": 1777519404,
+            "status": 3
+          },
+          {
+            "timestamp": 1777519479,
+            "status": 4
+          },
+          {
+            "timestamp": 1777519533,
+            "status": 3
+          },
+          {
+            "timestamp": 1777519609,
+            "status": 4
+          },
+          {
+            "timestamp": 1777519615,
+            "status": 3
+          },
+          {
+            "timestamp": 1777519634,
+            "status": 4
+          },
+          {
+            "timestamp": 1777525206,
+            "status": 3
+          }
+        ]
+      },
+      "limit_up_days": 0,
+      "listed_date": 1672156800,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 0,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 1061237376,
+      "price": 4.46,
+      "sell_lock_volume_ratio": 0.0105020042,
+      "stock_chi_name": "ST清越",
+      "stock_type": 3,
+      "surge_reason": null,
+      "symbol": "688496.SS",
+      "total_capital": 2007000000,
+      "turnover_ratio": 0.0860127231,
+      "volume_bias_ratio": 5.26138585,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 0,
+      "yesterday_last_limit_up": 0,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 0
+    },
+    {
+      "break_limit_down_times": 10,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0,
+      "change_percent": -0.0998206814,
+      "first_break_limit_down": 1777513422,
+      "first_break_limit_up": 0,
+      "first_limit_down": 1777513395,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 4.24,
+      "last_break_limit_down": 1777513890,
+      "last_break_limit_up": 0,
+      "last_limit_down": 1777513896,
+      "last_limit_up": 0,
+      "limit_down_days": 1,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1777513395,
+            "status": 3
+          },
+          {
+            "timestamp": 1777513422,
+            "status": 4
+          },
+          {
+            "timestamp": 1777513425,
+            "status": 3
+          },
+          {
+            "timestamp": 1777513428,
+            "status": 4
+          },
+          {
+            "timestamp": 1777513431,
+            "status": 3
+          },
+          {
+            "timestamp": 1777513743,
+            "status": 4
+          },
+          {
+            "timestamp": 1777513746,
+            "status": 3
+          },
+          {
+            "timestamp": 1777513755,
+            "status": 4
+          },
+          {
+            "timestamp": 1777513758,
+            "status": 3
+          },
+          {
+            "timestamp": 1777513773,
+            "status": 4
+          },
+          {
+            "timestamp": 1777513776,
+            "status": 3
+          },
+          {
+            "timestamp": 1777513800,
+            "status": 4
+          },
+          {
+            "timestamp": 1777513803,
+            "status": 3
+          },
+          {
+            "timestamp": 1777513815,
+            "status": 4
+          },
+          {
+            "timestamp": 1777513821,
+            "status": 3
+          },
+          {
+            "timestamp": 1777513824,
+            "status": 4
+          },
+          {
+            "timestamp": 1777513827,
+            "status": 3
+          },
+          {
+            "timestamp": 1777513830,
+            "status": 4
+          },
+          {
+            "timestamp": 1777513836,
+            "status": 3
+          },
+          {
+            "timestamp": 1777513890,
+            "status": 4
+          },
+          {
+            "timestamp": 1777513896,
+            "status": 3
+          }
+        ]
+      },
+      "limit_up_days": 0,
+      "listed_date": 1201622400,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 2.5518867925,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 2354072620.38,
+      "price": 15.06,
+      "sell_lock_volume_ratio": 0.0092670362,
+      "stock_chi_name": "达 意 隆",
+      "stock_type": 0,
+      "surge_reason": null,
+      "symbol": "002209.SZ",
+      "total_capital": 2997377493,
+      "turnover_ratio": 0.0648282932,
+      "volume_bias_ratio": 2.0785579421,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 0,
+      "yesterday_last_limit_up": 0,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 0
+    },
+    {
+      "break_limit_down_times": 4,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0,
+      "change_percent": -0.0499814883,
+      "first_break_limit_down": 1777519586,
+      "first_break_limit_up": 0,
+      "first_limit_down": 1777518790,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 11.76,
+      "last_break_limit_down": 1777525783,
+      "last_break_limit_up": 0,
+      "last_limit_down": 1777526386,
+      "last_limit_up": 0,
+      "limit_down_days": 1,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1777518790,
+            "status": 3
+          },
+          {
+            "timestamp": 1777519586,
+            "status": 4
+          },
+          {
+            "timestamp": 1777519711,
+            "status": 3
+          },
+          {
+            "timestamp": 1777525208,
+            "status": 4
+          },
+          {
+            "timestamp": 1777525212,
+            "status": 3
+          },
+          {
+            "timestamp": 1777525357,
+            "status": 4
+          },
+          {
+            "timestamp": 1777525391,
+            "status": 3
+          },
+          {
+            "timestamp": 1777525783,
+            "status": 4
+          },
+          {
+            "timestamp": 1777526386,
+            "status": 3
+          }
+        ]
+      },
+      "limit_up_days": 0,
+      "listed_date": 1461772800,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 5.5459183673,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 5914056704.280001,
+      "price": 76.98,
+      "sell_lock_volume_ratio": 0.0002868006,
+      "stock_chi_name": "ST嘉澳",
+      "stock_type": 1,
+      "surge_reason": null,
+      "symbol": "603822.SS",
+      "total_capital": 5914056704.280001,
+      "turnover_ratio": 0.0242223044,
+      "volume_bias_ratio": 1.6459693255,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 0,
+      "yesterday_last_limit_up": 0,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 0
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0,
+      "change_percent": -0.0498687664,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 1777512301,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 5.6,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 1777512301,
+      "last_limit_up": 0,
+      "limit_down_days": 1,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1777512301,
+            "status": 3
+          }
+        ]
+      },
+      "limit_up_days": 0,
+      "listed_date": 861292800,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 0.9392857143,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 4708253088,
+      "price": 10.86,
+      "sell_lock_volume_ratio": 0.039905513,
+      "stock_chi_name": "*ST九鼎",
+      "stock_type": 1,
+      "surge_reason": null,
+      "symbol": "600053.SS",
+      "total_capital": 4708253088,
+      "turnover_ratio": 0.008031078,
+      "volume_bias_ratio": 1.5477500769,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 0,
+      "yesterday_last_limit_up": 0,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 0
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0,
+      "change_percent": -0.0514018692,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 1777512300,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 1,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 1777512300,
+      "last_limit_up": 0,
+      "limit_down_days": 1,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1777512300,
+            "status": 3
+          }
+        ]
+      },
+      "limit_up_days": 0,
+      "listed_date": 848937600,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 1.03,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 2191236347.16,
+      "price": 2.03,
+      "sell_lock_volume_ratio": 0.112249014,
+      "stock_chi_name": "ST西王",
+      "stock_type": 1,
+      "surge_reason": null,
+      "symbol": "000639.SZ",
+      "total_capital": 2191239032.85,
+      "turnover_ratio": 0.0045183241,
+      "volume_bias_ratio": 0.1026257716,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 0,
+      "yesterday_last_limit_up": 0,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 0
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0,
+      "change_percent": -0.0501043841,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 1777512301,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 6.03,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 1777512301,
+      "last_limit_up": 0,
+      "limit_down_days": 3,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1777512301,
+            "status": 3
+          }
+        ]
+      },
+      "limit_up_days": 0,
+      "listed_date": 1463414400,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": -0.2454394693,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 2230860413.6,
+      "price": 4.55,
+      "sell_lock_volume_ratio": 0.1036088485,
+      "stock_chi_name": "ST百利",
+      "stock_type": 1,
+      "surge_reason": null,
+      "symbol": "603959.SS",
+      "total_capital": 2230860413.6,
+      "turnover_ratio": 0.0020159128,
+      "volume_bias_ratio": 0.0431149364,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 0,
+      "yesterday_last_limit_up": 0,
+      "yesterday_limit_down_days": 2,
+      "yesterday_limit_up_days": 0
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0,
+      "change_percent": -0.2001748252,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 1777512300,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 19.02,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 1777512300,
+      "last_limit_up": 0,
+      "limit_down_days": 1,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1777512300,
+            "status": 3
+          }
+        ]
+      },
+      "limit_up_days": 0,
+      "listed_date": 1561046400,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": -0.0378548896,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 1665169612.5,
+      "price": 18.3,
+      "sell_lock_volume_ratio": 0.0573796745,
+      "stock_chi_name": "ST朗进",
+      "stock_type": 5,
+      "surge_reason": null,
+      "symbol": "300594.SZ",
+      "total_capital": 1681284135,
+      "turnover_ratio": 0.0268020985,
+      "volume_bias_ratio": 0.6210860602,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 0,
+      "yesterday_last_limit_up": 0,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 0
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0,
+      "change_percent": -0.0498533724,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 1777512300,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 3.9,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 1777512300,
+      "last_limit_up": 0,
+      "limit_down_days": 1,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1777512300,
+            "status": 3
+          }
+        ]
+      },
+      "limit_up_days": 0,
+      "listed_date": 701625600,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": -0.1692307692,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 5172963912,
+      "price": 3.24,
+      "sell_lock_volume_ratio": 0.0351769191,
+      "stock_chi_name": "*ST康佳A",
+      "stock_type": 1,
+      "surge_reason": null,
+      "symbol": "000016.SZ",
+      "total_capital": 7801743121.92,
+      "turnover_ratio": 0.0134597792,
+      "volume_bias_ratio": 0.6424051106,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 0,
+      "yesterday_last_limit_up": 0,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 0
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0,
+      "change_percent": -0.0502283105,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 1777512300,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 45,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 1777512300,
+      "last_limit_up": 0,
+      "limit_down_days": 1,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1777512300,
+            "status": 3
+          }
+        ]
+      },
+      "limit_up_days": 0,
+      "listed_date": 1276099200,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": -0.9537777778,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 3749001911.2000003,
+      "price": 2.08,
+      "sell_lock_volume_ratio": 0.0580542016,
+      "stock_chi_name": "ST棕榈",
+      "stock_type": 1,
+      "surge_reason": null,
+      "symbol": "002431.SZ",
+      "total_capital": 3749001911.2000003,
+      "turnover_ratio": 0.000860628,
+      "volume_bias_ratio": 0.0865442204,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 0,
+      "yesterday_last_limit_up": 0,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 0
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0,
+      "change_percent": -0.049833887,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 1777512300,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 9.79,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 1777512300,
+      "last_limit_up": 0,
+      "limit_down_days": 1,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1777512300,
+            "status": 3
+          }
+        ]
+      },
+      "limit_up_days": 0,
+      "listed_date": 1403712000,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": -0.7078651685,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 3084148461.68,
+      "price": 2.86,
+      "sell_lock_volume_ratio": 0.0875842772,
+      "stock_chi_name": "ST龙大",
+      "stock_type": 1,
+      "surge_reason": null,
+      "symbol": "002726.SZ",
+      "total_capital": 3086490801.68,
+      "turnover_ratio": 0.0010478743,
+      "volume_bias_ratio": 0.0326180456,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 0,
+      "yesterday_last_limit_up": 0,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 0
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0,
+      "change_percent": -0.0505494505,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 1777512301,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 18.18,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 1777512301,
+      "last_limit_up": 0,
+      "limit_down_days": 1,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1777512301,
+            "status": 3
+          }
+        ]
+      },
+      "limit_up_days": 0,
+      "listed_date": 1504195200,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": -0.7623762376,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 1927134720.0000002,
+      "price": 4.32,
+      "sell_lock_volume_ratio": 0.1085105004,
+      "stock_chi_name": "*ST东珠",
+      "stock_type": 1,
+      "surge_reason": null,
+      "symbol": "603359.SS",
+      "total_capital": 1927134720.0000002,
+      "turnover_ratio": 0.0007762903,
+      "volume_bias_ratio": 0.0796458142,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 0,
+      "yesterday_last_limit_up": 0,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 0
+    },
+    {
+      "break_limit_down_times": 10,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0,
+      "change_percent": -0.2002442002,
+      "first_break_limit_down": 1777513404,
+      "first_break_limit_up": 0,
+      "first_limit_down": 1777513212,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 30.46,
+      "last_break_limit_down": 1777513626,
+      "last_break_limit_up": 0,
+      "last_limit_down": 1777513629,
+      "last_limit_up": 0,
+      "limit_down_days": 1,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1777513212,
+            "status": 3
+          },
+          {
+            "timestamp": 1777513404,
+            "status": 4
+          },
+          {
+            "timestamp": 1777513413,
+            "status": 3
+          },
+          {
+            "timestamp": 1777513428,
+            "status": 4
+          },
+          {
+            "timestamp": 1777513446,
+            "status": 3
+          },
+          {
+            "timestamp": 1777513464,
+            "status": 4
+          },
+          {
+            "timestamp": 1777513479,
+            "status": 3
+          },
+          {
+            "timestamp": 1777513485,
+            "status": 4
+          },
+          {
+            "timestamp": 1777513497,
+            "status": 3
+          },
+          {
+            "timestamp": 1777513500,
+            "status": 4
+          },
+          {
+            "timestamp": 1777513509,
+            "status": 3
+          },
+          {
+            "timestamp": 1777513515,
+            "status": 4
+          },
+          {
+            "timestamp": 1777513539,
+            "status": 3
+          },
+          {
+            "timestamp": 1777513545,
+            "status": 4
+          },
+          {
+            "timestamp": 1777513560,
+            "status": 3
+          },
+          {
+            "timestamp": 1777513605,
+            "status": 4
+          },
+          {
+            "timestamp": 1777513608,
+            "status": 3
+          },
+          {
+            "timestamp": 1777513617,
+            "status": 4
+          },
+          {
+            "timestamp": 1777513623,
+            "status": 3
+          },
+          {
+            "timestamp": 1777513626,
+            "status": 4
+          },
+          {
+            "timestamp": 1777513629,
+            "status": 3
+          }
+        ]
+      },
+      "limit_up_days": 0,
+      "listed_date": 1304524800,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": -0.7849638871,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 4575251792.2,
+      "price": 6.55,
+      "sell_lock_volume_ratio": 0.0115964382,
+      "stock_chi_name": "*ST易录",
+      "stock_type": 5,
+      "surge_reason": null,
+      "symbol": "300212.SZ",
+      "total_capital": 4715295364.099999,
+      "turnover_ratio": 0.0742052613,
+      "volume_bias_ratio": 2.6033702569,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 0,
+      "yesterday_last_limit_up": 0,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 0
+    },
+    {
+      "break_limit_down_times": 4,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0,
+      "change_percent": -0.0993288591,
+      "first_break_limit_down": 1777512660,
+      "first_break_limit_up": 0,
+      "first_limit_down": 1777512301,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 13.37,
+      "last_break_limit_down": 1777512864,
+      "last_break_limit_up": 0,
+      "last_limit_down": 1777512874,
+      "last_limit_up": 0,
+      "limit_down_days": 1,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1777512301,
+            "status": 3
+          },
+          {
+            "timestamp": 1777512660,
+            "status": 4
+          },
+          {
+            "timestamp": 1777512760,
+            "status": 3
+          },
+          {
+            "timestamp": 1777512793,
+            "status": 4
+          },
+          {
+            "timestamp": 1777512799,
+            "status": 3
+          },
+          {
+            "timestamp": 1777512808,
+            "status": 4
+          },
+          {
+            "timestamp": 1777512850,
+            "status": 3
+          },
+          {
+            "timestamp": 1777512864,
+            "status": 4
+          },
+          {
+            "timestamp": 1777512874,
+            "status": 3
+          }
+        ]
+      },
+      "limit_up_days": 0,
+      "listed_date": 1494432000,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": -0.4981301421,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 5693372033.36,
+      "price": 6.71,
+      "sell_lock_volume_ratio": 0.0088885096,
+      "stock_chi_name": "金能科技",
+      "stock_type": 0,
+      "surge_reason": null,
+      "symbol": "603113.SS",
+      "total_capital": 5693372033.36,
+      "turnover_ratio": 0.0171864411,
+      "volume_bias_ratio": 1.5033764938,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 0,
+      "yesterday_last_limit_up": 0,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 0
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0,
+      "change_percent": -0.0503355705,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 1777512300,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 7.71,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 1777512300,
+      "last_limit_up": 0,
+      "limit_down_days": 7,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1777512300,
+            "status": 3
+          }
+        ]
+      },
+      "limit_up_days": 0,
+      "listed_date": 1470931200,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": -0.6329442283,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 466966776.24,
+      "price": 2.83,
+      "sell_lock_volume_ratio": 0.3205214994,
+      "stock_chi_name": "*ST恒久",
+      "stock_type": 1,
+      "surge_reason": null,
+      "symbol": "002808.SZ",
+      "total_capital": 760704000,
+      "turnover_ratio": 0.0024108225,
+      "volume_bias_ratio": 0.087602525,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 0,
+      "yesterday_last_limit_up": 0,
+      "yesterday_limit_down_days": 6,
+      "yesterday_limit_up_days": 0
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0,
+      "change_percent": -0.0504385965,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 1777512301,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 17.2,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 1777512301,
+      "last_limit_up": 0,
+      "limit_down_days": 2,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1777512301,
+            "status": 3
+          }
+        ]
+      },
+      "limit_up_days": 0,
+      "listed_date": 1424880000,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": -0.748255814,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 2580418576.25,
+      "price": 4.33,
+      "sell_lock_volume_ratio": 0.0115976739,
+      "stock_chi_name": "*ST利达",
+      "stock_type": 1,
+      "surge_reason": null,
+      "symbol": "603828.SS",
+      "total_capital": 2580507484.14,
+      "turnover_ratio": 0.0029654011,
+      "volume_bias_ratio": 0.3422963374,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 0,
+      "yesterday_last_limit_up": 0,
+      "yesterday_limit_down_days": 1,
+      "yesterday_limit_up_days": 0
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0,
+      "change_percent": -0.0512820513,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 1777512300,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 35,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 1777512300,
+      "last_limit_up": 0,
+      "limit_down_days": 1,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1777512300,
+            "status": 3
+          }
+        ]
+      },
+      "limit_up_days": 0,
+      "listed_date": 1289923200,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": -0.9577142857,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 5248774424.88,
+      "price": 1.48,
+      "sell_lock_volume_ratio": 0.0433609355,
+      "stock_chi_name": "*ST利源",
+      "stock_type": 1,
+      "surge_reason": null,
+      "symbol": "002501.SZ",
+      "total_capital": 5254000000,
+      "turnover_ratio": 0.0054517885,
+      "volume_bias_ratio": 0.3048839284,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 0,
+      "yesterday_last_limit_up": 0,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 0
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0,
+      "change_percent": -0.0497512438,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 1777512300,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 4.21,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 1777512300,
+      "last_limit_up": 0,
+      "limit_down_days": 1,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1777512300,
+            "status": 3
+          }
+        ]
+      },
+      "limit_up_days": 0,
+      "listed_date": 927734400,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 0.3610451306,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 2293832557.1400003,
+      "price": 5.73,
+      "sell_lock_volume_ratio": 0.0334055226,
+      "stock_chi_name": "*ST广糖",
+      "stock_type": 1,
+      "surge_reason": null,
+      "symbol": "000911.SZ",
+      "total_capital": 2293832557.1400003,
+      "turnover_ratio": 0.0151351488,
+      "volume_bias_ratio": 0.531020608,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 0,
+      "yesterday_last_limit_up": 0,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 0
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0,
+      "change_percent": -0.0497335702,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 1777512301,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 7.84,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 1777512301,
+      "last_limit_up": 0,
+      "limit_down_days": 2,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1777512301,
+            "status": 3
+          }
+        ]
+      },
+      "limit_up_days": 0,
+      "listed_date": 868550400,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": -0.3176020408,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 6011938540.5,
+      "price": 5.35,
+      "sell_lock_volume_ratio": 0.0109672648,
+      "stock_chi_name": "*ST尼雅",
+      "stock_type": 1,
+      "surge_reason": null,
+      "symbol": "600084.SS",
+      "total_capital": 6011938540.5,
+      "turnover_ratio": 0.0014423434,
+      "volume_bias_ratio": 0.5865713947,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 0,
+      "yesterday_last_limit_up": 0,
+      "yesterday_limit_down_days": 1,
+      "yesterday_limit_up_days": 0
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0,
+      "change_percent": -0.0499129425,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 1777512300,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 26.61,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 1777512300,
+      "last_limit_up": 0,
+      "limit_down_days": 1,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1777512300,
+            "status": 3
+          }
+        ]
+      },
+      "limit_up_days": 0,
+      "listed_date": 1427126400,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": -0.3848177377,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 1508742687,
+      "price": 16.37,
+      "sell_lock_volume_ratio": 0.1818667637,
+      "stock_chi_name": "ST龙韵",
+      "stock_type": 1,
+      "surge_reason": null,
+      "symbol": "603729.SS",
+      "total_capital": 1508742687,
+      "turnover_ratio": 0.0006303905,
+      "volume_bias_ratio": 0.0337297302,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 0,
+      "yesterday_last_limit_up": 0,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 0
+    }
+  ]
+}

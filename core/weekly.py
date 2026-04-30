@@ -1,247 +1,305 @@
-# -*- coding: utf-8 -*-
 """
-core/weekly.py
+周线评分模块。
 
-方案 G+：周线过滤 V1
-
-作用：
-1. 只读本地 stock_daily 缓存，不远程拉历史 K；
-2. 将日线聚合为周线；
-3. 过滤掉周线趋势不健康的股票；
-4. 作为板块过滤之后、日线二买评分之前的第二道过滤层。
-
-周线 V1 条件：
-- 至少 30 根周线；
-- 周线 ma5 > ma10 > ma20；
-- 最新周收盘价 > ma10；
-- ma10 相比 3 周前不下降；
-- 最近 3 周不明显创新低（允许 2% 噪音）。
+v2.4.0 原则：
+- 周线强：加分
+- 周线一般：降级提醒
+- 周线极弱：硬过滤
+- 不要求每个二买都必须周线强趋势，否则信号太少
 """
 
 from __future__ import annotations
 
-from datetime import datetime
-from typing import Dict, Any, List, Tuple
+from typing import Any, Dict, Iterable, List, Optional
+from dataclasses import dataclass, asdict
+import datetime as dt
+import math
 
-import polars as pl
-
-from core.data import get_db_connection
-from core.logger import get_logger, log_reject, log_exception
-
-
-def _normalize_code(code: str) -> str:
-    s = str(code).strip()
-    if not s:
-        return ""
-    s = s.replace(".SH", "").replace(".SZ", "").replace(".BJ", "")
-    s = s.replace("sh", "").replace("sz", "").replace("bj", "")
-    return s.zfill(6) if s.isdigit() else s
+try:
+    from .data_normalizer import clamp_score
+except Exception:
+    def clamp_score(value: float, low: float = 0, high: float = 100) -> float:
+        return max(low, min(high, float(value)))
 
 
-def _parse_date(value):
-    if isinstance(value, datetime):
+@dataclass
+class WeeklyScore:
+    weekly_score: float
+    weekly_state: str
+    weekly_flags: List[str]
+    weekly_reasons: List[str]
+    close: Optional[float] = None
+    ma5: Optional[float] = None
+    ma10: Optional[float] = None
+    ma20: Optional[float] = None
+
+    def to_dict(self) -> Dict[str, Any]:
+        return asdict(self)
+
+
+def _as_records(daily_bars: Any) -> List[Dict[str, Any]]:
+    """
+    支持 list[dict] 或 pandas.DataFrame。
+    需要字段：
+    trade_date/date/datetime, open, high, low, close, volume, amount
+    """
+    if daily_bars is None:
+        return []
+
+    if hasattr(daily_bars, "to_dict"):
+        try:
+            return daily_bars.to_dict("records")
+        except Exception:
+            pass
+
+    if isinstance(daily_bars, list):
+        return [dict(x) for x in daily_bars if isinstance(x, dict)]
+
+    return []
+
+
+def _parse_date(value: Any) -> Optional[dt.date]:
+    if value is None:
+        return None
+    if isinstance(value, dt.date) and not isinstance(value, dt.datetime):
+        return value
+    if isinstance(value, dt.datetime):
         return value.date()
-    s = str(value)[:10]
+    s = str(value)[:10].replace("/", "-")
     try:
-        return datetime.strptime(s, "%Y-%m-%d").date()
+        return dt.date.fromisoformat(s)
     except Exception:
         return None
 
 
-def _load_daily_for_codes(codes: List[str]) -> pl.DataFrame:
-    codes = sorted(set(_normalize_code(c) for c in codes if _normalize_code(c)))
-    if not codes:
-        return pl.DataFrame()
-
-    in_list = ",".join([f"'{c}'" for c in codes])
-    sql = f"""
-        SELECT code, date, open, high, low, close, volume, amount
-        FROM stock_daily
-        WHERE adj_type = 'qfq' AND code IN ({in_list})
-        ORDER BY code, date
-    """
-    con = get_db_connection()
+def _float(value: Any) -> Optional[float]:
+    if value is None:
+        return None
     try:
-        cur = con.execute(sql)
-        rows = cur.fetchall()
-        cols = [d[0] for d in cur.description]
-    finally:
-        con.close()
-
-    if not rows:
-        return pl.DataFrame()
-    return pl.DataFrame(rows, schema=cols, orient="row")
+        v = float(str(value).replace(",", ""))
+        if math.isnan(v):
+            return None
+        return v
+    except Exception:
+        return None
 
 
-def _daily_to_weekly_for_code(code: str, df: pl.DataFrame) -> List[Dict[str, Any]]:
-    """将单只股票日线转周线。"""
-    rows: List[Dict[str, Any]] = []
-    if df is None or df.is_empty():
-        return rows
-
-    weeks: Dict[tuple, Dict[str, Any]] = {}
-    for r in df.sort("date").iter_rows(named=True):
-        d = _parse_date(r.get("date"))
-        if d is None:
+def resample_daily_to_weekly(daily_bars: Any) -> List[Dict[str, Any]]:
+    records = _as_records(daily_bars)
+    cleaned: List[Dict[str, Any]] = []
+    for r in records:
+        d = _parse_date(r.get("trade_date") or r.get("date") or r.get("datetime"))
+        c = _float(r.get("close") or r.get("price"))
+        if d is None or c is None:
             continue
-        iso_year, iso_week, _ = d.isocalendar()
-        key = (iso_year, iso_week)
-        close = float(r.get("close") or 0)
-        open_ = float(r.get("open") or close)
-        high = float(r.get("high") or close)
-        low = float(r.get("low") or close)
-        volume = float(r.get("volume") or 0)
-        amount = r.get("amount")
-        amount = float(amount) if amount is not None else close * volume * 100
+        cleaned.append({
+            "date": d,
+            "open": _float(r.get("open")) or c,
+            "high": _float(r.get("high")) or c,
+            "low": _float(r.get("low")) or c,
+            "close": c,
+            "volume": _float(r.get("volume")) or 0.0,
+            "amount": _float(r.get("amount")) or 0.0,
+        })
 
-        if key not in weeks:
-            weeks[key] = {
-                "code": code,
-                "week": f"{iso_year}-{iso_week:02d}",
-                "date": d.isoformat(),
-                "open": open_,
-                "high": high,
-                "low": low,
-                "close": close,
-                "volume": volume,
-                "amount": amount,
-            }
-        else:
-            w = weeks[key]
-            w["date"] = d.isoformat()
-            w["high"] = max(float(w["high"]), high)
-            w["low"] = min(float(w["low"]), low)
-            w["close"] = close
-            w["volume"] = float(w.get("volume") or 0) + volume
-            w["amount"] = float(w.get("amount") or 0) + amount
+    cleaned.sort(key=lambda x: x["date"])
+    weeks: Dict[tuple, List[Dict[str, Any]]] = {}
+    for r in cleaned:
+        iso = r["date"].isocalendar()
+        key = (iso.year, iso.week)
+        weeks.setdefault(key, []).append(r)
 
-    return [weeks[k] for k in sorted(weeks.keys())]
+    weekly: List[Dict[str, Any]] = []
+    for key in sorted(weeks.keys()):
+        rows = weeks[key]
+        weekly.append({
+            "week": f"{key[0]}-W{key[1]:02d}",
+            "date": rows[-1]["date"].isoformat(),
+            "open": rows[0]["open"],
+            "high": max(x["high"] for x in rows),
+            "low": min(x["low"] for x in rows),
+            "close": rows[-1]["close"],
+            "volume": sum(x["volume"] for x in rows),
+            "amount": sum(x["amount"] for x in rows),
+        })
+    return weekly
 
 
-def evaluate_weekly_trend(code: str, daily: pl.DataFrame) -> Dict[str, Any]:
-    """评估单只股票是否通过周线过滤。"""
-    code = _normalize_code(code)
-    weekly = _daily_to_weekly_for_code(code, daily)
-    if len(weekly) < 30:
-        return {"pass": False, "reason": f"weekly_not_enough:{len(weekly)}", "weekly_bars": len(weekly)}
+def _ma(values: List[float], n: int) -> Optional[float]:
+    if len(values) < n:
+        return None
+    return sum(values[-n:]) / n
+
+
+def score_weekly_trend(daily_bars: Any, config: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
+    cfg = config or {}
+    weekly = resample_daily_to_weekly(daily_bars)
+    flags: List[str] = []
+    reasons: List[str] = []
+
+    if len(weekly) < 10:
+        return WeeklyScore(
+            weekly_score=50,
+            weekly_state="weekly_unknown",
+            weekly_flags=["周线数据不足(weekly_data_insufficient)"],
+            weekly_reasons=["周线样本少于10周，暂不硬过滤，只降级提醒"],
+        ).to_dict()
 
     closes = [float(x["close"]) for x in weekly]
+    highs = [float(x["high"]) for x in weekly]
     lows = [float(x["low"]) for x in weekly]
+    close = closes[-1]
 
-    ma5 = sum(closes[-5:]) / 5
-    ma10 = sum(closes[-10:]) / 10
-    ma20 = sum(closes[-20:]) / 20
-    ma10_prev3 = sum(closes[-13:-3]) / 10 if len(closes) >= 33 else ma10
-    last_close = closes[-1]
+    ma5 = _ma(closes, 5)
+    ma10 = _ma(closes, 10)
+    ma20 = _ma(closes, 20)
 
-    trend_ok = ma5 > ma10 > ma20
-    price_ok = last_close > ma10
-    slope_ok = ma10 >= ma10_prev3 * 0.995
+    score = 50.0
 
-    # 最近3周不明显创新低：允许2%噪音，避免过严。
-    recent3_low = min(lows[-3:])
-    prev3_low = min(lows[-6:-3]) if len(lows) >= 6 else recent3_low
-    low_ok = recent3_low >= prev3_low * 0.98
+    if ma5 and close >= ma5:
+        score += 8
+        reasons.append("周收盘价站上5周线")
+    else:
+        score -= 5
+        flags.append("周线未站上5周线(weekly_below_ma5)")
 
-    passed = bool(trend_ok and price_ok and slope_ok and low_ok)
-    reasons = []
-    if not trend_ok:
-        reasons.append("weekly_ma_not_bull")
-    if not price_ok:
-        reasons.append("weekly_close_below_ma10")
-    if not slope_ok:
-        reasons.append("weekly_ma10_down")
-    if not low_ok:
-        reasons.append("weekly_recent_low_break")
+    if ma10 and close >= ma10:
+        score += 8
+        reasons.append("周收盘价站上10周线")
+    else:
+        score -= 5
+        flags.append("周线未站上10周线(weekly_below_ma10)")
 
-    return {
-        "pass": passed,
-        "reason": ",".join(reasons) if reasons else "weekly_ok",
-        "weekly_bars": len(weekly),
-        "weekly_close": round(last_close, 3),
-        "weekly_ma5": round(ma5, 3),
-        "weekly_ma10": round(ma10, 3),
-        "weekly_ma20": round(ma20, 3),
+    if ma20:
+        if close >= ma20:
+            score += 10
+            reasons.append("周收盘价站上20周线")
+        else:
+            score -= 12
+            flags.append("周线跌破20周线(weekly_below_ma20)")
+
+        ma20_prev = sum(closes[-25:-5]) / 20 if len(closes) >= 25 else None
+        if ma20_prev:
+            ma20_slope_pct = (ma20 / ma20_prev - 1) * 100
+            if ma20_slope_pct > 0:
+                score += 12
+                reasons.append("20周线向上")
+            else:
+                score -= 12
+                flags.append("20周线向下(weekly_ma20_down)")
+
+            if close < ma20 and ma20_slope_pct < 0:
+                flags.append("周线下降趋势(weekly_downtrend)")
+                reasons.append("价格低于20周线且20周线向下")
+
+        distance_ma20 = (close / ma20 - 1) * 100
+        too_hot_pct = float(cfg.get("too_hot_distance_from_ma20_pct", 35))
+        if distance_ma20 > too_hot_pct:
+            score -= 18
+            flags.append("周线过热(weekly_too_hot)")
+            reasons.append(f"价格距离20周线过远：{distance_ma20:.2f}%")
+
+    # 高低点结构
+    if len(highs) >= 6:
+        recent_high_ok = highs[-1] >= max(highs[-6:-1]) * 0.98
+        recent_low_ok = lows[-1] >= min(lows[-6:-1]) * 0.98
+        if recent_high_ok and recent_low_ok:
+            score += 10
+            reasons.append("周线高低点结构未破坏")
+        elif not recent_low_ok:
+            score -= 12
+            flags.append("周线结构破坏(weekly_structure_broken)")
+
+    # 动量
+    if len(closes) >= 4:
+        mom4 = (closes[-1] / closes[-4] - 1) * 100
+        if mom4 > 5:
+            score += 8
+            reasons.append(f"近4周动量较强：{mom4:.2f}%")
+        elif mom4 < -8:
+            score -= 10
+            flags.append("周线动量偏弱(weekly_momentum_weak)")
+
+    # 长上影/放量滞涨简化识别
+    last = weekly[-1]
+    high = float(last["high"])
+    low = float(last["low"])
+    if high > low:
+        upper_shadow_ratio = (high - close) / (high - low)
+        if upper_shadow_ratio > 0.55:
+            score -= 8
+            flags.append("周线长上影(weekly_long_upper_shadow)")
+
+    score = clamp_score(score)
+
+    hard_reject = float(cfg.get("hard_reject_score", 45))
+    if "周线下降趋势(weekly_downtrend)" in flags and score < 55:
+        state = "weekly_downtrend"
+    elif "周线过热(weekly_too_hot)" in flags:
+        state = "weekly_too_hot"
+    elif score >= 80:
+        state = "weekly_strong_uptrend"
+    elif score >= 70:
+        state = "weekly_uptrend"
+    elif score >= 55:
+        state = "weekly_repairing"
+    elif score >= hard_reject:
+        state = "weekly_sideways"
+    else:
+        state = "weekly_downtrend"
+
+    return WeeklyScore(
+        weekly_score=round(score, 2),
+        weekly_state=state,
+        weekly_flags=list(dict.fromkeys(flags)),
+        weekly_reasons=list(dict.fromkeys(reasons)),
+        close=close,
+        ma5=ma5,
+        ma10=ma10,
+        ma20=ma20,
+    ).to_dict()
+
+
+def filter_by_weekly_trend(candidates: List[Dict[str, Any]], *, mode: str = "observe", config: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
+    """
+    兼容旧调用：filter_by_weekly_trend
+
+    candidates 每项建议包含：
+    - code/symbol
+    - daily_bars
+
+    返回：
+    {
+      "passed": [...],
+      "rejected": [...],
+      "scored": [...]
     }
+    """
+    cfg = config or {}
+    hard_reject_score = float(cfg.get("hard_reject_score", 45))
+    passed: List[Dict[str, Any]] = []
+    rejected: List[Dict[str, Any]] = []
+    scored: List[Dict[str, Any]] = []
 
+    for c in candidates:
+        bars = c.get("daily_bars") or c.get("bars") or []
+        ws = score_weekly_trend(bars, config=cfg)
+        item = dict(c)
+        item.update(ws)
+        scored.append(item)
 
-def filter_universe_by_weekly_trend(universe: pl.DataFrame, strict_weekly: bool = False) -> Tuple[pl.DataFrame, Dict[str, Any]]:
-    """周线过滤。返回过滤后 universe 和报告。"""
-    report = {
-        "input": 0,
-        "passed": 0,
-        "rejected": 0,
-        "no_daily": 0,
-        "not_enough": 0,
-        "skipped_not_enough": 0,
-        "strict_weekly": bool(strict_weekly),
-    }
-    if universe is None or universe.is_empty() or "code" not in universe.columns:
-        return pl.DataFrame(), report
+        hard_reject = (
+            ws["weekly_score"] < hard_reject_score
+            or ws["weekly_state"] in {"weekly_downtrend", "weekly_too_hot"}
+        )
 
-    rows = universe.to_dicts()
-    report["input"] = len(rows)
-    codes = [r.get("code", "") for r in rows]
+        # observe 阶段宽松，tail_confirm 阶段严格
+        if mode == "observe":
+            hard_reject = ws["weekly_score"] < 35
 
-    try:
-        daily_all = _load_daily_for_codes(codes)
-    except Exception as e:
-        log_exception("读取周线过滤所需日线失败", e)
-        return pl.DataFrame(), report
+        if hard_reject:
+            rejected.append(item)
+        else:
+            passed.append(item)
 
-    if daily_all is None or daily_all.is_empty():
-        for r in rows:
-            log_reject(r.get("code", ""), "weekly", "no_daily_cache", "周线过滤无日线缓存", name=r.get("name", ""))
-        report["no_daily"] = len(rows)
-        report["rejected"] = len(rows)
-        return pl.DataFrame(), report
-
-    daily_by_code = {str(k[0] if isinstance(k, tuple) else k): g for k, g in daily_all.group_by("code", maintain_order=True)}
-    passed_rows: List[Dict[str, Any]] = []
-
-    for r in rows:
-        code = _normalize_code(r.get("code", ""))
-        g = daily_by_code.get(code)
-        if g is None or g.is_empty():
-            report["no_daily"] += 1
-            log_reject(code, "weekly", "no_daily_cache", "周线过滤无日线缓存", name=r.get("name", ""))
-            continue
-
-        res = evaluate_weekly_trend(code, g)
-        if not res.get("pass"):
-            reason = str(res.get("reason", ""))
-            if reason.startswith("weekly_not_enough"):
-                report["not_enough"] += 1
-                if not strict_weekly:
-                    # 调试默认：周线数据不足不剔除，先放行，避免缓存覆盖不足时全杀。
-                    out = dict(r)
-                    out.update({
-                        "weekly_bars": res.get("weekly_bars"),
-                        "weekly_status": "skipped_not_enough",
-                    })
-                    passed_rows.append(out)
-                    report["skipped_not_enough"] += 1
-                    continue
-            report["rejected"] += 1
-            log_reject(code, "weekly", "weekly_filter_fail", reason, name=r.get("name", ""))
-            continue
-
-        out = dict(r)
-        out.update({
-            "weekly_bars": res.get("weekly_bars"),
-            "weekly_close": res.get("weekly_close"),
-            "weekly_ma5": res.get("weekly_ma5"),
-            "weekly_ma10": res.get("weekly_ma10"),
-            "weekly_ma20": res.get("weekly_ma20"),
-            "weekly_status": "passed",
-        })
-        passed_rows.append(out)
-
-    report["passed"] = len(passed_rows)
-    report["rejected"] = report["input"] - report["passed"]
-
-    get_logger().info(
-        "周线过滤完成：input=%s passed=%s rejected=%s no_daily=%s not_enough=%s",
-        report["input"], report["passed"], report["rejected"], report["no_daily"], report["not_enough"]
-    )
-    return (pl.DataFrame(passed_rows) if passed_rows else pl.DataFrame(), report)
+    return {"passed": passed, "rejected": rejected, "scored": scored}

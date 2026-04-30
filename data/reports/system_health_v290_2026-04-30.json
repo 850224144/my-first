@@ -1,0 +1,53 @@
+{
+  "status": "ok",
+  "missing_required": [],
+  "files": {
+    "data/watchlist.parquet": {
+      "path": "/Users/liujunying/Downloads/project/my-first/data/watchlist.parquet",
+      "exists": true,
+      "size": 19332
+    },
+    "data/watchlist_tail_focus.parquet": {
+      "path": "/Users/liujunying/Downloads/project/my-first/data/watchlist_tail_focus.parquet",
+      "exists": true,
+      "size": 63658
+    },
+    "data/tail_confirm_results_v265.parquet": {
+      "path": "/Users/liujunying/Downloads/project/my-first/data/tail_confirm_results_v265.parquet",
+      "exists": true,
+      "size": 65691
+    },
+    "data/paper_trade_candidates.parquet": {
+      "path": "/Users/liujunying/Downloads/project/my-first/data/paper_trade_candidates.parquet",
+      "exists": true,
+      "size": 636
+    },
+    "data/trade_plan_open_recheck.parquet": {
+      "path": "/Users/liujunying/Downloads/project/my-first/data/trade_plan_open_recheck.parquet",
+      "exists": true,
+      "size": 636
+    },
+    "data/stock_data.duckdb": {
+      "path": "/Users/liujunying/Downloads/project/my-first/data/stock_data.duckdb",
+      "exists": true,
+      "size": 266874880
+    }
+  },
+  "trading_state_db": {
+    "exists": true,
+    "tables": [
+      "final_signal_daily",
+      "notification_state",
+      "open_recheck_daily",
+      "paper_trade_ext",
+      "sqlite_sequence"
+    ]
+  },
+  "scheduler_state_db": {
+    "exists": true,
+    "tables": [
+      "scheduler_job_runs_v270",
+      "sqlite_sequence"
+    ]
+  }
+}

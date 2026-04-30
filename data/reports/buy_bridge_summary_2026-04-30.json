@@ -1,0 +1,11 @@
+{
+  "trade_date": "2026-04-30",
+  "tail_results_path": "/Users/liujunying/Downloads/project/my-first/data/tail_confirm_results_v265.parquet",
+  "tail_result_rows": 10,
+  "buy_rows": 0,
+  "paper_candidates_added": 0,
+  "open_recheck_plans_added": 0,
+  "paper_candidates_total": 0,
+  "open_recheck_plans_total": 0,
+  "buy_symbols": []
+}
