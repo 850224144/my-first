@@ -1,0 +1,31 @@
+2026-05-06 11:20:00 | INFO | a_stock | 日志初始化完成：run_id=20260506_112000, log_dir=logs, reject_file=logs/rejects_20260506_112000.csv, raw_bad_rows_file=logs/raw_bad_rows_20260506_112000.jsonl
+2026-05-06 11:20:00 | INFO | a_stock | run_scan 启动
+2026-05-06 11:20:02 | INFO | a_stock | 使用股票池缓存：1487 只
+2026-05-06 11:20:02 | WARNING | a_stock | 板块过滤失败：filter_universe_by_strong_sector() got an unexpected keyword argument 'market_state'
+2026-05-06 11:20:02 | WARNING | a_stock | 周线过滤失败：filter_by_weekly_trend() got an unexpected keyword argument 'strict'
+2026-05-06 11:20:02 | INFO | a_stock | 实时行情刷新结果：请求=71 成功=70 成功率=98.59% fresh=70 stale=1 最新=2026-05-06 11:20:01
+2026-05-06 11:20:02 | INFO | a_stock | reject 002475 score_too_low score=68
+2026-05-06 11:20:03 | INFO | a_stock | reject 000938 score_too_low score=62
+2026-05-06 11:20:03 | INFO | a_stock | reject 002916 score_too_low score=64
+2026-05-06 11:20:03 | INFO | a_stock | reject 002938 score_too_low score=65
+2026-05-06 11:20:04 | INFO | a_stock | reject 688630 score_too_low score=69
+2026-05-06 11:20:04 | INFO | a_stock | reject 300953 score_too_low score=64
+2026-05-06 11:20:05 | INFO | a_stock | reject 300209 score_too_low score=65
+2026-05-06 11:20:05 | INFO | a_stock | reject 300769 score_too_low score=0
+2026-05-06 11:20:05 | INFO | a_stock | reject 301128 score_too_low score=68
+2026-05-06 11:20:06 | INFO | a_stock | reject 002947 score_too_low score=60
+2026-05-06 11:20:07 | INFO | a_stock | reject 301165 score_too_low score=65
+2026-05-06 11:20:07 | INFO | a_stock | reject 300975 score_too_low score=65
+2026-05-06 11:20:07 | INFO | a_stock | reject 301377 score_too_low score=60
+2026-05-06 11:20:07 | INFO | a_stock | reject 601677 score_too_low score=65
+2026-05-06 11:20:07 | INFO | a_stock | reject 301382 score_too_low score=69
+2026-05-06 11:20:07 | INFO | a_stock | reject 688127 score_too_low score=64
+2026-05-06 11:20:08 | INFO | a_stock | reject 603115 score_too_low score=67
+2026-05-06 11:20:08 | INFO | a_stock | reject 300580 score_too_low score=69
+2026-05-06 11:20:09 | INFO | a_stock | reject 600539 score_too_low score=69
+2026-05-06 11:20:10 | INFO | a_stock | reject 600433 score_too_low score=60
+2026-05-06 11:20:10 | INFO | a_stock | reject 300696 score_too_low score=67
+2026-05-06 11:20:10 | INFO | a_stock | reject 603203 score_too_low score=62
+2026-05-06 11:20:10 | INFO | a_stock | reject 688663 score_too_low score=67
+2026-05-06 11:20:11 | INFO | a_stock | reject 301592 score_too_low score=65
+2026-05-06 11:20:11 | INFO | a_stock | 扫描报告：universe=71 processed=71 skipped=24 candidates=47

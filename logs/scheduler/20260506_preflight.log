@@ -18,3 +18,23 @@
   universe 股票池：1487
 [2026-05-06 09:15:02] END COMMAND returncode=0
 [2026-05-06 09:15:02] JOB DONE: preflight
+
+################################################################################
+[2026-05-06 10:51:42] JOB START: preflight
+################################################################################
+
+================================================================================
+[2026-05-06 10:51:42] START COMMAND: /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --coverage
+[2026-05-06 10:51:42] TIMEOUT: 300
+================================================================================
+2026-05-06 10:51:43 | INFO | a_stock | 日志初始化完成：run_id=20260506_105143, log_dir=logs, reject_file=logs/rejects_20260506_105143.csv, raw_bad_rows_file=logs/raw_bad_rows_20260506_105143.jsonl
+2026-05-06 10:51:43 | INFO | a_stock | run_scan 启动
+
+数据覆盖率报告：
+  stock_basic：5323
+  有效基础股票：5323
+  stock_daily 有效缓存股票：1491 (28.01%)
+  realtime_quote 覆盖股票：5317
+  universe 股票池：1487
+[2026-05-06 10:51:43] END COMMAND returncode=0
+[2026-05-06 10:51:43] JOB DONE: preflight

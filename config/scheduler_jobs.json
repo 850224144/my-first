@@ -1,0 +1,111 @@
+{
+  "timezone": "Asia/Shanghai",
+  "jobs": [
+    {
+      "name": "preflight",
+      "schedule": { "kind": "cron", "expr": "15 9 * * 1-5" },
+      "commands": [["run_scan.py", "--coverage"]],
+      "timeoutSeconds": 300
+    },
+    {
+      "name": "observe_morning",
+      "schedule": { "kind": "cron", "expr": "45 9 * * 1-5" },
+      "commands": [["run_scan.py", "--mode", "observe", "--workers", "1"]],
+      "timeoutSeconds": 1200
+    },
+    {
+      "name": "watchlist_refresh_1030",
+      "schedule": { "kind": "cron", "expr": "30 10 * * 1-5" },
+      "commands": [["run_scan.py", "--watchlist-refresh", "--workers", "1"]],
+      "timeoutSeconds": 600
+    },
+    {
+      "name": "watchlist_refresh_1120",
+      "schedule": { "kind": "cron", "expr": "20 11 * * 1-5" },
+      "commands": [["run_scan.py", "--watchlist-refresh", "--workers", "1"]],
+      "timeoutSeconds": 600
+    },
+    {
+      "name": "track_positions_midday",
+      "schedule": { "kind": "cron", "expr": "30 11 * * 1-5" },
+      "commands": [["run_positions.py", "--track"]],
+      "timeoutSeconds": 300
+    },
+    {
+      "name": "observe_afternoon",
+      "schedule": { "kind": "cron", "expr": "20 13 * * 1-5" },
+      "commands": [["run_scan.py", "--mode", "observe", "--workers", "1"]],
+      "timeoutSeconds": 1200
+    },
+    {
+      "name": "watchlist_refresh_1420",
+      "schedule": { "kind": "cron", "expr": "20 14 * * 1-5" },
+      "commands": [["run_scan.py", "--watchlist-refresh", "--workers", "1"]],
+      "timeoutSeconds": 600
+    },
+    {
+      "name": "observe_gate_v270",
+      "schedule": { "kind": "cron", "expr": "40 14 * * 1-5" },
+      "commands": [["scripts/run_v270_jobs_once.py", "--job", "observe"]],
+      "timeoutSeconds": 1800
+    },
+    {
+      "name": "tail_confirm",
+      "schedule": { "kind": "cron", "expr": "50 14 * * 1-5" },
+      "commands": [["scripts/run_v270_jobs_once.py", "--job", "tail"]],
+      "timeoutSeconds": 600
+    },
+    {
+      "name": "buy_bridge_v280",
+      "schedule": { "kind": "cron", "expr": "52 14 * * 1-5" },
+      "commands": [["scripts/build_buy_bridge_v280.py"]],
+      "timeoutSeconds": 600
+    },
+    {
+      "name": "track_positions_tail",
+      "schedule": { "kind": "cron", "expr": "55 14 * * 1-5" },
+      "commands": [["run_positions.py", "--track"]],
+      "timeoutSeconds": 300
+    },
+    {
+      "name": "after_close",
+      "schedule": { "kind": "cron", "expr": "30 17 * * 1-5" },
+      "commands": [
+        ["run_scan.py", "--refresh-daily-existing", "--daily-limit", "1200", "--daily-workers", "1"],
+        ["run_scan.py", "--build-universe", "--workers", "1"],
+        ["run_scan.py", "--mode", "after_close", "--workers", "1"]
+      ],
+      "timeoutSeconds": 5400
+    },
+    {
+      "name": "track_positions_evening",
+      "schedule": { "kind": "cron", "expr": "0 20 * * 1-5" },
+      "commands": [["run_positions.py", "--track"]],
+      "timeoutSeconds": 300
+    },
+    {
+      "name": "daily_report_v290_build",
+      "schedule": { "kind": "cron", "expr": "25 20 * * 1-5" },
+      "commands": [["scripts/build_daily_report_v290.py"]],
+      "timeoutSeconds": 3600
+    },
+    {
+      "name": "daily_report",
+      "schedule": { "kind": "cron", "expr": "30 20 * * 1-5" },
+      "commands": [["run_scan.py", "--daily-report"]],
+      "timeoutSeconds": 600
+    },
+    {
+      "name": "night_cache_expand",
+      "schedule": { "kind": "cron", "expr": "30 22 * * 1-5" },
+      "commands": [["run_scan.py", "--build-daily-cache", "--daily-limit", "300", "--daily-workers", "1"]],
+      "timeoutSeconds": 3600
+    },
+    {
+      "name": "refresh_trading_calendar",
+      "schedule": { "kind": "cron", "expr": "0 8 * * 1" },
+      "commands": [["scripts/refresh_trading_calendar.py"]],
+      "timeoutSeconds": 300
+    }
+  ]
+}

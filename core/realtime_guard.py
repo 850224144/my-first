@@ -215,6 +215,7 @@ def refresh_realtime_quotes(
     batch_interval: int = DEFAULT_BATCH_INTERVAL,
     min_success_rate: float = 0.7,
     fail_fast: bool = False,
+    max_retries: int = 2,  # 添加重试次数参数
 ) -> Dict[str, Any]:
     """
     刷新浪实时行情并写入 realtime_quote。
@@ -247,13 +248,26 @@ def refresh_realtime_quotes(
             time.sleep(batch_interval)
 
         url = SINA_REALTIME_URL.format(symbols=",".join(batch))
-        try:
-            resp = requests.get(url, headers=SINA_HEADERS, timeout=10)
-            text = resp.text.strip()
-        except Exception:
-            failed.extend(batch)
-            if fail_fast:
-                break
+        
+        # 添加重试机制
+        retry_count = 0
+        success = False
+        while retry_count <= max_retries and not success:
+            try:
+                resp = requests.get(url, headers=SINA_HEADERS, timeout=10)
+                text = resp.text.strip()
+                success = True
+            except Exception as e:
+                retry_count += 1
+                if retry_count > max_retries:
+                    failed.extend(batch)
+                    if fail_fast:
+                        break
+                    continue
+                # 等待一段时间后重试
+                time.sleep(1 * retry_count)  # 指数退避
+        
+        if not success:
             continue
 
         parsed_symbols = set()
@@ -343,34 +357,142 @@ def refresh_and_validate_realtime(
     batch_interval: int = DEFAULT_BATCH_INTERVAL,
     min_success_rate: float = 0.7,
     max_age_minutes: int = 20,
+    mode: str = "default",  # 添加模式参数，用于预获取
 ) -> Dict[str, Any]:
-    refresh = refresh_realtime_quotes(
-        codes=codes,
-        batch_size=batch_size,
-        batch_interval=batch_interval,
-        min_success_rate=min_success_rate,
-    )
-    summary = get_realtime_quote_summary(codes, max_age_minutes=max_age_minutes)
-
-    ok = bool(refresh.get("ok")) and summary.get("fresh", 0) > 0
-
-    return {
-        **refresh,
-        "fresh": summary.get("fresh", 0),
-        "stale": summary.get("stale", 0),
-        "missing": summary.get("missing", 0),
-        "fresh_rate": summary.get("fresh_rate", 0.0),
-        "newest_quote_time": summary.get("newest_quote_time") or refresh.get("newest_quote_time", ""),
-        "ok": ok,
-        "message": (
-            f"实时行情刷新结果：请求={refresh.get('requested', 0)} "
-            f"成功={refresh.get('success', 0)} "
-            f"成功率={refresh.get('success_rate', 0.0):.2%} "
-            f"fresh={summary.get('fresh', 0)} stale={summary.get('stale', 0)} "
-            f"最新={summary.get('newest_quote_time') or refresh.get('newest_quote_time', '')}"
-        ),
-    }
+    """
+    刷新实时行情并验证新鲜度。
+    使用预获取机制：如果实时获取失败，使用最近一次的成功预获取数据。
+    """
+    try:
+        # 先尝试获取实时数据
+        refresh = refresh_realtime_quotes(
+            codes=codes,
+            batch_size=batch_size,
+            batch_interval=batch_interval,
+            min_success_rate=min_success_rate,
+            max_retries=2,
+        )
+        
+        summary = get_realtime_quote_summary(codes, max_age_minutes=max_age_minutes)
+        
+        # 计算成功率和新鲜度
+        success_rate = refresh.get("success_rate", 0.0)
+        fresh_rate = summary.get("fresh_rate", 0.0)
+        
+        # 判断是否成功
+        ok = (success_rate >= min_success_rate) or (fresh_rate >= 0.5)
+        
+        if ok:
+            # 实时数据成功，更新预获取缓存
+            try:
+                from .realtime_prefetch import save_prefetch_data
+                save_prefetch_data(mode, codes, {
+                    **refresh,
+                    "fresh": summary.get("fresh", 0),
+                    "stale": summary.get("stale", 0),
+                    "missing": summary.get("missing", 0),
+                    "fresh_rate": summary.get("fresh_rate", 0.0),
+                    "newest_quote_time": summary.get("newest_quote_time") or refresh.get("newest_quote_time", ""),
+                })
+            except:
+                pass
+            
+            return {
+                **refresh,
+                "fresh": summary.get("fresh", 0),
+                "stale": summary.get("stale", 0),
+                "missing": summary.get("missing", 0),
+                "fresh_rate": summary.get("fresh_rate", 0.0),
+                "newest_quote_time": summary.get("newest_quote_time") or refresh.get("newest_quote_time", ""),
+                "ok": True,
+                "using_prefetch": False,
+                "message": (
+                    f"实时行情刷新结果：请求={refresh.get('requested', 0)} "
+                    f"成功={refresh.get('success', 0)} "
+                    f"成功率={refresh.get('success_rate', 0.0):.2%} "
+                    f"fresh={summary.get('fresh', 0)} stale={summary.get('stale', 0)} "
+                    f"最新={summary.get('newest_quote_time') or refresh.get('newest_quote_time', '')}"
+                ),
+            }
+        else:
+            # 实时数据失败，尝试使用预获取缓存
+            try:
+                from .realtime_prefetch import load_prefetch_data
+                prefetch_data = load_prefetch_data(mode, codes)
+                
+                if prefetch_data:
+                    prefetch_data["using_prefetch"] = True
+                    prefetch_data["message"] = (
+                        f"实时数据获取失败，使用预获取数据 | "
+                        f"请求={len(codes)} 预获取成功={prefetch_data.get('success', 0)} "
+                        f"成功率={prefetch_data.get('success_rate', 0.0):.2%} "
+                        f"预获取时间={prefetch_data.get('newest_quote_time', 'N/A')}"
+                    )
+                    return prefetch_data
+            except:
+                pass
+            
+            # 预获取缓存也没有，返回失��
+            return {
+                **refresh,
+                "fresh": summary.get("fresh", 0),
+                "stale": summary.get("stale", 0),
+                "missing": summary.get("missing", 0),
+                "fresh_rate": summary.get("fresh_rate", 0.0),
+                "newest_quote_time": summary.get("newest_quote_time") or refresh.get("newest_quote_time", ""),
+                "ok": False,
+                "using_prefetch": False,
+                "message": (
+                    f"实时行情刷新失败：请求={refresh.get('requested', 0)} "
+                    f"成功={refresh.get('success', 0)} "
+                    f"成功率={refresh.get('success_rate', 0.0):.2%} "
+                    f"fresh={summary.get('fresh', 0)} stale={summary.get('stale', 0)} "
+                    f"最新={summary.get('newest_quote_time') or refresh.get('newest_quote_time', '')}"
+                ),
+            }
+            
+    except Exception as e:
+        # 如果发生异常，尝试使用预获取缓存
+        try:
+            from .realtime_prefetch import load_prefetch_data
+            prefetch_data = load_prefetch_data(mode, codes)
+            
+            if prefetch_data:
+                prefetch_data["using_prefetch"] = True
+                prefetch_data["message"] = f"实时数据异常：{str(e)}，使用预获取数据"
+                return prefetch_data
+        except:
+            pass
+        
+        # 预获取缓存也没有，返回异常
+        return {
+            "requested": len(codes),
+            "success": 0,
+            "failed": len(codes),
+            "success_rate": 0.0,
+            "fresh": 0,
+            "stale": len(codes),
+            "missing": 0,
+            "fresh_rate": 0.0,
+            "newest_quote_time": "",
+            "ok": False,
+            "using_prefetch": False,
+            "message": f"实时行情刷新异常：{str(e)}",
+        }
 
 
 def should_require_realtime(mode: str) -> bool:
     return mode in {"observe", "tail_confirm", "watchlist_refresh"}
+
+
+def schedule_realtime_prefetch_if_needed(mode: str, codes: List[str]):
+    """
+    如果需要，调度实时数据预获取
+    例如：9:40为10:00的observe任务预获取数据
+    """
+    if mode in {"observe", "tail_confirm", "watchlist_refresh"}:
+        try:
+            from .realtime_prefetch import schedule_realtime_prefetch
+            schedule_realtime_prefetch(mode, codes)
+        except:
+            pass

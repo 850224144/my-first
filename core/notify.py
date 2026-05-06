@@ -14,7 +14,7 @@ except Exception:  # pragma: no cover
     requests = None
 
 
-PROJECT_NOTIFY_NAME = os.getenv("PROJECT_NOTIFY_NAME", "A股二买交易助手")
+PROJECT_NOTIFY_NAME = os.getenv("PROJECT_NOTIFY_NAME", "测试二买交易助手")
 
 DEFAULT_WECHAT_WEBHOOK = os.getenv(
     "WECHAT_WEBHOOK",

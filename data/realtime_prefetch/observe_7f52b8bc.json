@@ -1,0 +1,22 @@
+{
+  "mode": "observe",
+  "codes": [
+    "000001",
+    "000002"
+  ],
+  "data": {
+    "requested": 2,
+    "success": 2,
+    "failed": 0,
+    "success_rate": 1.0,
+    "newest_quote_time": "2026-05-06 15:00:00",
+    "ok": true,
+    "message": "实时行情刷新结果：请求=2 成功=2 成功率=100.00%",
+    "fresh": 2,
+    "stale": 0,
+    "missing": 0,
+    "fresh_rate": 1.0
+  },
+  "timestamp": "2026-05-06T15:00:23.301028",
+  "expires_at": "2026-05-06T15:30:23.301032"
+}

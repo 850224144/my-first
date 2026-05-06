@@ -377,6 +377,11 @@ def _refresh_realtime_for_scan(args, mode: str, codes: List[str], market_state: 
         return True
     if not codes:
         return True
+    
+    # 调度预获取（如果这是预获取阶段）
+    from core.realtime_guard import schedule_realtime_prefetch_if_needed
+    schedule_realtime_prefetch_if_needed(mode, codes)
+    
     # 全市场 900 只按 400/批、10秒间隔；watchlist几十只会很快。
     batch_interval = 10 if len(codes) > 400 else 0
     summary = refresh_and_validate_realtime(
@@ -385,12 +390,19 @@ def _refresh_realtime_for_scan(args, mode: str, codes: List[str], market_state: 
         batch_interval=batch_interval,
         min_success_rate=args.realtime_min_success,
         max_age_minutes=args.realtime_max_age_minutes,
+        mode=mode,  # 传递模式参数用于预获取
     )
     market_state["quote_status"] = summary
     print(summary.get("message"))
     logger.info(summary.get("message"))
+    
+    # 检查是否使用了预获取数据
+    if summary.get("using_prefetch"):
+        print("⚠️ 使用预获取数据，数据新鲜度可能不足")
+        logger.warning(f"使用预获取数据：{summary}")
+    
     if not summary.get("ok"):
-        print("⚠️ 实时行情刷新失败或成功率过低，本轮盘中扫描停止，避免使用旧数据出信号")
+        print("⚠️ 实时行情刷新失败且无预获取数据，本轮盘中扫描停止")
         logger.error(f"实时行情刷新失败，本轮停止：{summary}")
         return False
     return True

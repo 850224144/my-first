@@ -111,6 +111,7 @@ def classify_observe_quality(item: Dict[str, Any]) -> Dict[str, Any]:
 
     reasons = diagnose_risk_reasons(item)
 
+    # 数据不新鲜时直接拒绝（使用预获取机制后，这种情况应该很少发生）
     if not fresh:
         quality = "reject_bad_data"
         priority = 0

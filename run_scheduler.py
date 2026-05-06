@@ -28,6 +28,7 @@ STATE_DIR = PROJECT_ROOT / "data" / "scheduler_state"
 HEARTBEAT_LOG = PROJECT_ROOT / "logs" / "scheduler_heartbeat.log"
 TIMEZONE = "Asia/Shanghai"
 SCHEDULER_LOCK_FILE = STATE_DIR / "scheduler.lock"
+SCHEDULER_CONFIG_PATH = PROJECT_ROOT / "config" / "scheduler_jobs.json"
 
 # 你提供的企业微信 webhook。不要提交到公开仓库。
 DEFAULT_WECHAT_WEBHOOK = os.getenv(
@@ -35,53 +36,164 @@ DEFAULT_WECHAT_WEBHOOK = os.getenv(
     "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=2e322113-3ba9-4d90-8257-412971cbc55b",
 )
 
-JOB_COMMANDS: Dict[str, List[List[str]]] = {
-    "preflight": [["run_scan.py", "--coverage"]],
-    "observe_morning": [["run_scan.py", "--mode", "observe", "--workers", "1"]],
-    "watchlist_refresh_1030": [["run_scan.py", "--watchlist-refresh", "--workers", "1"]],
-    "watchlist_refresh_1120": [["run_scan.py", "--watchlist-refresh", "--workers", "1"]],
-    "observe_afternoon": [["run_scan.py", "--mode", "observe", "--workers", "1"]],
-    "watchlist_refresh_1420": [["run_scan.py", "--watchlist-refresh", "--workers", "1"]],
-    "tail_confirm": [["scripts/run_v270_jobs_once.py", "--job", "tail"]],
-    "buy_bridge_v280": [["scripts/build_buy_bridge_v280.py"]],
-    "observe_gate_v270": [["scripts/run_v270_jobs_once.py", "--job", "observe"]],
-    "after_close": [
-        ["run_scan.py", "--refresh-daily-existing", "--daily-limit", "1200", "--daily-workers", "1"],
-        ["run_scan.py", "--build-universe", "--workers", "1"],
-        ["run_scan.py", "--mode", "after_close", "--workers", "1"],
-    ],
-    "daily_report": [["run_scan.py", "--daily-report"]],
-    "daily_report_v290_build": [["scripts/build_daily_report_v290.py"]],
-    "night_cache_expand": [["run_scan.py", "--build-daily-cache", "--daily-limit", "300", "--daily-workers", "1"]],
-    "track_positions_midday": [["run_positions.py", "--track"]],
-    "track_positions_tail": [["run_positions.py", "--track"]],
-    "track_positions_evening": [["run_positions.py", "--track"]],
-}
+def load_scheduler_config() -> Dict[str, object]:
+    default = {
+        "timezone": TIMEZONE,
+        "jobs": [
+            {
+                "name": "preflight",
+                "schedule": {"kind": "cron", "expr": "15 9 * * 1-5"},
+                "commands": [["run_scan.py", "--coverage"]],
+                "timeoutSeconds": 300,
+            },
+            {
+                "name": "observe_morning",
+                "schedule": {"kind": "cron", "expr": "45 9 * * 1-5"},
+                "commands": [["run_scan.py", "--mode", "observe", "--workers", "1"]],
+                "timeoutSeconds": 1200,
+            },
+            {
+                "name": "watchlist_refresh_1030",
+                "schedule": {"kind": "cron", "expr": "30 10 * * 1-5"},
+                "commands": [["run_scan.py", "--watchlist-refresh", "--workers", "1"]],
+                "timeoutSeconds": 600,
+            },
+            {
+                "name": "watchlist_refresh_1120",
+                "schedule": {"kind": "cron", "expr": "20 11 * * 1-5"},
+                "commands": [["run_scan.py", "--watchlist-refresh", "--workers", "1"]],
+                "timeoutSeconds": 600,
+            },
+            {
+                "name": "track_positions_midday",
+                "schedule": {"kind": "cron", "expr": "30 11 * * 1-5"},
+                "commands": [["run_positions.py", "--track"]],
+                "timeoutSeconds": 300,
+            },
+            {
+                "name": "observe_afternoon",
+                "schedule": {"kind": "cron", "expr": "20 13 * * 1-5"},
+                "commands": [["run_scan.py", "--mode", "observe", "--workers", "1"]],
+                "timeoutSeconds": 1200,
+            },
+            {
+                "name": "watchlist_refresh_1420",
+                "schedule": {"kind": "cron", "expr": "20 14 * * 1-5"},
+                "commands": [["run_scan.py", "--watchlist-refresh", "--workers", "1"]],
+                "timeoutSeconds": 600,
+            },
+            {
+                "name": "observe_gate_v270",
+                "schedule": {"kind": "cron", "expr": "40 14 * * 1-5"},
+                "commands": [["scripts/run_v270_jobs_once.py", "--job", "observe"]],
+                "timeoutSeconds": 1800,
+            },
+            {
+                "name": "tail_confirm",
+                "schedule": {"kind": "cron", "expr": "50 14 * * 1-5"},
+                "commands": [["scripts/run_v270_jobs_once.py", "--job", "tail"]],
+                "timeoutSeconds": 600,
+            },
+            {
+                "name": "buy_bridge_v280",
+                "schedule": {"kind": "cron", "expr": "52 14 * * 1-5"},
+                "commands": [["scripts/build_buy_bridge_v280.py"]],
+                "timeoutSeconds": 600,
+            },
+            {
+                "name": "track_positions_tail",
+                "schedule": {"kind": "cron", "expr": "55 14 * * 1-5"},
+                "commands": [["run_positions.py", "--track"]],
+                "timeoutSeconds": 300,
+            },
+            {
+                "name": "after_close",
+                "schedule": {"kind": "cron", "expr": "30 17 * * 1-5"},
+                "commands": [
+                    ["run_scan.py", "--refresh-daily-existing", "--daily-limit", "1200", "--daily-workers", "1"],
+                    ["run_scan.py", "--build-universe", "--workers", "1"],
+                    ["run_scan.py", "--mode", "after_close", "--workers", "1"],
+                ],
+                "timeoutSeconds": 5400,
+            },
+            {
+                "name": "track_positions_evening",
+                "schedule": {"kind": "cron", "expr": "0 20 * * 1-5"},
+                "commands": [["run_positions.py", "--track"]],
+                "timeoutSeconds": 300,
+            },
+            {
+                "name": "daily_report_v290_build",
+                "schedule": {"kind": "cron", "expr": "25 20 * * 1-5"},
+                "commands": [["scripts/build_daily_report_v290.py"]],
+                "timeoutSeconds": 3600,
+            },
+            {
+                "name": "daily_report",
+                "schedule": {"kind": "cron", "expr": "30 20 * * 1-5"},
+                "commands": [["run_scan.py", "--daily-report"]],
+                "timeoutSeconds": 600,
+            },
+            {
+                "name": "night_cache_expand",
+                "schedule": {"kind": "cron", "expr": "30 22 * * 1-5"},
+                "commands": [["run_scan.py", "--build-daily-cache", "--daily-limit", "300", "--daily-workers", "1"]],
+                "timeoutSeconds": 3600,
+            },
+        ],
+    }
+    if SCHEDULER_CONFIG_PATH.exists():
+        try:
+            import json
+            loaded = json.loads(SCHEDULER_CONFIG_PATH.read_text(encoding="utf-8"))
+            if isinstance(loaded, dict):
+                merged = dict(default)
+                merged.update({k: v for k, v in loaded.items() if k != "jobs"})
+                jobs = loaded.get("jobs")
+                if isinstance(jobs, list) and jobs:
+                    merged["jobs"] = jobs
+                return merged
+        except Exception as e:
+            print(f"[{now_str()}] 读取调度配置失败，使用内置默认值：{e}", flush=True)
+    return default
 
-JOB_TIMEOUTS = {
-    "preflight": 5 * 60,
-    "observe_morning": 20 * 60,
-    "watchlist_refresh_1030": 10 * 60,
-    "watchlist_refresh_1120": 10 * 60,
-    "observe_afternoon": 20 * 60,
-    "watchlist_refresh_1420": 10 * 60,
-    "tail_confirm": 10 * 60,
-    "after_close": 90 * 60,
-    "daily_report": 10 * 60,
-    "night_cache_expand": 60 * 60,
-    "track_positions_midday": 5 * 60,
-    "paper_track_midday": 5 * 60,
-    "track_positions_tail": 5 * 60,
-    "paper_track_tail": 5 * 60,
-    "track_positions_evening": 5 * 60,
-    "paper_track_evening": 5 * 60,
-}
+
 
 
 def ensure_dirs():
     LOG_DIR.mkdir(parents=True, exist_ok=True)
     STATE_DIR.mkdir(parents=True, exist_ok=True)
     HEARTBEAT_LOG.parent.mkdir(parents=True, exist_ok=True)
+
+def rotate_logs(max_files: int = 100, max_days: int = 30):
+    """日志轮转：删除旧日志文件"""
+    import datetime as dt
+    from datetime import datetime
+    
+    # 按文件数量轮转
+    log_files = sorted(LOG_DIR.glob("*.log"))
+    if len(log_files) > max_files:
+        for old_file in log_files[:-max_files]:
+            try:
+                old_file.unlink()
+                print(f"[{now_str()}] 删除旧日志文件: {old_file.name}")
+            except:
+                pass
+    
+    # 按时间轮转（30天前）
+    cutoff_date = datetime.now() - dt.timedelta(days=max_days)
+    for log_file in LOG_DIR.glob("*.log"):
+        try:
+            # 从文件名提取日期（格式：YYYY-MM-DD_jobname.log）
+            filename = log_file.stem
+            if "_" in filename:
+                date_part = filename.split("_")[0]
+                file_date = datetime.strptime(date_part, "%Y-%m-%d")
+                if file_date < cutoff_date:
+                    log_file.unlink()
+                    print(f"[{now_str()}] 删除过期日志文件: {log_file.name}")
+        except:
+            pass
 
 
 def now_str() -> str:
@@ -275,11 +387,33 @@ def run_one_command(job_name: str, cmd: List[str], timeout: Optional[int] = None
         return 1
 
 
+def get_job_config(job_name: str):
+    """从配置文件获取任务配置"""
+    import json
+    if not SCHEDULER_CONFIG_PATH.exists():
+        return None, None
+    
+    try:
+        config = json.loads(SCHEDULER_CONFIG_PATH.read_text(encoding="utf-8"))
+        for job in config.get("jobs", []):
+            if job.get("name") == job_name:
+                commands = job.get("commands", [])
+                timeout = job.get("timeoutSeconds")
+                return commands, timeout
+    except Exception:
+        pass
+    
+    return None, None
+
 def run_job(job_name: str):
     ensure_dirs()
-    if job_name not in JOB_COMMANDS:
-        print(f"未知任务：{job_name}")
+    
+    # 从配置文件获取任务配置
+    commands, timeout = get_job_config(job_name)
+    if not commands:
+        print(f"未知任务或任务配置不存在：{job_name}")
         return
+    
     path = log_path(job_name)
     try:
         with job_lock(job_name):
@@ -288,8 +422,8 @@ def run_job(job_name: str):
             write_line(path, "#" * 80)
             write_line(path, f"[{now_str()}] JOB START: {job_name}")
             write_line(path, "#" * 80)
-            timeout = JOB_TIMEOUTS.get(job_name)
-            for cmd in JOB_COMMANDS[job_name]:
+            
+            for cmd in commands:
                 rc = run_one_command(job_name, cmd, timeout=timeout)
                 if rc != 0:
                     write_line(path, f"[{now_str()}] JOB FAILED: {job_name}, command={cmd}, rc={rc}")
@@ -343,22 +477,99 @@ def job_heartbeat(job_name: str, stage: str = "before"):
         pass
     print(line)
 
-def add_job(scheduler: BlockingScheduler, job_name: str, hour: int, minute: int, misfire_grace_time: int = 600):
+def _cron_from_expr(expr: str) -> CronTrigger:
+    minute, hour, day, month, dow = expr.split()
+    return CronTrigger(minute=minute, hour=hour, day=day, month=month, day_of_week=dow, timezone=TIMEZONE)
+
+
+def add_job_from_config(scheduler: BlockingScheduler, job: Dict[str, object]):
+    name = str(job.get("name", "")).strip()
+    if not name:
+        return
+    schedule = job.get("schedule") or {}
+    if not isinstance(schedule, dict):
+        return
+    kind = str(schedule.get("kind", "cron")).lower()
+    if kind != "cron":
+        print(f"[{now_str()}] 跳过不支持的调度类型：{name} schedule={schedule}", flush=True)
+        return
+    expr = str(schedule.get("expr", "")).strip()
+    if not expr:
+        return
+    commands = job.get("commands") or []
+    timeout = int(job.get("timeoutSeconds") or 0) or None
     scheduler.add_job(
-        run_job,
-        trigger=CronTrigger(day_of_week="mon-fri", hour=hour, minute=minute, timezone=TIMEZONE),
-        args=[job_name],
-        id=job_name,
-        name=job_name,
+        run_config_job,
+        trigger=_cron_from_expr(expr),
+        args=[name, commands, timeout],
+        id=name,
+        name=name,
         replace_existing=True,
         max_instances=1,
         coalesce=True,
-        misfire_grace_time=misfire_grace_time,
+        misfire_grace_time=int(job.get("misfireGraceTime", 1800)),
     )
 
 
+def run_config_job(job_name: str, commands: List[List[str]], timeout: Optional[int] = None):
+    ensure_dirs()
+    
+    # 检查是否是交易日（对于盘中任务）
+    # 盘中任务：preflight, observe_morning, watchlist_refresh_*, observe_afternoon, tail_confirm, track_positions_*
+    if any(keyword in job_name for keyword in ["preflight", "observe", "watchlist", "tail", "track"]):
+        if not is_trading_day():
+            print(f"[{now_str()}] 今天不是交易日，跳过盘中任务：{job_name}", flush=True)
+            return
+    
+    if not commands:
+        print(f"[{now_str()}] 任务 {job_name} 没有可执行命令，跳过。", flush=True)
+        return
+    path = log_path(job_name)
+    try:
+        with job_lock(job_name):
+            job_heartbeat(job_name, stage="before")
+            write_line(path, "")
+            write_line(path, "#" * 80)
+            write_line(path, f"[{now_str()}] JOB START: {job_name}")
+            write_line(path, "#" * 80)
+            for cmd in commands:
+                rc = run_one_command(job_name, cmd, timeout=timeout)
+                if rc != 0:
+                    write_line(path, f"[{now_str()}] JOB FAILED: {job_name}, command={cmd}, rc={rc}")
+                    print(f"[{now_str()}] 任务失败：{job_name}, rc={rc}", flush=True)
+                    try:
+                        from core.notify import notify_system_event
+                        notify_system_event(
+                            title="调度任务失败",
+                            message=f"任务执行失败，已停止后续命令。\n\n命令：{cmd}\n返回码：{rc}\n日志：{path}",
+                            level="ERROR",
+                            job_name=job_name,
+                            extra={"returncode": rc, "log": str(path)},
+                        )
+                    except Exception as notify_error:
+                        write_line(path, f"[{now_str()}] NOTIFY FAILED: {notify_error}")
+                    return
+            write_line(path, f"[{now_str()}] JOB DONE: {job_name}")
+            print(f"[{now_str()}] 任务完成：{job_name}", flush=True)
+    except Exception as e:
+        write_line(path, f"[{now_str()}] JOB SKIPPED/ERROR: {job_name} | {e}")
+        print(f"[{now_str()}] 任务跳过/异常：{job_name} | {e}", flush=True)
+        try:
+            from core.notify import notify_system_event
+            notify_system_event(
+                title="调度任务异常或跳过",
+                message=f"任务未正常执行。\n\n原因：{e}\n日志：{path}",
+                level="WARN",
+                job_name=job_name,
+                extra={"error": str(e), "log": str(path)},
+            )
+        except Exception as notify_error:
+            write_line(path, f"[{now_str()}] NOTIFY FAILED: {notify_error}")
+
+
 def build_scheduler() -> BlockingScheduler:
-    scheduler = BlockingScheduler(timezone=TIMEZONE)
+    cfg = load_scheduler_config()
+    scheduler = BlockingScheduler(timezone=str(cfg.get("timezone") or TIMEZONE))
 
     scheduler.add_job(
         heartbeat,
@@ -381,25 +592,9 @@ def build_scheduler() -> BlockingScheduler:
         misfire_grace_time=1800,
     )
 
-    add_job(scheduler, "preflight", 9, 15, misfire_grace_time=1800)
-    add_job(scheduler, "observe_morning", 9, 45, misfire_grace_time=1800)
-    add_job(scheduler, "watchlist_refresh_1030", 10, 30, misfire_grace_time=1800)
-    add_job(scheduler, "watchlist_refresh_1120", 11, 20, misfire_grace_time=1800)
-    add_job(scheduler, "track_positions_midday", 11, 30, misfire_grace_time=1800)
-    add_job(scheduler, "paper_track_midday", 11, 31, misfire_grace_time=1800)
-    add_job(scheduler, "observe_afternoon", 13, 20, misfire_grace_time=1800)
-    add_job(scheduler, "watchlist_refresh_1420", 14, 20, misfire_grace_time=1800)
-    add_job(scheduler, "observe_gate_v270", 14, 40, misfire_grace_time=1800)
-    add_job(scheduler, "tail_confirm", 14, 50, misfire_grace_time=1800)
-    add_job(scheduler, "buy_bridge_v280", 14, 52, misfire_grace_time=1800)
-    add_job(scheduler, "track_positions_tail", 14, 55, misfire_grace_time=1800)
-    add_job(scheduler, "paper_track_tail", 14, 56, misfire_grace_time=1800)
-    add_job(scheduler, "after_close", 17, 30, misfire_grace_time=3600)
-    add_job(scheduler, "track_positions_evening", 20, 0, misfire_grace_time=3600)
-    add_job(scheduler, "paper_track_evening", 20, 1, misfire_grace_time=3600)
-    add_job(scheduler, "daily_report_v290_build", 20, 25, misfire_grace_time=3600)
-    add_job(scheduler, "daily_report", 20, 30, misfire_grace_time=3600)
-    add_job(scheduler, "night_cache_expand", 22, 30, misfire_grace_time=3600)
+    for job in cfg.get("jobs", []):
+        if isinstance(job, dict):
+            add_job_from_config(scheduler, job)
     return scheduler
 
 
@@ -438,31 +633,21 @@ def maybe_catch_up_on_start():
 
 
 def print_jobs():
+    cfg = load_scheduler_config()
     print("可用任务：")
-    for name, commands in JOB_COMMANDS.items():
-        print(f"- {name}")
+    for job in cfg.get("jobs", []):
+        if not isinstance(job, dict):
+            continue
+        name = job.get("name", "")
+        schedule = (job.get("schedule") or {}).get("expr", "")
+        commands = job.get("commands") or []
+        timeout = job.get("timeoutSeconds", "-")
+        print(f"- {name} | cron={schedule} | timeout={timeout}s")
         for cmd in commands:
             print(f"  {PYTHON} {' '.join(cmd)}")
-    print("\n默认调度时间：")
-    print("- 09:15 preflight")
-    print("- 09:45 observe_morning")
-    print("- 10:30 watchlist_refresh_1030")
-    print("- 11:20 watchlist_refresh_1120")
-    print("- 11:30 track_positions_midday")
-    print("- 11:31 paper_track_midday")
-    print("- 13:20 observe_afternoon")
-    print("- 14:20 watchlist_refresh_1420")
-    print("- 14:40 observe_gate_v270")
-    print("- 14:50 tail_confirm")
-    print("- 14:52 buy_bridge_v280")
-    print("- 14:55 track_positions_tail")
-    print("- 14:56 paper_track_tail")
-    print("- 17:30 after_close")
-    print("- 20:00 track_positions_evening")
-    print("- 20:01 paper_track_evening")
-    print("- 20:25 daily_report_v290_build")
-    print("- 20:30 daily_report")
-    print("- 22:30 night_cache_expand")
+    print("\n说明：")
+    print(f"- 调度配置文件：{SCHEDULER_CONFIG_PATH}")
+    print("- 若配置文件缺失，脚本会回退到内置默认任务表")
 
 
 def print_status():
@@ -485,17 +670,87 @@ def print_status():
 
 
 def parse_args():
-    parser = argparse.ArgumentParser(description="A股二买系统 APScheduler 自动调度器")
-    parser.add_argument("--run-once", choices=list(JOB_COMMANDS.keys()), help="立即执行某个任务一次")
+    import json
+    parser = argparse.ArgumentParser(description="测试二买系统 APScheduler 自动调度器")
+    
+    # 从配置文件读取任务列表
+    job_names = []
+    if SCHEDULER_CONFIG_PATH.exists():
+        try:
+            config = json.loads(SCHEDULER_CONFIG_PATH.read_text(encoding="utf-8"))
+            job_names = [job.get("name", "") for job in config.get("jobs", []) if job.get("name")]
+        except Exception:
+            pass
+    
+    parser.add_argument("--run-once", choices=job_names if job_names else None, help="立即执行某个任务一次")
     parser.add_argument("--list", action="store_true", help="列出任务与命令")
     parser.add_argument("--replace", action="store_true", help="已有调度器运行时先停止旧调度器")
     parser.add_argument("--status", action="store_true", help="打印调度器状态")
     return parser.parse_args()
 
 
+def is_trading_day(date_str: str = None) -> bool:
+    """判断指定日期是否为交易日"""
+    try:
+        from core.trading_calendar import is_trading_day as check_trading_day
+        return check_trading_day(date_str)
+    except ImportError:
+        # 如果导入失败，使用简化版本
+        import datetime as dt
+        from datetime import datetime
+        
+        if date_str:
+            try:
+                date_obj = datetime.strptime(date_str, "%Y-%m-%d").date()
+            except:
+                date_obj = datetime.now().date()
+        else:
+            date_obj = datetime.now().date()
+        
+        # 首先检查是否是周末
+        if date_obj.weekday() >= 5:  # 5=周六, 6=周日
+            return False
+        
+        # 检查缓存文件
+        trading_day_cache = PROJECT_ROOT / "data" / "trading_days.txt"
+        if trading_day_cache.exists():
+            try:
+                trading_days = trading_day_cache.read_text(encoding="utf-8").splitlines()
+                date_str = date_obj.strftime("%Y-%m-%d")
+                return date_str in trading_days
+            except:
+                pass
+        
+        # 如果没有交易日历数据，假设是交易日（除了周末）
+        return True
+
+def load_trading_days() -> list:
+    """加载交易日历"""
+    try:
+        from core.trading_calendar import load_trading_days_from_cache
+        return load_trading_days_from_cache()
+    except ImportError:
+        trading_day_cache = PROJECT_ROOT / "data" / "trading_days.txt"
+        if trading_day_cache.exists():
+            try:
+                return trading_day_cache.read_text(encoding="utf-8").splitlines()
+            except:
+                pass
+        return []
+
 def main():
     args = parse_args()
     ensure_dirs()
+    
+    # 日志轮转
+    rotate_logs()
+    
+    # 检查是否是交易日（除了 --list, --status, --run-once 参数）
+    if not args.list and not args.status and not args.run_once:
+        if not is_trading_day():
+            print(f"[{now_str()}] 今天不是交易日，调度器不启动")
+            return
+    
     if args.list:
         print_jobs()
         return
@@ -508,7 +763,7 @@ def main():
 
     acquire_scheduler_singleton(replace=args.replace)
     print("=" * 80)
-    print("A股二买系统自动调度器已启动")
+    print("测试二买系统自动调度器已启动")
     print(f"项目目录：{PROJECT_ROOT}")
     print(f"Python：{PYTHON}")
     print(f"时区：{TIMEZONE}")
