@@ -1,15 +1,17 @@
 """
 板块 / 龙头评分模块。
 
-v2.4.0 目标：
-- 提供 sector_score、leader_score、sector_state、sector_flags
-- 兼容旧调用 filter_universe_by_strong_sector
-- 不把板块过滤一刀切做死
+v2.9.6 稳定性修复：
+- 兼容 market_state / **kwargs
+- 支持 list[dict] / dict(data=...) / pandas.DataFrame / polars.DataFrame
+- 支持 pandas.Series / polars.Series / 列字典
+- 避免 DataFrame / Series 参与布尔判断
+- 不改变原板块/龙头评分策略
 """
 
 from __future__ import annotations
 
-from typing import Any, Dict, List, Optional, Iterable, Tuple
+from typing import Any, Dict, List, Optional, Iterable
 from dataclasses import dataclass, asdict
 import json
 import re
@@ -37,7 +39,151 @@ class SectorScore:
         return asdict(self)
 
 
+def _scalar(value: Any) -> Any:
+    """
+    把 pandas/polars Series、numpy scalar、单元素 list 变成普通标量。
+    多元素序列保留第一个，主要用于 symbol/surge_reason/limit_up_days 这类单字段兜底。
+    """
+    if value is None:
+        return None
+
+    if isinstance(value, (str, int, float, bool)):
+        return value
+
+    # numpy scalar
+    try:
+        if hasattr(value, "item") and callable(value.item):
+            return value.item()
+    except Exception:
+        pass
+
+    # polars Series
+    try:
+        if hasattr(value, "to_list") and callable(value.to_list):
+            arr = value.to_list()
+            return arr[0] if arr else None
+    except Exception:
+        pass
+
+    # pandas Series / numpy array
+    try:
+        if hasattr(value, "tolist") and callable(value.tolist):
+            arr = value.tolist()
+            if isinstance(arr, list):
+                return arr[0] if arr else None
+            return arr
+    except Exception:
+        pass
+
+    if isinstance(value, (list, tuple)):
+        return value[0] if value else None
+
+    return value
+
+
+def _value_to_list(value: Any) -> List[Any]:
+    if value is None:
+        return []
+    if isinstance(value, (str, bytes)):
+        return [value]
+
+    try:
+        if hasattr(value, "to_list") and callable(value.to_list):
+            arr = value.to_list()
+            return list(arr) if isinstance(arr, (list, tuple)) else [arr]
+    except Exception:
+        pass
+
+    try:
+        if hasattr(value, "tolist") and callable(value.tolist):
+            arr = value.tolist()
+            return list(arr) if isinstance(arr, (list, tuple)) else [arr]
+    except Exception:
+        pass
+
+    if isinstance(value, (list, tuple)):
+        return list(value)
+
+    return [value]
+
+
+def _dict_to_records(d: Dict[str, Any]) -> List[Dict[str, Any]]:
+    """
+    支持：
+    - {"data": [...]}
+    - {"code": [...], "name": [...]} 这种列字典
+    - 单条 dict
+    """
+    if "data" in d:
+        return _to_records(d.get("data"))
+
+    values = {k: _value_to_list(v) for k, v in d.items()}
+    max_len = max((len(v) for v in values.values()), default=0)
+
+    # 多列数组，按列字典展开
+    if max_len > 1:
+        rows: List[Dict[str, Any]] = []
+        for i in range(max_len):
+            row = {}
+            for k, arr in values.items():
+                row[k] = arr[i] if i < len(arr) else None
+            rows.append(row)
+        return rows
+
+    # 单条 dict，所有值标量化
+    return [{k: _scalar(v) for k, v in d.items()}]
+
+
+def _to_records(value: Any) -> List[Dict[str, Any]]:
+    """
+    把各种输入安全转为 list[dict]。
+    重点：绝不对 DataFrame/Series 使用 if value / value or []。
+    """
+    if value is None:
+        return []
+
+    # polars DataFrame 优先。polars 也有 to_dict，但不是 records 语义。
+    if hasattr(value, "to_dicts") and callable(value.to_dicts):
+        try:
+            records = value.to_dicts()
+            if isinstance(records, list):
+                return [dict(x) for x in records if isinstance(x, dict)]
+        except Exception:
+            pass
+
+    # pandas DataFrame
+    if hasattr(value, "to_dict") and callable(value.to_dict) and not isinstance(value, dict):
+        try:
+            records = value.to_dict("records")
+            if isinstance(records, list):
+                return [dict(x) for x in records if isinstance(x, dict)]
+        except TypeError:
+            try:
+                d = value.to_dict()
+                if isinstance(d, dict):
+                    return _dict_to_records(d)
+            except Exception:
+                pass
+        except Exception:
+            pass
+
+    if isinstance(value, dict):
+        return _dict_to_records(value)
+
+    if isinstance(value, (list, tuple)):
+        out: List[Dict[str, Any]] = []
+        for x in value:
+            if isinstance(x, dict):
+                out.extend(_dict_to_records(x))
+            elif hasattr(x, "to_dicts") or hasattr(x, "to_dict"):
+                out.extend(_to_records(x))
+        return out
+
+    return []
+
+
 def _safe_float(value: Any, default: float = 0.0) -> float:
+    value = _scalar(value)
     try:
         if value is None:
             return default
@@ -47,6 +193,7 @@ def _safe_float(value: Any, default: float = 0.0) -> float:
 
 
 def _safe_int(value: Any, default: int = 0) -> int:
+    value = _scalar(value)
     try:
         if value is None:
             return default
@@ -55,11 +202,29 @@ def _safe_int(value: Any, default: int = 0) -> int:
         return default
 
 
+def _safe_get(item: Optional[Dict[str, Any]], key: str, default: Any = None) -> Any:
+    if not isinstance(item, dict):
+        return default
+    return _scalar(item.get(key, default))
+
+
+def _is_non_empty_item(item: Optional[Dict[str, Any]]) -> bool:
+    return isinstance(item, dict) and len(item) > 0
+
+
+def _first_item(*items: Optional[Dict[str, Any]]) -> Dict[str, Any]:
+    for item in items:
+        if _is_non_empty_item(item):
+            return item
+    return {}
+
+
 def extract_theme_from_surge_reason(surge_reason: Any) -> List[str]:
     """
     轻量解析 surge_reason。
     第一版不做复杂 NLP，只做常见分隔符切分。
     """
+    surge_reason = _scalar(surge_reason)
     if surge_reason is None:
         return []
     if isinstance(surge_reason, dict):
@@ -67,22 +232,18 @@ def extract_theme_from_surge_reason(surge_reason: Any) -> List[str]:
     else:
         text = str(surge_reason)
 
-    # 去掉明显解释文本，只保留候选关键词
     parts = re.split(r"[、,，;/；\|\n\r]+", text)
     themes: List[str] = []
     for p in parts:
         t = re.sub(r"[：:【】\[\]{}（）()]", " ", p).strip()
         if not t:
             continue
-        # 避免太长的句子当主题
         if len(t) > 18:
             continue
-        # 去除纯数字
         if re.fullmatch(r"\d+", t):
             continue
         themes.append(t)
 
-    # 去重
     out: List[str] = []
     for t in themes:
         if t not in out:
@@ -93,24 +254,12 @@ def extract_theme_from_surge_reason(surge_reason: Any) -> List[str]:
 def build_theme_stats(core_pools: Dict[str, Any]) -> Dict[str, Dict[str, Any]]:
     """
     根据选股宝核心股池构建主题热度统计。
-
-    core_pools 可传：
-    {
-      "limit_up": [...],
-      "continuous_limit_up": [...],
-      "strong_stock": [...],
-      "limit_up_broken": [...],
-      "limit_down": [...]
-    }
-
-    也兼容 xgb_cache.get_core_pools 返回：
-    {"limit_up": {"data": [...]}}
     """
+    if not isinstance(core_pools, dict):
+        core_pools = {}
+
     def pool(name: str) -> List[Dict[str, Any]]:
-        v = core_pools.get(name, [])
-        if isinstance(v, dict):
-            return v.get("data") or []
-        return v or []
+        return _to_records(core_pools.get(name))
 
     stats: Dict[str, Dict[str, Any]] = {}
 
@@ -126,13 +275,13 @@ def build_theme_stats(core_pools: Dict[str, Any]) -> Dict[str, Dict[str, Any]]:
             "symbols": set(),
         })
         s[key] += 1
-        sym = item.get("symbol")
+        sym = _safe_get(item, "symbol") or _safe_get(item, "code")
         if sym:
             try:
                 s["symbols"].add(normalize_symbol(sym))
             except Exception:
                 s["symbols"].add(str(sym))
-        s["max_limit_up_days"] = max(s["max_limit_up_days"], _safe_int(item.get("limit_up_days"), 0))
+        s["max_limit_up_days"] = max(s["max_limit_up_days"], _safe_int(_safe_get(item, "limit_up_days"), 0))
 
     for name, key in [
         ("limit_up", "limit_up_count"),
@@ -142,7 +291,7 @@ def build_theme_stats(core_pools: Dict[str, Any]) -> Dict[str, Dict[str, Any]]:
         ("limit_down", "limit_down_count"),
     ]:
         for item in pool(name):
-            themes = extract_theme_from_surge_reason(item.get("surge_reason"))
+            themes = extract_theme_from_surge_reason(_safe_get(item, "surge_reason"))
             if not themes:
                 continue
             for t in themes:
@@ -165,9 +314,10 @@ def build_theme_stats(core_pools: Dict[str, Any]) -> Dict[str, Dict[str, Any]]:
 
 def _symbol_in_pool(symbol: str, items: Iterable[Dict[str, Any]]) -> Optional[Dict[str, Any]]:
     std = normalize_symbol(symbol)
-    for x in items or []:
+    for x in _to_records(items):
         try:
-            if normalize_symbol(x.get("symbol")) == std:
+            sym = _safe_get(x, "symbol") or _safe_get(x, "code")
+            if normalize_symbol(sym) == std:
                 return x
         except Exception:
             continue
@@ -180,26 +330,18 @@ def score_sector_for_stock(
     core_pools: Optional[Dict[str, Any]] = None,
     stock_daily_bars: Optional[Any] = None,
     trade_date: Optional[str] = None,
+    market_state: Optional[str] = None,
     config: Optional[Dict[str, Any]] = None,
 ) -> Dict[str, Any]:
     """
     给单只股票评分。
-
-    第一版数据优先来自选股宝股池：
-    - limit_up
-    - continuous_limit_up
-    - strong_stock
-    - limit_up_broken
-    - limit_down
+    market_state 仅兼容，不直接改变评分。
     """
-    std = normalize_symbol(symbol)
-    pools = core_pools or {}
+    std = normalize_symbol(_scalar(symbol))
+    pools = core_pools if isinstance(core_pools, dict) else {}
 
     def pool(name: str) -> List[Dict[str, Any]]:
-        v = pools.get(name, [])
-        if isinstance(v, dict):
-            return v.get("data") or []
-        return v or []
+        return _to_records(pools.get(name))
 
     limit_up = pool("limit_up")
     cont = pool("continuous_limit_up")
@@ -220,10 +362,9 @@ def score_sector_for_stock(
     candidate_themes: List[str] = []
 
     for item in [lu_item, cont_item, strong_item, broken_item, down_item]:
-        if item:
-            candidate_themes.extend(extract_theme_from_surge_reason(item.get("surge_reason")))
+        if _is_non_empty_item(item):
+            candidate_themes.extend(extract_theme_from_surge_reason(_safe_get(item, "surge_reason")))
 
-    # 如果个股不在池内，第一版可能拿不到主题，给未知
     candidate_themes = list(dict.fromkeys([x for x in candidate_themes if x]))
     theme_name = None
     theme_heat_score = 50.0
@@ -231,10 +372,10 @@ def score_sector_for_stock(
     if candidate_themes:
         best = None
         for t in candidate_themes:
-            s = theme_stats.get(t)
-            if s and (best is None or s["theme_heat_score"] > best["theme_heat_score"]):
-                best = s
-        if best:
+            st = theme_stats.get(t)
+            if isinstance(st, dict) and (best is None or st["theme_heat_score"] > best["theme_heat_score"]):
+                best = st
+        if isinstance(best, dict):
             theme_name = best["theme"]
             theme_heat_score = float(best["theme_heat_score"])
             reasons.append(f"所属题材 {theme_name} 热度分 {theme_heat_score:.1f}")
@@ -247,31 +388,29 @@ def score_sector_for_stock(
     sector_score = theme_heat_score
     leader_score = 45.0
 
-    if lu_item:
+    if _is_non_empty_item(lu_item):
         leader_score += 15
         reasons.append("入选涨停池")
-    if cont_item:
+    if _is_non_empty_item(cont_item):
         leader_score += 25
         reasons.append("入选连板池")
-    if strong_item:
+    if _is_non_empty_item(strong_item):
         leader_score += 15
         reasons.append("入选强势股池")
-    if broken_item:
+    if _is_non_empty_item(broken_item):
         leader_score -= 15
         flags.append("炸板风险(limit_up_broken)")
-    if down_item:
+    if _is_non_empty_item(down_item):
         leader_score -= 30
         flags.append("跌停风险(limit_down)")
 
-    # 连板天数加权
-    source_item = cont_item or lu_item or strong_item or {}
-    limit_up_days = _safe_int(source_item.get("limit_up_days"), 0)
+    source_item = _first_item(cont_item, lu_item, strong_item)
+    limit_up_days = _safe_int(_safe_get(source_item, "limit_up_days"), 0)
     if limit_up_days >= 2:
         leader_score += min(20, limit_up_days * 5)
         reasons.append(f"连板高度 {limit_up_days}")
 
-    # 首封时间越早越强，粗略加分：如果字段存在即可少量加分
-    if source_item.get("first_limit_up_time"):
+    if _safe_get(source_item, "first_limit_up_time"):
         leader_score += 5
         reasons.append("存在首次涨停时间，具备辨识度")
 
@@ -318,15 +457,21 @@ def filter_universe_by_strong_sector(
     *,
     core_pools: Optional[Dict[str, Any]] = None,
     trade_date: Optional[str] = None,
+    market_state: Optional[str] = None,
     mode: str = "observe",
     config: Optional[Dict[str, Any]] = None,
+    **kwargs: Any,
 ) -> Dict[str, Any]:
     """
     兼容旧调用：filter_universe_by_strong_sector
 
     observe 阶段宽松，tail_confirm 阶段严格。
+    candidates 可以是 list[dict] / pandas.DataFrame / polars.DataFrame / 列字典。
     """
-    cfg = config or {}
+    cfg = dict(config) if isinstance(config, dict) else {}
+    if market_state is not None:
+        cfg.setdefault("market_state", market_state)
+
     hard_reject_score = float(cfg.get("hard_reject_score", 45))
     leader_reject_score = float(cfg.get("leader_reject_score", 50))
 
@@ -334,22 +479,38 @@ def filter_universe_by_strong_sector(
     rejected: List[Dict[str, Any]] = []
     scored: List[Dict[str, Any]] = []
 
-    for c in candidates:
-        symbol = c.get("symbol") or c.get("code")
+    for c in _to_records(candidates):
+        item = dict(c)
+        symbol = _safe_get(item, "symbol") or _safe_get(item, "code")
         if not symbol:
-            item = dict(c)
             item["sector_flags"] = ["缺少股票代码(symbol_missing)"]
             rejected.append(item)
             scored.append(item)
             continue
 
-        ss = score_sector_for_stock(
-            symbol,
-            core_pools=core_pools,
-            trade_date=trade_date,
-            config=cfg,
-        )
-        item = dict(c)
+        try:
+            ss = score_sector_for_stock(
+                symbol,
+                core_pools=core_pools,
+                trade_date=trade_date,
+                market_state=market_state,
+                config=cfg,
+            )
+        except Exception as exc:
+            item["sector_score"] = item.get("sector_score", 50.0)
+            item["leader_score"] = item.get("leader_score", 45.0)
+            item["sector_state"] = item.get("sector_state", "sector_error")
+            item["leader_type"] = item.get("leader_type", "unknown")
+            item["theme_name"] = item.get("theme_name")
+            old_flags = item.get("sector_flags")
+            if not isinstance(old_flags, list):
+                old_flags = []
+            item["sector_flags"] = list(dict.fromkeys(old_flags + [f"板块评分异常(sector_score_error):{exc}"]))
+            item["sector_reasons"] = item.get("sector_reasons") if isinstance(item.get("sector_reasons"), list) else []
+            rejected.append(item)
+            scored.append(item)
+            continue
+
         item.update(ss)
         scored.append(item)
 
@@ -359,7 +520,6 @@ def filter_universe_by_strong_sector(
             or ss["leader_type"] == "follower"
         )
 
-        # observe 阶段先宽进
         if mode == "observe":
             hard_reject = ss["sector_score"] < 35 or ss["leader_score"] < 35
 

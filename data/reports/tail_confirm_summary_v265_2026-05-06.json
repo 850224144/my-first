@@ -1,0 +1,188 @@
+{
+  "trade_date": "2026-05-06",
+  "source_tail_focus_path": "/Users/liujunying/Downloads/project/my-first/data/watchlist_tail_focus.parquet",
+  "total": 15,
+  "status_counter": {
+    "REJECTED": 13,
+    "WATCH_ONLY": 1,
+    "NEAR_TRIGGER": 1
+  },
+  "quality_counter": {
+    "observe_keep": 15
+  },
+  "buy_count": 0,
+  "watch_count": 1,
+  "rejected_count": 13,
+  "near_candidates": [
+    {
+      "symbol": "003816.SZ",
+      "stock_name": "",
+      "signal_status": "WATCH_ONLY",
+      "observe_quality": "observe_keep",
+      "risk_pct": 7.73,
+      "daily_2buy_score": 70.0,
+      "current_price": 4.55,
+      "trigger_price": 4.69,
+      "reasons": [
+        "当前价未触发买入价(price_not_triggered)",
+        "二买总分不足：70.0 < 80",
+        "量能未确认(volume_not_confirm)",
+        "波动未收敛(volatility_not_contracting)",
+        "但未达到买入触发"
+      ]
+    },
+    {
+      "symbol": "002468.SZ",
+      "stock_name": "",
+      "signal_status": "REJECTED",
+      "observe_quality": "observe_keep",
+      "risk_pct": 3.58,
+      "daily_2buy_score": 71.0,
+      "current_price": 16.31,
+      "trigger_price": 18.04,
+      "reasons": [
+        "价格未突破触发价：现价 16.31 < 触发价 18.04",
+        "二买总分不足：71.0 < 80",
+        "未突破(no_breakout)",
+        "量能未确认(volume_not_confirm)",
+        "低点抬高不充分(lows_not_rising)"
+      ]
+    },
+    {
+      "symbol": "603315.SH",
+      "stock_name": "",
+      "signal_status": "REJECTED",
+      "observe_quality": "observe_keep",
+      "risk_pct": 4.56,
+      "daily_2buy_score": 72.0,
+      "current_price": 17.15,
+      "trigger_price": 19.53,
+      "reasons": [
+        "价格未突破触发价：现价 17.15 < 触发价 19.53",
+        "二买总分不足：72.0 < 80",
+        "未突破(no_breakout)",
+        "量能未确认(volume_not_confirm)",
+        "低点抬高不充分(lows_not_rising)"
+      ]
+    },
+    {
+      "symbol": "301200.SZ",
+      "stock_name": "",
+      "signal_status": "REJECTED",
+      "observe_quality": "observe_keep",
+      "risk_pct": 5.07,
+      "daily_2buy_score": 73.0,
+      "current_price": 186.09,
+      "trigger_price": 207.94,
+      "reasons": [
+        "价格未突破触发价：现价 186.09 < 触发价 207.94",
+        "二买总分不足：73.0 < 80",
+        "未突破(no_breakout)",
+        "量能未确认(volume_not_confirm)",
+        "周线长上影(weekly_long_upper_shadow)"
+      ]
+    },
+    {
+      "symbol": "002635.SZ",
+      "stock_name": "",
+      "signal_status": "REJECTED",
+      "observe_quality": "observe_keep",
+      "risk_pct": 5.4,
+      "daily_2buy_score": 75.0,
+      "current_price": 16.73,
+      "trigger_price": 17.63,
+      "reasons": [
+        "价格未突破触发价：现价 16.73 < 触发价 17.63",
+        "二买总分不足：75.0 < 80",
+        "未突破(no_breakout)",
+        "量能未确认(volume_not_confirm)",
+        "周线长上影(weekly_long_upper_shadow)"
+      ]
+    },
+    {
+      "symbol": "601677.SH",
+      "stock_name": "",
+      "signal_status": "REJECTED",
+      "observe_quality": "observe_keep",
+      "risk_pct": 5.63,
+      "daily_2buy_score": 70.0,
+      "current_price": 17.68,
+      "trigger_price": 18.86,
+      "reasons": [
+        "价格未突破触发价：现价 17.68 < 触发价 18.86",
+        "二买总分不足：70.0 < 80",
+        "未突破(no_breakout)",
+        "量能未确认(volume_not_confirm)",
+        "周线长上影(weekly_long_upper_shadow)"
+      ]
+    },
+    {
+      "symbol": "301349.SZ",
+      "stock_name": "",
+      "signal_status": "REJECTED",
+      "observe_quality": "observe_keep",
+      "risk_pct": 6.03,
+      "daily_2buy_score": 75.0,
+      "current_price": 60.05,
+      "trigger_price": 65.0,
+      "reasons": [
+        "价格未突破触发价：现价 60.05 < 触发价 65.0",
+        "二买总分不足：75.0 < 80",
+        "未突破(no_breakout)",
+        "量能未确认(volume_not_confirm)",
+        "低点抬高不充分(lows_not_rising)"
+      ]
+    },
+    {
+      "symbol": "300693.SZ",
+      "stock_name": "",
+      "signal_status": "REJECTED",
+      "observe_quality": "observe_keep",
+      "risk_pct": 6.09,
+      "daily_2buy_score": 74.0,
+      "current_price": 47.7,
+      "trigger_price": 51.69,
+      "reasons": [
+        "价格未突破触发价：现价 47.7 < 触发价 51.69",
+        "二买总分不足：74.0 < 80",
+        "未突破(no_breakout)",
+        "量能未确认(volume_not_confirm)",
+        "周线长上影(weekly_long_upper_shadow)"
+      ]
+    },
+    {
+      "symbol": "300580.SZ",
+      "stock_name": "",
+      "signal_status": "REJECTED",
+      "observe_quality": "observe_keep",
+      "risk_pct": 6.17,
+      "daily_2buy_score": 71.0,
+      "current_price": 28.69,
+      "trigger_price": 31.44,
+      "reasons": [
+        "价格未突破触发价：现价 28.69 < 触发价 31.44",
+        "二买总分不足：71.0 < 80",
+        "未突破(no_breakout)",
+        "量能未确认(volume_not_confirm)",
+        "援军数据缺失(yuanjun_data_missing):缺少主线/板块跟风数据"
+      ]
+    },
+    {
+      "symbol": "300131.SZ",
+      "stock_name": "",
+      "signal_status": "REJECTED",
+      "observe_quality": "observe_keep",
+      "risk_pct": 6.81,
+      "daily_2buy_score": 70.0,
+      "current_price": 16.3,
+      "trigger_price": 19.08,
+      "reasons": [
+        "价格未突破触发价：现价 16.3 < 触发价 19.08",
+        "二买总分不足：70.0 < 80",
+        "未突破(no_breakout)",
+        "量能未确认(volume_not_confirm)",
+        "周线长上影(weekly_long_upper_shadow)"
+      ]
+    }
+  ]
+}

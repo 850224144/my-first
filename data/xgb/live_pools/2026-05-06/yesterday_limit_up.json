@@ -1,0 +1,6266 @@
+{
+  "meta": {
+    "count": 97,
+    "ok": true,
+    "code": 20000,
+    "error": null,
+    "url": "https://flash-api.xuangubao.cn/api/pool/detail?pool_name=yesterday_limit_up"
+  },
+  "data": [
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 1.13215e-05,
+      "change_percent": 0.0179454312,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 0,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 9.29,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 0,
+      "last_limit_up": 0,
+      "limit_down_days": 0,
+      "limit_timeline": null,
+      "limit_up_days": 0,
+      "listed_date": 1196784000,
+      "m_days_n_boards_boards": 3,
+      "m_days_n_boards_days": 6,
+      "mtm": -0.0008088434,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 10.9677072121,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 28808703440.04,
+      "price": 111.18,
+      "sell_lock_volume_ratio": 4.727e-07,
+      "stock_chi_name": "融捷股份",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "002192.SZ",
+        "stock_reason": "国内锂电材料全产业链领军企业；一季度净利润同比增长1296.26%",
+        "related_plates": [
+          {
+            "plate_id": 17032337,
+            "plate_name": "锂电池",
+            "plate_reason": "电池级碳酸锂价格持续上涨"
+          },
+          {
+            "plate_id": 5433758,
+            "plate_name": "业绩增长",
+            "plate_reason": "年报及一季报密集披露"
+          }
+        ]
+      },
+      "symbol": "002192.SZ",
+      "total_capital": 28868465469.54,
+      "turnover_ratio": 0.183595401,
+      "volume_bias_ratio": 1.3254699749,
+      "yesterday_break_limit_up_times": 7,
+      "yesterday_first_limit_up": 1777513068,
+      "yesterday_last_limit_up": 1777517358,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 2
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 6.9382e-06,
+      "change_percent": 0.0231309376,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 0,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 15.44,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 0,
+      "last_limit_up": 0,
+      "limit_down_days": 0,
+      "limit_timeline": null,
+      "limit_up_days": 0,
+      "listed_date": 1601395200,
+      "m_days_n_boards_boards": 2,
+      "m_days_n_boards_days": 3,
+      "mtm": -0.0024164317,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 2.2085492228,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 19887977755.88,
+      "price": 49.54,
+      "sell_lock_volume_ratio": 2.8267e-06,
+      "stock_chi_name": "共创草坪",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "605099.SS",
+        "stock_reason": "全球产销规模最大的人造草坪企业，25年净利润同比增长30.60%",
+        "related_plates": [
+          {
+            "plate_id": 13960785,
+            "plate_name": "体育产业",
+            "plate_reason": "美加墨世界杯将于6月11日至7月19日举行"
+          },
+          {
+            "plate_id": 5433758,
+            "plate_name": "业绩增长",
+            "plate_reason": "年报及一季报密集披露"
+          }
+        ]
+      },
+      "symbol": "605099.SS",
+      "total_capital": 19941798011.88,
+      "turnover_ratio": 0.0306446468,
+      "volume_bias_ratio": 2.3921938196,
+      "yesterday_break_limit_up_times": 3,
+      "yesterday_first_limit_up": 1777513350,
+      "yesterday_last_limit_up": 1777513854,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 2
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 1.18698e-05,
+      "change_percent": -0.0190369541,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 0,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 3.16,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 0,
+      "last_limit_up": 0,
+      "limit_down_days": 0,
+      "limit_timeline": null,
+      "limit_up_days": 0,
+      "listed_date": 1506614400,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 1.7721518987,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 5834160000,
+      "price": 8.76,
+      "sell_lock_volume_ratio": 0.0001449362,
+      "stock_chi_name": "国芳集团",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "601086.SS",
+        "stock_reason": "公司为甘肃省内最大的连锁零售企业，一季度净利润同比增长174.14%",
+        "related_plates": [
+          {
+            "plate_id": 6346009,
+            "plate_name": "大消费",
+            "plate_reason": "中共中央政治局召开会议，分析研究当前经济形势和经济工作"
+          },
+          {
+            "plate_id": 5433758,
+            "plate_name": "业绩增长",
+            "plate_reason": "年报及一季报密集披露"
+          }
+        ]
+      },
+      "symbol": "601086.SS",
+      "total_capital": 5834160000,
+      "turnover_ratio": 0.0386159219,
+      "volume_bias_ratio": 2.2143987298,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 1777513443,
+      "yesterday_last_limit_up": 1777513443,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 1
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 2,
+      "buy_lock_volume_ratio": 0.0040014737,
+      "change_percent": 0.0497382199,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 1778031246,
+      "first_limit_down": 0,
+      "first_limit_up": 1778031147,
+      "is_new_stock": false,
+      "issue_price": 10.34,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 1778031360,
+      "last_limit_down": 0,
+      "last_limit_up": 1778031528,
+      "limit_down_days": 0,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1778031147,
+            "status": 1
+          },
+          {
+            "timestamp": 1778031246,
+            "status": 2
+          },
+          {
+            "timestamp": 1778031336,
+            "status": 1
+          },
+          {
+            "timestamp": 1778031360,
+            "status": 2
+          },
+          {
+            "timestamp": 1778031528,
+            "status": 1
+          }
+        ]
+      },
+      "limit_up_days": 2,
+      "listed_date": 1480608000,
+      "m_days_n_boards_boards": 3,
+      "m_days_n_boards_days": 6,
+      "mtm": 0,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": -0.2243713733,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 3218241371.58,
+      "price": 8.02,
+      "sell_lock_volume_ratio": 0,
+      "stock_chi_name": "ST通脉",
+      "stock_type": 1,
+      "surge_reason": {
+        "symbol": "603559.SS",
+        "stock_reason": "公司一季度净利润673.91万元，同比增长183.03%",
+        "related_plates": [
+          {
+            "plate_id": 24898553,
+            "plate_name": "ST股"
+          }
+        ]
+      },
+      "symbol": "603559.SS",
+      "total_capital": 3218241371.58,
+      "turnover_ratio": 0.0111261778,
+      "volume_bias_ratio": 0.7600669724,
+      "yesterday_break_limit_up_times": 3,
+      "yesterday_first_limit_up": 1777516288,
+      "yesterday_last_limit_up": 1777518760,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 1
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0.01452722,
+      "change_percent": 0.0998217469,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 0,
+      "first_limit_up": 1778037999,
+      "is_new_stock": false,
+      "issue_price": 14.96,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 0,
+      "last_limit_up": 1778037999,
+      "limit_down_days": 0,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1778037999,
+            "status": 1
+          }
+        ]
+      },
+      "limit_up_days": 2,
+      "listed_date": 1279555200,
+      "m_days_n_boards_boards": 2,
+      "m_days_n_boards_days": 2,
+      "mtm": 0,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": -0.5875668449,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 3718352690.35,
+      "price": 6.17,
+      "sell_lock_volume_ratio": 0,
+      "stock_chi_name": "华软科技",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "002453.SZ",
+        "stock_reason": "公司光刻胶基材产品业务目前正处于客户接洽阶段，已有少量试订单；25年业绩同比减亏",
+        "related_plates": [
+          {
+            "plate_id": 31765737,
+            "plate_name": "国产芯片",
+            "plate_reason": "英伟达、寒武纪等股价创历史新高，英特尔4月涨幅翻倍"
+          },
+          {
+            "plate_id": 5433758,
+            "plate_name": "业绩增长",
+            "plate_reason": "年报及一季报密集披露"
+          }
+        ]
+      },
+      "symbol": "002453.SZ",
+      "total_capital": 5012305167.42,
+      "turnover_ratio": 0.1182291148,
+      "volume_bias_ratio": 3.4789758989,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 1777512828,
+      "yesterday_last_limit_up": 1777512828,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 1
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0.0005534111,
+      "change_percent": 0,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 0,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 5.49,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 0,
+      "last_limit_up": 0,
+      "limit_down_days": 0,
+      "limit_timeline": null,
+      "limit_up_days": 0,
+      "listed_date": 961084800,
+      "m_days_n_boards_boards": 2,
+      "m_days_n_boards_days": 3,
+      "mtm": 0,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": -0.5409836066,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 12707102376.36,
+      "price": 2.52,
+      "sell_lock_volume_ratio": 0.0002477312,
+      "stock_chi_name": "众泰汽车",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "000980.SZ",
+        "stock_reason": "汽车整车制造企业，拥有众泰、江南、君马等自主品牌；25年大幅减亏",
+        "related_plates": [
+          {
+            "plate_id": 5433758,
+            "plate_name": "业绩增长",
+            "plate_reason": "年报及一季报密集披露"
+          }
+        ]
+      },
+      "symbol": "000980.SZ",
+      "total_capital": 12707220302.28,
+      "turnover_ratio": 0.086604388,
+      "volume_bias_ratio": 2.3674481637,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 1777514790,
+      "yesterday_last_limit_up": 1777514790,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 2
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0.0001511003,
+      "change_percent": -0.0469057942,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 0,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 26.16,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 0,
+      "last_limit_up": 0,
+      "limit_down_days": 0,
+      "limit_timeline": null,
+      "limit_up_days": 0,
+      "listed_date": 1586880000,
+      "m_days_n_boards_boards": 4,
+      "m_days_n_boards_days": 5,
+      "mtm": 0.0075,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": -0.0756880734,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 6244949256,
+      "price": 24.18,
+      "sell_lock_volume_ratio": 4.374e-07,
+      "stock_chi_name": "越剑智能",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "603095.SS",
+        "stock_reason": "公司AI智能验布机深度融合华为ESIE算法模型与昇腾AI算力，验布速度可达60米/分钟，瑕疵检出率超90%，能精准识别针织、梭织等多场景面料瑕疵，还可通过边缘计算与云端协同实现质量追溯",
+        "related_plates": [
+          {
+            "plate_id": -1,
+            "plate_name": "其他"
+          }
+        ]
+      },
+      "symbol": "603095.SS",
+      "total_capital": 6244949256,
+      "turnover_ratio": 0.1147109682,
+      "volume_bias_ratio": 2.9125582977,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 1777512300,
+      "yesterday_last_limit_up": 1777512300,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 4
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0.0001822589,
+      "change_percent": 0.0832774799,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 0,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 23.95,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 0,
+      "last_limit_up": 0,
+      "limit_down_days": 0,
+      "limit_timeline": null,
+      "limit_up_days": 0,
+      "listed_date": 1519833600,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": -0.0026226473,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 1.6993736952,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 13701762413.550001,
+      "price": 64.65,
+      "sell_lock_volume_ratio": 4.3655e-06,
+      "stock_chi_name": "润建股份",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "002929.SZ",
+        "stock_reason": "1、公司五象云谷智能算力持续布局，并和阿里、百度、科研院所等均有合作签订；\n2、旗下曲尺平台升级部署DeepSeek至R1（满血）版本",
+        "related_plates": [
+          {
+            "plate_id": 17928146,
+            "plate_name": "云计算数据中心",
+            "plate_reason": "腾讯云上调CodeBuddy、WorkBuddy计费方案"
+          }
+        ]
+      },
+      "symbol": "002929.SZ",
+      "total_capital": 18365971380.600002,
+      "turnover_ratio": 0.1353312823,
+      "volume_bias_ratio": 1.7418620978,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 1777531215,
+      "yesterday_last_limit_up": 1777531215,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 1
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 2,
+      "buy_lock_volume_ratio": 4.0993e-06,
+      "change_percent": 0.0374064838,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 1778032767,
+      "first_limit_down": 0,
+      "first_limit_up": 1778031459,
+      "is_new_stock": false,
+      "issue_price": 21.68,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 1778046141,
+      "last_limit_down": 0,
+      "last_limit_up": 1778035254,
+      "limit_down_days": 0,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1778031459,
+            "status": 1
+          },
+          {
+            "timestamp": 1778032767,
+            "status": 2
+          },
+          {
+            "timestamp": 1778035254,
+            "status": 1
+          },
+          {
+            "timestamp": 1778046141,
+            "status": 2
+          }
+        ]
+      },
+      "limit_up_days": 0,
+      "listed_date": 1654444800,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": -0.0026714159,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 5.7158671587,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 29629536081.6,
+      "price": 145.6,
+      "sell_lock_volume_ratio": 4.50927e-05,
+      "stock_chi_name": "*ST铖昌",
+      "stock_type": 1,
+      "surge_reason": {
+        "symbol": "001270.SZ",
+        "stock_reason": "公司主营微波毫米波模拟相控阵T/R芯片；一季度净利润4472.41万元，同比增长50.00%",
+        "related_plates": [
+          {
+            "plate_id": 24898553,
+            "plate_name": "ST股"
+          }
+        ]
+      },
+      "symbol": "001270.SZ",
+      "total_capital": 30010329585.6,
+      "turnover_ratio": 0.0410135086,
+      "volume_bias_ratio": 1.2549968423,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 1777516047,
+      "yesterday_last_limit_up": 1777516047,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 1
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 1.25897e-05,
+      "change_percent": 0.0349349068,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 0,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 30.33,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 0,
+      "last_limit_up": 0,
+      "limit_down_days": 0,
+      "limit_timeline": null,
+      "limit_up_days": 0,
+      "listed_date": 1598284800,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": -0.003247339,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 2.6432575008,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 13389383566,
+      "price": 110.5,
+      "sell_lock_volume_ratio": 2.6579e-06,
+      "stock_chi_name": "派克新材",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "605123.SS",
+        "stock_reason": "公司是国内少数几家可为航空发动机、航天运载火箭及卫星、燃气轮机、深海装备等高端装备提供配套特种合金精密环形锻件产品和精密模锻件产品的民营企业之一，一季度净利润同比增长11.82%",
+        "related_plates": [
+          {
+            "plate_id": 51018737,
+            "plate_name": "航天",
+            "plate_reason": "SpaceX最早有望于年中完成挂牌上市"
+          },
+          {
+            "plate_id": 5433758,
+            "plate_name": "业绩增长",
+            "plate_reason": "年报及一季报密集披露"
+          }
+        ]
+      },
+      "symbol": "605123.SS",
+      "total_capital": 13389383566,
+      "turnover_ratio": 0.0685083262,
+      "volume_bias_ratio": 2.9289860135,
+      "yesterday_break_limit_up_times": 2,
+      "yesterday_first_limit_up": 1777514125,
+      "yesterday_last_limit_up": 1777514448,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 1
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0.0007072328,
+      "change_percent": -0.04784689,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 0,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 20,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 0,
+      "last_limit_up": 0,
+      "limit_down_days": 0,
+      "limit_timeline": null,
+      "limit_up_days": 0,
+      "listed_date": 1308585600,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0.0025188917,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": -0.602,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 1779159197.52,
+      "price": 7.96,
+      "sell_lock_volume_ratio": 0.0005166265,
+      "stock_chi_name": "恒大高新",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "002591.SZ",
+        "stock_reason": "公司一季度净利润为621.72万，同比增长193.49%。主要系“较上年同期新增AI算力服务器业务收入增加所致。”",
+        "related_plates": [
+          {
+            "plate_id": 5433758,
+            "plate_name": "业绩增长",
+            "plate_reason": "年报及一季报密集披露"
+          },
+          {
+            "plate_id": 17928146,
+            "plate_name": "云计算数据中心",
+            "plate_reason": "腾讯云上调CodeBuddy、WorkBuddy计费方案"
+          }
+        ]
+      },
+      "symbol": "002591.SZ",
+      "total_capital": 2389587892.64,
+      "turnover_ratio": 0.3028640971,
+      "volume_bias_ratio": 4.7500491187,
+      "yesterday_break_limit_up_times": 1,
+      "yesterday_first_limit_up": 1777512300,
+      "yesterday_last_limit_up": 1777525638,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 1
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 1,
+      "buy_lock_volume_ratio": 0.0096256006,
+      "change_percent": 0.101369863,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 1778031372,
+      "first_limit_down": 0,
+      "first_limit_up": 1778031339,
+      "is_new_stock": false,
+      "issue_price": 25.8,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 1778031372,
+      "last_limit_down": 0,
+      "last_limit_up": 1778031381,
+      "limit_down_days": 0,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1778031339,
+            "status": 1
+          },
+          {
+            "timestamp": 1778031372,
+            "status": 2
+          },
+          {
+            "timestamp": 1778031381,
+            "status": 1
+          }
+        ]
+      },
+      "limit_up_days": 2,
+      "listed_date": 1323273600,
+      "m_days_n_boards_boards": 2,
+      "m_days_n_boards_days": 2,
+      "mtm": 0,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": -0.8441860465,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 6224013260.099999,
+      "price": 4.02,
+      "sell_lock_volume_ratio": 0,
+      "stock_chi_name": "跨境通",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "002640.SZ",
+        "stock_reason": "跨境电商龙头，一季报净利润同比扭亏为盈",
+        "related_plates": [
+          {
+            "plate_id": 5433758,
+            "plate_name": "业绩增长",
+            "plate_reason": "年报及一季报密集披露"
+          }
+        ]
+      },
+      "symbol": "002640.SZ",
+      "total_capital": 6263326146.599999,
+      "turnover_ratio": 0.1145780878,
+      "volume_bias_ratio": 3.9132267611,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 1777512600,
+      "yesterday_last_limit_up": 1777512600,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 1
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0.0002469741,
+      "change_percent": 0.017921147,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 0,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 6.67,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 0,
+      "last_limit_up": 0,
+      "limit_down_days": 0,
+      "limit_timeline": null,
+      "limit_up_days": 0,
+      "listed_date": 1073404800,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0.0035335689,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": -0.1484257871,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 3302221132.7999997,
+      "price": 5.68,
+      "sell_lock_volume_ratio": 0.0003495328,
+      "stock_chi_name": "新赛股份",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "600540.SS",
+        "stock_reason": "公司农业主要产品为棉籽、葵花籽、菜籽及其他油料作物，立足于新疆棉花产业，聚焦棉业全产业链；一季度净利润同比增长129.89%",
+        "related_plates": [
+          {
+            "plate_id": 5433758,
+            "plate_name": "业绩增长",
+            "plate_reason": "年报及一季报密集披露"
+          }
+        ]
+      },
+      "symbol": "600540.SS",
+      "total_capital": 3302221132.7999997,
+      "turnover_ratio": 0.1329179815,
+      "volume_bias_ratio": 3.1424742097,
+      "yesterday_break_limit_up_times": 1,
+      "yesterday_first_limit_up": 1777513078,
+      "yesterday_last_limit_up": 1777513417,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 1
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 1.07739e-05,
+      "change_percent": 0.0165008292,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 0,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 0,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 0,
+      "last_limit_up": 0,
+      "limit_down_days": 0,
+      "limit_timeline": null,
+      "limit_up_days": 0,
+      "listed_date": 1680192000,
+      "m_days_n_boards_boards": 2,
+      "m_days_n_boards_days": 3,
+      "mtm": 0.0048360656,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 0,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 14070736401.93,
+      "price": 122.59,
+      "sell_lock_volume_ratio": 9.5026e-06,
+      "stock_chi_name": "日联科技",
+      "stock_type": 2,
+      "surge_reason": {
+        "symbol": "688531.SS",
+        "stock_reason": "国内领先的工业X射线智能检测装备及核心部件供应商，一季度扣非净利润同比增长63.17%",
+        "related_plates": [
+          {
+            "plate_id": 5433758,
+            "plate_name": "业绩增长",
+            "plate_reason": "年报及一季报密集披露"
+          }
+        ]
+      },
+      "symbol": "688531.SS",
+      "total_capital": 20300160982.010002,
+      "turnover_ratio": 0.1913408559,
+      "volume_bias_ratio": 2.4223800605,
+      "yesterday_break_limit_up_times": 8,
+      "yesterday_first_limit_up": 1777513314,
+      "yesterday_last_limit_up": 1777530500,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 2
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 8.4793e-06,
+      "change_percent": -0.0011066027,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 0,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 29.98,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 0,
+      "last_limit_up": 0,
+      "limit_down_days": 0,
+      "limit_timeline": null,
+      "limit_up_days": 0,
+      "listed_date": 1584374400,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": -0.0007380074,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": -0.0967311541,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 1804805363.6,
+      "price": 27.08,
+      "sell_lock_volume_ratio": 1.6182e-06,
+      "stock_chi_name": "*ST天箭",
+      "stock_type": 1,
+      "surge_reason": {
+        "symbol": "002977.SZ",
+        "stock_reason": "高波段、大功率固态微波前端产品供应商；主要代表产品为弹载固态发射机、新型相控阵产品及其他固态发射机产品，其在军事领域的应用包括雷达制导导弹精确制导系统、其它雷达系统、卫星通信和电子对抗等",
+        "related_plates": [
+          {
+            "plate_id": 24898553,
+            "plate_name": "ST股"
+          }
+        ]
+      },
+      "symbol": "002977.SZ",
+      "total_capital": 3252849600,
+      "turnover_ratio": 0.072767921,
+      "volume_bias_ratio": 0.9189776707,
+      "yesterday_break_limit_up_times": 3,
+      "yesterday_first_limit_up": 1777527948,
+      "yesterday_last_limit_up": 1777528851,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 1
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 6,
+      "buy_lock_volume_ratio": 0.0015768068,
+      "change_percent": 0.0499764262,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 1778031028,
+      "first_limit_down": 0,
+      "first_limit_up": 1778030701,
+      "is_new_stock": false,
+      "issue_price": 9.81,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 1778043898,
+      "last_limit_down": 0,
+      "last_limit_up": 1778044035,
+      "limit_down_days": 0,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1778030701,
+            "status": 1
+          },
+          {
+            "timestamp": 1778031028,
+            "status": 2
+          },
+          {
+            "timestamp": 1778031979,
+            "status": 1
+          },
+          {
+            "timestamp": 1778031991,
+            "status": 2
+          },
+          {
+            "timestamp": 1778032073,
+            "status": 1
+          },
+          {
+            "timestamp": 1778032095,
+            "status": 2
+          },
+          {
+            "timestamp": 1778032120,
+            "status": 1
+          },
+          {
+            "timestamp": 1778032192,
+            "status": 2
+          },
+          {
+            "timestamp": 1778032269,
+            "status": 1
+          },
+          {
+            "timestamp": 1778032373,
+            "status": 2
+          },
+          {
+            "timestamp": 1778043892,
+            "status": 1
+          },
+          {
+            "timestamp": 1778043898,
+            "status": 2
+          },
+          {
+            "timestamp": 1778044035,
+            "status": 1
+          }
+        ]
+      },
+      "limit_up_days": 2,
+      "listed_date": 1495641600,
+      "m_days_n_boards_boards": 3,
+      "m_days_n_boards_days": 5,
+      "mtm": 0,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 1.2701325178,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 2910092164,
+      "price": 22.27,
+      "sell_lock_volume_ratio": 0,
+      "stock_chi_name": "*ST艾艾",
+      "stock_type": 1,
+      "surge_reason": {
+        "symbol": "603580.SS",
+        "stock_reason": "公司主营轻型输送带，2025年净利润4383.99万元",
+        "related_plates": [
+          {
+            "plate_id": 24898553,
+            "plate_name": "ST股"
+          }
+        ]
+      },
+      "symbol": "603580.SS",
+      "total_capital": 2910092164,
+      "turnover_ratio": 0.0312861398,
+      "volume_bias_ratio": 2.2508478682,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 1777512301,
+      "yesterday_last_limit_up": 1777512301,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 1
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 24,
+      "buy_lock_volume_ratio": 0.0003298599,
+      "change_percent": 0.1000606428,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 1778045274,
+      "first_limit_down": 0,
+      "first_limit_up": 1778045130,
+      "is_new_stock": false,
+      "issue_price": 7.49,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 1778050545,
+      "last_limit_down": 0,
+      "last_limit_up": 1778050605,
+      "limit_down_days": 0,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1778045130,
+            "status": 1
+          },
+          {
+            "timestamp": 1778045274,
+            "status": 2
+          },
+          {
+            "timestamp": 1778045916,
+            "status": 1
+          },
+          {
+            "timestamp": 1778047542,
+            "status": 2
+          },
+          {
+            "timestamp": 1778047575,
+            "status": 1
+          },
+          {
+            "timestamp": 1778047584,
+            "status": 2
+          },
+          {
+            "timestamp": 1778048529,
+            "status": 1
+          },
+          {
+            "timestamp": 1778048541,
+            "status": 2
+          },
+          {
+            "timestamp": 1778048550,
+            "status": 1
+          },
+          {
+            "timestamp": 1778048562,
+            "status": 2
+          },
+          {
+            "timestamp": 1778048568,
+            "status": 1
+          },
+          {
+            "timestamp": 1778049153,
+            "status": 2
+          },
+          {
+            "timestamp": 1778049162,
+            "status": 1
+          },
+          {
+            "timestamp": 1778049180,
+            "status": 2
+          },
+          {
+            "timestamp": 1778049246,
+            "status": 1
+          },
+          {
+            "timestamp": 1778049255,
+            "status": 2
+          },
+          {
+            "timestamp": 1778049270,
+            "status": 1
+          },
+          {
+            "timestamp": 1778049279,
+            "status": 2
+          },
+          {
+            "timestamp": 1778049519,
+            "status": 1
+          },
+          {
+            "timestamp": 1778049528,
+            "status": 2
+          },
+          {
+            "timestamp": 1778049534,
+            "status": 1
+          },
+          {
+            "timestamp": 1778049579,
+            "status": 2
+          },
+          {
+            "timestamp": 1778049606,
+            "status": 1
+          },
+          {
+            "timestamp": 1778049612,
+            "status": 2
+          },
+          {
+            "timestamp": 1778049627,
+            "status": 1
+          },
+          {
+            "timestamp": 1778049642,
+            "status": 2
+          },
+          {
+            "timestamp": 1778049660,
+            "status": 1
+          },
+          {
+            "timestamp": 1778049663,
+            "status": 2
+          },
+          {
+            "timestamp": 1778049696,
+            "status": 1
+          },
+          {
+            "timestamp": 1778049702,
+            "status": 2
+          },
+          {
+            "timestamp": 1778049723,
+            "status": 1
+          },
+          {
+            "timestamp": 1778049768,
+            "status": 2
+          },
+          {
+            "timestamp": 1778050083,
+            "status": 1
+          },
+          {
+            "timestamp": 1778050107,
+            "status": 2
+          },
+          {
+            "timestamp": 1778050119,
+            "status": 1
+          },
+          {
+            "timestamp": 1778050146,
+            "status": 2
+          },
+          {
+            "timestamp": 1778050263,
+            "status": 1
+          },
+          {
+            "timestamp": 1778050419,
+            "status": 2
+          },
+          {
+            "timestamp": 1778050428,
+            "status": 1
+          },
+          {
+            "timestamp": 1778050440,
+            "status": 2
+          },
+          {
+            "timestamp": 1778050443,
+            "status": 1
+          },
+          {
+            "timestamp": 1778050467,
+            "status": 2
+          },
+          {
+            "timestamp": 1778050470,
+            "status": 1
+          },
+          {
+            "timestamp": 1778050488,
+            "status": 2
+          },
+          {
+            "timestamp": 1778050491,
+            "status": 1
+          },
+          {
+            "timestamp": 1778050494,
+            "status": 2
+          },
+          {
+            "timestamp": 1778050497,
+            "status": 1
+          },
+          {
+            "timestamp": 1778050545,
+            "status": 2
+          },
+          {
+            "timestamp": 1778050605,
+            "status": 1
+          }
+        ]
+      },
+      "limit_up_days": 2,
+      "listed_date": 1195142400,
+      "m_days_n_boards_boards": 3,
+      "m_days_n_boards_days": 5,
+      "mtm": 0,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 1.4218958611,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 20580503066.56,
+      "price": 18.14,
+      "sell_lock_volume_ratio": 0,
+      "stock_chi_name": "粤 传 媒",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "002181.SZ",
+        "stock_reason": "公司全资子公司先锋报业经营足球类媒体，包括《足球》报以及足球+app、足球+小程序、足球报官方微博、微信公众号足球报等新媒体平台",
+        "related_plates": [
+          {
+            "plate_id": 13960785,
+            "plate_name": "体育产业",
+            "plate_reason": "美加墨世界杯将于6月11日至7月19日举行"
+          }
+        ]
+      },
+      "symbol": "002181.SZ",
+      "total_capital": 21061595276.36,
+      "turnover_ratio": 0.1409216468,
+      "volume_bias_ratio": 1.7627699489,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 1777513965,
+      "yesterday_last_limit_up": 1777513965,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 1
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0.0001081084,
+      "change_percent": -0.0010577214,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 0,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 9.38,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 0,
+      "last_limit_up": 0,
+      "limit_down_days": 0,
+      "limit_timeline": null,
+      "limit_up_days": 0,
+      "listed_date": 848246400,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": -0.0006046863,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 6.0479744136,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 12708892854.35,
+      "price": 66.11,
+      "sell_lock_volume_ratio": 0.0001859216,
+      "stock_chi_name": "高新发展",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "000628.SZ",
+        "stock_reason": "公司此前称将持续推动对华鲲振宇公司股权收购工作；25年净利润同比增长78.00%",
+        "related_plates": [
+          {
+            "plate_id": 17928146,
+            "plate_name": "云计算数据中心",
+            "plate_reason": "腾讯云上调CodeBuddy、WorkBuddy计费方案"
+          },
+          {
+            "plate_id": 5433758,
+            "plate_name": "业绩增长",
+            "plate_reason": "年报及一季报密集披露"
+          }
+        ]
+      },
+      "symbol": "000628.SZ",
+      "total_capital": 23289230800,
+      "turnover_ratio": 0.1627612584,
+      "volume_bias_ratio": 1.9158372398,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 1777517505,
+      "yesterday_last_limit_up": 1777517505,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 1
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0.0002349682,
+      "change_percent": 0.041350211,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 0,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 5.8,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 0,
+      "last_limit_up": 0,
+      "limit_down_days": 0,
+      "limit_timeline": null,
+      "limit_up_days": 0,
+      "listed_date": 890928000,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0.00081103,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 1.1275862069,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 11840391246.78,
+      "price": 12.34,
+      "sell_lock_volume_ratio": 0.0003099676,
+      "stock_chi_name": "中体产业",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "600158.SS",
+        "stock_reason": "国家体育总局唯一上市平台，国家体育总局系统内唯一上市平台，两家拿到网络彩票运营牌照的公司之一，一季度业绩同比大幅减亏",
+        "related_plates": [
+          {
+            "plate_id": 13960785,
+            "plate_name": "体育产业",
+            "plate_reason": "美加墨世界杯将于6月11日至7月19日举行"
+          },
+          {
+            "plate_id": 5433758,
+            "plate_name": "业绩增长",
+            "plate_reason": "年报及一季报密集披露"
+          }
+        ]
+      },
+      "symbol": "600158.SS",
+      "total_capital": 11840391246.78,
+      "turnover_ratio": 0.1599701476,
+      "volume_bias_ratio": 2.4144394203,
+      "yesterday_break_limit_up_times": 3,
+      "yesterday_first_limit_up": 1777512692,
+      "yesterday_last_limit_up": 1777512851,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 1
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0.0006669039,
+      "change_percent": 0.0013259669,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 0,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 38.18,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 0,
+      "last_limit_up": 0,
+      "limit_down_days": 0,
+      "limit_timeline": null,
+      "limit_up_days": 0,
+      "listed_date": 1706025600,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": -0.0008820287,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 0.186746988,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 2889913892.9900002,
+      "price": 45.31,
+      "sell_lock_volume_ratio": 1.3107e-05,
+      "stock_chi_name": "盛景微",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "603375.SS",
+        "stock_reason": "公司是一家具备高性能、超低功耗芯片设计能力的企业，依托自研数模混合芯片开发电子控制模块，其子公司上海先积集成电路在精密放大器等芯片领域有技术突破，产品应用于汽车、扫地机器人等领域",
+        "related_plates": [
+          {
+            "plate_id": 31765737,
+            "plate_name": "国产芯片",
+            "plate_reason": "英伟达、寒武纪等股价创历史新高，英特尔4月涨幅翻倍"
+          }
+        ]
+      },
+      "symbol": "603375.SS",
+      "total_capital": 4561206681.77,
+      "turnover_ratio": 0.1626573203,
+      "volume_bias_ratio": 3.6521470514,
+      "yesterday_break_limit_up_times": 1,
+      "yesterday_first_limit_up": 1777527632,
+      "yesterday_last_limit_up": 1777528250,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 1
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 1,
+      "buy_lock_volume_ratio": 0.009350624,
+      "change_percent": 0.1003278689,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 1778031134,
+      "first_limit_down": 0,
+      "first_limit_up": 1778031119,
+      "is_new_stock": false,
+      "issue_price": 9.59,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 1778031134,
+      "last_limit_down": 0,
+      "last_limit_up": 1778031149,
+      "limit_down_days": 0,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1778031119,
+            "status": 1
+          },
+          {
+            "timestamp": 1778031134,
+            "status": 2
+          },
+          {
+            "timestamp": 1778031149,
+            "status": 1
+          }
+        ]
+      },
+      "limit_up_days": 3,
+      "listed_date": 1509552000,
+      "m_days_n_boards_boards": 4,
+      "m_days_n_boards_days": 6,
+      "mtm": 0,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 0.7497393118,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 3505182959.1600003,
+      "price": 16.78,
+      "sell_lock_volume_ratio": 0,
+      "stock_chi_name": "丽岛新材",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "603937.SS",
+        "stock_reason": "全资子公司丽岛新能源主要产品为铝带、箔材产品等，是利用铝箔等的良好导电性，用作锂电池的集流体材料；一季度净利润同比增长311.32%",
+        "related_plates": [
+          {
+            "plate_id": 17032337,
+            "plate_name": "锂电池",
+            "plate_reason": "电池级碳酸锂价格持续上涨"
+          },
+          {
+            "plate_id": 5433758,
+            "plate_name": "业绩增长",
+            "plate_reason": "年报及一季报密集披露"
+          }
+        ]
+      },
+      "symbol": "603937.SS",
+      "total_capital": 3505182959.1600003,
+      "turnover_ratio": 0.0497408877,
+      "volume_bias_ratio": 0.7107988004,
+      "yesterday_break_limit_up_times": 23,
+      "yesterday_first_limit_up": 1777513797,
+      "yesterday_last_limit_up": 1777525662,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 2
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 1.2227e-06,
+      "change_percent": -0.0120079039,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 0,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 11.69,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 0,
+      "last_limit_up": 0,
+      "limit_down_days": 0,
+      "limit_timeline": null,
+      "limit_up_days": 0,
+      "listed_date": 1607356800,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": -0.0015360983,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 10.120615911,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 34008000000,
+      "price": 130,
+      "sell_lock_volume_ratio": 3.25903e-05,
+      "stock_chi_name": "博迁新材",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "605376.SS",
+        "stock_reason": "公司是全球领先、国内唯一的小粒径纳米镍粉生产商、国内MLCC镍粉市场领军企业，银包铜粉已批量用于光伏HJT电池低温浆料，25年度净利润同比增长150.57%",
+        "related_plates": [
+          {
+            "plate_id": 5433758,
+            "plate_name": "业绩增长",
+            "plate_reason": "年报及一季报密集披露"
+          },
+          {
+            "plate_id": 23460626,
+            "plate_name": "有色金属"
+          }
+        ]
+      },
+      "symbol": "605376.SS",
+      "total_capital": 34008000000,
+      "turnover_ratio": 0.0621204778,
+      "volume_bias_ratio": 1.3663872633,
+      "yesterday_break_limit_up_times": 1,
+      "yesterday_first_limit_up": 1777519617,
+      "yesterday_last_limit_up": 1777528191,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 1
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 3.33682e-05,
+      "change_percent": 0.0232828871,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 0,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 7.35,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 0,
+      "last_limit_up": 0,
+      "limit_down_days": 0,
+      "limit_timeline": null,
+      "limit_up_days": 0,
+      "listed_date": 1564070400,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0.000569152,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 1.3918367347,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 9669560169.119999,
+      "price": 17.58,
+      "sell_lock_volume_ratio": 0.000327135,
+      "stock_chi_name": "大胜达",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "603687.SS",
+        "stock_reason": "公司拟5.5亿元投资高性能图形处理器公司芯瞳半导体",
+        "related_plates": [
+          {
+            "plate_id": 31765737,
+            "plate_name": "国产芯片",
+            "plate_reason": "英伟达、寒武纪等股价创历史新高，英特尔4月涨幅翻倍"
+          }
+        ]
+      },
+      "symbol": "603687.SS",
+      "total_capital": 9669560169.119999,
+      "turnover_ratio": 0.1391320976,
+      "volume_bias_ratio": 1.0968983385,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 1777530333,
+      "yesterday_last_limit_up": 1777530333,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 1
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0.0023717788,
+      "change_percent": 0.0501043841,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 0,
+      "first_limit_up": 1778033522,
+      "is_new_stock": false,
+      "issue_price": 17.2,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 0,
+      "last_limit_up": 1778033522,
+      "limit_down_days": 0,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1778033522,
+            "status": 1
+          }
+        ]
+      },
+      "limit_up_days": 2,
+      "listed_date": 1424880000,
+      "m_days_n_boards_boards": 2,
+      "m_days_n_boards_days": 2,
+      "mtm": 0,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": -0.7075581395,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 2997576313.75,
+      "price": 5.03,
+      "sell_lock_volume_ratio": 0,
+      "stock_chi_name": "*ST利达",
+      "stock_type": 1,
+      "surge_reason": {
+        "symbol": "603828.SS",
+        "stock_reason": "公司拟变更间接控股股东",
+        "related_plates": [
+          {
+            "plate_id": 24898553,
+            "plate_name": "ST股"
+          }
+        ]
+      },
+      "symbol": "603828.SS",
+      "total_capital": 2997679594.7400002,
+      "turnover_ratio": 0.0181635161,
+      "volume_bias_ratio": 1.3382836068,
+      "yesterday_break_limit_up_times": 5,
+      "yesterday_first_limit_up": 1777531731,
+      "yesterday_last_limit_up": 1777532082,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 1
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0.0001016482,
+      "change_percent": 0.0013645668,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 0,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 12.52,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 0,
+      "last_limit_up": 0,
+      "limit_down_days": 0,
+      "limit_timeline": null,
+      "limit_up_days": 0,
+      "listed_date": 1422374400,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": -0.0011343013,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 2.5167731629,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 23599639700,
+      "price": 44.03,
+      "sell_lock_volume_ratio": 1.28158e-05,
+      "stock_chi_name": "航天工程",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "603698.SS",
+        "stock_reason": "航天科技集团旗下，运载火箭技术研究院旗下唯一上市公司；一季度净利润同比增长20.98%",
+        "related_plates": [
+          {
+            "plate_id": 51018737,
+            "plate_name": "航天",
+            "plate_reason": "SpaceX最早有望于年中完成挂牌上市"
+          },
+          {
+            "plate_id": 5433758,
+            "plate_name": "业绩增长",
+            "plate_reason": "年报及一季报密集披露"
+          }
+        ]
+      },
+      "symbol": "603698.SS",
+      "total_capital": 23599639700,
+      "turnover_ratio": 0.0974155469,
+      "volume_bias_ratio": 1.5345253336,
+      "yesterday_break_limit_up_times": 1,
+      "yesterday_first_limit_up": 1777514049,
+      "yesterday_last_limit_up": 1777526733,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 1
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0.0004961072,
+      "change_percent": -0.0137663255,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 0,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 29.09,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 0,
+      "last_limit_up": 0,
+      "limit_down_days": 0,
+      "limit_timeline": null,
+      "limit_up_days": 0,
+      "listed_date": 1676563200,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": -0.0003577818,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": -0.0395324854,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 1148769361.0800002,
+      "price": 27.94,
+      "sell_lock_volume_ratio": 7.76222e-05,
+      "stock_chi_name": "亚通精工",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "603190.SS",
+        "stock_reason": "公司主要产品为汽车冲压及焊接零部件，一季度净利润增40.7%",
+        "related_plates": [
+          {
+            "plate_id": 5433758,
+            "plate_name": "业绩增长",
+            "plate_reason": "年报及一季报密集披露"
+          }
+        ]
+      },
+      "symbol": "603190.SS",
+      "total_capital": 3479647600,
+      "turnover_ratio": 0.2793318358,
+      "volume_bias_ratio": 5.6021672325,
+      "yesterday_break_limit_up_times": 8,
+      "yesterday_first_limit_up": 1777512707,
+      "yesterday_last_limit_up": 1777513840,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 1
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 8.793e-06,
+      "change_percent": -0.0326566637,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 0,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 9.24,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 0,
+      "last_limit_up": 0,
+      "limit_down_days": 0,
+      "limit_timeline": null,
+      "limit_up_days": 0,
+      "listed_date": 1486310400,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 1.3722943723,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 15480422495.68,
+      "price": 21.92,
+      "sell_lock_volume_ratio": 2.32564e-05,
+      "stock_chi_name": "百傲化学",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "603360.SS",
+        "stock_reason": "全资子公司芯傲华拟以7亿元增资苏州芯慧联半导体科技有限公司，后者主营业务为涂胶显影机、光刻机等黄光制程设备",
+        "related_plates": [
+          {
+            "plate_id": 31765737,
+            "plate_name": "国产芯片",
+            "plate_reason": "英伟达、寒武纪等股价创历史新高，英特尔4月涨幅翻倍"
+          }
+        ]
+      },
+      "symbol": "603360.SS",
+      "total_capital": 15480422495.68,
+      "turnover_ratio": 0.0440936973,
+      "volume_bias_ratio": 1.3324780488,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 1777525348,
+      "yesterday_last_limit_up": 1777525348,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 1
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0.0002693902,
+      "change_percent": 0.0850826677,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 0,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 36.81,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 0,
+      "last_limit_up": 0,
+      "limit_down_days": 0,
+      "limit_timeline": null,
+      "limit_up_days": 0,
+      "listed_date": 1590336000,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0.0022306108,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 0.586797066,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 8061664264.83,
+      "price": 58.41,
+      "sell_lock_volume_ratio": 1.68925e-05,
+      "stock_chi_name": "盛视科技",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "002990.SZ",
+        "stock_reason": "1、公司参股的苏州亿铸智能科技有限公司是一家将新型存储器ReRAM及存算一体创新计算架构相结合，面向数据中心、云计算等场景的大算力AI芯片公司；\n2、人工智能智慧口岸应用领域领先企业之一，已建立了机器人产品线，包括室内/外巡检机器人、协作机器人、车底查验机器人、测温机器人、协运机器人等",
+        "related_plates": [
+          {
+            "plate_id": 17928146,
+            "plate_name": "云计算数据中心",
+            "plate_reason": "腾讯云上调CodeBuddy、WorkBuddy计费方案"
+          }
+        ]
+      },
+      "symbol": "002990.SZ",
+      "total_capital": 15294783380.58,
+      "turnover_ratio": 0.185064367,
+      "volume_bias_ratio": 1.4274299874,
+      "yesterday_break_limit_up_times": 1,
+      "yesterday_first_limit_up": 1777512843,
+      "yesterday_last_limit_up": 1777513326,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 1
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0.0011780801,
+      "change_percent": -0.0082644628,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 0,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 4.6,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 0,
+      "last_limit_up": 0,
+      "limit_down_days": 0,
+      "limit_timeline": null,
+      "limit_up_days": 0,
+      "listed_date": 1055952000,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": -0.0041493776,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 0.0434782609,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 8401340318.4,
+      "price": 4.8,
+      "sell_lock_volume_ratio": 0.0002850693,
+      "stock_chi_name": "冠豪高新",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "600433.SS",
+        "stock_reason": "公司在新材料领域的布局已取得实质性进展，在氢能材料方面，燃料电池碳纸原纸湿法抄造中试机已试运行，并成功获得首批测试订单，实现了关键技术突破；一季度净利润同比增长27725.76%",
+        "related_plates": [
+          {
+            "plate_id": 5433758,
+            "plate_name": "业绩增长",
+            "plate_reason": "年报及一季报密集披露"
+          }
+        ]
+      },
+      "symbol": "600433.SS",
+      "total_capital": 8401340318.4,
+      "turnover_ratio": 0.1506177072,
+      "volume_bias_ratio": 1.5054339645,
+      "yesterday_break_limit_up_times": 4,
+      "yesterday_first_limit_up": 1777514223,
+      "yesterday_last_limit_up": 1777515739,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 1
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 3.46504e-05,
+      "change_percent": 0.0002603489,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 0,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 19.25,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 0,
+      "last_limit_up": 0,
+      "limit_down_days": 0,
+      "limit_timeline": null,
+      "limit_up_days": 0,
+      "listed_date": 1656518400,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0.0005208333,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 0.9958441558,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 2590788692.28,
+      "price": 38.42,
+      "sell_lock_volume_ratio": 3.3e-06,
+      "stock_chi_name": "联合精密",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "001268.SZ",
+        "stock_reason": "1、公司已完成收购成都迈特航空51%股权，迈特航空为中航工业旗下成飞、沈飞等主机厂供应商，正式切入航空精密零部件领域；\n2、公司主营精密机械零部件业务，正在建设年产3万吨空调压缩机零部件、汽车零部件、机器人零部件、光刻机零部件铸件项目",
+        "related_plates": [
+          {
+            "plate_id": 51018737,
+            "plate_name": "航天",
+            "plate_reason": "SpaceX最早有望于年中完成挂牌上市"
+          }
+        ]
+      },
+      "symbol": "001268.SZ",
+      "total_capital": 4146798692.28,
+      "turnover_ratio": 0.1012540771,
+      "volume_bias_ratio": 1.8301436689,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 1777528200,
+      "yesterday_last_limit_up": 1777528200,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 1
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 2,
+      "buy_lock_volume_ratio": 0.012129528,
+      "change_percent": 0.1000428449,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 1778031053,
+      "first_limit_down": 0,
+      "first_limit_up": 1778030700,
+      "is_new_stock": false,
+      "issue_price": 9.65,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 1778031157,
+      "last_limit_down": 0,
+      "last_limit_up": 1778031329,
+      "limit_down_days": 0,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1778030700,
+            "status": 1
+          },
+          {
+            "timestamp": 1778031053,
+            "status": 2
+          },
+          {
+            "timestamp": 1778031065,
+            "status": 1
+          },
+          {
+            "timestamp": 1778031157,
+            "status": 2
+          },
+          {
+            "timestamp": 1778031329,
+            "status": 1
+          }
+        ]
+      },
+      "limit_up_days": 2,
+      "listed_date": 1526486400,
+      "m_days_n_boards_boards": 2,
+      "m_days_n_boards_days": 2,
+      "mtm": 0,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 4.3212435233,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 6955108709.25,
+      "price": 51.35,
+      "sell_lock_volume_ratio": 0,
+      "stock_chi_name": "福达合金",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "603045.SS",
+        "stock_reason": "1、公司是国内磁保持继电器用银氧化锡 / 铜复层电触头的核心供应商，其该系列产品开发列入 “国家火炬计划” 等项目；一季度净利润同比扭亏为盈；\n2、国内电接触材料领域龙头企业；公司目前有生产供下游数据中心使用的高分断能力一体化焊接触头",
+        "related_plates": [
+          {
+            "plate_id": 5433758,
+            "plate_name": "业绩增长",
+            "plate_reason": "年报及一季报密集披露"
+          }
+        ]
+      },
+      "symbol": "603045.SS",
+      "total_capital": 6955108709.25,
+      "turnover_ratio": 0.0696851873,
+      "volume_bias_ratio": 1.2536554298,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 1777512301,
+      "yesterday_last_limit_up": 1777512301,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 1
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0.0063087186,
+      "change_percent": 0.0497991968,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 0,
+      "first_limit_up": 1778030701,
+      "is_new_stock": false,
+      "issue_price": 13.97,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 0,
+      "last_limit_up": 1778030701,
+      "limit_down_days": 0,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1778030701,
+            "status": 1
+          }
+        ]
+      },
+      "limit_up_days": 2,
+      "listed_date": 1449590400,
+      "m_days_n_boards_boards": 2,
+      "m_days_n_boards_days": 2,
+      "mtm": 0,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": -0.0644237652,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 5667694718.68,
+      "price": 13.07,
+      "sell_lock_volume_ratio": 0,
+      "stock_chi_name": "*ST沐邦",
+      "stock_type": 1,
+      "surge_reason": {
+        "symbol": "603398.SS",
+        "stock_reason": "公司申请撤销退市风险警示",
+        "related_plates": [
+          {
+            "plate_id": 24898553,
+            "plate_name": "ST股"
+          }
+        ]
+      },
+      "symbol": "603398.SS",
+      "total_capital": 5667694718.68,
+      "turnover_ratio": 0.0036561997,
+      "volume_bias_ratio": 0.1984906756,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 1777512301,
+      "yesterday_last_limit_up": 1777512301,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 1
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0.0001619336,
+      "change_percent": -0.008501594,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 0,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 13.1,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 0,
+      "last_limit_up": 0,
+      "limit_down_days": 0,
+      "limit_timeline": null,
+      "limit_up_days": 0,
+      "listed_date": 1433865600,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": -0.0010706638,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": -0.2877862595,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 2832720486,
+      "price": 9.33,
+      "sell_lock_volume_ratio": 5.68582e-05,
+      "stock_chi_name": "汇洁股份",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "002763.SZ",
+        "stock_reason": "国内内衣龙头之一，一季报净利润同比上涨19.06%",
+        "related_plates": [
+          {
+            "plate_id": 6346009,
+            "plate_name": "大消费",
+            "plate_reason": "中共中央政治局召开会议，分析研究当前经济形势和经济工作"
+          },
+          {
+            "plate_id": 5433758,
+            "plate_name": "业绩增长",
+            "plate_reason": "年报及一季报密集披露"
+          }
+        ]
+      },
+      "symbol": "002763.SZ",
+      "total_capital": 3824590920,
+      "turnover_ratio": 0.1195014594,
+      "volume_bias_ratio": 2.8016385594,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 1777513986,
+      "yesterday_last_limit_up": 1777513986,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 1
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 2,
+      "buy_lock_volume_ratio": 0.0047219357,
+      "change_percent": 0.0494905386,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 1778032524,
+      "first_limit_down": 0,
+      "first_limit_up": 1778030700,
+      "is_new_stock": false,
+      "issue_price": 7.85,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 1778043645,
+      "last_limit_down": 0,
+      "last_limit_up": 1778043684,
+      "limit_down_days": 0,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1778030700,
+            "status": 1
+          },
+          {
+            "timestamp": 1778032524,
+            "status": 2
+          },
+          {
+            "timestamp": 1778037711,
+            "status": 1
+          },
+          {
+            "timestamp": 1778043645,
+            "status": 2
+          },
+          {
+            "timestamp": 1778043684,
+            "status": 1
+          }
+        ]
+      },
+      "limit_up_days": 2,
+      "listed_date": 1201449600,
+      "m_days_n_boards_boards": 2,
+      "m_days_n_boards_days": 2,
+      "mtm": 0,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": -0.0815286624,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 1880453799,
+      "price": 7.21,
+      "sell_lock_volume_ratio": 0,
+      "stock_chi_name": "*ST准油",
+      "stock_type": 1,
+      "surge_reason": {
+        "symbol": "002207.SZ",
+        "stock_reason": "公司主要从事油气藏综合研究、油气井测试业务、调剖、堵水、酸化、井下分注管柱等井下作业业务等",
+        "related_plates": [
+          {
+            "plate_id": 24898553,
+            "plate_name": "ST股"
+          }
+        ]
+      },
+      "symbol": "002207.SZ",
+      "total_capital": 1889419275.3799999,
+      "turnover_ratio": 0.1756642392,
+      "volume_bias_ratio": 1.1965024716,
+      "yesterday_break_limit_up_times": 3,
+      "yesterday_first_limit_up": 1777512657,
+      "yesterday_last_limit_up": 1777515399,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 1
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 3.74583e-05,
+      "change_percent": 0.0190279966,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 0,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 15.32,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 0,
+      "last_limit_up": 0,
+      "limit_down_days": 0,
+      "limit_timeline": null,
+      "limit_up_days": 0,
+      "listed_date": 1690819200,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0.0001189485,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 4.4882506527,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 17142186930.64,
+      "price": 84.08,
+      "sell_lock_volume_ratio": 8.17271e-05,
+      "stock_chi_name": "浙江荣泰",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "603119.SS",
+        "stock_reason": "公司新设智能机器人子公司，一季度净利润同比增长20.63%",
+        "related_plates": [
+          {
+            "plate_id": 5433758,
+            "plate_name": "业绩增长",
+            "plate_reason": "年报及一季报密集披露"
+          }
+        ]
+      },
+      "symbol": "603119.SS",
+      "total_capital": 30583439972,
+      "turnover_ratio": 0.1357829566,
+      "volume_bias_ratio": 1.967880733,
+      "yesterday_break_limit_up_times": 3,
+      "yesterday_first_limit_up": 1777514491,
+      "yesterday_last_limit_up": 1777517869,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 1
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0.0209573485,
+      "change_percent": 0.0501392758,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 0,
+      "first_limit_up": 1778030701,
+      "is_new_stock": false,
+      "issue_price": 5.68,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 0,
+      "last_limit_up": 1778030701,
+      "limit_down_days": 0,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1778030701,
+            "status": 1
+          }
+        ]
+      },
+      "limit_up_days": 4,
+      "listed_date": 989251200,
+      "m_days_n_boards_boards": 17,
+      "m_days_n_boards_days": 34,
+      "mtm": 0,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": -0.3362676056,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 2213218993.57,
+      "price": 3.77,
+      "sell_lock_volume_ratio": 0,
+      "stock_chi_name": "*ST春天",
+      "stock_type": 1,
+      "surge_reason": {
+        "symbol": "600381.SS",
+        "stock_reason": "冬虫夏草产业化龙头企业",
+        "related_plates": [
+          {
+            "plate_id": 24898553,
+            "plate_name": "ST股"
+          }
+        ]
+      },
+      "symbol": "600381.SS",
+      "total_capital": 2213218993.57,
+      "turnover_ratio": 0.0033712713,
+      "volume_bias_ratio": 0.1896263841,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 1777512301,
+      "yesterday_last_limit_up": 1777512301,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 3
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 5.49908e-05,
+      "change_percent": 0,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 0,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 5.2,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 0,
+      "last_limit_up": 0,
+      "limit_down_days": 0,
+      "limit_timeline": null,
+      "limit_up_days": 0,
+      "listed_date": 726163200,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0.0021691974,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": -0.1115384615,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 3138582872.04,
+      "price": 4.62,
+      "sell_lock_volume_ratio": 0.0001834517,
+      "stock_chi_name": "ST复华",
+      "stock_type": 1,
+      "surge_reason": {
+        "symbol": "600624.SS",
+        "stock_reason": "公司此前与本源量子签署战略合作协议，共谋量子计算产业发展，本源量子源自中国科学技术大学和中国科学院量子信息重点实验室，是中国首家量子计算企业，中国首家可交付量子计算机工程机的企业，建设了中国第一条量子芯片生产线",
+        "related_plates": [
+          {
+            "plate_id": 24898553,
+            "plate_name": "ST股"
+          }
+        ]
+      },
+      "symbol": "600624.SS",
+      "total_capital": 3138582872.04,
+      "turnover_ratio": 0.0122556112,
+      "volume_bias_ratio": 1.257098251,
+      "yesterday_break_limit_up_times": 1,
+      "yesterday_first_limit_up": 1777512993,
+      "yesterday_last_limit_up": 1777515558,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 1
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0.010415932,
+      "change_percent": 0.0508474576,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 0,
+      "first_limit_up": 1778031024,
+      "is_new_stock": false,
+      "issue_price": 18.1,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 0,
+      "last_limit_up": 1778031024,
+      "limit_down_days": 0,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1778031024,
+            "status": 1
+          }
+        ]
+      },
+      "limit_up_days": 3,
+      "listed_date": 1323014400,
+      "m_days_n_boards_boards": 3,
+      "m_days_n_boards_days": 3,
+      "mtm": 0,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": -0.6917127072,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 2467672488.54,
+      "price": 5.58,
+      "sell_lock_volume_ratio": 0,
+      "stock_chi_name": "*ST棒杰",
+      "stock_type": 1,
+      "surge_reason": {
+        "symbol": "002634.SZ",
+        "stock_reason": "公司光伏业务子公司重整申请获受理",
+        "related_plates": [
+          {
+            "plate_id": 24898553,
+            "plate_name": "ST股"
+          }
+        ]
+      },
+      "symbol": "002634.SZ",
+      "total_capital": 2563187022.54,
+      "turnover_ratio": 0.0222033043,
+      "volume_bias_ratio": 0.2791294838,
+      "yesterday_break_limit_up_times": 3,
+      "yesterday_first_limit_up": 1777512786,
+      "yesterday_last_limit_up": 1777514787,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 2
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 3.60594e-05,
+      "change_percent": -0.0077854671,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 0,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 5.18,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 0,
+      "last_limit_up": 0,
+      "limit_down_days": 0,
+      "limit_timeline": null,
+      "limit_up_days": 0,
+      "listed_date": 1070985600,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 1.2142857143,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 1847472900,
+      "price": 11.47,
+      "sell_lock_volume_ratio": 0.0005809571,
+      "stock_chi_name": "*ST湘邮",
+      "stock_type": 1,
+      "surge_reason": {
+        "symbol": "600476.SS",
+        "stock_reason": "公司作为中国邮政控股子公司，自主研发 “北斗 + 5G + 高精度地图” 无人配送系统，其车联网服务平台结合北斗定位技术，为无人物流车的定位、监控、调度及路径规划等提供了坚实的技术支撑",
+        "related_plates": [
+          {
+            "plate_id": 24898553,
+            "plate_name": "ST股"
+          }
+        ]
+      },
+      "symbol": "600476.SS",
+      "total_capital": 1847472900,
+      "turnover_ratio": 0.0702620786,
+      "volume_bias_ratio": 1.0820247246,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 1777515617,
+      "yesterday_last_limit_up": 1777515617,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 1
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0.0001575938,
+      "change_percent": 0.0642857143,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 0,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 10.91,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 0,
+      "last_limit_up": 0,
+      "limit_down_days": 0,
+      "limit_timeline": null,
+      "limit_up_days": 0,
+      "listed_date": 1210867200,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0.0008396306,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 0.0925756187,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 6598653359.84,
+      "price": 11.92,
+      "sell_lock_volume_ratio": 0.0002231192,
+      "stock_chi_name": "安妮股份",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "002235.SZ",
+        "stock_reason": "公司为多省份福利彩票中心提供服务，覆盖体育彩票相关印制需求，是体育产业配套服务提供商",
+        "related_plates": [
+          {
+            "plate_id": 13960785,
+            "plate_name": "体育产业",
+            "plate_reason": "美加墨世界杯将于6月11日至7月19日举行"
+          }
+        ]
+      },
+      "symbol": "002235.SZ",
+      "total_capital": 6908501625.28,
+      "turnover_ratio": 0.2033288816,
+      "volume_bias_ratio": 2.0369061657,
+      "yesterday_break_limit_up_times": 1,
+      "yesterday_first_limit_up": 1777513542,
+      "yesterday_last_limit_up": 1777526718,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 1
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0.0001041599,
+      "change_percent": -0.0044977511,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 0,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 5.95,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 0,
+      "last_limit_up": 0,
+      "limit_down_days": 0,
+      "limit_timeline": null,
+      "limit_up_days": 0,
+      "listed_date": 769795200,
+      "m_days_n_boards_boards": 2,
+      "m_days_n_boards_days": 3,
+      "mtm": 0,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 0.1159663866,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 12938304491.119999,
+      "price": 6.64,
+      "sell_lock_volume_ratio": 2.43236e-05,
+      "stock_chi_name": "海德股份",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "000567.SZ",
+        "stock_reason": "海南本地股，A股唯一全资AMC标的，取得西藏AMC牌照；一季度净利润同比增长332.55%",
+        "related_plates": [
+          {
+            "plate_id": 5433758,
+            "plate_name": "业绩增长",
+            "plate_reason": "年报及一季报密集披露"
+          },
+          {
+            "plate_id": 39931294,
+            "plate_name": "大金融",
+            "plate_reason": "多家券商一季报净利润同比增长超50%"
+          }
+        ]
+      },
+      "symbol": "000567.SZ",
+      "total_capital": 12978491909.199999,
+      "turnover_ratio": 0.0653119823,
+      "volume_bias_ratio": 2.6143843009,
+      "yesterday_break_limit_up_times": 7,
+      "yesterday_first_limit_up": 1777514220,
+      "yesterday_last_limit_up": 1777530609,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 2
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 9.07345e-05,
+      "change_percent": 0.021978022,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 0,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 5,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 0,
+      "last_limit_up": 0,
+      "limit_down_days": 0,
+      "limit_timeline": null,
+      "limit_up_days": 0,
+      "listed_date": 930067200,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0.0021551724,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": -0.07,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 39562089967.05,
+      "price": 4.65,
+      "sell_lock_volume_ratio": 7.70044e-05,
+      "stock_chi_name": "衢州发展",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "600208.SS",
+        "stock_reason": "衢州国资委旗下的房地产开发商；公司拟购买先导电科95.46%股份，标的主营先进PVD溅射靶材和蒸镀材料业务",
+        "related_plates": [
+          {
+            "plate_id": 17236249,
+            "plate_name": "房地产",
+            "plate_reason": "深圳进一步优化调整房地产相关政策；中共中央政治局会议：努力稳定房地产市场"
+          },
+          {
+            "plate_id": 31765737,
+            "plate_name": "国产芯片",
+            "plate_reason": "英伟达、寒武纪等股价创历史新高，英特尔4月涨幅翻倍"
+          }
+        ]
+      },
+      "symbol": "600208.SS",
+      "total_capital": 39566574720,
+      "turnover_ratio": 0.0446487234,
+      "volume_bias_ratio": 1.2602736829,
+      "yesterday_break_limit_up_times": 6,
+      "yesterday_first_limit_up": 1777513369,
+      "yesterday_last_limit_up": 1777513663,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 1
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0.0001046106,
+      "change_percent": -0.0199095023,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 0,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 4.85,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 0,
+      "last_limit_up": 0,
+      "limit_down_days": 0,
+      "limit_timeline": null,
+      "limit_up_days": 0,
+      "listed_date": 833990400,
+      "m_days_n_boards_boards": 2,
+      "m_days_n_boards_days": 3,
+      "mtm": 0.0027777778,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 3.4659793814,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 6241898073.18,
+      "price": 21.66,
+      "sell_lock_volume_ratio": 1.63081e-05,
+      "stock_chi_name": "金瑞矿业",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "600714.SS",
+        "stock_reason": "公司主营锶盐系列产品的生产和销售，可应用于液晶玻璃基板等",
+        "related_plates": [
+          {
+            "plate_id": 23460626,
+            "plate_name": "有色金属"
+          }
+        ]
+      },
+      "symbol": "600714.SS",
+      "total_capital": 6241898073.18,
+      "turnover_ratio": 0.1275878844,
+      "volume_bias_ratio": 1.6743444757,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 1777525993,
+      "yesterday_last_limit_up": 1777525993,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 2
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0.0168493497,
+      "change_percent": 0.0998990918,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 0,
+      "first_limit_up": 1778030700,
+      "is_new_stock": false,
+      "issue_price": 6.58,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 0,
+      "last_limit_up": 1778030700,
+      "limit_down_days": 0,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1778030700,
+            "status": 1
+          }
+        ]
+      },
+      "limit_up_days": 2,
+      "listed_date": 867254400,
+      "m_days_n_boards_boards": 2,
+      "m_days_n_boards_days": 2,
+      "mtm": 0,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 2.3130699088,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 70316986468.40001,
+      "price": 21.8,
+      "sell_lock_volume_ratio": 0,
+      "stock_chi_name": "中国长城",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "000066.SZ",
+        "stock_reason": "公司飞腾芯片产品主要包括高性能服务器CPU、高效能桌面CPU等四大系列，为从端到云的各型设备提供核心算力支撑，一季度业绩同比减亏",
+        "related_plates": [
+          {
+            "plate_id": 31765737,
+            "plate_name": "国产芯片",
+            "plate_reason": "英伟达、寒武纪等股价创历史新高，英特尔4月涨幅翻倍"
+          },
+          {
+            "plate_id": 5433758,
+            "plate_name": "业绩增长",
+            "plate_reason": "年报及一季报密集披露"
+          }
+        ]
+      },
+      "symbol": "000066.SZ",
+      "total_capital": 70322420118.40001,
+      "turnover_ratio": 0.012049718,
+      "volume_bias_ratio": 0.110254816,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 1777515387,
+      "yesterday_last_limit_up": 1777515387,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 1
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 4.26315e-05,
+      "change_percent": -0.0437173495,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 0,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 18.43,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 0,
+      "last_limit_up": 0,
+      "limit_down_days": 0,
+      "limit_timeline": null,
+      "limit_up_days": 0,
+      "listed_date": 1596124800,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0.005492917,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 0.8871405317,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 14360777713.060001,
+      "price": 34.78,
+      "sell_lock_volume_ratio": 1.5838e-06,
+      "stock_chi_name": "起帆电缆",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "605222.SS",
+        "stock_reason": "1、公司产品成功应用于 FAST 望远镜工程、C919大飞机工程、太原卫星发射中心、上海轨道交通等重点工程中；一季度净利润同比增加36.27%；\n2、公司可用于核电领域的产品有核电站用防火电力及信号组合电缆、核电站用铝合金导体组合电缆等系列，风电领域有风电用橡皮绝缘系列耐寒耐扭曲等电缆产品",
+        "related_plates": [
+          {
+            "plate_id": 51018737,
+            "plate_name": "航天",
+            "plate_reason": "SpaceX最早有望于年中完成挂牌上市"
+          },
+          {
+            "plate_id": 5433758,
+            "plate_name": "业绩增长",
+            "plate_reason": "年报及一季报密集披露"
+          }
+        ]
+      },
+      "symbol": "605222.SS",
+      "total_capital": 14360777713.060001,
+      "turnover_ratio": 0.0825259686,
+      "volume_bias_ratio": 1.5229187896,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 1777527673,
+      "yesterday_last_limit_up": 1777527673,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 1
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0.0002098503,
+      "change_percent": -0.0196936543,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 0,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 1,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 0,
+      "last_limit_up": 0,
+      "limit_down_days": 0,
+      "limit_timeline": null,
+      "limit_up_days": 0,
+      "listed_date": 890928000,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0.0022371365,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 3.48,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 2789313470.7200003,
+      "price": 4.48,
+      "sell_lock_volume_ratio": 0.0002877884,
+      "stock_chi_name": "华神科技",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "000790.SZ",
+        "stock_reason": "1、公司拥有三七通舒胶囊、鼻渊舒口服液、活力苏口服液等26个药品注册生产品种；一季度净利润同比增长116.56%；\n2、在合成生物领域，力争建立以合成生物及绿色化学合成为核心的新业务赛道增长极，巩固和增强公司产业竞争力",
+        "related_plates": [
+          {
+            "plate_id": 5433758,
+            "plate_name": "业绩增长",
+            "plate_reason": "年报及一季报密集披露"
+          }
+        ]
+      },
+      "symbol": "000790.SZ",
+      "total_capital": 2794262750.7200003,
+      "turnover_ratio": 0.1434596024,
+      "volume_bias_ratio": 3.8941807488,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 1777513773,
+      "yesterday_last_limit_up": 1777513773,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 1
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 1.46098e-05,
+      "change_percent": 0.029658285,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 0,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 1,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 0,
+      "last_limit_up": 0,
+      "limit_down_days": 0,
+      "limit_timeline": null,
+      "limit_up_days": 0,
+      "listed_date": 703094400,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0.0025109856,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 14.97,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 5532775262.68,
+      "price": 15.97,
+      "sell_lock_volume_ratio": 5.1721e-06,
+      "stock_chi_name": "全新好",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "000007.SZ",
+        "stock_reason": "子公司江门市都合纸业科技业务，由子公司零度大健康与都合纸业开展经营，后者拥有日本eleten 株式会社世界专利技术的授权；江门都合具有出口经营权，主要从事杀菌纸巾类产品及日常用品的贸易",
+        "related_plates": [
+          {
+            "plate_id": 6346009,
+            "plate_name": "大消费",
+            "plate_reason": "中共中央政治局召开会议，分析研究当前经济形势和经济工作"
+          }
+        ]
+      },
+      "symbol": "000007.SZ",
+      "total_capital": 5532775262.68,
+      "turnover_ratio": 0.0512745744,
+      "volume_bias_ratio": 2.1409396814,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 1777527153,
+      "yesterday_last_limit_up": 1777527153,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 1
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0.0002384999,
+      "change_percent": 0.0011547344,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 0,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 7.27,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 0,
+      "last_limit_up": 0,
+      "limit_down_days": 0,
+      "limit_timeline": null,
+      "limit_up_days": 0,
+      "listed_date": 1607961600,
+      "m_days_n_boards_boards": 2,
+      "m_days_n_boards_days": 3,
+      "mtm": -0.0030663089,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 2.5777166437,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 10643981863.230001,
+      "price": 26.01,
+      "sell_lock_volume_ratio": 8.98738e-05,
+      "stock_chi_name": "舒华体育",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "605299.SS",
+        "stock_reason": "公司位于福建泉州，国内最具实力的健身器材和展示架制造企业之一；一季度净利润同比增长212.79%",
+        "related_plates": [
+          {
+            "plate_id": 13960785,
+            "plate_name": "体育产业",
+            "plate_reason": "美加墨世界杯将于6月11日至7月19日举行"
+          }
+        ]
+      },
+      "symbol": "605299.SS",
+      "total_capital": 10643981863.230001,
+      "turnover_ratio": 0.1598403215,
+      "volume_bias_ratio": 1.5918406935,
+      "yesterday_break_limit_up_times": 6,
+      "yesterday_first_limit_up": 1777512854,
+      "yesterday_last_limit_up": 1777513163,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 2
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0.0001231356,
+      "change_percent": 0.0136432542,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 0,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 20.44,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 0,
+      "last_limit_up": 0,
+      "limit_down_days": 0,
+      "limit_timeline": null,
+      "limit_up_days": 0,
+      "listed_date": 1494777600,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0.0012478163,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 0.9628180039,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 5204871671.28,
+      "price": 40.12,
+      "sell_lock_volume_ratio": 0.0001772154,
+      "stock_chi_name": "香山股份",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "002870.SZ",
+        "stock_reason": "公司旗下均胜群英参与了贾维斯JARVIS的人形机器人智能表面、执行器方面的研发、生产工作",
+        "related_plates": [
+          {
+            "plate_id": 26346142,
+            "plate_name": "机器人",
+            "plate_reason": "宇树双臂人形机器人发布"
+          }
+        ]
+      },
+      "symbol": "002870.SZ",
+      "total_capital": 5298874516.32,
+      "turnover_ratio": 0.073535175,
+      "volume_bias_ratio": 2.479392517,
+      "yesterday_break_limit_up_times": 1,
+      "yesterday_first_limit_up": 1777518963,
+      "yesterday_last_limit_up": 1777526301,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 1
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0.0148833371,
+      "change_percent": 0.1,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 0,
+      "first_limit_up": 1778031672,
+      "is_new_stock": false,
+      "issue_price": 12.8,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 0,
+      "last_limit_up": 1778031672,
+      "limit_down_days": 0,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1778031672,
+            "status": 1
+          }
+        ]
+      },
+      "limit_up_days": 4,
+      "listed_date": 1163952000,
+      "m_days_n_boards_boards": 9,
+      "m_days_n_boards_days": 11,
+      "mtm": 0,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": -0.49296875,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 17161139432.36,
+      "price": 6.49,
+      "sell_lock_volume_ratio": 0,
+      "stock_chi_name": "金 螳 螂",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "002081.SZ",
+        "stock_reason": "公司曾中标海南商业航天发射场项目，目前该工程已完工并投入使用，已为多次卫星发射任务提供稳定保障",
+        "related_plates": [
+          {
+            "plate_id": 51018737,
+            "plate_name": "航天",
+            "plate_reason": "SpaceX最早有望于年中完成挂牌上市"
+          }
+        ]
+      },
+      "symbol": "002081.SZ",
+      "total_capital": 17233050741.61,
+      "turnover_ratio": 0.102186979,
+      "volume_bias_ratio": 0.607415852,
+      "yesterday_break_limit_up_times": 1,
+      "yesterday_first_limit_up": 1777515855,
+      "yesterday_last_limit_up": 1777527282,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 3
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 6.34425e-05,
+      "change_percent": 0.0221631206,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 0,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 6.8,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 0,
+      "last_limit_up": 0,
+      "limit_down_days": 0,
+      "limit_timeline": null,
+      "limit_up_days": 0,
+      "listed_date": 969552000,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": -0.0034572169,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 0.6955882353,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 21796455848.28,
+      "price": 11.53,
+      "sell_lock_volume_ratio": 0.000181188,
+      "stock_chi_name": "万通发展",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "600246.SS",
+        "stock_reason": "公司拟投资8.54亿元取得数渡科技62.98%股权，标的PCIe5.0交换芯片有望于2025年底逐步开始批量供货",
+        "related_plates": [
+          {
+            "plate_id": 31765737,
+            "plate_name": "国产芯片",
+            "plate_reason": "英伟达、寒武纪等股价创历史新高，英特尔4月涨幅翻倍"
+          }
+        ]
+      },
+      "symbol": "600246.SS",
+      "total_capital": 22402645598.28,
+      "turnover_ratio": 0.1086653022,
+      "volume_bias_ratio": 1.8551835024,
+      "yesterday_break_limit_up_times": 3,
+      "yesterday_first_limit_up": 1777515470,
+      "yesterday_last_limit_up": 1777525946,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 1
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0.0003708508,
+      "change_percent": 0.043956044,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 0,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 5,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 0,
+      "last_limit_up": 0,
+      "limit_down_days": 0,
+      "limit_timeline": null,
+      "limit_up_days": 0,
+      "listed_date": 1000051200,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0.0070671378,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": -0.43,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 3151245000,
+      "price": 2.85,
+      "sell_lock_volume_ratio": 0.0002722515,
+      "stock_chi_name": "津投城开",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "600322.SS",
+        "stock_reason": "公司拟通过资产置换向能源产业转型，主营业务将由房地产开发经营业务变更为供热及新能源发电等业务",
+        "related_plates": [
+          {
+            "plate_id": 17236249,
+            "plate_name": "房地产",
+            "plate_reason": "深圳进一步优化调整房地产相关政策；中共中央政治局会议：努力稳定房地产市场"
+          }
+        ]
+      },
+      "symbol": "600322.SS",
+      "total_capital": 3151245000,
+      "turnover_ratio": 0.1188873609,
+      "volume_bias_ratio": 4.6799215561,
+      "yesterday_break_limit_up_times": 7,
+      "yesterday_first_limit_up": 1777513130,
+      "yesterday_last_limit_up": 1777525805,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 1
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 6.004e-07,
+      "change_percent": 0.0341154934,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 0,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 15.7,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 0,
+      "last_limit_up": 0,
+      "limit_down_days": 0,
+      "limit_timeline": null,
+      "limit_up_days": 0,
+      "listed_date": 1211472000,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0.0024197451,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 2.9579617834,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 56728147985.08,
+      "price": 62.14,
+      "sell_lock_volume_ratio": 2.44955e-05,
+      "stock_chi_name": "盛新锂能",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "002240.SZ",
+        "stock_reason": "公司在阿根廷的SDLA盐湖项目年产能为2500吨碳酸锂当量，为在产项目，目前生产情况正常；一季度净利润同比扭亏",
+        "related_plates": [
+          {
+            "plate_id": 17032337,
+            "plate_name": "锂电池",
+            "plate_reason": "电池级碳酸锂价格持续上涨"
+          },
+          {
+            "plate_id": 5433758,
+            "plate_name": "业绩增长",
+            "plate_reason": "年报及一季报密集披露"
+          }
+        ]
+      },
+      "symbol": "002240.SZ",
+      "total_capital": 56876361206.08,
+      "turnover_ratio": 0.0877436441,
+      "volume_bias_ratio": 1.2187000665,
+      "yesterday_break_limit_up_times": 1,
+      "yesterday_first_limit_up": 1777514112,
+      "yesterday_last_limit_up": 1777530609,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 1
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 1,
+      "buy_lock_volume_ratio": 0.0003590511,
+      "change_percent": -0.0051282051,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 1778032548,
+      "first_limit_down": 0,
+      "first_limit_up": 1778030700,
+      "is_new_stock": false,
+      "issue_price": 1,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 1778032548,
+      "last_limit_down": 0,
+      "last_limit_up": 1778030700,
+      "limit_down_days": 0,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1778030700,
+            "status": 1
+          },
+          {
+            "timestamp": 1778032548,
+            "status": 2
+          }
+        ]
+      },
+      "limit_up_days": 0,
+      "listed_date": 867254400,
+      "m_days_n_boards_boards": 3,
+      "m_days_n_boards_days": 5,
+      "mtm": 0.0051813472,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 0.94,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 2044305758.7,
+      "price": 1.94,
+      "sell_lock_volume_ratio": 6.89808e-05,
+      "stock_chi_name": "*ST发展",
+      "stock_type": 1,
+      "surge_reason": {
+        "symbol": "000838.SZ",
+        "stock_reason": "重庆地区优质地产商",
+        "related_plates": [
+          {
+            "plate_id": 24898553,
+            "plate_name": "ST股"
+          }
+        ]
+      },
+      "symbol": "000838.SZ",
+      "total_capital": 2134896609.8,
+      "turnover_ratio": 0.081023802,
+      "volume_bias_ratio": 1.1921853182,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 1777512600,
+      "yesterday_last_limit_up": 1777512600,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 1
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0.0001001028,
+      "change_percent": 0.0040866367,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 0,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 7.39,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 0,
+      "last_limit_up": 0,
+      "limit_down_days": 0,
+      "limit_timeline": null,
+      "limit_up_days": 0,
+      "listed_date": 1491408000,
+      "m_days_n_boards_boards": 2,
+      "m_days_n_boards_days": 3,
+      "mtm": 0.0012224939,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 2.3247631935,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 5434774860.06,
+      "price": 24.57,
+      "sell_lock_volume_ratio": 0.0001767476,
+      "stock_chi_name": "光莆股份",
+      "stock_type": 4,
+      "surge_reason": {
+        "symbol": "300632.SZ",
+        "stock_reason": "公司拟向上海赛勒光电增资5000万，联合开发光通信模块的光引擎产品",
+        "related_plates": [
+          {
+            "plate_id": 18129294,
+            "plate_name": "光通信"
+          }
+        ]
+      },
+      "symbol": "300632.SZ",
+      "total_capital": 7498312403.4,
+      "turnover_ratio": 0.3908039736,
+      "volume_bias_ratio": 3.6406469212,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 1777512600,
+      "yesterday_last_limit_up": 1777512600,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 2
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 1.1569e-06,
+      "change_percent": 0.0279515246,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 0,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 2.29,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 0,
+      "last_limit_up": 0,
+      "limit_down_days": 0,
+      "limit_timeline": null,
+      "limit_up_days": 0,
+      "listed_date": 1450800000,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0.0003804451,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 21.9650655022,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 10175903259.570002,
+      "price": 52.59,
+      "sell_lock_volume_ratio": 3.64431e-05,
+      "stock_chi_name": "万里石",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "002785.SZ",
+        "stock_reason": "1、A股首家石材上市公司，5000吨电池级碳酸锂后端生产线已试生产并少量销售；\n2、控股子公司拟收购赛富矿业和唐资源全部股权，双方将在铀矿（核电主要原料）等战略性矿种领域的矿产勘查、矿权投资、矿业开发等产业协同方面开展深度合作",
+        "related_plates": [
+          {
+            "plate_id": 17032337,
+            "plate_name": "锂电池",
+            "plate_reason": "电池级碳酸锂价格持续上涨"
+          }
+        ]
+      },
+      "symbol": "002785.SZ",
+      "total_capital": 11917929760.050001,
+      "turnover_ratio": 0.1065794855,
+      "volume_bias_ratio": 1.3980817104,
+      "yesterday_break_limit_up_times": 6,
+      "yesterday_first_limit_up": 1777516080,
+      "yesterday_last_limit_up": 1777531365,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 1
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0.0012555428,
+      "change_percent": 0.0228630813,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 0,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 11.42,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 0,
+      "last_limit_up": 0,
+      "limit_down_days": 0,
+      "limit_timeline": null,
+      "limit_up_days": 0,
+      "listed_date": 1484755200,
+      "m_days_n_boards_boards": 2,
+      "m_days_n_boards_days": 3,
+      "mtm": 0.0005082592,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 2.4474605954,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 10569363073.83,
+      "price": 39.37,
+      "sell_lock_volume_ratio": 0.0001814966,
+      "stock_chi_name": "翔鹭钨业",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "002842.SZ",
+        "stock_reason": "公司是国内钨行业具备完整产业链的企业之一，一季度净利润同比增长2917.13%",
+        "related_plates": [
+          {
+            "plate_id": 23460626,
+            "plate_name": "有色金属"
+          },
+          {
+            "plate_id": 5433758,
+            "plate_name": "业绩增长",
+            "plate_reason": "年报及一季报密集披露"
+          }
+        ]
+      },
+      "symbol": "002842.SZ",
+      "total_capital": 12880778254.14,
+      "turnover_ratio": 0.3514622659,
+      "volume_bias_ratio": 1.9692808358,
+      "yesterday_break_limit_up_times": 22,
+      "yesterday_first_limit_up": 1777512771,
+      "yesterday_last_limit_up": 1777528860,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 2
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0.000118388,
+      "change_percent": 0.059946714,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 0,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 10.09,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 0,
+      "last_limit_up": 0,
+      "limit_down_days": 0,
+      "limit_timeline": null,
+      "limit_up_days": 0,
+      "listed_date": 1465228800,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": -0.0004187605,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 1.3657086224,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 8041975341.400001,
+      "price": 23.87,
+      "sell_lock_volume_ratio": 9.93385e-05,
+      "stock_chi_name": "上海沪工",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "603131.SS",
+        "stock_reason": "公司的航天业务板块由两部分构成，华宇科技为航天装备制造平台、沪航卫星科技为卫星业务平台；公司具备专业的商业卫星AIT生产能力，可同时在线装配多颗50KG以下的商业卫星；一季度净利润同比增长39.52%",
+        "related_plates": [
+          {
+            "plate_id": 51018737,
+            "plate_name": "航天",
+            "plate_reason": "SpaceX最早有望于年中完成挂牌上市"
+          },
+          {
+            "plate_id": 5433758,
+            "plate_name": "业绩增长",
+            "plate_reason": "年报及一季报密集披露"
+          }
+        ]
+      },
+      "symbol": "603131.SS",
+      "total_capital": 8041975341.400001,
+      "turnover_ratio": 0.1185576462,
+      "volume_bias_ratio": 4.4350280472,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 1777516165,
+      "yesterday_last_limit_up": 1777516165,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 1
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0.0001337299,
+      "change_percent": 0.0112044818,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 0,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 14.18,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 0,
+      "last_limit_up": 0,
+      "limit_down_days": 0,
+      "limit_timeline": null,
+      "limit_up_days": 0,
+      "listed_date": 1511971200,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": -0.002073255,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 0.0183356841,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 5961902004,
+      "price": 14.44,
+      "sell_lock_volume_ratio": 8.9411e-05,
+      "stock_chi_name": "香飘飘",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "603711.SS",
+        "stock_reason": "国内杯装冲泡奶茶龙头，一季度业绩同比扭亏为盈",
+        "related_plates": [
+          {
+            "plate_id": 6346009,
+            "plate_name": "大消费",
+            "plate_reason": "中共中央政治局召开会议，分析研究当前经济形势和经济工作"
+          },
+          {
+            "plate_id": 5433758,
+            "plate_name": "业绩增长",
+            "plate_reason": "年报及一季报密集披露"
+          }
+        ]
+      },
+      "symbol": "603711.SS",
+      "total_capital": 5961902004,
+      "turnover_ratio": 0.0600147503,
+      "volume_bias_ratio": 5.3683392263,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 1777513246,
+      "yesterday_last_limit_up": 1777513246,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 1
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0.0108196049,
+      "change_percent": 0.0999657651,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 0,
+      "first_limit_up": 1778031624,
+      "is_new_stock": false,
+      "issue_price": 24.52,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 0,
+      "last_limit_up": 1778031624,
+      "limit_down_days": 0,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1778031624,
+            "status": 1
+          }
+        ]
+      },
+      "limit_up_days": 2,
+      "listed_date": 1591718400,
+      "m_days_n_boards_boards": 3,
+      "m_days_n_boards_days": 4,
+      "mtm": 0,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 0.3103588907,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 5890604668.830001,
+      "price": 32.13,
+      "sell_lock_volume_ratio": 0,
+      "stock_chi_name": "中天精装",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "002989.SZ",
+        "stock_reason": "公司布局半导体行业的高端载板、存储封测及智能存储芯片领域",
+        "related_plates": [
+          {
+            "plate_id": 31765737,
+            "plate_name": "国产芯片",
+            "plate_reason": "英伟达、寒武纪等股价创历史新高，英特尔4月涨幅翻倍"
+          }
+        ]
+      },
+      "symbol": "002989.SZ",
+      "total_capital": 6477884841.330001,
+      "turnover_ratio": 0.0574046127,
+      "volume_bias_ratio": 1.7550438245,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 1777526835,
+      "yesterday_last_limit_up": 1777526835,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 1
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0.0226266269,
+      "change_percent": 0.1001191895,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 0,
+      "first_limit_up": 1778031033,
+      "is_new_stock": false,
+      "issue_price": 2.76,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 0,
+      "last_limit_up": 1778031033,
+      "limit_down_days": 0,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1778031033,
+            "status": 1
+          }
+        ]
+      },
+      "limit_up_days": 4,
+      "listed_date": 1011110400,
+      "m_days_n_boards_boards": 4,
+      "m_days_n_boards_days": 4,
+      "mtm": 0,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 5.6884057971,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 6095520871.440001,
+      "price": 18.46,
+      "sell_lock_volume_ratio": 0,
+      "stock_chi_name": "宝光股份",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "600379.SS",
+        "stock_reason": "公司控股子公司宝光联悦拓展电子特气领域，核心产品5N级纯度的高纯氢气，已在高端半导体行业实现批量应用，用于晶圆退火、外延生长等关键工艺",
+        "related_plates": [
+          {
+            "plate_id": 31765737,
+            "plate_name": "国产芯片",
+            "plate_reason": "英伟达、寒武纪等股价创历史新高，英特尔4月涨幅翻倍"
+          }
+        ]
+      },
+      "symbol": "600379.SS",
+      "total_capital": 6095520871.440001,
+      "turnover_ratio": 0.0812076499,
+      "volume_bias_ratio": 0.7153110248,
+      "yesterday_break_limit_up_times": 2,
+      "yesterday_first_limit_up": 1777512611,
+      "yesterday_last_limit_up": 1777514036,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 3
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0.0044155455,
+      "change_percent": 0.1001251564,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 0,
+      "first_limit_up": 1778033004,
+      "is_new_stock": false,
+      "issue_price": 5.89,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 0,
+      "last_limit_up": 1778033004,
+      "limit_down_days": 0,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1778033004,
+            "status": 1
+          }
+        ]
+      },
+      "limit_up_days": 2,
+      "listed_date": 870278400,
+      "m_days_n_boards_boards": 2,
+      "m_days_n_boards_days": 2,
+      "mtm": 0,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 0.4923599321,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 48609341212.92,
+      "price": 8.79,
+      "sell_lock_volume_ratio": 0,
+      "stock_chi_name": "长江证券",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "000783.SZ",
+        "stock_reason": "公司一季度净利润同比增长51.73%",
+        "related_plates": [
+          {
+            "plate_id": 39931294,
+            "plate_name": "大金融",
+            "plate_reason": "多家券商一季报净利润同比增长超50%"
+          },
+          {
+            "plate_id": 5433758,
+            "plate_name": "业绩增长",
+            "plate_reason": "年报及一季报密集披露"
+          }
+        ]
+      },
+      "symbol": "000783.SZ",
+      "total_capital": 48609341212.92,
+      "turnover_ratio": 0.0496711565,
+      "volume_bias_ratio": 2.7366882246,
+      "yesterday_break_limit_up_times": 2,
+      "yesterday_first_limit_up": 1777513059,
+      "yesterday_last_limit_up": 1777515798,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 1
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0.0007669288,
+      "change_percent": 0.0054644809,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 0,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 9.99,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 0,
+      "last_limit_up": 0,
+      "limit_down_days": 0,
+      "limit_timeline": null,
+      "limit_up_days": 0,
+      "listed_date": 1339430400,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0.0021786492,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": -0.0790790791,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 9269511207.199999,
+      "price": 9.2,
+      "sell_lock_volume_ratio": 8.22176e-05,
+      "stock_chi_name": "华东重机",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "002685.SZ",
+        "stock_reason": "1、公司拟收购锐信图芯股权并增资，交易完成后，公司持有锐信图芯43.18%股权，锐信图芯主营业务为GPU芯片及解决方案；一季度净利润同比增长57.52%；\n2、全资子公司润星科技主要产品包括中高档数控机床、工业机器人、以及自动化交钥匙工程等",
+        "related_plates": [
+          {
+            "plate_id": 31765737,
+            "plate_name": "国产芯片",
+            "plate_reason": "英伟达、寒武纪等股价创历史新高，英特尔4月涨幅翻倍"
+          },
+          {
+            "plate_id": 5433758,
+            "plate_name": "业绩增长",
+            "plate_reason": "年报及一季报密集披露"
+          }
+        ]
+      },
+      "symbol": "002685.SZ",
+      "total_capital": 9270753897.199999,
+      "turnover_ratio": 0.164642856,
+      "volume_bias_ratio": 2.1050623219,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 1777529703,
+      "yesterday_last_limit_up": 1777529703,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 1
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0.0012302433,
+      "change_percent": -0.0542244641,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 0,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 4.1,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 0,
+      "last_limit_up": 0,
+      "limit_down_days": 0,
+      "limit_timeline": null,
+      "limit_up_days": 0,
+      "listed_date": 910713600,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0.0033444816,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 6.3170731707,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 13611060780,
+      "price": 30,
+      "sell_lock_volume_ratio": 0.0004165007,
+      "stock_chi_name": "粤桂股份",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "000833.SZ",
+        "stock_reason": "1、公司以硫化工产业为依托，投资建设广东省内唯一优质工业磷酸生产项目-10万吨/年湿法精制硫酸项目，实现与新能源材料产业对接；子公司云硫矿业主要产品是硫精矿、铁矿粉、硫酸和磷肥；一季度净利润同比增长84.56%；\n2、孙公司华晶科技银粉项目一期已投产并实现销售，二期计划2025年投产，切入光伏银粉赛道；\n3、公司机制糖业务行业知名度高，子公司贵糖集团位列广西十大糖业集团，制糖生产能力为日榨甘蔗1.2万吨，年甘蔗入榨需求量为130万吨",
+        "related_plates": [
+          {
+            "plate_id": 5433758,
+            "plate_name": "业绩增长",
+            "plate_reason": "年报及一季报密集披露"
+          }
+        ]
+      },
+      "symbol": "000833.SZ",
+      "total_capital": 24062466630,
+      "turnover_ratio": 0.2034597152,
+      "volume_bias_ratio": 1.6702217877,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 1777527702,
+      "yesterday_last_limit_up": 1777527702,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 1
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0.0035061602,
+      "change_percent": 0.0999637812,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 0,
+      "first_limit_up": 1778036274,
+      "is_new_stock": false,
+      "issue_price": 9.08,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 0,
+      "last_limit_up": 1778036274,
+      "limit_down_days": 0,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1778036274,
+            "status": 1
+          }
+        ]
+      },
+      "limit_up_days": 2,
+      "listed_date": 1187280000,
+      "m_days_n_boards_boards": 2,
+      "m_days_n_boards_days": 2,
+      "mtm": 0,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 2.3447136564,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 16204424444.880001,
+      "price": 30.37,
+      "sell_lock_volume_ratio": 0,
+      "stock_chi_name": "汉钟精机",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "002158.SZ",
+        "stock_reason": "公司制冷压缩机可用于数据中心液冷环节",
+        "related_plates": [
+          {
+            "plate_id": 17928146,
+            "plate_name": "云计算数据中心",
+            "plate_reason": "腾讯云上调CodeBuddy、WorkBuddy计费方案"
+          }
+        ]
+      },
+      "symbol": "002158.SZ",
+      "total_capital": 16239572101.43,
+      "turnover_ratio": 0.0540791963,
+      "volume_bias_ratio": 3.2688581883,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 1777527156,
+      "yesterday_last_limit_up": 1777527156,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 1
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 4.72398e-05,
+      "change_percent": 0.1113115641,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 0,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 0,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 0,
+      "last_limit_up": 0,
+      "limit_down_days": 0,
+      "limit_timeline": null,
+      "limit_up_days": 0,
+      "listed_date": 1608220800,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0.0013003901,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 0,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 6779981824,
+      "price": 61.6,
+      "sell_lock_volume_ratio": 2.77567e-05,
+      "stock_chi_name": "明微电子",
+      "stock_type": 2,
+      "surge_reason": {
+        "symbol": "688699.SS",
+        "stock_reason": "公司专注于数模混合及模拟集成电路领域，主要产品包括 LED 显示驱动芯片、LED 照明驱动芯片等；一季度净利润同比增长171.15%",
+        "related_plates": [
+          {
+            "plate_id": 31765737,
+            "plate_name": "国产芯片",
+            "plate_reason": "英伟达、寒武纪等股价创历史新高，英特尔4月涨幅翻倍"
+          },
+          {
+            "plate_id": 5433758,
+            "plate_name": "业绩增长",
+            "plate_reason": "年报及一季报密集披露"
+          }
+        ]
+      },
+      "symbol": "688699.SS",
+      "total_capital": 6779981824,
+      "turnover_ratio": 0.1489448655,
+      "volume_bias_ratio": 4.8686038845,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 1777513058,
+      "yesterday_last_limit_up": 1777513058,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 1
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0.0004205121,
+      "change_percent": 0.0603773585,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 0,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 9.85,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 0,
+      "last_limit_up": 0,
+      "limit_down_days": 0,
+      "limit_timeline": null,
+      "limit_up_days": 0,
+      "listed_date": 1426780800,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0.0035714286,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": -0.7147208122,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 3700583191.2000003,
+      "price": 2.81,
+      "sell_lock_volume_ratio": 0.0003510046,
+      "stock_chi_name": "全筑股份",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "603030.SS",
+        "stock_reason": "公司主营建筑装饰工程，表示研发智能建筑装饰施工机器人；一季度净利润同比增长111.73%",
+        "related_plates": [
+          {
+            "plate_id": 5433758,
+            "plate_name": "业绩增长",
+            "plate_reason": "年报及一季报密集披露"
+          }
+        ]
+      },
+      "symbol": "603030.SS",
+      "total_capital": 3700583191.2000003,
+      "turnover_ratio": 0.102000574,
+      "volume_bias_ratio": 3.0374891234,
+      "yesterday_break_limit_up_times": 1,
+      "yesterday_first_limit_up": 1777512600,
+      "yesterday_last_limit_up": 1777512691,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 1
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0.0173270384,
+      "change_percent": 0.100051573,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 0,
+      "first_limit_up": 1778030700,
+      "is_new_stock": false,
+      "issue_price": 7.8,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 0,
+      "last_limit_up": 1778030700,
+      "limit_down_days": 0,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1778030700,
+            "status": 1
+          }
+        ]
+      },
+      "limit_up_days": 4,
+      "listed_date": 1345737600,
+      "m_days_n_boards_boards": 4,
+      "m_days_n_boards_days": 4,
+      "mtm": 0,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 1.7346153846,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 10927159543.17,
+      "price": 21.33,
+      "sell_lock_volume_ratio": 0,
+      "stock_chi_name": "永杉锂业",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "603399.SS",
+        "stock_reason": "公司主要从事电池级碳酸锂和电池级氢氧化锂，已形成年产15000吨电池级氢氧化锂和10000吨电池级碳酸锂的生产能力；一季度净利润同比扭亏为盈",
+        "related_plates": [
+          {
+            "plate_id": 17032337,
+            "plate_name": "锂电池",
+            "plate_reason": "电池级碳酸锂价格持续上涨"
+          },
+          {
+            "plate_id": 5433758,
+            "plate_name": "业绩增长",
+            "plate_reason": "年报及一季报密集披露"
+          }
+        ]
+      },
+      "symbol": "603399.SS",
+      "total_capital": 10927159543.17,
+      "turnover_ratio": 0.0149090365,
+      "volume_bias_ratio": 0.145205667,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 1777512300,
+      "yesterday_last_limit_up": 1777512300,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 3
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 5.0397e-05,
+      "change_percent": 0.0157657658,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 0,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 5.7,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 0,
+      "last_limit_up": 0,
+      "limit_down_days": 0,
+      "limit_timeline": null,
+      "limit_up_days": 0,
+      "listed_date": 861033600,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": -0.0022123894,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": -0.2087719298,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 3807318281.91,
+      "price": 4.51,
+      "sell_lock_volume_ratio": 0.0001688333,
+      "stock_chi_name": "东望时代",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "600052.SS",
+        "stock_reason": "参股公司跃动新能源主要业务为锂离子动力电池系统及储能电池系统的研发、生产与销售",
+        "related_plates": [
+          {
+            "plate_id": 17032337,
+            "plate_name": "锂电池",
+            "plate_reason": "电池级碳酸锂价格持续上涨"
+          }
+        ]
+      },
+      "symbol": "600052.SS",
+      "total_capital": 3807318281.91,
+      "turnover_ratio": 0.1103514562,
+      "volume_bias_ratio": 1.2582378561,
+      "yesterday_break_limit_up_times": 2,
+      "yesterday_first_limit_up": 1777513370,
+      "yesterday_last_limit_up": 1777514069,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 1
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 1.37433e-05,
+      "change_percent": 0.0320102433,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 0,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 15.71,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 0,
+      "last_limit_up": 0,
+      "limit_down_days": 0,
+      "limit_timeline": null,
+      "limit_up_days": 0,
+      "listed_date": 1630857600,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": -0.0008264463,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 2.0782940802,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 4686163407.12,
+      "price": 48.36,
+      "sell_lock_volume_ratio": 1.1453e-06,
+      "stock_chi_name": "千味央厨",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "001215.SZ",
+        "stock_reason": "公司聚焦速冻面米制品餐饮市场，主营业务为面向餐饮企业的速冻面米制品的研产销；一季度净利润同比增长5.4%",
+        "related_plates": [
+          {
+            "plate_id": 6346009,
+            "plate_name": "大消费",
+            "plate_reason": "中共中央政治局召开会议，分析研究当前经济形势和经济工作"
+          },
+          {
+            "plate_id": 5433758,
+            "plate_name": "业绩增长",
+            "plate_reason": "年报及一季报密集披露"
+          }
+        ]
+      },
+      "symbol": "001215.SZ",
+      "total_capital": 4698679168.56,
+      "turnover_ratio": 0.0989295207,
+      "volume_bias_ratio": 0.9684909156,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 1777530144,
+      "yesterday_last_limit_up": 1777530144,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 1
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 5.08243e-05,
+      "change_percent": 0.0041517814,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 0,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 0,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 0,
+      "last_limit_up": 0,
+      "limit_down_days": 0,
+      "limit_timeline": null,
+      "limit_up_days": 0,
+      "listed_date": 1597075200,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0.0090229941,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 0,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 13149344832,
+      "price": 104,
+      "sell_lock_volume_ratio": 8.7192e-06,
+      "stock_chi_name": "先惠技术",
+      "stock_type": 2,
+      "surge_reason": {
+        "symbol": "688155.SS",
+        "stock_reason": "国内变速器、底盘系统智能制造装备领先供应商，子公司福建东恒深耕动力锂电池精密结构件领域，一季报净利润1.54亿，同比增长163.46%",
+        "related_plates": [
+          {
+            "plate_id": 17032337,
+            "plate_name": "锂电池",
+            "plate_reason": "电池级碳酸锂价格持续上涨"
+          },
+          {
+            "plate_id": 5433758,
+            "plate_name": "业绩增长",
+            "plate_reason": "年报及一季报密集披露"
+          }
+        ]
+      },
+      "symbol": "688155.SS",
+      "total_capital": 13149344832,
+      "turnover_ratio": 0.0929072595,
+      "volume_bias_ratio": 2.710438356,
+      "yesterday_break_limit_up_times": 1,
+      "yesterday_first_limit_up": 1777513012,
+      "yesterday_last_limit_up": 1777513090,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 1
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0.0002284425,
+      "change_percent": -0.0108695652,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 0,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 7.4,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 0,
+      "last_limit_up": 0,
+      "limit_down_days": 0,
+      "limit_timeline": null,
+      "limit_up_days": 0,
+      "listed_date": 978883200,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0.0073800738,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": -0.6310810811,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 6255445155.96,
+      "price": 2.73,
+      "sell_lock_volume_ratio": 0.0005891363,
+      "stock_chi_name": "红豆股份",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "600400.SS",
+        "stock_reason": "公司投资智能养老机器人项目，布局“人工智能+居家养老”领域",
+        "related_plates": [
+          {
+            "plate_id": 26346142,
+            "plate_name": "机器人",
+            "plate_reason": "宇树双臂人形机器人发布"
+          }
+        ]
+      },
+      "symbol": "600400.SS",
+      "total_capital": 6255445155.96,
+      "turnover_ratio": 0.0717298595,
+      "volume_bias_ratio": 1.1999362579,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 1777530893,
+      "yesterday_last_limit_up": 1777530893,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 1
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0.0004004286,
+      "change_percent": -0.0119363395,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 0,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 14.63,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 0,
+      "last_limit_up": 0,
+      "limit_down_days": 0,
+      "limit_timeline": null,
+      "limit_up_days": 0,
+      "listed_date": 1490544000,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0.0067567568,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": -0.4907723855,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 2161589488,
+      "price": 7.45,
+      "sell_lock_volume_ratio": 0.0001103067,
+      "stock_chi_name": "天域生物",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "603717.SS",
+        "stock_reason": "公司生猪养殖业务主要采用自繁自养的经营模式进行生猪养殖和销售，并辅以与个体养殖户进行合作的养殖回收模式",
+        "related_plates": [
+          {
+            "plate_id": -1,
+            "plate_name": "其他"
+          }
+        ]
+      },
+      "symbol": "603717.SS",
+      "total_capital": 2161589488,
+      "turnover_ratio": 0.0876450441,
+      "volume_bias_ratio": 2.4593313837,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 1777526366,
+      "yesterday_last_limit_up": 1777526366,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 1
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0.010136572,
+      "change_percent": 0.1,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 0,
+      "first_limit_up": 1778031531,
+      "is_new_stock": false,
+      "issue_price": 29.2,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 0,
+      "last_limit_up": 1778031531,
+      "limit_down_days": 0,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1778031531,
+            "status": 1
+          }
+        ]
+      },
+      "limit_up_days": 2,
+      "listed_date": 1656000000,
+      "m_days_n_boards_boards": 2,
+      "m_days_n_boards_days": 2,
+      "mtm": 0,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 0.9551369863,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 6353639442.150001,
+      "price": 57.09,
+      "sell_lock_volume_ratio": 0,
+      "stock_chi_name": "润贝航科",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "001316.SZ",
+        "stock_reason": "控股子公司杭州轻云将主要负责航空、航天先进复合材料的研发、生产；一季度净利润同比增长78.03%",
+        "related_plates": [
+          {
+            "plate_id": 51018737,
+            "plate_name": "航天",
+            "plate_reason": "SpaceX最早有望于年中完成挂牌上市"
+          },
+          {
+            "plate_id": 5433758,
+            "plate_name": "业绩增长",
+            "plate_reason": "年报及一季报密集披露"
+          }
+        ]
+      },
+      "symbol": "001316.SZ",
+      "total_capital": 6571939327.8,
+      "turnover_ratio": 0.0424687624,
+      "volume_bias_ratio": 2.0883784023,
+      "yesterday_break_limit_up_times": 2,
+      "yesterday_first_limit_up": 1777512636,
+      "yesterday_last_limit_up": 1777512783,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 1
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0.0225185397,
+      "change_percent": 0.0501672241,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 0,
+      "first_limit_up": 1778030701,
+      "is_new_stock": false,
+      "issue_price": 4.8,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 0,
+      "last_limit_up": 1778030701,
+      "limit_down_days": 0,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1778030701,
+            "status": 1
+          }
+        ]
+      },
+      "limit_up_days": 3,
+      "listed_date": 838310400,
+      "m_days_n_boards_boards": 3,
+      "m_days_n_boards_days": 3,
+      "mtm": 0,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 0.9625,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 5526299538.84,
+      "price": 9.42,
+      "sell_lock_volume_ratio": 0,
+      "stock_chi_name": "*ST高科",
+      "stock_type": 1,
+      "surge_reason": {
+        "symbol": "600730.SS",
+        "stock_reason": "公司主营职业教育；据公司官微，中国高科集团自主研发的AED-CPR心肺复苏一体机以及急救AI科普机器人经过选代发展，已获得较高的品牌知名度，布局覆盖海内外市场",
+        "related_plates": [
+          {
+            "plate_id": 24898553,
+            "plate_name": "ST股"
+          }
+        ]
+      },
+      "symbol": "600730.SS",
+      "total_capital": 5526299538.84,
+      "turnover_ratio": 0.0020991774,
+      "volume_bias_ratio": 0.0549458615,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 1777512301,
+      "yesterday_last_limit_up": 1777512301,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 2
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 3.46436e-05,
+      "change_percent": -0.0081173455,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 0,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 0,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 0,
+      "last_limit_up": 0,
+      "limit_down_days": 0,
+      "limit_timeline": null,
+      "limit_up_days": 0,
+      "listed_date": 1597680000,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 0,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 146519995057.80002,
+      "price": 278.6,
+      "sell_lock_volume_ratio": 2.58473e-05,
+      "stock_chi_name": "芯原股份",
+      "stock_type": 2,
+      "surge_reason": {
+        "symbol": "688521.SS",
+        "stock_reason": "公司为国内领先的芯片设计供应商，公司1月1日至4月29日新签订单金额提升至82.40亿元，AI算力相关订单占比超九成",
+        "related_plates": [
+          {
+            "plate_id": 31765737,
+            "plate_name": "国产芯片",
+            "plate_reason": "英伟达、寒武纪等股价创历史新高，英特尔4月涨幅翻倍"
+          }
+        ]
+      },
+      "symbol": "688521.SS",
+      "total_capital": 146519995057.80002,
+      "turnover_ratio": 0.0905947962,
+      "volume_bias_ratio": 1.7864712036,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 1777518544,
+      "yesterday_last_limit_up": 1777518544,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 1
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0.0004293215,
+      "change_percent": 0.0143156425,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 0,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 18.97,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 0,
+      "last_limit_up": 0,
+      "limit_down_days": 0,
+      "limit_timeline": null,
+      "limit_up_days": 0,
+      "listed_date": 1599667200,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0.0017241379,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 0.5313653137,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 4851866363.75,
+      "price": 29.05,
+      "sell_lock_volume_ratio": 3.09353e-05,
+      "stock_chi_name": "海昌新材",
+      "stock_type": 4,
+      "surge_reason": {
+        "symbol": "300885.SZ",
+        "stock_reason": "1、公司是国内领先的粉末冶金零部件生产企业之一，子公司扬州海越精齿精密科技有限公司主要研发电动工具用精密齿轮、工业机器人用精密零部件等；一季度净利润同比增长36.71%；\n2、公司拟收购深圳市信为通讯51%股权，标的公司主要研发生产销售GNSS天线定位领域射频核心部件及相关模组件，如高精度GNSS卫星定位天线、北斗卫星通信天线等",
+        "related_plates": [
+          {
+            "plate_id": 5433758,
+            "plate_name": "业绩增长",
+            "plate_reason": "年报及一季报密集披露"
+          },
+          {
+            "plate_id": 51018737,
+            "plate_name": "航天",
+            "plate_reason": "SpaceX最早有望于年中完成挂牌上市"
+          }
+        ]
+      },
+      "symbol": "300885.SZ",
+      "total_capital": 7208809790,
+      "turnover_ratio": 0.2064635037,
+      "volume_bias_ratio": 3.1679560605,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 1777516554,
+      "yesterday_last_limit_up": 1777516554,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 1
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0.0006875383,
+      "change_percent": 0.0031043849,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 0,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 27,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 0,
+      "last_limit_up": 0,
+      "limit_down_days": 0,
+      "limit_timeline": null,
+      "limit_up_days": 0,
+      "listed_date": 1324310400,
+      "m_days_n_boards_boards": 2,
+      "m_days_n_boards_days": 3,
+      "mtm": -0.0019305019,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": -0.0425925926,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 14448277193.35,
+      "price": 25.85,
+      "sell_lock_volume_ratio": 6.30503e-05,
+      "stock_chi_name": "华宏科技",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "002645.SZ",
+        "stock_reason": "公司生产的高性能磁材产品已经应用于新能源汽车电机、工业机器人电机、3C电子等高科技领域，25年净利润扭亏为盈",
+        "related_plates": [
+          {
+            "plate_id": 5433758,
+            "plate_name": "业绩增长",
+            "plate_reason": "年报及一季报密集披露"
+          }
+        ]
+      },
+      "symbol": "002645.SZ",
+      "total_capital": 16223469306,
+      "turnover_ratio": 0.1373569882,
+      "volume_bias_ratio": 2.45703157,
+      "yesterday_break_limit_up_times": 2,
+      "yesterday_first_limit_up": 1777512666,
+      "yesterday_last_limit_up": 1777514655,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 2
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 9,
+      "buy_lock_volume_ratio": 0.000149312,
+      "change_percent": 0.05,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 1778032073,
+      "first_limit_down": 0,
+      "first_limit_up": 1778030700,
+      "is_new_stock": false,
+      "issue_price": 13.64,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 1778044556,
+      "last_limit_down": 0,
+      "last_limit_up": 1778050800,
+      "limit_down_days": 0,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1778030700,
+            "status": 1
+          },
+          {
+            "timestamp": 1778032073,
+            "status": 2
+          },
+          {
+            "timestamp": 1778032360,
+            "status": 1
+          },
+          {
+            "timestamp": 1778032406,
+            "status": 2
+          },
+          {
+            "timestamp": 1778032424,
+            "status": 1
+          },
+          {
+            "timestamp": 1778032457,
+            "status": 2
+          },
+          {
+            "timestamp": 1778032472,
+            "status": 1
+          },
+          {
+            "timestamp": 1778032642,
+            "status": 2
+          },
+          {
+            "timestamp": 1778043605,
+            "status": 1
+          },
+          {
+            "timestamp": 1778043641,
+            "status": 2
+          },
+          {
+            "timestamp": 1778043764,
+            "status": 1
+          },
+          {
+            "timestamp": 1778043784,
+            "status": 2
+          },
+          {
+            "timestamp": 1778044424,
+            "status": 1
+          },
+          {
+            "timestamp": 1778044445,
+            "status": 2
+          },
+          {
+            "timestamp": 1778044479,
+            "status": 1
+          },
+          {
+            "timestamp": 1778044493,
+            "status": 2
+          },
+          {
+            "timestamp": 1778044543,
+            "status": 1
+          },
+          {
+            "timestamp": 1778044556,
+            "status": 2
+          },
+          {
+            "timestamp": 1778050800,
+            "status": 1
+          }
+        ]
+      },
+      "limit_up_days": 3,
+      "listed_date": 1652976000,
+      "m_days_n_boards_boards": 5,
+      "m_days_n_boards_days": 6,
+      "mtm": 0.019934759,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 1.0630498534,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 2916063780,
+      "price": 28.14,
+      "sell_lock_volume_ratio": 0,
+      "stock_chi_name": "*ST联翔",
+      "stock_type": 1,
+      "surge_reason": {
+        "symbol": "603272.SS",
+        "stock_reason": "A股首家墙布上市企业，控股股东拟协议转让5%股份",
+        "related_plates": [
+          {
+            "plate_id": 24898553,
+            "plate_name": "ST股"
+          }
+        ]
+      },
+      "symbol": "603272.SS",
+      "total_capital": 2916063780,
+      "turnover_ratio": 0.159813427,
+      "volume_bias_ratio": 2.3596795244,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 1777512301,
+      "yesterday_last_limit_up": 1777512301,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 2
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0.0005478967,
+      "change_percent": 0.0020554985,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 0,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 7.53,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 0,
+      "last_limit_up": 0,
+      "limit_down_days": 0,
+      "limit_timeline": null,
+      "limit_up_days": 0,
+      "listed_date": 1490630400,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": -0.0040858018,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 1.5896414343,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 4610031679.5,
+      "price": 19.5,
+      "sell_lock_volume_ratio": 4.69334e-05,
+      "stock_chi_name": "圣龙股份",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "603178.SS",
+        "stock_reason": "国内动力系统泵类产品龙头企业；公司在电机、减速器、控制器领域的技术积累，均可以支持对人形机器人相关领域的研发；一季度业绩同比扭亏",
+        "related_plates": [
+          {
+            "plate_id": 26346142,
+            "plate_name": "机器人",
+            "plate_reason": "宇树双臂人形机器人发布"
+          },
+          {
+            "plate_id": 5433758,
+            "plate_name": "业绩增长",
+            "plate_reason": "年报及一季报密集披露"
+          }
+        ]
+      },
+      "symbol": "603178.SS",
+      "total_capital": 4610031679.5,
+      "turnover_ratio": 0.1708439645,
+      "volume_bias_ratio": 1.4137482359,
+      "yesterday_break_limit_up_times": 2,
+      "yesterday_first_limit_up": 1777514213,
+      "yesterday_last_limit_up": 1777514525,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 1
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0.0006061856,
+      "change_percent": -0.005,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 0,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 2.4,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 0,
+      "last_limit_up": 0,
+      "limit_down_days": 0,
+      "limit_timeline": null,
+      "limit_up_days": 0,
+      "listed_date": 1160928000,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": -0.005,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": -0.1708333333,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 5293400000,
+      "price": 1.99,
+      "sell_lock_volume_ratio": 0.000231911,
+      "stock_chi_name": "北辰实业",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "601588.SS",
+        "stock_reason": "公司为北京国资委旗下公司，主营房地产，一季度业绩同比减亏",
+        "related_plates": [
+          {
+            "plate_id": 17236249,
+            "plate_name": "房地产",
+            "plate_reason": "深圳进一步优化调整房地产相关政策；中共中央政治局会议：努力稳定房地产市场"
+          },
+          {
+            "plate_id": 5433758,
+            "plate_name": "业绩增长",
+            "plate_reason": "年报及一季报密集披露"
+          }
+        ]
+      },
+      "symbol": "601588.SS",
+      "total_capital": 6700369800,
+      "turnover_ratio": 0.0440655673,
+      "volume_bias_ratio": 1.6694583786,
+      "yesterday_break_limit_up_times": 1,
+      "yesterday_first_limit_up": 1777514598,
+      "yesterday_last_limit_up": 1777514994,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 1
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0.0024774196,
+      "change_percent": 0.1002188184,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 0,
+      "first_limit_up": 1778037945,
+      "is_new_stock": false,
+      "issue_price": 5.8,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 0,
+      "last_limit_up": 1778037945,
+      "limit_down_days": 0,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1778037945,
+            "status": 1
+          }
+        ]
+      },
+      "limit_up_days": 3,
+      "listed_date": 1467820800,
+      "m_days_n_boards_boards": 3,
+      "m_days_n_boards_days": 3,
+      "mtm": 0,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 3.3344827586,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 7009417094.52,
+      "price": 25.14,
+      "sell_lock_volume_ratio": 0,
+      "stock_chi_name": "丰元股份",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "002805.SZ",
+        "stock_reason": "公司与中科院青能所共同成立了中科丰元研究院，在固态电池正极材料方面有相应研发布局并持续投入研发；一季度净利润同比增长185.59%",
+        "related_plates": [
+          {
+            "plate_id": 17032337,
+            "plate_name": "锂电池",
+            "plate_reason": "电池级碳酸锂价格持续上涨"
+          },
+          {
+            "plate_id": 5433758,
+            "plate_name": "业绩增长",
+            "plate_reason": "年报及一季报密集披露"
+          }
+        ]
+      },
+      "symbol": "002805.SZ",
+      "total_capital": 7040771451.12,
+      "turnover_ratio": 0.2487215139,
+      "volume_bias_ratio": 3.5684849907,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 1777512609,
+      "yesterday_last_limit_up": 1777512609,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 2
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 7.656e-06,
+      "change_percent": 0.0735546719,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 0,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 0,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 0,
+      "last_limit_up": 0,
+      "limit_down_days": 0,
+      "limit_timeline": null,
+      "limit_up_days": 0,
+      "listed_date": 1595174400,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": -0.0010509491,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 0,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 769575435250,
+      "price": 1825,
+      "sell_lock_volume_ratio": 8.0641e-06,
+      "stock_chi_name": "寒武纪",
+      "stock_type": 2,
+      "surge_reason": {
+        "symbol": "688256.SS",
+        "stock_reason": "国内AI芯片龙头，第一季度净利润同比增长185%，业绩变动主要系报告期内受益于人工智能行业算力需求的持续攀升，公司凭借产品的优异竞争力持续拓展市场，积极推动人工智能应用场景落地",
+        "related_plates": [
+          {
+            "plate_id": 31765737,
+            "plate_name": "国产芯片",
+            "plate_reason": "英伟达、寒武纪等股价创历史新高，英特尔4月涨幅翻倍"
+          },
+          {
+            "plate_id": 5433758,
+            "plate_name": "业绩增长",
+            "plate_reason": "年报及一季报密集披露"
+          }
+        ]
+      },
+      "symbol": "688256.SS",
+      "total_capital": 769575435250,
+      "turnover_ratio": 0.0469082776,
+      "volume_bias_ratio": 1.8341386453,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 1777527877,
+      "yesterday_last_limit_up": 1777527877,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 1
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0.0043009923,
+      "change_percent": 0.0997067449,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 0,
+      "first_limit_up": 1778034936,
+      "is_new_stock": false,
+      "issue_price": 3.1,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 0,
+      "last_limit_up": 1778034936,
+      "limit_down_days": 0,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1778034936,
+            "status": 1
+          }
+        ]
+      },
+      "limit_up_days": 2,
+      "listed_date": 754848000,
+      "m_days_n_boards_boards": 2,
+      "m_days_n_boards_days": 2,
+      "mtm": 0,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 1.4193548387,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 16328039707.5,
+      "price": 7.5,
+      "sell_lock_volume_ratio": 0,
+      "stock_chi_name": "安道麦A",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "000553.SZ",
+        "stock_reason": "公司主要产品为除草剂、杀虫剂和杀菌剂，一季度净利润5.69亿，同比增长276.65%",
+        "related_plates": [
+          {
+            "plate_id": 5433758,
+            "plate_name": "业绩增长",
+            "plate_reason": "年报及一季报密集披露"
+          }
+        ]
+      },
+      "symbol": "000553.SZ",
+      "total_capital": 17473588245,
+      "turnover_ratio": 0.0248637767,
+      "volume_bias_ratio": 6.1615251787,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 1777512300,
+      "yesterday_last_limit_up": 1777512300,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 1
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 2,
+      "buy_lock_volume_ratio": 0.0006226233,
+      "change_percent": 0.049983824,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 1778031289,
+      "first_limit_down": 0,
+      "first_limit_up": 1778031256,
+      "is_new_stock": false,
+      "issue_price": 7.79,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 1778031346,
+      "last_limit_down": 0,
+      "last_limit_up": 1778031509,
+      "limit_down_days": 0,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1778031256,
+            "status": 1
+          },
+          {
+            "timestamp": 1778031289,
+            "status": 2
+          },
+          {
+            "timestamp": 1778031341,
+            "status": 1
+          },
+          {
+            "timestamp": 1778031346,
+            "status": 2
+          },
+          {
+            "timestamp": 1778031509,
+            "status": 1
+          }
+        ]
+      },
+      "limit_up_days": 2,
+      "listed_date": 1481731200,
+      "m_days_n_boards_boards": 3,
+      "m_days_n_boards_days": 6,
+      "mtm": 0,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 7.3324775353,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 17055232320,
+      "price": 64.91,
+      "sell_lock_volume_ratio": 0,
+      "stock_chi_name": "*ST亚振",
+      "stock_type": 1,
+      "surge_reason": {
+        "symbol": "603389.SS",
+        "stock_reason": "公司主要从事中高端海派艺术家具产品的生产，25年净利润同比减亏",
+        "related_plates": [
+          {
+            "plate_id": 24898553,
+            "plate_name": "ST股"
+          }
+        ]
+      },
+      "symbol": "603389.SS",
+      "total_capital": 17055232320,
+      "turnover_ratio": 0.0042515147,
+      "volume_bias_ratio": 0.4112527243,
+      "yesterday_break_limit_up_times": 1,
+      "yesterday_first_limit_up": 1777528751,
+      "yesterday_last_limit_up": 1777529219,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 1
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0.0191150376,
+      "change_percent": 0.0500725689,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 0,
+      "first_limit_up": 1778030700,
+      "is_new_stock": false,
+      "issue_price": 11.61,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 0,
+      "last_limit_up": 1778030700,
+      "limit_down_days": 0,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1778030700,
+            "status": 1
+          }
+        ]
+      },
+      "limit_up_days": 2,
+      "listed_date": 1489939200,
+      "m_days_n_boards_boards": 2,
+      "m_days_n_boards_days": 2,
+      "mtm": 0,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 0.2463393626,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 1792897290.21,
+      "price": 14.47,
+      "sell_lock_volume_ratio": 0,
+      "stock_chi_name": "*ST美芝",
+      "stock_type": 1,
+      "surge_reason": {
+        "symbol": "002856.SZ",
+        "stock_reason": "公司主要业务为建筑装饰工程的设计与施工，承接项目类型主要有公共建筑装饰、住宅精装修和幕墙装饰；一季报净利润同比减亏",
+        "related_plates": [
+          {
+            "plate_id": 24898553,
+            "plate_name": "ST股"
+          }
+        ]
+      },
+      "symbol": "002856.SZ",
+      "total_capital": 1957976331.76,
+      "turnover_ratio": 0.0792387566,
+      "volume_bias_ratio": 1.1305368247,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 1777512300,
+      "yesterday_last_limit_up": 1777512300,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 1
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 4.3916e-05,
+      "change_percent": 0.0213279678,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 0,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 11.73,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 0,
+      "last_limit_up": 0,
+      "limit_down_days": 0,
+      "limit_timeline": null,
+      "limit_up_days": 0,
+      "listed_date": 1461168000,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": -0.0003938558,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 1.1636828645,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 4687843356,
+      "price": 25.38,
+      "sell_lock_volume_ratio": 6.3239e-06,
+      "stock_chi_name": "朗迪集团",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "603726.SS",
+        "stock_reason": "公司间接持有长鑫科技集团0.066%股份；一季度净利润同比增加133.72%",
+        "related_plates": [
+          {
+            "plate_id": 31765737,
+            "plate_name": "国产芯片",
+            "plate_reason": "英伟达、寒武纪等股价创历史新高，英特尔4月涨幅翻倍"
+          },
+          {
+            "plate_id": 5433758,
+            "plate_name": "业绩增长",
+            "plate_reason": "年报及一季报密集披露"
+          }
+        ]
+      },
+      "symbol": "603726.SS",
+      "total_capital": 4711827456,
+      "turnover_ratio": 0.0753942098,
+      "volume_bias_ratio": 1.9824413202,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 1777513620,
+      "yesterday_last_limit_up": 1777513620,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 1
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0.0005881739,
+      "change_percent": -0.0412168793,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 0,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 36,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 0,
+      "last_limit_up": 0,
+      "limit_down_days": 0,
+      "limit_timeline": null,
+      "limit_up_days": 0,
+      "listed_date": 1274284800,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0.0030800821,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": -0.7286111111,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 14578034030.779999,
+      "price": 9.77,
+      "sell_lock_volume_ratio": 0.0001389736,
+      "stock_chi_name": "创世纪",
+      "stock_type": 4,
+      "surge_reason": {
+        "symbol": "300083.SZ",
+        "stock_reason": "1、公司定增获审核通过；\n2、公司针对AI液冷服务器散热场景推出型材加工中心等组合方案，2025年已获多家液冷硬件厂商及代工厂订单，产品均价显著高于传统机型，26、27年出货量预期持续快速增长。",
+        "related_plates": [
+          {
+            "plate_id": 94875777,
+            "plate_name": "液冷服务器",
+            "plate_reason": "谷歌与Marvell洽谈开发两款新型芯片"
+          }
+        ]
+      },
+      "symbol": "300083.SZ",
+      "total_capital": 16265707494.529999,
+      "turnover_ratio": 0.1840500687,
+      "volume_bias_ratio": 2.1890006829,
+      "yesterday_break_limit_up_times": 30,
+      "yesterday_first_limit_up": 1777514142,
+      "yesterday_last_limit_up": 1777532181,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 1
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 2,
+      "buy_lock_volume_ratio": 0.003717763,
+      "change_percent": 0.1009463722,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 1778032059,
+      "first_limit_down": 0,
+      "first_limit_up": 1778032017,
+      "is_new_stock": false,
+      "issue_price": 3.68,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 1778032293,
+      "last_limit_down": 0,
+      "last_limit_up": 1778032296,
+      "limit_down_days": 0,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1778032017,
+            "status": 1
+          },
+          {
+            "timestamp": 1778032059,
+            "status": 2
+          },
+          {
+            "timestamp": 1778032227,
+            "status": 1
+          },
+          {
+            "timestamp": 1778032293,
+            "status": 2
+          },
+          {
+            "timestamp": 1778032296,
+            "status": 1
+          }
+        ]
+      },
+      "limit_up_days": 3,
+      "listed_date": 835718400,
+      "m_days_n_boards_boards": 3,
+      "m_days_n_boards_days": 3,
+      "mtm": 0,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": -0.0516304348,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 10430402275.03,
+      "price": 3.49,
+      "sell_lock_volume_ratio": 0,
+      "stock_chi_name": "金 融 街",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "000402.SZ",
+        "stock_reason": "以商务地产为主业的大型国有控股公司；一季度净利润34500.73万，同比增长190.39%",
+        "related_plates": [
+          {
+            "plate_id": 17236249,
+            "plate_name": "房地产",
+            "plate_reason": "深圳进一步优化调整房地产相关政策；中共中央政治局会议：努力稳定房地产市场"
+          },
+          {
+            "plate_id": 5433758,
+            "plate_name": "业绩增长",
+            "plate_reason": "年报及一季报密集披露"
+          }
+        ]
+      },
+      "symbol": "000402.SZ",
+      "total_capital": 10431365375.43,
+      "turnover_ratio": 0.07220766,
+      "volume_bias_ratio": 4.7181594859,
+      "yesterday_break_limit_up_times": 1,
+      "yesterday_first_limit_up": 1777512735,
+      "yesterday_last_limit_up": 1777512825,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 2
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0.0034670739,
+      "change_percent": 0.0500547046,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 0,
+      "first_limit_up": 1778030700,
+      "is_new_stock": false,
+      "issue_price": 15.88,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 0,
+      "last_limit_up": 1778030700,
+      "limit_down_days": 0,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1778030700,
+            "status": 1
+          }
+        ]
+      },
+      "limit_up_days": 5,
+      "listed_date": 1251907200,
+      "m_days_n_boards_boards": 7,
+      "m_days_n_boards_days": 10,
+      "mtm": 0,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 1.4175062972,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 10535415034.87,
+      "price": 38.39,
+      "sell_lock_volume_ratio": 0,
+      "stock_chi_name": "*ST宇顺",
+      "stock_type": 1,
+      "surge_reason": {
+        "symbol": "002289.SZ",
+        "stock_reason": "公司一季度净利润4926万",
+        "related_plates": [
+          {
+            "plate_id": 24898553,
+            "plate_name": "ST股"
+          }
+        ]
+      },
+      "symbol": "002289.SZ",
+      "total_capital": 10758940809.87,
+      "turnover_ratio": 0.0009178984,
+      "volume_bias_ratio": 0.112652499,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 1777512300,
+      "yesterday_last_limit_up": 1777512300,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 4
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 0.0001677642,
+      "change_percent": 0,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 0,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 5.7,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 0,
+      "last_limit_up": 0,
+      "limit_down_days": 0,
+      "limit_timeline": null,
+      "limit_up_days": 0,
+      "listed_date": 1265644800,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0.0022075055,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": -0.2035087719,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 31134334488.58,
+      "price": 4.54,
+      "sell_lock_volume_ratio": 6.5913e-06,
+      "stock_chi_name": "中国一重",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "601106.SS",
+        "stock_reason": "1、公司承制长征十二号商业航天首飞固定发射台及起竖架；一季报业绩同比扭亏为盈；\n2、公司生产了我国大多数的国产核电锻件、核反应堆压力容器，具备核岛一回路核电设备全覆盖制造能力",
+        "related_plates": [
+          {
+            "plate_id": 51018737,
+            "plate_name": "航天",
+            "plate_reason": "SpaceX最早有望于年中完成挂牌上市"
+          },
+          {
+            "plate_id": 5433758,
+            "plate_name": "业绩增长",
+            "plate_reason": "年报及一季报密集披露"
+          }
+        ]
+      },
+      "symbol": "601106.SS",
+      "total_capital": 31134334488.58,
+      "turnover_ratio": 0.0337162773,
+      "volume_bias_ratio": 2.9309769673,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 1777516597,
+      "yesterday_last_limit_up": 1777516597,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 1
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 1.09436e-05,
+      "change_percent": 0.0026737968,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 0,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 17.66,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 0,
+      "last_limit_up": 0,
+      "limit_down_days": 0,
+      "limit_timeline": null,
+      "limit_up_days": 0,
+      "listed_date": 1523289600,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0.0001905125,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 1.972819932,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 10837873252.5,
+      "price": 52.5,
+      "sell_lock_volume_ratio": 1.0423e-06,
+      "stock_chi_name": "长城科技",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "603897.SS",
+        "stock_reason": "公司是国内电磁线种类最齐全的企业之一，主营业务为电磁线的研发产销；据机构研究，假设特斯拉人形机器人本体线束成本占BOM表总成本的5%，伺服电机线束价值量占单个伺服电机的12%，当特斯拉人形机器人出货量达到100万台时，有望带来90亿元增量市场",
+        "related_plates": [
+          {
+            "plate_id": 26346142,
+            "plate_name": "机器人",
+            "plate_reason": "宇树双臂人形机器人发布"
+          }
+        ]
+      },
+      "symbol": "603897.SS",
+      "total_capital": 10837873252.5,
+      "turnover_ratio": 0.0704497688,
+      "volume_bias_ratio": 1.6191224015,
+      "yesterday_break_limit_up_times": 1,
+      "yesterday_first_limit_up": 1777525392,
+      "yesterday_last_limit_up": 1777526400,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 1
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 4,
+      "buy_lock_volume_ratio": 0.0037104031,
+      "change_percent": 0.0501672241,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 1778036995,
+      "first_limit_down": 0,
+      "first_limit_up": 1778030701,
+      "is_new_stock": false,
+      "issue_price": 5.03,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 1778037682,
+      "last_limit_down": 0,
+      "last_limit_up": 1778037742,
+      "limit_down_days": 0,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1778030701,
+            "status": 1
+          },
+          {
+            "timestamp": 1778036995,
+            "status": 2
+          },
+          {
+            "timestamp": 1778037030,
+            "status": 1
+          },
+          {
+            "timestamp": 1778037136,
+            "status": 2
+          },
+          {
+            "timestamp": 1778037581,
+            "status": 1
+          },
+          {
+            "timestamp": 1778037616,
+            "status": 2
+          },
+          {
+            "timestamp": 1778037670,
+            "status": 1
+          },
+          {
+            "timestamp": 1778037682,
+            "status": 2
+          },
+          {
+            "timestamp": 1778037742,
+            "status": 1
+          }
+        ]
+      },
+      "limit_up_days": 4,
+      "listed_date": 1473004800,
+      "m_days_n_boards_boards": 6,
+      "m_days_n_boards_days": 10,
+      "mtm": 0,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 0.8727634195,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 6590450892.54,
+      "price": 9.42,
+      "sell_lock_volume_ratio": 0,
+      "stock_chi_name": "*ST正平",
+      "stock_type": 1,
+      "surge_reason": {
+        "symbol": "603843.SS",
+        "stock_reason": "青海路桥工程施工企业；25年业绩同比大幅减亏",
+        "related_plates": [
+          {
+            "plate_id": 24898553,
+            "plate_name": "ST股"
+          }
+        ]
+      },
+      "symbol": "603843.SS",
+      "total_capital": 6590450892.54,
+      "turnover_ratio": 0.0304498177,
+      "volume_bias_ratio": 1.0416495531,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 1777512301,
+      "yesterday_last_limit_up": 1777512301,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 3
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 1.90595e-05,
+      "change_percent": 0.0483816588,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 0,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 0,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 0,
+      "last_limit_up": 0,
+      "limit_down_days": 0,
+      "limit_timeline": null,
+      "limit_up_days": 0,
+      "listed_date": 1657036800,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0.0012880374,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 0,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 28668143025.27,
+      "price": 62.19,
+      "sell_lock_volume_ratio": 9.3881e-06,
+      "stock_chi_name": "凌云光",
+      "stock_type": 2,
+      "surge_reason": {
+        "symbol": "688400.SS",
+        "stock_reason": "1、公司光通信业务代理国际领先的各个速率的硅光模块（可实现800G/1.6T）、高端光电器件与仪器仪表等产品，并面向AI带来的光通信互联机遇，布局了OCS全光交换、全自动光子引线键合；2025年净利润同比增长50.7%；\n2、公司FZMotion动捕系统已切入人形机器人“数据采集—量产检测”两大环节，检测时间由4小时缩至15分钟，已在头部机器人厂商产线落地",
+        "related_plates": [
+          {
+            "plate_id": 18129294,
+            "plate_name": "光通信"
+          },
+          {
+            "plate_id": 5433758,
+            "plate_name": "业绩增长",
+            "plate_reason": "年报及一季报密集披露"
+          }
+        ]
+      },
+      "symbol": "688400.SS",
+      "total_capital": 29803338265.05,
+      "turnover_ratio": 0.0884327106,
+      "volume_bias_ratio": 1.9868513861,
+      "yesterday_break_limit_up_times": 1,
+      "yesterday_first_limit_up": 1777525892,
+      "yesterday_last_limit_up": 1777525928,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 1
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 18,
+      "buy_lock_volume_ratio": 0.0041022981,
+      "change_percent": 0.0999842544,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 1778031396,
+      "first_limit_down": 0,
+      "first_limit_up": 1778031387,
+      "is_new_stock": false,
+      "issue_price": 8.48,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 1778047773,
+      "last_limit_down": 0,
+      "last_limit_up": 1778047782,
+      "limit_down_days": 0,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1778031387,
+            "status": 1
+          },
+          {
+            "timestamp": 1778031396,
+            "status": 2
+          },
+          {
+            "timestamp": 1778031411,
+            "status": 1
+          },
+          {
+            "timestamp": 1778031417,
+            "status": 2
+          },
+          {
+            "timestamp": 1778031459,
+            "status": 1
+          },
+          {
+            "timestamp": 1778031480,
+            "status": 2
+          },
+          {
+            "timestamp": 1778031486,
+            "status": 1
+          },
+          {
+            "timestamp": 1778031612,
+            "status": 2
+          },
+          {
+            "timestamp": 1778031618,
+            "status": 1
+          },
+          {
+            "timestamp": 1778031633,
+            "status": 2
+          },
+          {
+            "timestamp": 1778031639,
+            "status": 1
+          },
+          {
+            "timestamp": 1778031654,
+            "status": 2
+          },
+          {
+            "timestamp": 1778031666,
+            "status": 1
+          },
+          {
+            "timestamp": 1778031681,
+            "status": 2
+          },
+          {
+            "timestamp": 1778031690,
+            "status": 1
+          },
+          {
+            "timestamp": 1778031702,
+            "status": 2
+          },
+          {
+            "timestamp": 1778031714,
+            "status": 1
+          },
+          {
+            "timestamp": 1778031768,
+            "status": 2
+          },
+          {
+            "timestamp": 1778031774,
+            "status": 1
+          },
+          {
+            "timestamp": 1778031792,
+            "status": 2
+          },
+          {
+            "timestamp": 1778031801,
+            "status": 1
+          },
+          {
+            "timestamp": 1778031813,
+            "status": 2
+          },
+          {
+            "timestamp": 1778031825,
+            "status": 1
+          },
+          {
+            "timestamp": 1778031828,
+            "status": 2
+          },
+          {
+            "timestamp": 1778031837,
+            "status": 1
+          },
+          {
+            "timestamp": 1778031846,
+            "status": 2
+          },
+          {
+            "timestamp": 1778031852,
+            "status": 1
+          },
+          {
+            "timestamp": 1778033337,
+            "status": 2
+          },
+          {
+            "timestamp": 1778033346,
+            "status": 1
+          },
+          {
+            "timestamp": 1778033358,
+            "status": 2
+          },
+          {
+            "timestamp": 1778033403,
+            "status": 1
+          },
+          {
+            "timestamp": 1778033412,
+            "status": 2
+          },
+          {
+            "timestamp": 1778033469,
+            "status": 1
+          },
+          {
+            "timestamp": 1778047764,
+            "status": 2
+          },
+          {
+            "timestamp": 1778047767,
+            "status": 1
+          },
+          {
+            "timestamp": 1778047773,
+            "status": 2
+          },
+          {
+            "timestamp": 1778047782,
+            "status": 1
+          }
+        ]
+      },
+      "limit_up_days": 2,
+      "listed_date": 1186675200,
+      "m_days_n_boards_boards": 2,
+      "m_days_n_boards_days": 2,
+      "mtm": 0,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 7.2382075472,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 34101409681.64,
+      "price": 69.86,
+      "sell_lock_volume_ratio": 0,
+      "stock_chi_name": "西部材料",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "002149.SZ",
+        "stock_reason": "公司生产航空发动机用材料，子公司天力公司生产卫星过渡接头及航空用材料，超级牛散章建平新进成为公司第四大流通股东",
+        "related_plates": [
+          {
+            "plate_id": 51018737,
+            "plate_name": "航天",
+            "plate_reason": "SpaceX最早有望于年中完成挂牌上市"
+          }
+        ]
+      },
+      "symbol": "002149.SZ",
+      "total_capital": 34106649181.64,
+      "turnover_ratio": 0.1400543403,
+      "volume_bias_ratio": 0.8918799632,
+      "yesterday_break_limit_up_times": 1,
+      "yesterday_first_limit_up": 1777516164,
+      "yesterday_last_limit_up": 1777517847,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 1
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 4,
+      "buy_lock_volume_ratio": 0.0085851658,
+      "change_percent": 0.0499306519,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 1778031765,
+      "first_limit_down": 0,
+      "first_limit_up": 1778030700,
+      "is_new_stock": false,
+      "issue_price": 7.5,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 1778031957,
+      "last_limit_down": 0,
+      "last_limit_up": 1778044452,
+      "limit_down_days": 0,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1778030700,
+            "status": 1
+          },
+          {
+            "timestamp": 1778031765,
+            "status": 2
+          },
+          {
+            "timestamp": 1778031771,
+            "status": 1
+          },
+          {
+            "timestamp": 1778031813,
+            "status": 2
+          },
+          {
+            "timestamp": 1778031828,
+            "status": 1
+          },
+          {
+            "timestamp": 1778031888,
+            "status": 2
+          },
+          {
+            "timestamp": 1778031918,
+            "status": 1
+          },
+          {
+            "timestamp": 1778031957,
+            "status": 2
+          },
+          {
+            "timestamp": 1778044452,
+            "status": 1
+          }
+        ]
+      },
+      "limit_up_days": 7,
+      "listed_date": 844876800,
+      "m_days_n_boards_boards": 11,
+      "m_days_n_boards_days": 15,
+      "mtm": 0,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 1.0186666667,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 4406622238.08,
+      "price": 15.14,
+      "sell_lock_volume_ratio": 0,
+      "stock_chi_name": "*ST中迪",
+      "stock_type": 1,
+      "surge_reason": {
+        "symbol": "000609.SZ",
+        "stock_reason": "公司关联方深圳天微电子拟将其持有的广西天微电子有限公司70%股权无偿赠与公司",
+        "related_plates": [
+          {
+            "plate_id": 24898553,
+            "plate_name": "ST股"
+          }
+        ]
+      },
+      "symbol": "000609.SZ",
+      "total_capital": 4530880003.08,
+      "turnover_ratio": 0.2214671741,
+      "volume_bias_ratio": 42.7543331476,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 1777512300,
+      "yesterday_last_limit_up": 1777512300,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 6
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 0,
+      "buy_lock_volume_ratio": 1.39516e-05,
+      "change_percent": 0.0256967065,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 0,
+      "first_limit_down": 0,
+      "first_limit_up": 0,
+      "is_new_stock": false,
+      "issue_price": 45.51,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 0,
+      "last_limit_down": 0,
+      "last_limit_up": 0,
+      "limit_down_days": 0,
+      "limit_timeline": null,
+      "limit_up_days": 0,
+      "listed_date": 1634227200,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0.0042523033,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": -0.3772797187,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 3345853557.8,
+      "price": 28.34,
+      "sell_lock_volume_ratio": 6.31593e-05,
+      "stock_chi_name": "丽臣实业",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "001218.SZ",
+        "stock_reason": "公司立足于精细化工领域，主营业务为表面活性剂和洗涤用品的研产销，一季度归母净利润7717.89万，同比增长179.06%",
+        "related_plates": [
+          {
+            "plate_id": 5433758,
+            "plate_name": "业绩增长",
+            "plate_reason": "年报及一季报密集披露"
+          }
+        ]
+      },
+      "symbol": "001218.SZ",
+      "total_capital": 3689251888.4,
+      "turnover_ratio": 0.1014746678,
+      "volume_bias_ratio": 4.6113233256,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 1777512300,
+      "yesterday_last_limit_up": 1777512300,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 1
+    }
+  ]
+}

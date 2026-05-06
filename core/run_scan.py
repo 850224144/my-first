@@ -44,6 +44,67 @@ from core.lifecycle import (
 )
 
 
+
+# === v2.9.7 filter result adapter ===
+def _filter_result_to_df_v297(result, *, prefer: str = "passed"):
+    """
+    过滤模块可能返回：
+    1. polars.DataFrame
+    2. pandas.DataFrame
+    3. {"passed": [...], "rejected": [...], "scored": [...]}
+
+    run_scan 主流程使用 .is_empty()，所以 dict 需要转回 polars.DataFrame。
+    """
+    if result is None:
+        return None
+
+    if isinstance(result, dict):
+        rows = result.get(prefer)
+        if rows is None:
+            rows = result.get("passed")
+        if rows is None:
+            rows = result.get("scored")
+        if rows is None:
+            rows = []
+
+        try:
+            import polars as pl
+            return pl.DataFrame(rows)
+        except Exception:
+            return rows
+
+    return result
+
+
+def _df_is_empty_v297(df) -> bool:
+    if df is None:
+        return True
+
+    is_empty_attr = getattr(df, "is_empty", None)
+    if callable(is_empty_attr):
+        try:
+            return bool(is_empty_attr())
+        except Exception:
+            pass
+    elif is_empty_attr is not None:
+        try:
+            return bool(is_empty_attr)
+        except Exception:
+            pass
+
+    empty_attr = getattr(df, "empty", None)
+    if empty_attr is not None:
+        try:
+            return bool(empty_attr)
+        except Exception:
+            pass
+
+    try:
+        return len(df) == 0
+    except Exception:
+        return False
+# === end v2.9.7 filter result adapter ===
+
 def parse_args():
     parser = argparse.ArgumentParser(description="A股趋势回踩二买扫描系统")
     parser.add_argument("--init-db", action="store_true", help="初始化数据库")
@@ -183,7 +244,8 @@ def apply_sector_filter(universe_df: pl.DataFrame, market_state: Dict[str, Any],
     try:
         from core.sector import filter_universe_by_strong_sector
         filtered = filter_universe_by_strong_sector(universe_df, market_state=market_state, strict=strict_sector)
-        if filtered is None or filtered.is_empty():
+        filtered = _filter_result_to_df_v297(filtered, prefer="passed")
+        if _df_is_empty_v297(filtered):
             if strict_sector:
                 print("⚠️ 严格板块模式：板块过滤后为空，停止扫描")
                 return pl.DataFrame()
@@ -206,7 +268,8 @@ def apply_weekly_filter(universe_df: pl.DataFrame, strict_weekly: bool = False) 
     try:
         from core.weekly import filter_by_weekly_trend
         filtered = filter_by_weekly_trend(universe_df, strict=strict_weekly)
-        if filtered is None or filtered.is_empty():
+        filtered = _filter_result_to_df_v297(filtered, prefer="passed")
+        if _df_is_empty_v297(filtered):
             if strict_weekly:
                 print("⚠️ 严格周线模式：周线过滤后为空，停止扫描")
                 return pl.DataFrame()

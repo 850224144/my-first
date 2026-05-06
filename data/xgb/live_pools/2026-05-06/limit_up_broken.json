@@ -1,0 +1,3372 @@
+{
+  "meta": {
+    "count": 35,
+    "ok": true,
+    "code": 20000,
+    "error": null,
+    "url": "https://flash-api.xuangubao.cn/api/pool/detail?pool_name=limit_up_broken"
+  },
+  "data": [
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 1,
+      "buy_lock_volume_ratio": 0.0001738272,
+      "change_percent": 0.0928462709,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 1778044441,
+      "first_limit_down": 0,
+      "first_limit_up": 1778043757,
+      "is_new_stock": false,
+      "issue_price": 11.2,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 1778044441,
+      "last_limit_down": 0,
+      "last_limit_up": 1778043757,
+      "limit_down_days": 0,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1778043757,
+            "status": 1
+          },
+          {
+            "timestamp": 1778044441,
+            "status": 2
+          }
+        ]
+      },
+      "limit_up_days": 0,
+      "listed_date": 1061481600,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": -0.0025006946,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 5.4107142857,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 175564004775,
+      "price": 71.8,
+      "sell_lock_volume_ratio": 4.881e-07,
+      "stock_chi_name": "亨通光电",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "600487.SS",
+        "stock_reason": "公司收购J-Fiber，部署特种光纤和数据中心多模光纤产能。公司空芯光纤也在2025年供应链博览会和联通合作伙伴大会展出，性能达到业内领先水平",
+        "related_plates": [
+          {
+            "plate_name": "光通信",
+            "plate_reason": "美股光模块巨头Lumentum订单已排到2028年"
+          }
+        ]
+      },
+      "symbol": "600487.SS",
+      "total_capital": 177086964052.6,
+      "turnover_ratio": 0.0783478561,
+      "volume_bias_ratio": 1.0277634662,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 0,
+      "yesterday_last_limit_up": 0,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 0
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 1,
+      "buy_lock_volume_ratio": 2.22272e-05,
+      "change_percent": 0.064690027,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 1778033463,
+      "first_limit_down": 0,
+      "first_limit_up": 1778033424,
+      "is_new_stock": false,
+      "issue_price": 21.98,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 1778033463,
+      "last_limit_down": 0,
+      "last_limit_up": 1778033424,
+      "limit_down_days": 0,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1778033424,
+            "status": 1
+          },
+          {
+            "timestamp": 1778033463,
+            "status": 2
+          }
+        ]
+      },
+      "limit_up_days": 0,
+      "listed_date": 1265126400,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0.0016906171,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": -0.4608735214,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 10706866038.15,
+      "price": 11.85,
+      "sell_lock_volume_ratio": 4.11788e-05,
+      "stock_chi_name": "高乐股份",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "002348.SZ",
+        "stock_reason": "公司一季度净利润小幅减亏",
+        "related_plates": [
+          {
+            "plate_name": "业绩增长",
+            "plate_reason": "年报及一季报密集披露"
+          }
+        ]
+      },
+      "symbol": "002348.SZ",
+      "total_capital": 11224320000,
+      "turnover_ratio": 0.0539270088,
+      "volume_bias_ratio": 1.5981558743,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 0,
+      "yesterday_last_limit_up": 0,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 0
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 1,
+      "buy_lock_volume_ratio": 2.87289e-05,
+      "change_percent": 0.0738844184,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 1778047785,
+      "first_limit_down": 0,
+      "first_limit_up": 1778036355,
+      "is_new_stock": false,
+      "issue_price": 7.58,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 1778047785,
+      "last_limit_down": 0,
+      "last_limit_up": 1778036355,
+      "limit_down_days": 0,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1778036355,
+            "status": 1
+          },
+          {
+            "timestamp": 1778047785,
+            "status": 2
+          }
+        ]
+      },
+      "limit_up_days": 0,
+      "listed_date": 833212800,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 0.9366754617,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 73238794912.36,
+      "price": 14.68,
+      "sell_lock_volume_ratio": 5.96588e-05,
+      "stock_chi_name": "三安光电",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "600703.SS",
+        "stock_reason": "首批稳定量产Mini/Micro LED芯片制造商之一；公司可提供用于光模块的激光器、探测器产品，目前高速产品已实现批量出货",
+        "related_plates": [
+          {
+            "plate_name": "光通信",
+            "plate_reason": "美股光模块巨头Lumentum订单已排到2028年"
+          }
+        ]
+      },
+      "symbol": "600703.SS",
+      "total_capital": 73238794912.36,
+      "turnover_ratio": 0.0659816038,
+      "volume_bias_ratio": 1.3365728461,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 0,
+      "yesterday_last_limit_up": 0,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 0
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 3,
+      "buy_lock_volume_ratio": 1.95649e-05,
+      "change_percent": 0.0928324698,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 1778043927,
+      "first_limit_down": 0,
+      "first_limit_up": 1778043834,
+      "is_new_stock": false,
+      "issue_price": 12.94,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 1778044812,
+      "last_limit_down": 0,
+      "last_limit_up": 1778044794,
+      "limit_down_days": 0,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1778043834,
+            "status": 1
+          },
+          {
+            "timestamp": 1778043927,
+            "status": 2
+          },
+          {
+            "timestamp": 1778044389,
+            "status": 1
+          },
+          {
+            "timestamp": 1778044779,
+            "status": 2
+          },
+          {
+            "timestamp": 1778044794,
+            "status": 1
+          },
+          {
+            "timestamp": 1778044812,
+            "status": 2
+          }
+        ]
+      },
+      "limit_up_days": 0,
+      "listed_date": 1432656000,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": -0.001183899,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 0.955950541,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 7138767023.509999,
+      "price": 25.31,
+      "sell_lock_volume_ratio": 0.0002138161,
+      "stock_chi_name": "南兴股份",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "002757.SZ",
+        "stock_reason": "公司开发了小鹭AIGC智能助手",
+        "related_plates": [
+          {
+            "plate_name": "人工智能大模型"
+          }
+        ]
+      },
+      "symbol": "002757.SZ",
+      "total_capital": 7477989158.03,
+      "turnover_ratio": 0.2389010477,
+      "volume_bias_ratio": 2.2006545515,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 0,
+      "yesterday_last_limit_up": 0,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 0
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 1,
+      "buy_lock_volume_ratio": 3.78287e-05,
+      "change_percent": 0.0760736196,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 1778033587,
+      "first_limit_down": 0,
+      "first_limit_up": 1778033437,
+      "is_new_stock": false,
+      "issue_price": 7.95,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 1778033587,
+      "last_limit_down": 0,
+      "last_limit_up": 1778033437,
+      "limit_down_days": 0,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1778033437,
+            "status": 1
+          },
+          {
+            "timestamp": 1778033587,
+            "status": 2
+          }
+        ]
+      },
+      "limit_up_days": 0,
+      "listed_date": 840038400,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": -0.006795017,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 0.1031446541,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 10096838794.39,
+      "price": 8.77,
+      "sell_lock_volume_ratio": 9.14903e-05,
+      "stock_chi_name": "苏州高新",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "600736.SS",
+        "stock_reason": "子公司东菱振动为商业航天企业提供振动测试解决方案，产品用于火箭、卫星等航天器研制测试",
+        "related_plates": [
+          {
+            "plate_name": "航天"
+          }
+        ]
+      },
+      "symbol": "600736.SS",
+      "total_capital": 10096838794.39,
+      "turnover_ratio": 0.1825857666,
+      "volume_bias_ratio": 0.8978375414,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 0,
+      "yesterday_last_limit_up": 0,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 0
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 2,
+      "buy_lock_volume_ratio": 0.0003394635,
+      "change_percent": 0.1616685457,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 1778031786,
+      "first_limit_down": 0,
+      "first_limit_up": 1778031768,
+      "is_new_stock": false,
+      "issue_price": 12.04,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 1778043882,
+      "last_limit_down": 0,
+      "last_limit_up": 1778038185,
+      "limit_down_days": 0,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1778031768,
+            "status": 1
+          },
+          {
+            "timestamp": 1778031786,
+            "status": 2
+          },
+          {
+            "timestamp": 1778038185,
+            "status": 1
+          },
+          {
+            "timestamp": 1778043882,
+            "status": 2
+          }
+        ]
+      },
+      "limit_up_days": 0,
+      "listed_date": 1481558400,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": -0.0025169409,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 3.2790697674,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 5957627256,
+      "price": 51.52,
+      "sell_lock_volume_ratio": 2.5815e-06,
+      "stock_chi_name": "平治信息",
+      "stock_type": 4,
+      "surge_reason": {
+        "symbol": "300571.SZ",
+        "stock_reason": "公司计划建设以国产AI芯片为支撑的智能算力中心，与国产芯片厂商深度绑定，形成差异化竞争优势",
+        "related_plates": [
+          {
+            "plate_name": "云计算数据中心",
+            "plate_reason": "豆包或推出收费模式"
+          }
+        ]
+      },
+      "symbol": "300571.SZ",
+      "total_capital": 7188497706.88,
+      "turnover_ratio": 0.3300147379,
+      "volume_bias_ratio": 1.9092288635,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 0,
+      "yesterday_last_limit_up": 0,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 0
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 1,
+      "buy_lock_volume_ratio": 6.5567e-06,
+      "change_percent": 0.0399526487,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 1778047432,
+      "first_limit_down": 0,
+      "first_limit_up": 1778046903,
+      "is_new_stock": false,
+      "issue_price": 19.7,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 1778047432,
+      "last_limit_down": 0,
+      "last_limit_up": 1778046903,
+      "limit_down_days": 0,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1778046903,
+            "status": 1
+          },
+          {
+            "timestamp": 1778047432,
+            "status": 2
+          }
+        ]
+      },
+      "limit_up_days": 0,
+      "listed_date": 1647273600,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0.000284657,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 0.7837563452,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 2723526473.08,
+      "price": 35.14,
+      "sell_lock_volume_ratio": 0.0001770306,
+      "stock_chi_name": "*ST立航",
+      "stock_type": 1,
+      "surge_reason": {
+        "symbol": "603261.SS",
+        "stock_reason": "我国军机地面保障设备主要供应商，在低空经济相关业务中涉及无人机相关业务",
+        "related_plates": [
+          {
+            "plate_name": "ST股"
+          }
+        ]
+      },
+      "symbol": "603261.SS",
+      "total_capital": 2723526473.08,
+      "turnover_ratio": 0.01608928,
+      "volume_bias_ratio": 1.6891525791,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 0,
+      "yesterday_last_limit_up": 0,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 0
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 33,
+      "buy_lock_volume_ratio": 0.0002723677,
+      "change_percent": 0.1002210759,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 1778044488,
+      "first_limit_down": 0,
+      "first_limit_up": 1778044449,
+      "is_new_stock": false,
+      "issue_price": 6.62,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 1778050611,
+      "last_limit_down": 0,
+      "last_limit_up": 1778050512,
+      "limit_down_days": 0,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1778044449,
+            "status": 1
+          },
+          {
+            "timestamp": 1778044488,
+            "status": 2
+          },
+          {
+            "timestamp": 1778046477,
+            "status": 1
+          },
+          {
+            "timestamp": 1778046492,
+            "status": 2
+          },
+          {
+            "timestamp": 1778046498,
+            "status": 1
+          },
+          {
+            "timestamp": 1778046504,
+            "status": 2
+          },
+          {
+            "timestamp": 1778046540,
+            "status": 1
+          },
+          {
+            "timestamp": 1778046552,
+            "status": 2
+          },
+          {
+            "timestamp": 1778046558,
+            "status": 1
+          },
+          {
+            "timestamp": 1778046582,
+            "status": 2
+          },
+          {
+            "timestamp": 1778046627,
+            "status": 1
+          },
+          {
+            "timestamp": 1778046636,
+            "status": 2
+          },
+          {
+            "timestamp": 1778046723,
+            "status": 1
+          },
+          {
+            "timestamp": 1778046741,
+            "status": 2
+          },
+          {
+            "timestamp": 1778046750,
+            "status": 1
+          },
+          {
+            "timestamp": 1778046756,
+            "status": 2
+          },
+          {
+            "timestamp": 1778046759,
+            "status": 1
+          },
+          {
+            "timestamp": 1778046762,
+            "status": 2
+          },
+          {
+            "timestamp": 1778046909,
+            "status": 1
+          },
+          {
+            "timestamp": 1778046918,
+            "status": 2
+          },
+          {
+            "timestamp": 1778046927,
+            "status": 1
+          },
+          {
+            "timestamp": 1778046948,
+            "status": 2
+          },
+          {
+            "timestamp": 1778046954,
+            "status": 1
+          },
+          {
+            "timestamp": 1778046960,
+            "status": 2
+          },
+          {
+            "timestamp": 1778047266,
+            "status": 1
+          },
+          {
+            "timestamp": 1778047284,
+            "status": 2
+          },
+          {
+            "timestamp": 1778047290,
+            "status": 1
+          },
+          {
+            "timestamp": 1778047296,
+            "status": 2
+          },
+          {
+            "timestamp": 1778047326,
+            "status": 1
+          },
+          {
+            "timestamp": 1778047332,
+            "status": 2
+          },
+          {
+            "timestamp": 1778047356,
+            "status": 1
+          },
+          {
+            "timestamp": 1778047362,
+            "status": 2
+          },
+          {
+            "timestamp": 1778049330,
+            "status": 1
+          },
+          {
+            "timestamp": 1778049351,
+            "status": 2
+          },
+          {
+            "timestamp": 1778049360,
+            "status": 1
+          },
+          {
+            "timestamp": 1778049363,
+            "status": 2
+          },
+          {
+            "timestamp": 1778049369,
+            "status": 1
+          },
+          {
+            "timestamp": 1778049393,
+            "status": 2
+          },
+          {
+            "timestamp": 1778049396,
+            "status": 1
+          },
+          {
+            "timestamp": 1778049420,
+            "status": 2
+          },
+          {
+            "timestamp": 1778049429,
+            "status": 1
+          },
+          {
+            "timestamp": 1778049447,
+            "status": 2
+          },
+          {
+            "timestamp": 1778049471,
+            "status": 1
+          },
+          {
+            "timestamp": 1778049474,
+            "status": 2
+          },
+          {
+            "timestamp": 1778049504,
+            "status": 1
+          },
+          {
+            "timestamp": 1778049510,
+            "status": 2
+          },
+          {
+            "timestamp": 1778049516,
+            "status": 1
+          },
+          {
+            "timestamp": 1778049522,
+            "status": 2
+          },
+          {
+            "timestamp": 1778049534,
+            "status": 1
+          },
+          {
+            "timestamp": 1778049549,
+            "status": 2
+          },
+          {
+            "timestamp": 1778049579,
+            "status": 1
+          },
+          {
+            "timestamp": 1778049585,
+            "status": 2
+          },
+          {
+            "timestamp": 1778049588,
+            "status": 1
+          },
+          {
+            "timestamp": 1778049591,
+            "status": 2
+          },
+          {
+            "timestamp": 1778049597,
+            "status": 1
+          },
+          {
+            "timestamp": 1778049600,
+            "status": 2
+          },
+          {
+            "timestamp": 1778049621,
+            "status": 1
+          },
+          {
+            "timestamp": 1778049624,
+            "status": 2
+          },
+          {
+            "timestamp": 1778049663,
+            "status": 1
+          },
+          {
+            "timestamp": 1778049747,
+            "status": 2
+          },
+          {
+            "timestamp": 1778049786,
+            "status": 1
+          },
+          {
+            "timestamp": 1778049825,
+            "status": 2
+          },
+          {
+            "timestamp": 1778049903,
+            "status": 1
+          },
+          {
+            "timestamp": 1778050350,
+            "status": 2
+          },
+          {
+            "timestamp": 1778050512,
+            "status": 1
+          },
+          {
+            "timestamp": 1778050611,
+            "status": 2
+          }
+        ]
+      },
+      "limit_up_days": 0,
+      "listed_date": 954345600,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0.0006702413,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 1.2552870091,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 48067032102.44,
+      "price": 14.93,
+      "sell_lock_volume_ratio": 5.60537e-05,
+      "stock_chi_name": "盈峰环境",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "000967.SZ",
+        "stock_reason": "公司成立智算科技公司；一季度净利润同比增长18.61%",
+        "related_plates": [
+          {
+            "plate_name": "云计算数据中心",
+            "plate_reason": "豆包或推出收费模式"
+          },
+          {
+            "plate_name": "业绩增长",
+            "plate_reason": "年报及一季报密集披露"
+          }
+        ]
+      },
+      "symbol": "000967.SZ",
+      "total_capital": 48089717401.36,
+      "turnover_ratio": 0.0904141734,
+      "volume_bias_ratio": 1.3147184172,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 0,
+      "yesterday_last_limit_up": 0,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 0
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 1,
+      "buy_lock_volume_ratio": 3.4593e-05,
+      "change_percent": 0.0717472119,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 1778045204,
+      "first_limit_down": 0,
+      "first_limit_up": 1778033801,
+      "is_new_stock": false,
+      "issue_price": 4.94,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 1778045204,
+      "last_limit_down": 0,
+      "last_limit_up": 1778033801,
+      "limit_down_days": 0,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1778033801,
+            "status": 1
+          },
+          {
+            "timestamp": 1778045204,
+            "status": 2
+          }
+        ]
+      },
+      "limit_up_days": 0,
+      "listed_date": 1483027200,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": -0.0016325319,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 39.8522267206,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 43058181600,
+      "price": 201.81,
+      "sell_lock_volume_ratio": 1.9464e-06,
+      "stock_chi_name": "亚翔集成",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "603929.SS",
+        "stock_reason": "公司主营洁净室工程，台湾亚翔持有公司53.99%股权，年报净利润同比增长40.30%",
+        "related_plates": [
+          {
+            "plate_name": "国产芯片",
+            "plate_reason": "CPU龙头英特尔4月涨幅翻倍，英伟达、寒武纪等股价创历史新高"
+          }
+        ]
+      },
+      "symbol": "603929.SS",
+      "total_capital": 43058181600,
+      "turnover_ratio": 0.0368207912,
+      "volume_bias_ratio": 1.5454996852,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 0,
+      "yesterday_last_limit_up": 0,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 0
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 4,
+      "buy_lock_volume_ratio": 8.06531e-05,
+      "change_percent": 0.0681658468,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 1778046375,
+      "first_limit_down": 0,
+      "first_limit_up": 1778045709,
+      "is_new_stock": false,
+      "issue_price": 8.43,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 1778047509,
+      "last_limit_down": 0,
+      "last_limit_up": 1778047479,
+      "limit_down_days": 0,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1778045709,
+            "status": 1
+          },
+          {
+            "timestamp": 1778046375,
+            "status": 2
+          },
+          {
+            "timestamp": 1778047125,
+            "status": 1
+          },
+          {
+            "timestamp": 1778047428,
+            "status": 2
+          },
+          {
+            "timestamp": 1778047464,
+            "status": 1
+          },
+          {
+            "timestamp": 1778047473,
+            "status": 2
+          },
+          {
+            "timestamp": 1778047479,
+            "status": 1
+          },
+          {
+            "timestamp": 1778047509,
+            "status": 2
+          }
+        ]
+      },
+      "limit_up_days": 0,
+      "listed_date": 1168358400,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 0.803084223,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 9115464046.4,
+      "price": 15.2,
+      "sell_lock_volume_ratio": 0.0004943024,
+      "stock_chi_name": "恒宝股份",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "002104.SZ",
+        "stock_reason": "1、首批参与中国人民银行数字货币研究所“数字人民币试点”工作的金融科技公司之一；\n2、公司重点攻关量子加密在金融场景的抗量子计算破译能力，为移动支付、跨境结算提供 “三位一体” 安全解决方案，量子加密模组获东南亚多国央行订单",
+        "related_plates": [
+          {
+            "plate_name": "数字人民币"
+          }
+        ]
+      },
+      "symbol": "002104.SZ",
+      "total_capital": 10766922340.8,
+      "turnover_ratio": 0.1485454311,
+      "volume_bias_ratio": 4.4356410057,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 0,
+      "yesterday_last_limit_up": 0,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 0
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 8,
+      "buy_lock_volume_ratio": 1.26803e-05,
+      "change_percent": 0.0951824818,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 1778033670,
+      "first_limit_down": 0,
+      "first_limit_up": 1778033667,
+      "is_new_stock": false,
+      "issue_price": 59.5,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 1778049762,
+      "last_limit_down": 0,
+      "last_limit_up": 1778049753,
+      "limit_down_days": 0,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1778033667,
+            "status": 1
+          },
+          {
+            "timestamp": 1778033670,
+            "status": 2
+          },
+          {
+            "timestamp": 1778033673,
+            "status": 1
+          },
+          {
+            "timestamp": 1778033703,
+            "status": 2
+          },
+          {
+            "timestamp": 1778047170,
+            "status": 1
+          },
+          {
+            "timestamp": 1778049459,
+            "status": 2
+          },
+          {
+            "timestamp": 1778049462,
+            "status": 1
+          },
+          {
+            "timestamp": 1778049489,
+            "status": 2
+          },
+          {
+            "timestamp": 1778049501,
+            "status": 1
+          },
+          {
+            "timestamp": 1778049513,
+            "status": 2
+          },
+          {
+            "timestamp": 1778049522,
+            "status": 1
+          },
+          {
+            "timestamp": 1778049678,
+            "status": 2
+          },
+          {
+            "timestamp": 1778049699,
+            "status": 1
+          },
+          {
+            "timestamp": 1778049723,
+            "status": 2
+          },
+          {
+            "timestamp": 1778049753,
+            "status": 1
+          },
+          {
+            "timestamp": 1778049762,
+            "status": 2
+          }
+        ]
+      },
+      "limit_up_days": 0,
+      "listed_date": 1265299200,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0.0003333556,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 1.5216806723,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 103683433794.59999,
+      "price": 150.04,
+      "sell_lock_volume_ratio": 1.3507e-06,
+      "stock_chi_name": "杰瑞股份",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "002353.SZ",
+        "stock_reason": "公司签署北美数据中心发电机组销售合同，合同金额超1亿美元，标志着公司模块化、智能化发电解决方案成功进入北美高端电力市场",
+        "related_plates": [
+          {
+            "plate_name": "燃气轮机"
+          }
+        ]
+      },
+      "symbol": "002353.SZ",
+      "total_capital": 153619329183.31998,
+      "turnover_ratio": 0.0357886165,
+      "volume_bias_ratio": 1.4135993251,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 0,
+      "yesterday_last_limit_up": 0,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 0
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 5,
+      "buy_lock_volume_ratio": 2.27164e-05,
+      "change_percent": 0.1732026144,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 1778035566,
+      "first_limit_down": 0,
+      "first_limit_up": 1778035110,
+      "is_new_stock": false,
+      "issue_price": 11.65,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 1778045187,
+      "last_limit_down": 0,
+      "last_limit_up": 1778045178,
+      "limit_down_days": 0,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1778035110,
+            "status": 1
+          },
+          {
+            "timestamp": 1778035566,
+            "status": 2
+          },
+          {
+            "timestamp": 1778035590,
+            "status": 1
+          },
+          {
+            "timestamp": 1778035596,
+            "status": 2
+          },
+          {
+            "timestamp": 1778036313,
+            "status": 1
+          },
+          {
+            "timestamp": 1778045112,
+            "status": 2
+          },
+          {
+            "timestamp": 1778045118,
+            "status": 1
+          },
+          {
+            "timestamp": 1778045148,
+            "status": 2
+          },
+          {
+            "timestamp": 1778045178,
+            "status": 1
+          },
+          {
+            "timestamp": 1778045187,
+            "status": 2
+          }
+        ]
+      },
+      "limit_up_days": 0,
+      "listed_date": 1527004800,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0.0020299416,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 2.3896995708,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 5619882359.190001,
+      "price": 39.49,
+      "sell_lock_volume_ratio": 0.0001590151,
+      "stock_chi_name": "欣锐科技",
+      "stock_type": 4,
+      "surge_reason": {
+        "symbol": "300745.SZ",
+        "stock_reason": "公司基于电力电子技术延伸切入AI服务器电源赛道，碳化硅/氮化镓方案具备高功率密度与液冷热管理优势；一季度净利润同比增长115.70%",
+        "related_plates": [
+          {
+            "plate_name": "业绩增长",
+            "plate_reason": "年报及一季报密集披露"
+          }
+        ]
+      },
+      "symbol": "300745.SZ",
+      "total_capital": 6656691874.8,
+      "turnover_ratio": 0.1648139461,
+      "volume_bias_ratio": 1.9619540305,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 0,
+      "yesterday_last_limit_up": 0,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 0
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 7,
+      "buy_lock_volume_ratio": 3.82493e-05,
+      "change_percent": 0.0770901194,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 1778031966,
+      "first_limit_down": 0,
+      "first_limit_up": 1778031738,
+      "is_new_stock": false,
+      "issue_price": 42,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 1778035209,
+      "last_limit_down": 0,
+      "last_limit_up": 1778035206,
+      "limit_down_days": 0,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1778031738,
+            "status": 1
+          },
+          {
+            "timestamp": 1778031966,
+            "status": 2
+          },
+          {
+            "timestamp": 1778032722,
+            "status": 1
+          },
+          {
+            "timestamp": 1778032779,
+            "status": 2
+          },
+          {
+            "timestamp": 1778032794,
+            "status": 1
+          },
+          {
+            "timestamp": 1778032848,
+            "status": 2
+          },
+          {
+            "timestamp": 1778032854,
+            "status": 1
+          },
+          {
+            "timestamp": 1778034756,
+            "status": 2
+          },
+          {
+            "timestamp": 1778034762,
+            "status": 1
+          },
+          {
+            "timestamp": 1778034774,
+            "status": 2
+          },
+          {
+            "timestamp": 1778035167,
+            "status": 1
+          },
+          {
+            "timestamp": 1778035191,
+            "status": 2
+          },
+          {
+            "timestamp": 1778035206,
+            "status": 1
+          },
+          {
+            "timestamp": 1778035209,
+            "status": 2
+          }
+        ]
+      },
+      "limit_up_days": 0,
+      "listed_date": 1271952000,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0.0010090817,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": -0.7638095238,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 11482861984.32,
+      "price": 9.92,
+      "sell_lock_volume_ratio": 0.0001217792,
+      "stock_chi_name": "北京利尔",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "002392.SZ",
+        "stock_reason": "公司投资的曦望(Sunrise)是国产全栈自研芯片企业，专注于高性能GPU的研发与商业化，首代及第二代自研GPU产品已成功量产，可应用于数据中心建设，在性能、能效比等关键技术指标上具备优势",
+        "related_plates": [
+          {
+            "plate_name": "国产芯片",
+            "plate_reason": "CPU龙头英特尔4月涨幅翻倍，英伟达、寒武纪等股价创历史新高"
+          }
+        ]
+      },
+      "symbol": "002392.SZ",
+      "total_capital": 11809669122.88,
+      "turnover_ratio": 0.0784949671,
+      "volume_bias_ratio": 2.9107076042,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 0,
+      "yesterday_last_limit_up": 0,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 0
+    },
+    {
+      "break_limit_down_times": 1,
+      "break_limit_up_times": 2,
+      "buy_lock_volume_ratio": 0.0003909908,
+      "change_percent": 0.032967033,
+      "first_break_limit_down": 1778031006,
+      "first_break_limit_up": 1778031321,
+      "first_limit_down": 1778030701,
+      "first_limit_up": 1778031237,
+      "is_new_stock": false,
+      "issue_price": 6.03,
+      "last_break_limit_down": 1778031006,
+      "last_break_limit_up": 1778031447,
+      "last_limit_down": 1778030701,
+      "last_limit_up": 1778031423,
+      "limit_down_days": 0,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1778030701,
+            "status": 3
+          },
+          {
+            "timestamp": 1778031006,
+            "status": 4
+          },
+          {
+            "timestamp": 1778031237,
+            "status": 1
+          },
+          {
+            "timestamp": 1778031321,
+            "status": 2
+          },
+          {
+            "timestamp": 1778031423,
+            "status": 1
+          },
+          {
+            "timestamp": 1778031447,
+            "status": 2
+          }
+        ]
+      },
+      "limit_up_days": 0,
+      "listed_date": 1463414400,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0.0021321962,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": -0.2205638474,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 2304405262.4,
+      "price": 4.7,
+      "sell_lock_volume_ratio": 0.0001379832,
+      "stock_chi_name": "ST百利",
+      "stock_type": 1,
+      "surge_reason": {
+        "symbol": "603959.SS",
+        "stock_reason": "公司为锂电池正极、负极、电解液生产企业提供精密配料系统、智能上料系统，真空干燥系统，全自动高温窑炉外轨等专有智能设备",
+        "related_plates": [
+          {
+            "plate_name": "ST股"
+          }
+        ]
+      },
+      "symbol": "603959.SS",
+      "total_capital": 2304405262.4,
+      "turnover_ratio": 0.1855500959,
+      "volume_bias_ratio": 5.4877754896,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 0,
+      "yesterday_last_limit_up": 0,
+      "yesterday_limit_down_days": 3,
+      "yesterday_limit_up_days": 0
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 1,
+      "buy_lock_volume_ratio": 4.428e-07,
+      "change_percent": 0.1625654008,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 1778047395,
+      "first_limit_down": 0,
+      "first_limit_up": 1778032071,
+      "is_new_stock": false,
+      "issue_price": 0,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 1778047395,
+      "last_limit_down": 0,
+      "last_limit_up": 1778032071,
+      "limit_down_days": 0,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1778032071,
+            "status": 1
+          },
+          {
+            "timestamp": 1778047395,
+            "status": 2
+          }
+        ]
+      },
+      "limit_up_days": 0,
+      "listed_date": 1660233600,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0.0023282209,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 0,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 800525281921.31,
+      "price": 344.41,
+      "sell_lock_volume_ratio": 6.187e-07,
+      "stock_chi_name": "海光信息",
+      "stock_type": 2,
+      "surge_reason": {
+        "symbol": "688041.SS",
+        "stock_reason": "国产CPU、GPU龙头，国内稀缺的DCU设计厂商，公司拟吸收合并中科曙光",
+        "related_plates": [
+          {
+            "plate_name": "国产芯片",
+            "plate_reason": "CPU龙头英特尔4月涨幅翻倍，英伟达、寒武纪等股价创历史新高"
+          }
+        ]
+      },
+      "symbol": "688041.SS",
+      "total_capital": 800525281921.31,
+      "turnover_ratio": 0.0265060536,
+      "volume_bias_ratio": 1.420932761,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 0,
+      "yesterday_last_limit_up": 0,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 0
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 3,
+      "buy_lock_volume_ratio": 0.0008607425,
+      "change_percent": 0.0295905959,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 1778032317,
+      "first_limit_down": 0,
+      "first_limit_up": 1778032251,
+      "is_new_stock": false,
+      "issue_price": 7.23,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 1778032809,
+      "last_limit_down": 0,
+      "last_limit_up": 1778032743,
+      "limit_down_days": 0,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1778032251,
+            "status": 1
+          },
+          {
+            "timestamp": 1778032317,
+            "status": 2
+          },
+          {
+            "timestamp": 1778032695,
+            "status": 1
+          },
+          {
+            "timestamp": 1778032722,
+            "status": 2
+          },
+          {
+            "timestamp": 1778032743,
+            "status": 1
+          },
+          {
+            "timestamp": 1778032809,
+            "status": 2
+          }
+        ]
+      },
+      "limit_up_days": 0,
+      "listed_date": 862329600,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": -0.0003935458,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 2.5131396957,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 24536595097.399998,
+      "price": 25.4,
+      "sell_lock_volume_ratio": 3.06937e-05,
+      "stock_chi_name": "通化金马",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "000766.SZ",
+        "stock_reason": "公司自主研发治疗轻、中度阿尔茨海默病的琥珀八氢氨吖啶片，为国家1.1类新药",
+        "related_plates": [
+          {
+            "plate_name": "医药"
+          }
+        ]
+      },
+      "symbol": "000766.SZ",
+      "total_capital": 24548965557.8,
+      "turnover_ratio": 0.0590328681,
+      "volume_bias_ratio": 3.5768355161,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 0,
+      "yesterday_last_limit_up": 0,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 0
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 1,
+      "buy_lock_volume_ratio": 0.0003590511,
+      "change_percent": -0.0051282051,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 1778032548,
+      "first_limit_down": 0,
+      "first_limit_up": 1778030700,
+      "is_new_stock": false,
+      "issue_price": 1,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 1778032548,
+      "last_limit_down": 0,
+      "last_limit_up": 1778030700,
+      "limit_down_days": 0,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1778030700,
+            "status": 1
+          },
+          {
+            "timestamp": 1778032548,
+            "status": 2
+          }
+        ]
+      },
+      "limit_up_days": 0,
+      "listed_date": 867254400,
+      "m_days_n_boards_boards": 3,
+      "m_days_n_boards_days": 5,
+      "mtm": 0.0051813472,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 0.94,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 2044305758.7,
+      "price": 1.94,
+      "sell_lock_volume_ratio": 6.89808e-05,
+      "stock_chi_name": "*ST发展",
+      "stock_type": 1,
+      "surge_reason": {
+        "symbol": "000838.SZ",
+        "stock_reason": "重庆地区优质地产商",
+        "related_plates": [
+          {
+            "plate_name": "ST股"
+          }
+        ]
+      },
+      "symbol": "000838.SZ",
+      "total_capital": 2134896609.8,
+      "turnover_ratio": 0.081023802,
+      "volume_bias_ratio": 1.1921853182,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 1777512600,
+      "yesterday_last_limit_up": 1777512600,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 1
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 1,
+      "buy_lock_volume_ratio": 8.7294e-06,
+      "change_percent": 0.0704845815,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 1778033493,
+      "first_limit_down": 0,
+      "first_limit_up": 1778033418,
+      "is_new_stock": false,
+      "issue_price": 6.39,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 1778033493,
+      "last_limit_down": 0,
+      "last_limit_up": 1778033418,
+      "limit_down_days": 0,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1778033418,
+            "status": 1
+          },
+          {
+            "timestamp": 1778033493,
+            "status": 2
+          }
+        ]
+      },
+      "limit_up_days": 0,
+      "listed_date": 1117036800,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": -0.0001788909,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 7.7464788732,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 29554808165.28,
+      "price": 55.89,
+      "sell_lock_volume_ratio": 2.44028e-05,
+      "stock_chi_name": "国机精工",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "002046.SZ",
+        "stock_reason": "1、中国航空航天轴承领域领先企业，曾为嫦娥一号、嫦娥二号、长征二号捆绑式大推力火箭、长征四号甲等项目提供配套轴承及相关研发服务；公司在卫星火箭等航天特种轴承领域具有优势地位；\n2、培育钻石产业链核心玩家，以“设备+产品”双轮驱动布局；子公司三磨所是超硬材料行业引领者，其六面顶压机市占率超 60%，为黄河旋风、力量钻石等头部企业供货",
+        "related_plates": [
+          {
+            "plate_name": "航天"
+          }
+        ]
+      },
+      "symbol": "002046.SZ",
+      "total_capital": 29967706830.06,
+      "turnover_ratio": 0.0468269202,
+      "volume_bias_ratio": 2.0043891047,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 0,
+      "yesterday_last_limit_up": 0,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 0
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 4,
+      "buy_lock_volume_ratio": 0.0001416526,
+      "change_percent": 0.0782889427,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 1778045940,
+      "first_limit_down": 0,
+      "first_limit_up": 1778045898,
+      "is_new_stock": false,
+      "issue_price": 8.5,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 1778047296,
+      "last_limit_down": 0,
+      "last_limit_up": 1778046657,
+      "limit_down_days": 0,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1778045898,
+            "status": 1
+          },
+          {
+            "timestamp": 1778045940,
+            "status": 2
+          },
+          {
+            "timestamp": 1778046099,
+            "status": 1
+          },
+          {
+            "timestamp": 1778046174,
+            "status": 2
+          },
+          {
+            "timestamp": 1778046183,
+            "status": 1
+          },
+          {
+            "timestamp": 1778046330,
+            "status": 2
+          },
+          {
+            "timestamp": 1778046657,
+            "status": 1
+          },
+          {
+            "timestamp": 1778047296,
+            "status": 2
+          }
+        ]
+      },
+      "limit_up_days": 0,
+      "listed_date": 765734400,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0.0045112782,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 0.5717647059,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 30746799403.76,
+      "price": 13.36,
+      "sell_lock_volume_ratio": 2.97898e-05,
+      "stock_chi_name": "中集集团",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "000039.SZ",
+        "stock_reason": "公司模块化数据中心产能由单基地扩至三大基地协同量产，聚焦机房、供配电、预冷、柴发全预制模块，交付能力全面提升，并加速东南亚市场布局",
+        "related_plates": [
+          {
+            "plate_name": "云计算数据中心",
+            "plate_reason": "豆包或推出收费模式"
+          }
+        ]
+      },
+      "symbol": "000039.SZ",
+      "total_capital": 72044072343.59999,
+      "turnover_ratio": 0.0519054903,
+      "volume_bias_ratio": 2.1120227002,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 0,
+      "yesterday_last_limit_up": 0,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 0
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 1,
+      "buy_lock_volume_ratio": 0.00142513,
+      "change_percent": 0.0555205047,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 1778035904,
+      "first_limit_down": 0,
+      "first_limit_up": 1778035823,
+      "is_new_stock": false,
+      "issue_price": 7.9,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 1778035904,
+      "last_limit_down": 0,
+      "last_limit_up": 1778035823,
+      "limit_down_days": 0,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1778035823,
+            "status": 1
+          },
+          {
+            "timestamp": 1778035904,
+            "status": 2
+          }
+        ]
+      },
+      "limit_up_days": 0,
+      "listed_date": 1421856000,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": -0.0011940299,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 1.117721519,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 19111364444.83,
+      "price": 16.73,
+      "sell_lock_volume_ratio": 6.80606e-05,
+      "stock_chi_name": "再升科技",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "603601.SS",
+        "stock_reason": "国内微玻璃纤维滤纸行业龙头，为SpaceX出口超高温绝热材料",
+        "related_plates": [
+          {
+            "plate_name": "航天"
+          }
+        ]
+      },
+      "symbol": "603601.SS",
+      "total_capital": 19111364444.83,
+      "turnover_ratio": 0.2604351919,
+      "volume_bias_ratio": 1.3471709779,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 0,
+      "yesterday_last_limit_up": 0,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 0
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 1,
+      "buy_lock_volume_ratio": 0.0005203343,
+      "change_percent": 0.0483675937,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 1778036664,
+      "first_limit_down": 0,
+      "first_limit_up": 1778034147,
+      "is_new_stock": false,
+      "issue_price": 5.03,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 1778036664,
+      "last_limit_down": 0,
+      "last_limit_up": 1778034147,
+      "limit_down_days": 0,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1778034147,
+            "status": 1
+          },
+          {
+            "timestamp": 1778036664,
+            "status": 2
+          }
+        ]
+      },
+      "limit_up_days": 0,
+      "listed_date": 1660752000,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": -0.0011520737,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 0.7236580517,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 10081886281.74,
+      "price": 8.67,
+      "sell_lock_volume_ratio": 0.000150873,
+      "stock_chi_name": "博纳影业",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "001330.SZ",
+        "stock_reason": "公司参与了春节档电影《飞驰人生3》出品发行",
+        "related_plates": [
+          {
+            "plate_name": "大消费"
+          }
+        ]
+      },
+      "symbol": "001330.SZ",
+      "total_capital": 11917079591.28,
+      "turnover_ratio": 0.1757969805,
+      "volume_bias_ratio": 1.7105793903,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 0,
+      "yesterday_last_limit_up": 0,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 0
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 3,
+      "buy_lock_volume_ratio": 0.0002208467,
+      "change_percent": 0.0677966102,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 1778033486,
+      "first_limit_down": 0,
+      "first_limit_up": 1778033432,
+      "is_new_stock": false,
+      "issue_price": 23,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 1778033918,
+      "last_limit_down": 0,
+      "last_limit_up": 1778033879,
+      "limit_down_days": 0,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1778033432,
+            "status": 1
+          },
+          {
+            "timestamp": 1778033486,
+            "status": 2
+          },
+          {
+            "timestamp": 1778033852,
+            "status": 1
+          },
+          {
+            "timestamp": 1778033864,
+            "status": 2
+          },
+          {
+            "timestamp": 1778033879,
+            "status": 1
+          },
+          {
+            "timestamp": 1778033918,
+            "status": 2
+          }
+        ]
+      },
+      "limit_up_days": 0,
+      "listed_date": 1293724800,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": -0.0025,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 1.602173913,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 49381361190,
+      "price": 59.85,
+      "sell_lock_volume_ratio": 4.0921e-06,
+      "stock_chi_name": "四方股份",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "601126.SS",
+        "stock_reason": "领先的新型电力系统解决方案提供商；公司具有完整的数据中心供配电解决方案，采用自主研发的高压开关柜、低压开关柜、低压保护、备自投、电能质量治理、数据中心供电监控系统产品",
+        "related_plates": [
+          {
+            "plate_name": "云计算数据中心",
+            "plate_reason": "豆包或推出收费模式"
+          }
+        ]
+      },
+      "symbol": "601126.SS",
+      "total_capital": 49865194575,
+      "turnover_ratio": 0.0522308527,
+      "volume_bias_ratio": 1.4311389491,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 0,
+      "yesterday_last_limit_up": 0,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 0
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 6,
+      "buy_lock_volume_ratio": 1.51776e-05,
+      "change_percent": 0.0887198986,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 1778048223,
+      "first_limit_down": 0,
+      "first_limit_up": 1778032341,
+      "is_new_stock": false,
+      "issue_price": 22,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 1778048625,
+      "last_limit_down": 0,
+      "last_limit_up": 1778048619,
+      "limit_down_days": 0,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1778032341,
+            "status": 1
+          },
+          {
+            "timestamp": 1778048223,
+            "status": 2
+          },
+          {
+            "timestamp": 1778048337,
+            "status": 1
+          },
+          {
+            "timestamp": 1778048499,
+            "status": 2
+          },
+          {
+            "timestamp": 1778048505,
+            "status": 1
+          },
+          {
+            "timestamp": 1778048595,
+            "status": 2
+          },
+          {
+            "timestamp": 1778048601,
+            "status": 1
+          },
+          {
+            "timestamp": 1778048604,
+            "status": 2
+          },
+          {
+            "timestamp": 1778048613,
+            "status": 1
+          },
+          {
+            "timestamp": 1778048616,
+            "status": 2
+          },
+          {
+            "timestamp": 1778048619,
+            "status": 1
+          },
+          {
+            "timestamp": 1778048625,
+            "status": 2
+          }
+        ]
+      },
+      "limit_up_days": 0,
+      "listed_date": 1320940800,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": -0.6095454545,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 6816786503.68,
+      "price": 8.59,
+      "sell_lock_volume_ratio": 0.0002329071,
+      "stock_chi_name": "德尔未来",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "002631.SZ",
+        "stock_reason": "控股子公司烯成石墨烯有用于柔性屏的石墨烯透明导电薄膜产品布局",
+        "related_plates": [
+          {
+            "plate_name": "折叠屏"
+          }
+        ]
+      },
+      "symbol": "002631.SZ",
+      "total_capital": 6848659947.79,
+      "turnover_ratio": 0.0867216667,
+      "volume_bias_ratio": 3.1113991186,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 0,
+      "yesterday_last_limit_up": 0,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 0
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 3,
+      "buy_lock_volume_ratio": 0.0005490669,
+      "change_percent": 0.0660592255,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 1778032074,
+      "first_limit_down": 0,
+      "first_limit_up": 1778031983,
+      "is_new_stock": false,
+      "issue_price": 6.98,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 1778033018,
+      "last_limit_down": 0,
+      "last_limit_up": 1778032809,
+      "limit_down_days": 0,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1778031983,
+            "status": 1
+          },
+          {
+            "timestamp": 1778032074,
+            "status": 2
+          },
+          {
+            "timestamp": 1778032769,
+            "status": 1
+          },
+          {
+            "timestamp": 1778032800,
+            "status": 2
+          },
+          {
+            "timestamp": 1778032809,
+            "status": 1
+          },
+          {
+            "timestamp": 1778033018,
+            "status": 2
+          }
+        ]
+      },
+      "limit_up_days": 0,
+      "listed_date": 998582400,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": -0.0005339028,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 1.6819484241,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 4305600000,
+      "price": 18.72,
+      "sell_lock_volume_ratio": 5.91224e-05,
+      "stock_chi_name": "狮头股份",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "600539.SS",
+        "stock_reason": "公司转型成为电商服务提供商，涉及宠粮、美妆、食品和日化用品等领域\n",
+        "related_plates": [
+          {
+            "plate_name": "其他"
+          }
+        ]
+      },
+      "symbol": "600539.SS",
+      "total_capital": 4305600000,
+      "turnover_ratio": 0.1542964826,
+      "volume_bias_ratio": 1.6010596225,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 0,
+      "yesterday_last_limit_up": 0,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 0
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 2,
+      "buy_lock_volume_ratio": 4.0993e-06,
+      "change_percent": 0.0374064838,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 1778032767,
+      "first_limit_down": 0,
+      "first_limit_up": 1778031459,
+      "is_new_stock": false,
+      "issue_price": 21.68,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 1778046141,
+      "last_limit_down": 0,
+      "last_limit_up": 1778035254,
+      "limit_down_days": 0,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1778031459,
+            "status": 1
+          },
+          {
+            "timestamp": 1778032767,
+            "status": 2
+          },
+          {
+            "timestamp": 1778035254,
+            "status": 1
+          },
+          {
+            "timestamp": 1778046141,
+            "status": 2
+          }
+        ]
+      },
+      "limit_up_days": 0,
+      "listed_date": 1654444800,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": -0.0026714159,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 5.7158671587,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 29629536081.6,
+      "price": 145.6,
+      "sell_lock_volume_ratio": 4.50927e-05,
+      "stock_chi_name": "*ST铖昌",
+      "stock_type": 1,
+      "surge_reason": {
+        "symbol": "001270.SZ",
+        "stock_reason": "公司主营微波毫米波模拟相控阵T/R芯片；一季度净利润4472.41万元，同比增长50.00%",
+        "related_plates": [
+          {
+            "plate_name": "ST股"
+          }
+        ]
+      },
+      "symbol": "001270.SZ",
+      "total_capital": 30010329585.6,
+      "turnover_ratio": 0.0410135086,
+      "volume_bias_ratio": 1.2549968423,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 1777516047,
+      "yesterday_last_limit_up": 1777516047,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 1
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 1,
+      "buy_lock_volume_ratio": 2.23443e-05,
+      "change_percent": 0.0913208915,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 1778031990,
+      "first_limit_down": 0,
+      "first_limit_up": 1778031978,
+      "is_new_stock": false,
+      "issue_price": 34.6,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 1778031990,
+      "last_limit_down": 0,
+      "last_limit_up": 1778031978,
+      "limit_down_days": 0,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1778031978,
+            "status": 1
+          },
+          {
+            "timestamp": 1778031990,
+            "status": 2
+          }
+        ]
+      },
+      "limit_up_days": 0,
+      "listed_date": 1580832000,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": -0.0032271411,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 2.4815028902,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 12751772730.8,
+      "price": 120.46,
+      "sell_lock_volume_ratio": 1.064e-06,
+      "stock_chi_name": "博杰股份",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "002975.SZ",
+        "stock_reason": "1、公司自研液冷散热方案已植入GPU测试设备，面向英伟达、微软、阿里等全球头部服务器厂商供货，并推进从设备向零部件供应的战略转型；\n2、公司从2024年下半年与T客户进行机器人业务方面的接触，除了IMU检测设备的供应，在电子皮肤方面也与客户保持紧密探讨",
+        "related_plates": [
+          {
+            "plate_name": "液冷服务器"
+          }
+        ]
+      },
+      "symbol": "002975.SZ",
+      "total_capital": 19310050352.78,
+      "turnover_ratio": 0.1121798075,
+      "volume_bias_ratio": 0.9287689661,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 0,
+      "yesterday_last_limit_up": 0,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 0
+    },
+    {
+      "break_limit_down_times": 1,
+      "break_limit_up_times": 1,
+      "buy_lock_volume_ratio": 0.0010074974,
+      "change_percent": 0.0251256281,
+      "first_break_limit_down": 1778031003,
+      "first_break_limit_up": 1778031465,
+      "first_limit_down": 1778030700,
+      "first_limit_up": 1778031411,
+      "is_new_stock": false,
+      "issue_price": 17,
+      "last_break_limit_down": 1778031003,
+      "last_break_limit_up": 1778031465,
+      "last_limit_down": 1778030700,
+      "last_limit_up": 1778031411,
+      "limit_down_days": 0,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1778030700,
+            "status": 3
+          },
+          {
+            "timestamp": 1778031003,
+            "status": 4
+          },
+          {
+            "timestamp": 1778031411,
+            "status": 1
+          },
+          {
+            "timestamp": 1778031465,
+            "status": 2
+          }
+        ]
+      },
+      "limit_up_days": 0,
+      "listed_date": 1320940800,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0.0049261084,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": -0.88,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 2196139182.6,
+      "price": 2.04,
+      "sell_lock_volume_ratio": 0.0003234873,
+      "stock_chi_name": "*ST华西",
+      "stock_type": 1,
+      "surge_reason": {
+        "symbol": "002630.SZ",
+        "stock_reason": "公司承接制造的国内最大规模等级(4x750T/D)的城市垃圾焚烧发电清洁能源项目在深圳宝安成功运营",
+        "related_plates": [
+          {
+            "plate_name": "ST股"
+          }
+        ]
+      },
+      "symbol": "002630.SZ",
+      "total_capital": 2408832000,
+      "turnover_ratio": 0.0755202756,
+      "volume_bias_ratio": 2.3447596535,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 0,
+      "yesterday_last_limit_up": 0,
+      "yesterday_limit_down_days": 1,
+      "yesterday_limit_up_days": 0
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 6,
+      "buy_lock_volume_ratio": 0.000768707,
+      "change_percent": 0.1918238994,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 1778031294,
+      "first_limit_down": 0,
+      "first_limit_up": 1778031282,
+      "is_new_stock": false,
+      "issue_price": 46.08,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 1778047929,
+      "last_limit_down": 0,
+      "last_limit_up": 1778047917,
+      "limit_down_days": 0,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1778031282,
+            "status": 1
+          },
+          {
+            "timestamp": 1778031294,
+            "status": 2
+          },
+          {
+            "timestamp": 1778031372,
+            "status": 1
+          },
+          {
+            "timestamp": 1778031387,
+            "status": 2
+          },
+          {
+            "timestamp": 1778031441,
+            "status": 1
+          },
+          {
+            "timestamp": 1778047593,
+            "status": 2
+          },
+          {
+            "timestamp": 1778047602,
+            "status": 1
+          },
+          {
+            "timestamp": 1778047620,
+            "status": 2
+          },
+          {
+            "timestamp": 1778047629,
+            "status": 1
+          },
+          {
+            "timestamp": 1778047632,
+            "status": 2
+          },
+          {
+            "timestamp": 1778047917,
+            "status": 1
+          },
+          {
+            "timestamp": 1778047929,
+            "status": 2
+          }
+        ]
+      },
+      "limit_up_days": 0,
+      "listed_date": 1776268800,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0.0029373627,
+      "nearly_new_acc_pcp": 0.6851934193,
+      "nearly_new_break_days": 7,
+      "new_stock_acc_pcp": 7.2248263889,
+      "new_stock_break_limit_up": 1776907500,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 224.9,
+      "non_restricted_capital": 10049693997,
+      "price": 379,
+      "sell_lock_volume_ratio": 5.6941e-06,
+      "stock_chi_name": "大普微",
+      "stock_type": 4,
+      "surge_reason": {
+        "symbol": "301666.SZ",
+        "stock_reason": "业内领先、国内极少数具备企业级SSD“主控芯片+固件算法+模组”全栈自研能力并实现批量出货的半导体存储产品提供商，一季报净利润3.699亿，同比增长398.88%",
+        "related_plates": [
+          {
+            "plate_name": "闪存",
+            "plate_reason": "美股存储芯片龙头均创历史新高"
+          }
+        ]
+      },
+      "symbol": "301666.SZ",
+      "total_capital": 165326000440,
+      "turnover_ratio": 0.3376930974,
+      "volume_bias_ratio": 0.9303296845,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 0,
+      "yesterday_last_limit_up": 0,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 0
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 14,
+      "buy_lock_volume_ratio": 0.0001397653,
+      "change_percent": 0.0635149765,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 1778031690,
+      "first_limit_down": 0,
+      "first_limit_up": 1778031684,
+      "is_new_stock": false,
+      "issue_price": 36.5,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 1778032530,
+      "last_limit_down": 0,
+      "last_limit_up": 1778032521,
+      "limit_down_days": 0,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1778031684,
+            "status": 1
+          },
+          {
+            "timestamp": 1778031690,
+            "status": 2
+          },
+          {
+            "timestamp": 1778031696,
+            "status": 1
+          },
+          {
+            "timestamp": 1778031705,
+            "status": 2
+          },
+          {
+            "timestamp": 1778031708,
+            "status": 1
+          },
+          {
+            "timestamp": 1778031723,
+            "status": 2
+          },
+          {
+            "timestamp": 1778031738,
+            "status": 1
+          },
+          {
+            "timestamp": 1778031744,
+            "status": 2
+          },
+          {
+            "timestamp": 1778031795,
+            "status": 1
+          },
+          {
+            "timestamp": 1778031801,
+            "status": 2
+          },
+          {
+            "timestamp": 1778031807,
+            "status": 1
+          },
+          {
+            "timestamp": 1778031816,
+            "status": 2
+          },
+          {
+            "timestamp": 1778031846,
+            "status": 1
+          },
+          {
+            "timestamp": 1778031867,
+            "status": 2
+          },
+          {
+            "timestamp": 1778031870,
+            "status": 1
+          },
+          {
+            "timestamp": 1778031891,
+            "status": 2
+          },
+          {
+            "timestamp": 1778031906,
+            "status": 1
+          },
+          {
+            "timestamp": 1778031930,
+            "status": 2
+          },
+          {
+            "timestamp": 1778031942,
+            "status": 1
+          },
+          {
+            "timestamp": 1778032449,
+            "status": 2
+          },
+          {
+            "timestamp": 1778032452,
+            "status": 1
+          },
+          {
+            "timestamp": 1778032464,
+            "status": 2
+          },
+          {
+            "timestamp": 1778032476,
+            "status": 1
+          },
+          {
+            "timestamp": 1778032479,
+            "status": 2
+          },
+          {
+            "timestamp": 1778032488,
+            "status": 1
+          },
+          {
+            "timestamp": 1778032491,
+            "status": 2
+          },
+          {
+            "timestamp": 1778032521,
+            "status": 1
+          },
+          {
+            "timestamp": 1778032530,
+            "status": 2
+          }
+        ]
+      },
+      "limit_up_days": 0,
+      "listed_date": 1276790400,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0.0010190217,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": -0.1926027397,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 44733409801.57,
+      "price": 29.47,
+      "sell_lock_volume_ratio": 9.53954e-05,
+      "stock_chi_name": "兴森科技",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "002436.SZ",
+        "stock_reason": "国内本土IC封装基板行业的先行者之一；公司生产的FCBGA封装基板可用于HBM存储的封装",
+        "related_plates": [
+          {
+            "plate_name": "国产芯片",
+            "plate_reason": "CPU龙头英特尔4月涨幅翻倍，英伟达、寒武纪等股价创历史新高"
+          }
+        ]
+      },
+      "symbol": "002436.SZ",
+      "total_capital": 50089379901.61,
+      "turnover_ratio": 0.1388334042,
+      "volume_bias_ratio": 1.4049319079,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 0,
+      "yesterday_last_limit_up": 0,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 0
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 1,
+      "buy_lock_volume_ratio": 3.248e-07,
+      "change_percent": 0.0837675351,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 1778047221,
+      "first_limit_down": 0,
+      "first_limit_up": 1778046633,
+      "is_new_stock": false,
+      "issue_price": 1.1,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 1778047221,
+      "last_limit_down": 0,
+      "last_limit_up": 1778046633,
+      "limit_down_days": 0,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1778046633,
+            "status": 1
+          },
+          {
+            "timestamp": 1778047221,
+            "status": 2
+          }
+        ]
+      },
+      "limit_up_days": 0,
+      "listed_date": 896284800,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": -0.0014771049,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 23.5818181818,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 26455819214.239998,
+      "price": 27.04,
+      "sell_lock_volume_ratio": 1.14756e-05,
+      "stock_chi_name": "冰轮环境",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "000811.SZ",
+        "stock_reason": "数据中心温控系统是旗下公司顿汉布什的主要业务之一，服务过国家超算广州中心（天河二号）、中国联通西安数据中心、中国移动贵州数据中心等；公司有产品服务数据中心液冷业务",
+        "related_plates": [
+          {
+            "plate_name": "云计算数据中心",
+            "plate_reason": "豆包或推出收费模式"
+          }
+        ]
+      },
+      "symbol": "000811.SZ",
+      "total_capital": 26836604714.399998,
+      "turnover_ratio": 0.055908032,
+      "volume_bias_ratio": 1.0707184125,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 0,
+      "yesterday_last_limit_up": 0,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 0
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 9,
+      "buy_lock_volume_ratio": 0.0003040048,
+      "change_percent": 0.0669800235,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 1778034297,
+      "first_limit_down": 0,
+      "first_limit_up": 1778034189,
+      "is_new_stock": false,
+      "issue_price": 9.6,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 1778045109,
+      "last_limit_down": 0,
+      "last_limit_up": 1778045103,
+      "limit_down_days": 0,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1778034189,
+            "status": 1
+          },
+          {
+            "timestamp": 1778034297,
+            "status": 2
+          },
+          {
+            "timestamp": 1778035992,
+            "status": 1
+          },
+          {
+            "timestamp": 1778036118,
+            "status": 2
+          },
+          {
+            "timestamp": 1778036178,
+            "status": 1
+          },
+          {
+            "timestamp": 1778044698,
+            "status": 2
+          },
+          {
+            "timestamp": 1778044710,
+            "status": 1
+          },
+          {
+            "timestamp": 1778044716,
+            "status": 2
+          },
+          {
+            "timestamp": 1778044719,
+            "status": 1
+          },
+          {
+            "timestamp": 1778044749,
+            "status": 2
+          },
+          {
+            "timestamp": 1778044758,
+            "status": 1
+          },
+          {
+            "timestamp": 1778044782,
+            "status": 2
+          },
+          {
+            "timestamp": 1778045043,
+            "status": 1
+          },
+          {
+            "timestamp": 1778045046,
+            "status": 2
+          },
+          {
+            "timestamp": 1778045073,
+            "status": 1
+          },
+          {
+            "timestamp": 1778045076,
+            "status": 2
+          },
+          {
+            "timestamp": 1778045103,
+            "status": 1
+          },
+          {
+            "timestamp": 1778045109,
+            "status": 2
+          }
+        ]
+      },
+      "limit_up_days": 0,
+      "listed_date": 1180454400,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0.0044247788,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": -0.0541666667,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 9478347608.56,
+      "price": 9.08,
+      "sell_lock_volume_ratio": 0.0001478564,
+      "stock_chi_name": "东南网架",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "002135.SZ",
+        "stock_reason": "公司与江苏日托光伏科技股份有限公司签署《战略合作协议》，拟投资建立合资公司，专门研发生产各类高端光伏组件、特别是高端轻柔组件产线",
+        "related_plates": [
+          {
+            "plate_name": "光伏"
+          }
+        ]
+      },
+      "symbol": "002135.SZ",
+      "total_capital": 10128933404,
+      "turnover_ratio": 0.1104226404,
+      "volume_bias_ratio": 2.5969172993,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 0,
+      "yesterday_last_limit_up": 0,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 0
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 20,
+      "buy_lock_volume_ratio": 9.17407e-05,
+      "change_percent": 0.0967018892,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 1778035207,
+      "first_limit_down": 0,
+      "first_limit_up": 1778035195,
+      "is_new_stock": false,
+      "issue_price": 14.03,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 1778044816,
+      "last_limit_down": 0,
+      "last_limit_up": 1778044801,
+      "limit_down_days": 0,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1778035195,
+            "status": 1
+          },
+          {
+            "timestamp": 1778035207,
+            "status": 2
+          },
+          {
+            "timestamp": 1778035219,
+            "status": 1
+          },
+          {
+            "timestamp": 1778035261,
+            "status": 2
+          },
+          {
+            "timestamp": 1778035972,
+            "status": 1
+          },
+          {
+            "timestamp": 1778036659,
+            "status": 2
+          },
+          {
+            "timestamp": 1778036686,
+            "status": 1
+          },
+          {
+            "timestamp": 1778036691,
+            "status": 2
+          },
+          {
+            "timestamp": 1778036797,
+            "status": 1
+          },
+          {
+            "timestamp": 1778043874,
+            "status": 2
+          },
+          {
+            "timestamp": 1778043904,
+            "status": 1
+          },
+          {
+            "timestamp": 1778043913,
+            "status": 2
+          },
+          {
+            "timestamp": 1778043931,
+            "status": 1
+          },
+          {
+            "timestamp": 1778043943,
+            "status": 2
+          },
+          {
+            "timestamp": 1778043955,
+            "status": 1
+          },
+          {
+            "timestamp": 1778043961,
+            "status": 2
+          },
+          {
+            "timestamp": 1778044006,
+            "status": 1
+          },
+          {
+            "timestamp": 1778044011,
+            "status": 2
+          },
+          {
+            "timestamp": 1778044081,
+            "status": 1
+          },
+          {
+            "timestamp": 1778044084,
+            "status": 2
+          },
+          {
+            "timestamp": 1778044087,
+            "status": 1
+          },
+          {
+            "timestamp": 1778044093,
+            "status": 2
+          },
+          {
+            "timestamp": 1778044261,
+            "status": 1
+          },
+          {
+            "timestamp": 1778044270,
+            "status": 2
+          },
+          {
+            "timestamp": 1778044444,
+            "status": 1
+          },
+          {
+            "timestamp": 1778044449,
+            "status": 2
+          },
+          {
+            "timestamp": 1778044461,
+            "status": 1
+          },
+          {
+            "timestamp": 1778044468,
+            "status": 2
+          },
+          {
+            "timestamp": 1778044471,
+            "status": 1
+          },
+          {
+            "timestamp": 1778044483,
+            "status": 2
+          },
+          {
+            "timestamp": 1778044492,
+            "status": 1
+          },
+          {
+            "timestamp": 1778044495,
+            "status": 2
+          },
+          {
+            "timestamp": 1778044546,
+            "status": 1
+          },
+          {
+            "timestamp": 1778044555,
+            "status": 2
+          },
+          {
+            "timestamp": 1778044567,
+            "status": 1
+          },
+          {
+            "timestamp": 1778044585,
+            "status": 2
+          },
+          {
+            "timestamp": 1778044639,
+            "status": 1
+          },
+          {
+            "timestamp": 1778044672,
+            "status": 2
+          },
+          {
+            "timestamp": 1778044801,
+            "status": 1
+          },
+          {
+            "timestamp": 1778044816,
+            "status": 2
+          }
+        ]
+      },
+      "limit_up_days": 0,
+      "listed_date": 1491494400,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0.0060214422,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 3.8823948681,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 15918222964.5,
+      "price": 68.5,
+      "sell_lock_volume_ratio": 5.6753e-06,
+      "stock_chi_name": "美诺华",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "603538.SS",
+        "stock_reason": "诺和诺德司美格鲁肽在中国的核心化合物专利到期；公司储备了减肥多肽类中间体，正在进行GLP-1的研发和技术的储备",
+        "related_plates": [
+          {
+            "plate_name": "医药"
+          }
+        ]
+      },
+      "symbol": "603538.SS",
+      "total_capital": 16209641144.5,
+      "turnover_ratio": 0.2417545528,
+      "volume_bias_ratio": 0.9611474039,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 0,
+      "yesterday_last_limit_up": 0,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 0
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 1,
+      "buy_lock_volume_ratio": 0.0003006342,
+      "change_percent": 0.0697167756,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 1778044506,
+      "first_limit_down": 0,
+      "first_limit_up": 1778034229,
+      "is_new_stock": false,
+      "issue_price": 3.1,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 1778044506,
+      "last_limit_down": 0,
+      "last_limit_up": 1778034229,
+      "limit_down_days": 0,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1778034229,
+            "status": 1
+          },
+          {
+            "timestamp": 1778044506,
+            "status": 2
+          }
+        ]
+      },
+      "limit_up_days": 0,
+      "listed_date": 755107200,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0.0020408163,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 0.5838709677,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 5448775360.56,
+      "price": 4.91,
+      "sell_lock_volume_ratio": 0.0001094488,
+      "stock_chi_name": "渤海化学",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "600800.SS",
+        "stock_reason": "COFs全球首次吨级量产发布会，宝丽迪和渤海化工、耀科创始人等领导上台共同参与启动；渤海化工为公司第一大股东",
+        "related_plates": [
+          {
+            "plate_name": "其他"
+          }
+        ]
+      },
+      "symbol": "600800.SS",
+      "total_capital": 5450322010.56,
+      "turnover_ratio": 0.0992822755,
+      "volume_bias_ratio": 2.785291264,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 0,
+      "yesterday_last_limit_up": 0,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 0
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 3,
+      "buy_lock_volume_ratio": 0.0004442198,
+      "change_percent": 0.0972468917,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 1778048484,
+      "first_limit_down": 0,
+      "first_limit_up": 1778048478,
+      "is_new_stock": false,
+      "issue_price": 7.82,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 1778048571,
+      "last_limit_down": 0,
+      "last_limit_up": 1778048562,
+      "limit_down_days": 0,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1778048478,
+            "status": 1
+          },
+          {
+            "timestamp": 1778048484,
+            "status": 2
+          },
+          {
+            "timestamp": 1778048550,
+            "status": 1
+          },
+          {
+            "timestamp": 1778048559,
+            "status": 2
+          },
+          {
+            "timestamp": 1778048562,
+            "status": 1
+          },
+          {
+            "timestamp": 1778048571,
+            "status": 2
+          }
+        ]
+      },
+      "limit_up_days": 0,
+      "listed_date": 1774886400,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0.0185490519,
+      "nearly_new_acc_pcp": -0.1072976879,
+      "nearly_new_break_days": 22,
+      "new_stock_acc_pcp": 2.1598465473,
+      "new_stock_break_limit_up": 1775006700,
+      "new_stock_limit_up_days": 1,
+      "new_stock_limit_up_price_before_broken": 27.68,
+      "non_restricted_capital": 3383984783.48,
+      "price": 24.71,
+      "sell_lock_volume_ratio": 0.0009837034,
+      "stock_chi_name": "盛龙股份",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "001257.SZ"
+      },
+      "symbol": "001257.SZ",
+      "total_capital": 45366344688.07,
+      "turnover_ratio": 0.2948138749,
+      "volume_bias_ratio": 2.392662331,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 0,
+      "yesterday_last_limit_up": 0,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 0
+    },
+    {
+      "break_limit_down_times": 0,
+      "break_limit_up_times": 24,
+      "buy_lock_volume_ratio": 2.62587e-05,
+      "change_percent": 0.0884792627,
+      "first_break_limit_down": 0,
+      "first_break_limit_up": 1778036824,
+      "first_limit_down": 0,
+      "first_limit_up": 1778036005,
+      "is_new_stock": false,
+      "issue_price": 10.29,
+      "last_break_limit_down": 0,
+      "last_break_limit_up": 1778046625,
+      "last_limit_down": 0,
+      "last_limit_up": 1778046612,
+      "limit_down_days": 0,
+      "limit_timeline": {
+        "items": [
+          {
+            "timestamp": 1778036005,
+            "status": 1
+          },
+          {
+            "timestamp": 1778036824,
+            "status": 2
+          },
+          {
+            "timestamp": 1778037652,
+            "status": 1
+          },
+          {
+            "timestamp": 1778044423,
+            "status": 2
+          },
+          {
+            "timestamp": 1778044480,
+            "status": 1
+          },
+          {
+            "timestamp": 1778044801,
+            "status": 2
+          },
+          {
+            "timestamp": 1778044821,
+            "status": 1
+          },
+          {
+            "timestamp": 1778044911,
+            "status": 2
+          },
+          {
+            "timestamp": 1778045023,
+            "status": 1
+          },
+          {
+            "timestamp": 1778045080,
+            "status": 2
+          },
+          {
+            "timestamp": 1778045086,
+            "status": 1
+          },
+          {
+            "timestamp": 1778045093,
+            "status": 2
+          },
+          {
+            "timestamp": 1778045113,
+            "status": 1
+          },
+          {
+            "timestamp": 1778045155,
+            "status": 2
+          },
+          {
+            "timestamp": 1778045168,
+            "status": 1
+          },
+          {
+            "timestamp": 1778045194,
+            "status": 2
+          },
+          {
+            "timestamp": 1778045200,
+            "status": 1
+          },
+          {
+            "timestamp": 1778045202,
+            "status": 2
+          },
+          {
+            "timestamp": 1778045208,
+            "status": 1
+          },
+          {
+            "timestamp": 1778045210,
+            "status": 2
+          },
+          {
+            "timestamp": 1778045221,
+            "status": 1
+          },
+          {
+            "timestamp": 1778045232,
+            "status": 2
+          },
+          {
+            "timestamp": 1778045238,
+            "status": 1
+          },
+          {
+            "timestamp": 1778045272,
+            "status": 2
+          },
+          {
+            "timestamp": 1778045287,
+            "status": 1
+          },
+          {
+            "timestamp": 1778045316,
+            "status": 2
+          },
+          {
+            "timestamp": 1778045324,
+            "status": 1
+          },
+          {
+            "timestamp": 1778045329,
+            "status": 2
+          },
+          {
+            "timestamp": 1778045367,
+            "status": 1
+          },
+          {
+            "timestamp": 1778045440,
+            "status": 2
+          },
+          {
+            "timestamp": 1778045452,
+            "status": 1
+          },
+          {
+            "timestamp": 1778045472,
+            "status": 2
+          },
+          {
+            "timestamp": 1778045476,
+            "status": 1
+          },
+          {
+            "timestamp": 1778045608,
+            "status": 2
+          },
+          {
+            "timestamp": 1778045650,
+            "status": 1
+          },
+          {
+            "timestamp": 1778045659,
+            "status": 2
+          },
+          {
+            "timestamp": 1778045983,
+            "status": 1
+          },
+          {
+            "timestamp": 1778046115,
+            "status": 2
+          },
+          {
+            "timestamp": 1778046140,
+            "status": 1
+          },
+          {
+            "timestamp": 1778046147,
+            "status": 2
+          },
+          {
+            "timestamp": 1778046223,
+            "status": 1
+          },
+          {
+            "timestamp": 1778046243,
+            "status": 2
+          },
+          {
+            "timestamp": 1778046389,
+            "status": 1
+          },
+          {
+            "timestamp": 1778046407,
+            "status": 2
+          },
+          {
+            "timestamp": 1778046510,
+            "status": 1
+          },
+          {
+            "timestamp": 1778046517,
+            "status": 2
+          },
+          {
+            "timestamp": 1778046612,
+            "status": 1
+          },
+          {
+            "timestamp": 1778046625,
+            "status": 2
+          }
+        ]
+      },
+      "limit_up_days": 0,
+      "listed_date": 1492099200,
+      "m_days_n_boards_boards": 0,
+      "m_days_n_boards_days": 0,
+      "mtm": 0.0025466893,
+      "nearly_new_acc_pcp": 0,
+      "nearly_new_break_days": 0,
+      "new_stock_acc_pcp": 1.2954324587,
+      "new_stock_break_limit_up": 0,
+      "new_stock_limit_up_days": 0,
+      "new_stock_limit_up_price_before_broken": 0,
+      "non_restricted_capital": 9526399338.66,
+      "price": 23.62,
+      "sell_lock_volume_ratio": 7.2474e-05,
+      "stock_chi_name": "科林电气",
+      "stock_type": 0,
+      "surge_reason": {
+        "symbol": "603050.SS",
+        "stock_reason": "公司专业从事智能电网配电、变电、用电和高低压开关及成套设备等，液冷储能柜完成迭代并批量出货",
+        "related_plates": [
+          {
+            "plate_name": "算电协同"
+          }
+        ]
+      },
+      "symbol": "603050.SS",
+      "total_capital": 9526399338.66,
+      "turnover_ratio": 0.0557693519,
+      "volume_bias_ratio": 3.4673945885,
+      "yesterday_break_limit_up_times": 0,
+      "yesterday_first_limit_up": 0,
+      "yesterday_last_limit_up": 0,
+      "yesterday_limit_down_days": 0,
+      "yesterday_limit_up_days": 0
+    }
+  ]
+}
