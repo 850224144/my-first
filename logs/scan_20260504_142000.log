@@ -1,0 +1,7 @@
+2026-05-04 14:20:00 | INFO | a_stock | 日志初始化完成：run_id=20260504_142000, log_dir=logs, reject_file=logs/rejects_20260504_142000.csv, raw_bad_rows_file=logs/raw_bad_rows_20260504_142000.jsonl
+2026-05-04 14:20:00 | INFO | a_stock | run_scan 启动
+2026-05-04 14:20:00 | INFO | a_stock | 使用股票池缓存：1479 只
+2026-05-04 14:20:01 | WARNING | a_stock | 板块过滤失败：filter_universe_by_strong_sector() got an unexpected keyword argument 'market_state'
+2026-05-04 14:20:01 | WARNING | a_stock | 周线过滤失败：filter_by_weekly_trend() got an unexpected keyword argument 'strict'
+2026-05-04 14:20:31 | INFO | a_stock | 实时行情刷新结果：请求=1479 成功=1474 成功率=99.66% fresh=0 stale=1479 最新=2026-04-30 16:30:00
+2026-05-04 14:20:31 | ERROR | a_stock | 实时行情刷新失败，本轮停止：{'requested': 1479, 'success': 1474, 'failed': 5, 'success_rate': 0.9966193373901284, 'newest_quote_time': '2026-04-30 16:30:00', 'ok': False, 'message': '实时行情刷新结果：请求=1479 成功=1474 成功率=99.66% fresh=0 stale=1479 最新=2026-04-30 16:30:00', 'fresh': 0, 'stale': 1479, 'missing': 0, 'fresh_rate': 0.0}

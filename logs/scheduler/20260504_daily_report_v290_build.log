@@ -1,0 +1,67 @@
+
+################################################################################
+[2026-05-04 20:25:00] JOB START: daily_report_v290_build
+################################################################################
+
+================================================================================
+[2026-05-04 20:25:00] START COMMAND: /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/build_daily_report_v290.py
+[2026-05-04 20:25:00] TIMEOUT: None
+================================================================================
+【v2.9.0 日报生成完成】
+{
+  "trade_date": "2026-05-04",
+  "md_path": "/Users/liujunying/Downloads/project/my-first/data/reports/daily_report_v290_2026-05-04.md",
+  "json_path": "/Users/liujunying/Downloads/project/my-first/data/reports/daily_report_v290_2026-05-04.json",
+  "health_path": "/Users/liujunying/Downloads/project/my-first/data/reports/system_health_v290_2026-05-04.json"
+}
+
+# A股二买交易助手日报 2026-05-04
+
+## 一、今日总览
+
+- 观察池候选：138
+- 尾盘重点候选：0
+- 低优先级候选：138
+- 尾盘买入信号：0
+- 尾盘观察：0
+- 尾盘拒绝：0
+- 纸面交易候选累计：0
+- 开盘复核计划累计：0
+- 持仓记录：0
+
+## 二、尾盘确认
+
+- 尾盘重点候选：0
+- 买入信号：0
+- 观察：0
+- 拒绝：0
+
+### 今日买入信号
+- 无
+
+### 最接近买点
+- 无
+
+## 三、BUY / 明日计划
+
+# BUY Bridge Summary 2026-05-04
+
+- 尾盘结果行数：0
+- BUY 行数：0
+- 新增纸面交易候选：0
+- 新增开盘复核计划：0
+
+## BUY 明细
+- 无
+
+## 四、系统健康
+
+- 状态：ok
+- 关键文件：正常
+
+## 五、结论
+
+- 今日无买入信号，系统保持观察。
+- 不自动下单，所有结果用于辅助决策。
+[2026-05-04 20:25:00] END COMMAND returncode=0
+[2026-05-04 20:25:00] JOB DONE: daily_report_v290_build

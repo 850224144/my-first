@@ -1,0 +1,11 @@
+{
+  "trade_date": "2026-05-01",
+  "source_tail_focus_path": "/Users/liujunying/Downloads/project/my-first/data/watchlist_tail_focus.parquet",
+  "total": 0,
+  "status_counter": {},
+  "quality_counter": {},
+  "buy_count": 0,
+  "watch_count": 0,
+  "rejected_count": 0,
+  "near_candidates": []
+}

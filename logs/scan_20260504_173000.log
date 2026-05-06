@@ -1,0 +1,4 @@
+2026-05-04 17:30:00 | INFO | a_stock | 日志初始化完成：run_id=20260504_173000, log_dir=logs, reject_file=logs/rejects_20260504_173000.csv, raw_bad_rows_file=logs/raw_bad_rows_20260504_173000.jsonl
+2026-05-04 17:30:00 | INFO | a_stock | run_scan 启动
+2026-05-04 17:30:00 | INFO | a_stock | 开始刷新已有日线缓存：候选=1200 limit=1200
+2026-05-04 17:50:13 | INFO | a_stock | 刷新已有日线缓存完成：processed=1200 success=1200 failed=0 latest_date=2026-04-30

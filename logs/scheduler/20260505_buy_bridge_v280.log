@@ -1,0 +1,28 @@
+
+################################################################################
+[2026-05-05 14:52:00] JOB START: buy_bridge_v280
+################################################################################
+
+================================================================================
+[2026-05-05 14:52:00] START COMMAND: /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/build_buy_bridge_v280.py
+[2026-05-05 14:52:00] TIMEOUT: None
+================================================================================
+【v2.8.0 BUY Bridge 完成】
+{
+  "trade_date": "2026-05-05",
+  "tail_results_path": "/Users/liujunying/Downloads/project/my-first/data/tail_confirm_results_v265.parquet",
+  "tail_result_rows": 0,
+  "buy_rows": 0,
+  "paper_candidates_added": 0,
+  "open_recheck_plans_added": 0,
+  "paper_candidates_total": 0,
+  "open_recheck_plans_total": 0,
+  "buy_symbols": []
+}
+
+输出：
+/Users/liujunying/Downloads/project/my-first/data/paper_trade_candidates.parquet
+/Users/liujunying/Downloads/project/my-first/data/trade_plan_open_recheck.parquet
+/Users/liujunying/Downloads/project/my-first/data/reports/buy_bridge_summary_2026-05-05.md
+[2026-05-05 14:52:00] END COMMAND returncode=0
+[2026-05-05 14:52:00] JOB DONE: buy_bridge_v280

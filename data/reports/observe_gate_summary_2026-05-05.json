@@ -1,0 +1,21 @@
+{
+  "trade_date": "2026-05-05",
+  "total": 138,
+  "tail_focus_count": 0,
+  "low_priority_count": 138,
+  "quality_counter": {
+    "reject_bad_data": 138
+  },
+  "risk_bucket_counter": {
+    "<=5": 3,
+    "5-8": 7,
+    "8-12": 16,
+    "12-20": 56,
+    "20-30": 39,
+    ">30": 17
+  },
+  "status_counter": {
+    "REJECTED": 138
+  },
+  "tail_focus_symbols": []
+}

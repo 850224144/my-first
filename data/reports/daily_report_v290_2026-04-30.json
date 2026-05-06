@@ -397,7 +397,7 @@
       "data/watchlist.parquet": {
         "path": "/Users/liujunying/Downloads/project/my-first/data/watchlist.parquet",
         "exists": true,
-        "size": 19332
+        "size": 19469
       },
       "data/watchlist_tail_focus.parquet": {
         "path": "/Users/liujunying/Downloads/project/my-first/data/watchlist_tail_focus.parquet",
@@ -422,7 +422,7 @@
       "data/stock_data.duckdb": {
         "path": "/Users/liujunying/Downloads/project/my-first/data/stock_data.duckdb",
         "exists": true,
-        "size": 266874880
+        "size": 281554944
       }
     },
     "trading_state_db": {

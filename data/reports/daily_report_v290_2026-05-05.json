@@ -1,0 +1,103 @@
+{
+  "trade_date": "2026-05-05",
+  "observe": {
+    "trade_date": "2026-05-05",
+    "total": 138,
+    "tail_focus_count": 0,
+    "low_priority_count": 138,
+    "quality_counter": {
+      "reject_bad_data": 138
+    },
+    "risk_bucket_counter": {
+      "<=5": 3,
+      "5-8": 7,
+      "8-12": 16,
+      "12-20": 56,
+      "20-30": 39,
+      ">30": 17
+    },
+    "status_counter": {
+      "REJECTED": 138
+    },
+    "tail_focus_symbols": []
+  },
+  "tail_confirm": {
+    "trade_date": "2026-05-05",
+    "source_tail_focus_path": "/Users/liujunying/Downloads/project/my-first/data/watchlist_tail_focus.parquet",
+    "total": 0,
+    "status_counter": {},
+    "quality_counter": {},
+    "buy_count": 0,
+    "watch_count": 0,
+    "rejected_count": 0,
+    "near_candidates": []
+  },
+  "buy_bridge": {
+    "trade_date": "2026-05-05",
+    "tail_results_path": "/Users/liujunying/Downloads/project/my-first/data/tail_confirm_results_v265.parquet",
+    "tail_result_rows": 0,
+    "buy_rows": 0,
+    "paper_candidates_added": 0,
+    "open_recheck_plans_added": 0,
+    "paper_candidates_total": 0,
+    "open_recheck_plans_total": 0,
+    "buy_symbols": []
+  },
+  "positions_rows": 0,
+  "paper_candidates_rows": 0,
+  "open_recheck_rows": 0,
+  "health": {
+    "status": "ok",
+    "missing_required": [],
+    "files": {
+      "data/watchlist.parquet": {
+        "path": "/Users/liujunying/Downloads/project/my-first/data/watchlist.parquet",
+        "exists": true,
+        "size": 19480
+      },
+      "data/watchlist_tail_focus.parquet": {
+        "path": "/Users/liujunying/Downloads/project/my-first/data/watchlist_tail_focus.parquet",
+        "exists": true,
+        "size": 636
+      },
+      "data/tail_confirm_results_v265.parquet": {
+        "path": "/Users/liujunying/Downloads/project/my-first/data/tail_confirm_results_v265.parquet",
+        "exists": true,
+        "size": 636
+      },
+      "data/paper_trade_candidates.parquet": {
+        "path": "/Users/liujunying/Downloads/project/my-first/data/paper_trade_candidates.parquet",
+        "exists": true,
+        "size": 636
+      },
+      "data/trade_plan_open_recheck.parquet": {
+        "path": "/Users/liujunying/Downloads/project/my-first/data/trade_plan_open_recheck.parquet",
+        "exists": true,
+        "size": 636
+      },
+      "data/stock_data.duckdb": {
+        "path": "/Users/liujunying/Downloads/project/my-first/data/stock_data.duckdb",
+        "exists": true,
+        "size": 334508032
+      }
+    },
+    "trading_state_db": {
+      "exists": true,
+      "tables": [
+        "final_signal_daily",
+        "notification_state",
+        "open_recheck_daily",
+        "paper_trade_ext",
+        "sqlite_sequence"
+      ]
+    },
+    "scheduler_state_db": {
+      "exists": true,
+      "tables": [
+        "scheduler_job_runs_v270",
+        "sqlite_sequence"
+      ]
+    }
+  },
+  "markdown": "# A股二买交易助手日报 2026-05-05\n\n## 一、今日总览\n\n- 观察池候选：138\n- 尾盘重点候选：0\n- 低优先级候选：138\n- 尾盘买入信号：0\n- 尾盘观察：0\n- 尾盘拒绝：0\n- 纸面交易候选累计：0\n- 开盘复核计划累计：0\n- 持仓记录：0\n\n## 二、尾盘确认\n\n- 尾盘重点候选：0\n- 买入信号：0\n- 观察：0\n- 拒绝：0\n\n### 今日买入信号\n- 无\n\n### 最接近买点\n- 无\n\n## 三、BUY / 明日计划\n\n# BUY Bridge Summary 2026-05-05\n\n- 尾盘结果行数：0\n- BUY 行数：0\n- 新增纸面交易候选：0\n- 新增开盘复核计划：0\n\n## BUY 明细\n- 无\n\n## 四、系统健康\n\n- 状态：ok\n- 关键文件：正常\n\n## 五、结论\n\n- 今日无买入信号，系统保持观察。\n- 不自动下单，所有结果用于辅助决策。"
+}

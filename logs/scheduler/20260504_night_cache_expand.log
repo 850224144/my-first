@@ -1,0 +1,75 @@
+
+################################################################################
+[2026-05-04 22:30:00] JOB START: night_cache_expand
+################################################################################
+
+================================================================================
+[2026-05-04 22:30:00] START COMMAND: /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --build-daily-cache --daily-limit 300 --daily-workers 1
+[2026-05-04 22:30:00] TIMEOUT: 3600
+================================================================================
+2026-05-04 22:30:00 | INFO | a_stock | 日志初始化完成：run_id=20260504_223000, log_dir=logs, reject_file=logs/rejects_20260504_223000.csv, raw_bad_rows_file=logs/raw_bad_rows_20260504_223000.jsonl
+2026-05-04 22:30:00 | INFO | a_stock | run_scan 启动
+2026-05-04 22:30:00 | INFO | a_stock | 历史K优化候选池：300 只（实时有效 + 按成交额排序 + 未缓存）
+2026-05-04 22:30:00 | INFO | a_stock | 开始优化历史K缓存：候选=300 daily_limit=300
+2026-05-04 22:30:04 | INFO | a_stock | [reject] 688808 no_kline_data 历史K为空或不足250根 source=failed
+2026-05-04 22:30:07 | INFO | a_stock | [reject] 688820 no_kline_data 历史K为空或不足250根 source=failed
+2026-05-04 22:30:09 | INFO | a_stock | [reject] 688802 no_kline_data 历史K为空或不足250根 source=failed
+2026-05-04 22:30:10 | INFO | a_stock | [reject] 688795 no_kline_data 历史K为空或不足250根 source=failed
+2026-05-04 22:30:12 | INFO | a_stock | [reject] 301666 no_kline_data 历史K为空或不足250根 source=failed
+2026-05-04 22:30:15 | INFO | a_stock | [reject] 600930 no_kline_data 历史K为空或不足250根 source=failed
+2026-05-04 22:30:16 | INFO | a_stock | [reject] 688807 no_kline_data 历史K为空或不足250根 source=failed
+2026-05-04 22:30:18 | INFO | a_stock | [reject] 301667 no_kline_data 历史K为空或不足250根 source=failed
+2026-05-04 22:30:21 | INFO | a_stock | [reject] 688818 no_kline_data 历史K为空或不足250根 source=failed
+2026-05-04 22:30:23 | INFO | a_stock | [reject] 603459 no_kline_data 历史K为空或不足250根 source=failed
+2026-05-04 22:30:25 | INFO | a_stock | [reject] 688809 no_kline_data 历史K为空或不足250根 source=failed
+2026-05-04 22:30:26 | INFO | a_stock | [reject] 920045 no_kline_data 历史K为空或不足250根 source=failed
+2026-05-04 22:30:28 | INFO | a_stock | [reject] 301638 no_kline_data 历史K为空或不足250根 source=failed
+2026-05-04 22:30:30 | INFO | a_stock | [reject] 001280 no_kline_data 历史K为空或不足250根 source=failed
+2026-05-04 22:30:32 | INFO | a_stock | [reject] 688813 no_kline_data 历史K为空或不足250根 source=failed
+2026-05-04 22:30:35 | INFO | a_stock | [reject] 301630 no_kline_data 历史K为空或不足250根 source=failed
+2026-05-04 22:30:36 | INFO | a_stock | [reject] 920125 no_kline_data 历史K为空或不足250根 source=failed
+2026-05-04 22:30:38 | INFO | a_stock | [reject] 688811 no_kline_data 历史K为空或不足250根 source=failed
+2026-05-04 22:30:40 | INFO | a_stock | [reject] 301696 no_kline_data 历史K为空或不足250根 source=failed
+2026-05-04 22:30:42 | INFO | a_stock | [reject] 001312 no_kline_data 历史K为空或不足250根 source=failed
+2026-05-04 22:30:44 | INFO | a_stock | [reject] 001400 no_kline_data 历史K为空或不足250根 source=failed
+2026-05-04 22:30:46 | INFO | a_stock | [reject] 301513 no_kline_data 历史K为空或不足250根 source=failed
+2026-05-04 22:30:48 | INFO | a_stock | [reject] 301682 no_kline_data 历史K为空或不足250根 source=failed
+2026-05-04 22:30:51 | INFO | a_stock | [reject] 001257 no_kline_data 历史K为空或不足250根 source=failed
+2026-05-04 22:30:53 | INFO | a_stock | [reject] 603175 no_kline_data 历史K为空或不足250根 source=failed
+2026-05-04 22:30:56 | INFO | a_stock | [reject] 301683 no_kline_data 历史K为空或不足250根 source=failed
+2026-05-04 22:31:00 | ERROR | a_stock | 历史K失败率 0.87 超过阈值 0.80，熔断停止。
+2026-05-04 22:31:00 | INFO | a_stock | 
+历史K构建报告：
+  总处理：30
+  成功：4
+  失败：26
+  缓存命中：0
+  腾讯成功：0
+  新浪历史成功：4
+  efinance成功：0
+  混合/合并：0
+  未知来源：0
+2026-05-04 22:31:00 | WARNING | a_stock | 失败样本前20：
+2026-05-04 22:31:00 | WARNING | a_stock | 688808 -> no_kline_data source=failed
+2026-05-04 22:31:00 | WARNING | a_stock | 688820 -> no_kline_data source=failed
+2026-05-04 22:31:00 | WARNING | a_stock | 688802 -> no_kline_data source=failed
+2026-05-04 22:31:00 | WARNING | a_stock | 688795 -> no_kline_data source=failed
+2026-05-04 22:31:00 | WARNING | a_stock | 301666 -> no_kline_data source=failed
+2026-05-04 22:31:00 | WARNING | a_stock | 600930 -> no_kline_data source=failed
+2026-05-04 22:31:00 | WARNING | a_stock | 688807 -> no_kline_data source=failed
+2026-05-04 22:31:00 | WARNING | a_stock | 301667 -> no_kline_data source=failed
+2026-05-04 22:31:00 | WARNING | a_stock | 688818 -> no_kline_data source=failed
+2026-05-04 22:31:00 | WARNING | a_stock | 603459 -> no_kline_data source=failed
+2026-05-04 22:31:00 | WARNING | a_stock | 688809 -> no_kline_data source=failed
+2026-05-04 22:31:00 | WARNING | a_stock | 920045 -> no_kline_data source=failed
+2026-05-04 22:31:00 | WARNING | a_stock | 301638 -> no_kline_data source=failed
+2026-05-04 22:31:00 | WARNING | a_stock | 001280 -> no_kline_data source=failed
+2026-05-04 22:31:00 | WARNING | a_stock | 688813 -> no_kline_data source=failed
+2026-05-04 22:31:00 | WARNING | a_stock | 301630 -> no_kline_data source=failed
+2026-05-04 22:31:00 | WARNING | a_stock | 920125 -> no_kline_data source=failed
+2026-05-04 22:31:00 | WARNING | a_stock | 688811 -> no_kline_data source=failed
+2026-05-04 22:31:00 | WARNING | a_stock | 301696 -> no_kline_data source=failed
+2026-05-04 22:31:00 | WARNING | a_stock | 001312 -> no_kline_data source=failed
+{'processed': 30, 'success': 4, 'failed': 26, 'cache_hit': 0, 'tencent': 0, 'sina_history': 4, 'efinance': 0, 'mixed': 0, 'unknown_source': 0}
+[2026-05-04 22:31:00] END COMMAND returncode=0
+[2026-05-04 22:31:00] JOB DONE: night_cache_expand
