@@ -329,7 +329,10 @@ def scan_one(code: str, mode: str, allow_remote: bool = False) -> Optional[Dict[
         else:
             total_score = 70 if score_result is True else 0
 
-        min_score = 70 if mode in {"observe", "watchlist_refresh"} else 80
+        # V1优化：买入门槛从80降到75，配合梯度评分逻辑
+        # observe/watchlist_refresh模式保持70（观察线）
+        # after_close/tail_confirm模式从80降到75（买入线）
+        min_score = 70 if mode in {"observe", "watchlist_refresh"} else 75
         if total_score < min_score:
             record_reject(code, "score_too_low", f"score={total_score}")
             return None

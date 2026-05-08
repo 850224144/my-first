@@ -519,46 +519,64 @@ def _score_confirm(df: pl.DataFrame, mode: str = "observe") -> Tuple[int, List[s
     highs = df["high"].to_list()
     platform_high = max(_safe_float(x) for x in highs[-8:-1]) if len(highs) >= 8 else max(_safe_float(x) for x in highs[:-1])
 
-    # 1. 突破 10 分
+    # 1. 突破 10 分 - 优化版：梯度评分
+    distance_pct = (close - platform_high) / platform_high * 100 if platform_high > 0 else -999
+    
     if close > platform_high:
-        s = 10
-    elif mode == "observe" and close >= platform_high * 0.985:
+        s = 10  # 完全突破
+    elif distance_pct >= -1.0:
+        # 在平台高点下方1%以内，接近突破
+        s = 7
+        warnings.append("near_breakout_1pct")
+    elif distance_pct >= -2.0:
+        # 在平台高点下方2%以内，临近突破
         s = 5
-        warnings.append("near_breakout")
+        warnings.append("near_breakout_2pct")
+    elif mode == "observe" and distance_pct >= -3.0:
+        # 观察模式下，3%以内也给予部分分数
+        s = 3
+        warnings.append("approaching_breakout")
     else:
         s = 0
         warnings.append("no_breakout")
     score += s
-    reasons.append(f"突破平台 close={close:.2f}, platform={platform_high:.2f}：{s}/10")
+    reasons.append(f"突破平台 close={close:.2f}, platform={platform_high:.2f}, 距离={distance_pct:.2f}%：{s}/10")
 
-    # 2. 涨幅 5 分
+    # 2. 涨幅 5 分 - 优化版：放宽温和上涨的评分
     if 1.5 <= pct <= 5:
-        s = 5
+        s = 5  # 理想涨幅
+    elif 0.8 <= pct < 1.5:
+        s = 4  # 温和上涨，也很好
     elif 5 < pct <= 7:
-        s = 4
+        s = 4  # 涨幅偏大，但可接受
     elif pct > 7:
-        s = 2
+        s = 2  # 过热
         warnings.append("too_hot_today")
-    elif mode == "observe" and 0.5 <= pct < 1.5:
-        s = 3
+    elif mode == "observe" and 0.5 <= pct < 0.8:
+        s = 3  # 观察模式下，略微上涨也给分
     else:
         s = 1 if pct > 0 else 0
         warnings.append("today_pct_weak")
     score += s
     reasons.append(f"当日涨幅 {pct:.2f}%：{s}/5")
 
-    # 3. 成交量 5 分
+    # 3. 成交量 5 分 - 优化版：接受温和放量和略大的量能
     ratio = vol / vol20 if vol20 > 0 else 1
 
-    if 1.1 <= ratio <= 1.8:
-        s = 5
-    elif 0.9 <= ratio < 1.1:
-        s = 3
-    elif 1.8 < ratio <= 2.5:
-        s = 2
+    if 1.2 <= ratio <= 2.0:
+        s = 5  # 理想量能
+    elif 1.0 <= ratio < 1.2:
+        s = 3  # 温和放量，也可接受
+    elif 0.9 <= ratio < 1.0:
+        s = 3  # 量能持平，观察
+    elif 2.0 < ratio <= 2.5:
+        s = 3  # 量能偏大，但不是致命问题
+        warnings.append("volume_slightly_high")
+    elif ratio > 2.5:
+        s = 0  # 量能过大
         warnings.append("volume_too_high")
     else:
-        s = 0
+        s = 0  # 量能萎缩
         warnings.append("volume_not_confirm")
     score += s
     reasons.append(f"确认量能 ratio={ratio:.2f}：{s}/5")
@@ -722,6 +740,7 @@ def is_second_buy(df: Any, mode: str = "observe") -> bool:
     """
     兼容旧版本入口。
     True 表示达到确认级别。
+    V1优化：门槛从80降到75，配合梯度评分逻辑
     """
     res = score_second_buy(df, mode=mode)
     if not res:
@@ -729,7 +748,7 @@ def is_second_buy(df: Any, mode: str = "observe") -> bool:
 
     return (
         not res.get("veto", False)
-        and res.get("total_score", 0) >= 80
+        and res.get("total_score", 0) >= 75
     )
 
 

@@ -102,6 +102,12 @@
       "timeoutSeconds": 3600
     },
     {
+      "name": "daily_maintenance",
+      "schedule": { "kind": "cron", "expr": "0 23 * * 1-5" },
+      "commands": [["scripts/daily_maintenance.py", "--expire-days", "5", "--log-days", "30"]],
+      "timeoutSeconds": 600
+    },
+    {
       "name": "refresh_trading_calendar",
       "schedule": { "kind": "cron", "expr": "0 8 * * 1" },
       "commands": [["scripts/refresh_trading_calendar.py"]],

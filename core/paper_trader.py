@@ -322,17 +322,17 @@ def classify_buy_trigger(item: Dict[str, Any], market_state: Optional[Dict[str, 
         blocked = True; reasons.append(f"market_block:{state}")
     if not code:
         blocked = True; reasons.append("no_code")
-    if risk is None or risk > 8:
+    if risk is None or risk > 12:
         blocked = True; reasons.append(f"risk>{risk}")
     if trigger is None or current is None or current < trigger:
         blocked = True; reasons.append("not_breakout")
-    if trigger and current and current > trigger * 1.03:
+    if trigger and current and current > trigger * 1.05:
         blocked = True; reasons.append("too_far_from_trigger")
     hard = sorted(set(warnings) & HARD_BLOCK_WARNINGS)
     if hard:
         blocked = True; reasons.append("hard_warning:" + ",".join(hard))
-    if total < 80:
-        blocked = True; reasons.append("score_lt_80")
+    if total < 78:
+        blocked = True; reasons.append("score_lt_78")
     if trend < 20 or pullback < 18 or stabilize < 18 or confirm < 18:
         blocked = True; reasons.append("score_component_not_balanced")
     if _already_open(code):
@@ -345,10 +345,10 @@ def classify_buy_trigger(item: Dict[str, Any], market_state: Optional[Dict[str, 
     if (not blocked) is False:
         near = (
             state not in {"弱势", "risk_off"}
-            and total >= 75
-            and risk is not None and risk <= 8
+            and total >= 73
+            and risk is not None and risk <= 12
             and trigger is not None and current is not None
-            and current >= trigger * 0.985
+            and current >= trigger * 0.97
             and current < trigger
             and "volume_not_confirm" not in warnings
             and "too_hot_today" not in warnings
@@ -520,6 +520,14 @@ def create_paper_position(sig: Dict[str, Any]) -> Optional[Dict[str, Any]]:
         f"> 说明：仅纸面交易记录，不代表自动下单。"
     )
     _send_paper_notify(title, content)
+    
+    # ===== 记录到交易日志 =====
+    try:
+        from core.journal_integration import record_paper_buy
+        record_paper_buy(row)
+    except Exception as e:
+        print(f"记录纸面买入到日志失败: {e}")
+    
     return row
 
 
@@ -532,14 +540,48 @@ def process_scan_results_for_paper(results: List[Dict[str, Any]], market_state: 
         return []
     triggered = []
     near = []
+    missed = []
+    
     for item in results or []:
         sig = classify_buy_trigger(item, market_state=market_state)
         if sig["level"] in {"BUY_TRIGGERED", "STRONG_BUY_TRIGGERED"}:
             row = create_paper_position(sig)
             if row:
                 triggered.append(row)
+                
+                # ===== 生命周期管理：纸面交易入场自动更新 =====
+                try:
+                    from core.lifecycle_integration import process_paper_trade_for_lifecycle
+                    process_paper_trade_for_lifecycle(row)
+                except Exception:
+                    pass
+            else:
+                # 触发了但没有创建持仓，记录为错过机会
+                missed.append(sig)
+                    
         elif sig["level"] == "NEAR_TRIGGER":
             near.append(sig)
+        elif sig["blocked"] and sig.get("total_score", 0) >= 70:
+            # 评分不错但被阻止，记录为错过机会
+            missed.append(sig)
+    
+    # ===== 记录错过的机会 =====
+    if missed:
+        try:
+            from core.journal_integration import record_missed_opportunity
+            for sig in missed:
+                blocking_reason = ", ".join(sig.get("reasons", []))
+                record_missed_opportunity(
+                    candidate={
+                        "code": sig["code"],
+                        "name": sig["name"],
+                        "total_score": sig.get("total_score"),
+                        "current_price": sig.get("current_price"),
+                    },
+                    blocking_reason=blocking_reason
+                )
+        except Exception as e:
+            print(f"记录错过机会失败: {e}")
 
     # 近触发只做轻提醒，避免刷屏：每轮最多5只
     if near:
@@ -693,6 +735,19 @@ def track_paper_positions(update: bool = True) -> pl.DataFrame:
                 title = f"【{PROJECT_NAME}｜纸面交易退出】"
                 content = f"{title}\n> {c.get('code')} {c.get('name')}\n> 原因：{c.get('exit_reason')}\n> 买入：{c.get('buy_price')}\n> 卖出：{c.get('sell_price')}\n> 收益：{c.get('return_pct')}%\n> R倍数：{c.get('r_multiple')}R\n> 持仓：{c.get('hold_days')}天"
                 _send_paper_notify(title, content)
+                
+                # ===== 记录到交易日志 =====
+                try:
+                    from core.journal_integration import record_paper_sell
+                    record_paper_sell(
+                        paper_position=c,
+                        sell_price=c.get('sell_price', 0),
+                        exit_reason=c.get('exit_reason', 'unknown'),
+                        return_pct=c.get('return_pct'),
+                        hold_days=c.get('hold_days')
+                    )
+                except Exception as e:
+                    print(f"记录纸面卖出到日志失败: {e}")
 
     report = pl.DataFrame(rows)
     return report

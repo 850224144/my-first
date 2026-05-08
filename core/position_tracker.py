@@ -568,7 +568,15 @@ def track_positions(update: bool = True) -> pl.DataFrame:
     pos_rows = positions.to_dicts()
 
     for pos in pos_rows:
-        rows.append(_decide_position_action(pos))
+        action_result = _decide_position_action(pos)
+        rows.append(action_result)
+        
+        # ===== 生命周期管理：持仓状态自动更新 =====
+        try:
+            from core.lifecycle_integration import process_position_for_lifecycle
+            process_position_for_lifecycle(pos)
+        except Exception:
+            pass
 
     report = pl.DataFrame(rows)
 

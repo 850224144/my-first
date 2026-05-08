@@ -551,6 +551,14 @@ def run_scan(args, market_state: Dict[str, Any]) -> List[Dict[str, Any]]:
     except Exception as e:
         logger.warning(f"纸面交易触发处理失败：{e}", exc_info=True)
 
+    # ===== 生命周期管理：自动跟踪选股从选中到剔除 =====
+    try:
+        from core.lifecycle_integration import batch_process_scan_results
+        lifecycle_stats = batch_process_scan_results(results, mode=mode)
+        logger.info(f"生命周期更新：created={lifecycle_stats['created']} updated={lifecycle_stats['updated']}")
+    except Exception as e:
+        logger.warning(f"生命周期更新失败：{e}", exc_info=True)
+
     return results
 
 
