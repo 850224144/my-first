@@ -330,3 +330,723 @@ PID：72203
 ================================================================================
 [2026-05-08 11:53:41] 今日 watchlist 已存在，启动时不补跑 observe
 [2026-05-08 12:05:00] heartbeat pid=72203 lock_pid=72203 project=/Users/liujunying/Downloads/project/my-first
+[2026-05-08 12:07:13] 收到退出信号 15，清理 scheduler.lock
+调度器退出。
+================================================================================
+测试二买系统自动调度器已启动
+项目目录：/Users/liujunying/Downloads/project/my-first
+Python：/Users/liujunying/.pyenv/versions/3.11.1/bin/python
+时区：Asia/Shanghai
+日志目录：/Users/liujunying/Downloads/project/my-first/logs/scheduler
+单例锁：/Users/liujunying/Downloads/project/my-first/data/scheduler_state/scheduler.lock
+PID：74102
+================================================================================
+可用任务：
+- preflight | cron=15 9 * * 1-5 | timeout=300s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --coverage
+- observe_morning | cron=45 9 * * 1-5 | timeout=1200s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --mode observe --workers 1
+- watchlist_refresh_1030 | cron=30 10 * * 1-5 | timeout=600s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --watchlist-refresh --workers 1
+- watchlist_refresh_1120 | cron=20 11 * * 1-5 | timeout=600s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --watchlist-refresh --workers 1
+- track_positions_midday | cron=30 11 * * 1-5 | timeout=300s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_positions.py --track
+- observe_afternoon | cron=20 13 * * 1-5 | timeout=1200s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --mode observe --workers 1
+- watchlist_refresh_1420 | cron=20 14 * * 1-5 | timeout=600s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --watchlist-refresh --workers 1
+- observe_gate_v270 | cron=40 14 * * 1-5 | timeout=1800s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/run_v270_jobs_once.py --job observe
+- tail_confirm | cron=50 14 * * 1-5 | timeout=600s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/run_v270_jobs_once.py --job tail
+- buy_bridge_v280 | cron=52 14 * * 1-5 | timeout=600s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/build_buy_bridge_v280.py
+- track_positions_tail | cron=55 14 * * 1-5 | timeout=300s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_positions.py --track
+- after_close | cron=30 17 * * 1-5 | timeout=5400s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --refresh-daily-existing --daily-limit 1200 --daily-workers 1
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --build-universe --workers 1
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --mode after_close --workers 1
+- track_positions_evening | cron=0 20 * * 1-5 | timeout=300s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_positions.py --track
+- daily_report_v290_build | cron=25 20 * * 1-5 | timeout=3600s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/build_daily_report_v290.py
+- daily_report | cron=30 20 * * 1-5 | timeout=600s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --daily-report
+- night_cache_expand | cron=30 22 * * 1-5 | timeout=3600s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --build-daily-cache --daily-limit 300 --daily-workers 1
+- daily_maintenance | cron=0 23 * * 1-5 | timeout=600s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/daily_maintenance.py --expire-days 5 --log-days 30
+- refresh_trading_calendar | cron=0 8 * * 1 | timeout=300s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/refresh_trading_calendar.py
+
+说明：
+- 调度配置文件：/Users/liujunying/Downloads/project/my-first/config/scheduler_jobs.json
+- 若配置文件缺失，脚本会回退到内置默认任务表
+================================================================================
+按 Ctrl+C 停止调度器
+================================================================================
+[2026-05-08 12:07:50] 今日 watchlist 已存在，启动时不补跑 observe
+[2026-05-08 13:05:00] heartbeat pid=74102 lock_pid=74102 project=/Users/liujunying/Downloads/project/my-first
+[2026-05-08 13:20:00] job_heartbeat stage=before job=observe_afternoon pid=74102 lock_pid=74102
+[2026-05-08 13:20:00] observe_afternoon -> /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --mode observe --workers 1
+[2026-05-08 13:23:33] 任务完成：observe_afternoon
+[2026-05-08 14:05:00] heartbeat pid=74102 lock_pid=74102 project=/Users/liujunying/Downloads/project/my-first
+[2026-05-08 14:20:00] job_heartbeat stage=before job=watchlist_refresh_1420 pid=74102 lock_pid=74102
+[2026-05-08 14:20:00] watchlist_refresh_1420 -> /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --watchlist-refresh --workers 1
+[2026-05-08 14:20:31] 任务完成：watchlist_refresh_1420
+[2026-05-08 14:40:00] job_heartbeat stage=before job=observe_gate_v270 pid=74102 lock_pid=74102
+[2026-05-08 14:40:00] observe_gate_v270 -> /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/run_v270_jobs_once.py --job observe
+[2026-05-08 14:40:25] 任务完成：observe_gate_v270
+[2026-05-08 14:50:00] job_heartbeat stage=before job=tail_confirm pid=74102 lock_pid=74102
+[2026-05-08 14:50:00] tail_confirm -> /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/run_v270_jobs_once.py --job tail
+[2026-05-08 14:50:01] 任务完成：tail_confirm
+[2026-05-08 14:52:00] job_heartbeat stage=before job=buy_bridge_v280 pid=74102 lock_pid=74102
+[2026-05-08 14:52:00] buy_bridge_v280 -> /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/build_buy_bridge_v280.py
+[2026-05-08 14:52:00] 任务完成：buy_bridge_v280
+[2026-05-08 14:55:00] job_heartbeat stage=before job=track_positions_tail pid=74102 lock_pid=74102
+[2026-05-08 14:55:00] track_positions_tail -> /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_positions.py --track
+[2026-05-08 14:55:01] 任务完成：track_positions_tail
+[2026-05-08 15:05:00] heartbeat pid=74102 lock_pid=74102 project=/Users/liujunying/Downloads/project/my-first
+[2026-05-08 17:05:00] heartbeat pid=74102 lock_pid=74102 project=/Users/liujunying/Downloads/project/my-first
+[2026-05-08 17:30:00] job_heartbeat stage=before job=after_close pid=74102 lock_pid=74102
+[2026-05-08 17:30:00] after_close -> /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --refresh-daily-existing --daily-limit 1200 --daily-workers 1
+[2026-05-08 18:05:45] after_close -> /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --build-universe --workers 1
+[2026-05-08 18:05:55] after_close -> /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --mode after_close --workers 1
+[2026-05-08 18:11:05] 任务完成：after_close
+[2026-05-08 20:00:00] job_heartbeat stage=before job=track_positions_evening pid=74102 lock_pid=74102
+[2026-05-08 20:00:00] track_positions_evening -> /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_positions.py --track
+[2026-05-08 20:00:02] 任务完成：track_positions_evening
+[2026-05-08 20:05:00] heartbeat pid=74102 lock_pid=74102 project=/Users/liujunying/Downloads/project/my-first
+[2026-05-08 20:25:00] job_heartbeat stage=before job=daily_report_v290_build pid=74102 lock_pid=74102
+[2026-05-08 20:25:00] daily_report_v290_build -> /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/build_daily_report_v290.py
+[2026-05-08 20:25:01] 任务完成：daily_report_v290_build
+[2026-05-08 20:30:00] job_heartbeat stage=before job=daily_report pid=74102 lock_pid=74102
+[2026-05-08 20:30:00] daily_report -> /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --daily-report
+[2026-05-08 20:30:29] 任务完成：daily_report
+[2026-05-08 22:05:00] heartbeat pid=74102 lock_pid=74102 project=/Users/liujunying/Downloads/project/my-first
+[2026-05-08 22:30:00] job_heartbeat stage=before job=night_cache_expand pid=74102 lock_pid=74102
+[2026-05-08 22:30:00] night_cache_expand -> /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --build-daily-cache --daily-limit 300 --daily-workers 1
+[2026-05-08 22:31:00] 任务完成：night_cache_expand
+[2026-05-08 23:00:00] job_heartbeat stage=before job=daily_maintenance pid=74102 lock_pid=74102
+[2026-05-08 23:00:00] daily_maintenance -> /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/daily_maintenance.py --expire-days 5 --log-days 30
+[2026-05-08 23:00:00] 任务完成：daily_maintenance
+[2026-05-09 09:15:00] 今天不是交易日，跳过盘中任务：preflight
+[2026-05-09 09:45:00] 今天不是交易日，跳过盘中任务：observe_morning
+[2026-05-09 10:30:00] 今天不是交易日，跳过盘中任务：watchlist_refresh_1030
+[2026-05-09 11:20:00] 今天不是交易日，跳过盘中任务：watchlist_refresh_1120
+[2026-05-09 11:30:00] 今天不是交易日，跳过盘中任务：track_positions_midday
+[2026-05-09 13:20:00] 今天不是交易日，跳过盘中任务：observe_afternoon
+[2026-05-09 14:20:00] 今天不是交易日，跳过盘中任务：watchlist_refresh_1420
+[2026-05-09 14:40:00] 今天不是交易日，跳过盘中任务：observe_gate_v270
+[2026-05-09 14:50:00] 今天不是交易日，跳过盘中任务：tail_confirm
+[2026-05-09 14:52:00] job_heartbeat stage=before job=buy_bridge_v280 pid=74102 lock_pid=74102
+[2026-05-09 14:52:00] buy_bridge_v280 -> /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/build_buy_bridge_v280.py
+[2026-05-09 14:52:01] 任务完成：buy_bridge_v280
+[2026-05-09 14:55:00] 今天不是交易日，跳过盘中任务：track_positions_tail
+[2026-05-09 17:30:00] job_heartbeat stage=before job=after_close pid=74102 lock_pid=74102
+[2026-05-09 17:30:00] after_close -> /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --refresh-daily-existing --daily-limit 1200 --daily-workers 1
+[2026-05-09 17:50:48] after_close -> /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --build-universe --workers 1
+[2026-05-09 17:50:48] after_close -> /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --mode after_close --workers 1
+[2026-05-09 17:53:10] 任务完成：after_close
+[2026-05-09 20:00:00] 今天不是交易日，跳过盘中任务：track_positions_evening
+[2026-05-09 20:25:00] job_heartbeat stage=before job=daily_report_v290_build pid=74102 lock_pid=74102
+[2026-05-09 20:25:00] daily_report_v290_build -> /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/build_daily_report_v290.py
+[2026-05-09 20:25:01] 任务完成：daily_report_v290_build
+[2026-05-09 20:30:00] job_heartbeat stage=before job=daily_report pid=74102 lock_pid=74102
+[2026-05-09 20:30:00] daily_report -> /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --daily-report
+[2026-05-09 20:30:25] 任务完成：daily_report
+[2026-05-09 22:30:00] job_heartbeat stage=before job=night_cache_expand pid=74102 lock_pid=74102
+[2026-05-09 22:30:00] night_cache_expand -> /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --build-daily-cache --daily-limit 300 --daily-workers 1
+[2026-05-09 22:31:06] 任务完成：night_cache_expand
+[2026-05-09 23:00:00] job_heartbeat stage=before job=daily_maintenance pid=74102 lock_pid=74102
+[2026-05-09 23:00:00] daily_maintenance -> /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/daily_maintenance.py --expire-days 5 --log-days 30
+[2026-05-09 23:00:00] 任务完成：daily_maintenance
+[2026-05-11 09:05:00] heartbeat pid=74102 lock_pid=74102 project=/Users/liujunying/Downloads/project/my-first
+[2026-05-11 10:05:00] heartbeat pid=74102 lock_pid=74102 project=/Users/liujunying/Downloads/project/my-first
+[2026-05-11 11:05:00] heartbeat pid=74102 lock_pid=74102 project=/Users/liujunying/Downloads/project/my-first
+[2026-05-11 12:05:00] heartbeat pid=74102 lock_pid=74102 project=/Users/liujunying/Downloads/project/my-first
+[2026-05-11 13:05:00] heartbeat pid=74102 lock_pid=74102 project=/Users/liujunying/Downloads/project/my-first
+[2026-05-11 14:05:00] heartbeat pid=74102 lock_pid=74102 project=/Users/liujunying/Downloads/project/my-first
+[2026-05-11 15:05:00] heartbeat pid=74102 lock_pid=74102 project=/Users/liujunying/Downloads/project/my-first
+[2026-05-11 17:05:00] heartbeat pid=74102 lock_pid=74102 project=/Users/liujunying/Downloads/project/my-first
+[2026-05-11 20:05:00] heartbeat pid=74102 lock_pid=74102 project=/Users/liujunying/Downloads/project/my-first
+[2026-05-11 22:05:00] heartbeat pid=74102 lock_pid=74102 project=/Users/liujunying/Downloads/project/my-first
+[2026-05-12 08:00:00] job_heartbeat stage=before job=refresh_trading_calendar pid=74102 lock_pid=74102
+[2026-05-12 08:00:00] refresh_trading_calendar -> /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/refresh_trading_calendar.py
+[2026-05-12 08:00:04] 任务完成：refresh_trading_calendar
+[2026-05-12 09:05:00] heartbeat pid=74102 lock_pid=74102 project=/Users/liujunying/Downloads/project/my-first
+[2026-05-12 09:15:00] job_heartbeat stage=before job=preflight pid=74102 lock_pid=74102
+[2026-05-12 09:15:00] preflight -> /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --coverage
+[2026-05-12 09:15:01] 任务完成：preflight
+[2026-05-12 09:45:00] job_heartbeat stage=before job=observe_morning pid=74102 lock_pid=74102
+[2026-05-12 09:45:00] observe_morning -> /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --mode observe --workers 1
+[2026-05-12 09:48:44] 任务完成：observe_morning
+[2026-05-12 10:05:00] heartbeat pid=74102 lock_pid=74102 project=/Users/liujunying/Downloads/project/my-first
+[2026-05-12 10:30:00] job_heartbeat stage=before job=watchlist_refresh_1030 pid=74102 lock_pid=74102
+[2026-05-12 10:30:00] watchlist_refresh_1030 -> /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --watchlist-refresh --workers 1
+[2026-05-12 10:30:18] 任务完成：watchlist_refresh_1030
+[2026-05-12 11:05:00] heartbeat pid=74102 lock_pid=74102 project=/Users/liujunying/Downloads/project/my-first
+[2026-05-12 11:20:00] job_heartbeat stage=before job=watchlist_refresh_1120 pid=74102 lock_pid=74102
+[2026-05-12 11:20:00] watchlist_refresh_1120 -> /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --watchlist-refresh --workers 1
+[2026-05-12 11:20:17] 任务完成：watchlist_refresh_1120
+[2026-05-12 11:30:00] job_heartbeat stage=before job=track_positions_midday pid=74102 lock_pid=74102
+[2026-05-12 11:30:00] track_positions_midday -> /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_positions.py --track
+[2026-05-12 11:30:02] 任务完成：track_positions_midday
+[2026-05-12 12:05:00] heartbeat pid=74102 lock_pid=74102 project=/Users/liujunying/Downloads/project/my-first
+[2026-05-12 13:05:00] heartbeat pid=74102 lock_pid=74102 project=/Users/liujunying/Downloads/project/my-first
+[2026-05-12 13:20:00] job_heartbeat stage=before job=observe_afternoon pid=74102 lock_pid=74102
+[2026-05-12 13:20:00] observe_afternoon -> /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --mode observe --workers 1
+[2026-05-12 13:23:25] 任务完成：observe_afternoon
+[2026-05-12 14:05:00] heartbeat pid=74102 lock_pid=74102 project=/Users/liujunying/Downloads/project/my-first
+[2026-05-12 14:20:00] job_heartbeat stage=before job=watchlist_refresh_1420 pid=74102 lock_pid=74102
+[2026-05-12 14:20:00] watchlist_refresh_1420 -> /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --watchlist-refresh --workers 1
+[2026-05-12 14:20:28] 任务完成：watchlist_refresh_1420
+[2026-05-12 14:40:00] job_heartbeat stage=before job=observe_gate_v270 pid=74102 lock_pid=74102
+[2026-05-12 14:40:00] observe_gate_v270 -> /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/run_v270_jobs_once.py --job observe
+[2026-05-12 14:40:25] 任务完成：observe_gate_v270
+[2026-05-12 14:50:00] job_heartbeat stage=before job=tail_confirm pid=74102 lock_pid=74102
+[2026-05-12 14:50:00] tail_confirm -> /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/run_v270_jobs_once.py --job tail
+[2026-05-12 14:50:01] 任务完成：tail_confirm
+[2026-05-12 14:52:00] job_heartbeat stage=before job=buy_bridge_v280 pid=74102 lock_pid=74102
+[2026-05-12 14:52:00] buy_bridge_v280 -> /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/build_buy_bridge_v280.py
+[2026-05-12 14:52:00] 任务完成：buy_bridge_v280
+[2026-05-12 14:55:00] job_heartbeat stage=before job=track_positions_tail pid=74102 lock_pid=74102
+[2026-05-12 14:55:00] track_positions_tail -> /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_positions.py --track
+[2026-05-12 14:55:02] 任务完成：track_positions_tail
+[2026-05-12 15:05:00] heartbeat pid=74102 lock_pid=74102 project=/Users/liujunying/Downloads/project/my-first
+[2026-05-12 17:05:00] heartbeat pid=74102 lock_pid=74102 project=/Users/liujunying/Downloads/project/my-first
+[2026-05-12 17:30:00] job_heartbeat stage=before job=after_close pid=74102 lock_pid=74102
+[2026-05-12 17:30:00] after_close -> /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --refresh-daily-existing --daily-limit 1200 --daily-workers 1
+[2026-05-12 17:57:13] after_close -> /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --build-universe --workers 1
+[2026-05-12 17:57:14] after_close -> /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --mode after_close --workers 1
+[2026-05-12 18:00:21] 任务完成：after_close
+[2026-05-12 20:00:00] job_heartbeat stage=before job=track_positions_evening pid=74102 lock_pid=74102
+[2026-05-12 20:00:00] track_positions_evening -> /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_positions.py --track
+[2026-05-12 20:00:01] 任务完成：track_positions_evening
+[2026-05-12 20:05:00] heartbeat pid=74102 lock_pid=74102 project=/Users/liujunying/Downloads/project/my-first
+[2026-05-12 20:25:00] job_heartbeat stage=before job=daily_report_v290_build pid=74102 lock_pid=74102
+[2026-05-12 20:25:00] daily_report_v290_build -> /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/build_daily_report_v290.py
+[2026-05-12 20:25:01] 任务完成：daily_report_v290_build
+[2026-05-12 20:30:00] job_heartbeat stage=before job=daily_report pid=74102 lock_pid=74102
+[2026-05-12 20:30:00] daily_report -> /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --daily-report
+[2026-05-12 20:30:40] 任务完成：daily_report
+[2026-05-12 22:05:00] heartbeat pid=74102 lock_pid=74102 project=/Users/liujunying/Downloads/project/my-first
+[2026-05-12 22:30:00] job_heartbeat stage=before job=night_cache_expand pid=74102 lock_pid=74102
+[2026-05-12 22:30:00] night_cache_expand -> /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --build-daily-cache --daily-limit 300 --daily-workers 1
+[2026-05-12 22:31:03] 任务完成：night_cache_expand
+[2026-05-12 23:00:00] job_heartbeat stage=before job=daily_maintenance pid=74102 lock_pid=74102
+[2026-05-12 23:00:00] daily_maintenance -> /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/daily_maintenance.py --expire-days 5 --log-days 30
+[2026-05-12 23:00:00] 任务完成：daily_maintenance
+[2026-05-13 09:05:00] heartbeat pid=74102 lock_pid=74102 project=/Users/liujunying/Downloads/project/my-first
+[2026-05-13 09:15:00] job_heartbeat stage=before job=preflight pid=74102 lock_pid=74102
+[2026-05-13 09:15:00] preflight -> /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --coverage
+[2026-05-13 09:15:00] 任务完成：preflight
+[2026-05-13 09:45:00] job_heartbeat stage=before job=observe_morning pid=74102 lock_pid=74102
+[2026-05-13 09:45:00] observe_morning -> /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --mode observe --workers 1
+[2026-05-13 09:48:21] 任务完成：observe_morning
+[2026-05-13 10:05:00] heartbeat pid=74102 lock_pid=74102 project=/Users/liujunying/Downloads/project/my-first
+[2026-05-13 10:30:00] job_heartbeat stage=before job=watchlist_refresh_1030 pid=74102 lock_pid=74102
+[2026-05-13 10:30:00] watchlist_refresh_1030 -> /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --watchlist-refresh --workers 1
+[2026-05-13 10:30:31] 任务完成：watchlist_refresh_1030
+[2026-05-13 11:05:00] heartbeat pid=74102 lock_pid=74102 project=/Users/liujunying/Downloads/project/my-first
+[2026-05-13 11:20:00] job_heartbeat stage=before job=watchlist_refresh_1120 pid=74102 lock_pid=74102
+[2026-05-13 11:20:00] watchlist_refresh_1120 -> /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --watchlist-refresh --workers 1
+[2026-05-13 11:20:30] 任务完成：watchlist_refresh_1120
+[2026-05-13 11:30:00] job_heartbeat stage=before job=track_positions_midday pid=74102 lock_pid=74102
+[2026-05-13 11:30:00] track_positions_midday -> /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_positions.py --track
+[2026-05-13 11:30:02] 任务完成：track_positions_midday
+[2026-05-13 12:05:00] heartbeat pid=74102 lock_pid=74102 project=/Users/liujunying/Downloads/project/my-first
+[2026-05-13 13:05:00] heartbeat pid=74102 lock_pid=74102 project=/Users/liujunying/Downloads/project/my-first
+[2026-05-13 13:20:00] job_heartbeat stage=before job=observe_afternoon pid=74102 lock_pid=74102
+[2026-05-13 13:20:00] observe_afternoon -> /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --mode observe --workers 1
+[2026-05-13 13:23:30] 任务完成：observe_afternoon
+[2026-05-13 14:05:00] heartbeat pid=74102 lock_pid=74102 project=/Users/liujunying/Downloads/project/my-first
+[2026-05-13 14:20:00] job_heartbeat stage=before job=watchlist_refresh_1420 pid=74102 lock_pid=74102
+[2026-05-13 14:20:00] watchlist_refresh_1420 -> /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --watchlist-refresh --workers 1
+[2026-05-13 14:20:33] 任务完成：watchlist_refresh_1420
+[2026-05-13 14:40:00] job_heartbeat stage=before job=observe_gate_v270 pid=74102 lock_pid=74102
+[2026-05-13 14:40:00] observe_gate_v270 -> /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/run_v270_jobs_once.py --job observe
+[2026-05-13 14:40:24] 任务完成：observe_gate_v270
+[2026-05-13 14:50:00] job_heartbeat stage=before job=tail_confirm pid=74102 lock_pid=74102
+[2026-05-13 14:50:00] tail_confirm -> /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/run_v270_jobs_once.py --job tail
+[2026-05-13 14:50:01] 任务完成：tail_confirm
+[2026-05-13 14:52:00] job_heartbeat stage=before job=buy_bridge_v280 pid=74102 lock_pid=74102
+[2026-05-13 14:52:00] buy_bridge_v280 -> /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/build_buy_bridge_v280.py
+[2026-05-13 14:52:01] 任务完成：buy_bridge_v280
+[2026-05-13 14:55:00] job_heartbeat stage=before job=track_positions_tail pid=74102 lock_pid=74102
+[2026-05-13 14:55:00] track_positions_tail -> /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_positions.py --track
+[2026-05-13 14:55:02] 任务完成：track_positions_tail
+[2026-05-13 15:05:00] heartbeat pid=74102 lock_pid=74102 project=/Users/liujunying/Downloads/project/my-first
+[2026-05-15 12:29:03] 删除旧日志文件: 20260430_tail_confirm.log
+[2026-05-15 12:29:03] 删除旧日志文件: 20260430_track_positions_evening.log
+[2026-05-15 12:29:03] 删除旧日志文件: 20260430_track_positions_midday.log
+[2026-05-15 12:29:03] 删除旧日志文件: 20260430_track_positions_tail.log
+[2026-05-15 12:29:03] 删除旧日志文件: 20260430_watchlist_refresh_1030.log
+[2026-05-15 12:29:03] 删除旧日志文件: 20260430_watchlist_refresh_1120.log
+[2026-05-15 12:29:03] 删除旧日志文件: 20260430_watchlist_refresh_1420.log
+[2026-05-15 12:29:03] 删除旧日志文件: 20260501_after_close.log
+[2026-05-15 12:29:03] 删除旧日志文件: 20260501_buy_bridge_v280.log
+[2026-05-15 12:29:03] 删除旧日志文件: 20260501_daily_report.log
+[2026-05-15 12:29:03] 删除旧日志文件: 20260501_daily_report_v290_build.log
+[2026-05-15 12:29:03] 删除旧日志文件: 20260501_night_cache_expand.log
+[2026-05-15 12:29:03] 删除旧日志文件: 20260501_observe_afternoon.log
+[2026-05-15 12:29:03] 删除旧日志文件: 20260501_observe_gate_v270.log
+[2026-05-15 12:29:03] 删除旧日志文件: 20260501_observe_morning.log
+[2026-05-15 12:29:03] 删除旧日志文件: 20260501_preflight.log
+[2026-05-15 12:29:03] 删除旧日志文件: 20260501_tail_confirm.log
+[2026-05-15 12:29:03] 删除旧日志文件: 20260501_track_positions_evening.log
+[2026-05-15 12:29:03] 删除旧日志文件: 20260501_track_positions_midday.log
+[2026-05-15 12:29:03] 删除旧日志文件: 20260501_track_positions_tail.log
+[2026-05-15 12:29:03] 删除旧日志文件: 20260501_watchlist_refresh_1030.log
+[2026-05-15 12:29:03] 删除旧日志文件: 20260501_watchlist_refresh_1120.log
+[2026-05-15 12:29:03] 删除旧日志文件: 20260501_watchlist_refresh_1420.log
+[2026-05-15 12:29:03] 删除旧日志文件: 20260504_after_close.log
+[2026-05-15 12:29:03] 删除旧日志文件: 20260504_buy_bridge_v280.log
+[2026-05-15 12:29:03] 删除旧日志文件: 20260504_daily_report.log
+[2026-05-15 12:29:03] 删除旧日志文件: 20260504_daily_report_v290_build.log
+[2026-05-15 12:29:03] 删除旧日志文件: 20260504_night_cache_expand.log
+[2026-05-15 12:29:03] 删除旧日志文件: 20260504_observe_afternoon.log
+================================================================================
+测试二买系统自动调度器已启动
+项目目录：/Users/liujunying/Downloads/project/my-first
+Python：/Users/liujunying/.pyenv/versions/3.11.1/bin/python
+时区：Asia/Shanghai
+日志目录：/Users/liujunying/Downloads/project/my-first/logs/scheduler
+单例锁：/Users/liujunying/Downloads/project/my-first/data/scheduler_state/scheduler.lock
+PID：84272
+================================================================================
+可用任务：
+- preflight | cron=15 9 * * 1-5 | timeout=300s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --coverage
+- observe_morning | cron=45 9 * * 1-5 | timeout=1200s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --mode observe --workers 1
+- watchlist_refresh_1030 | cron=30 10 * * 1-5 | timeout=600s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --watchlist-refresh --workers 1
+- watchlist_refresh_1120 | cron=20 11 * * 1-5 | timeout=600s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --watchlist-refresh --workers 1
+- track_positions_midday | cron=30 11 * * 1-5 | timeout=300s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_positions.py --track
+- observe_afternoon | cron=20 13 * * 1-5 | timeout=1200s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --mode observe --workers 1
+- watchlist_refresh_1420 | cron=20 14 * * 1-5 | timeout=600s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --watchlist-refresh --workers 1
+- observe_gate_v270 | cron=40 14 * * 1-5 | timeout=1800s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/run_v270_jobs_once.py --job observe
+- tail_confirm | cron=50 14 * * 1-5 | timeout=600s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/run_v270_jobs_once.py --job tail
+- buy_bridge_v280 | cron=52 14 * * 1-5 | timeout=600s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/build_buy_bridge_v280.py
+- track_positions_tail | cron=55 14 * * 1-5 | timeout=300s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_positions.py --track
+- after_close | cron=30 17 * * 1-5 | timeout=5400s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --refresh-daily-existing --daily-limit 1200 --daily-workers 1
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --build-universe --workers 1
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --mode after_close --workers 1
+- track_positions_evening | cron=0 20 * * 1-5 | timeout=300s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_positions.py --track
+- daily_report_v290_build | cron=25 20 * * 1-5 | timeout=3600s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/build_daily_report_v290.py
+- daily_report | cron=30 20 * * 1-5 | timeout=600s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --daily-report
+- night_cache_expand | cron=30 22 * * 1-5 | timeout=3600s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --build-daily-cache --daily-limit 300 --daily-workers 1
+- daily_maintenance | cron=0 23 * * 1-5 | timeout=600s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/daily_maintenance.py --expire-days 5 --log-days 30
+- refresh_trading_calendar | cron=0 8 * * 1 | timeout=300s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/refresh_trading_calendar.py
+- ml_retrain_monthly | cron=0 2 1 * * | timeout=1800s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/build_and_train_ml.py --limit 500 --backend xgboost
+- ml_monitor_check | cron=0 21 * * 1-5 | timeout=120s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/check_ml_health.py
+
+说明：
+- 调度配置文件：/Users/liujunying/Downloads/project/my-first/config/scheduler_jobs.json
+- 若配置文件缺失，脚本会回退到内置默认任务表
+================================================================================
+按 Ctrl+C 停止调度器
+================================================================================
+[2026-05-15 12:29:03] 启动补跑：交易时间内且今日 watchlist 不存在，立即执行 observe_morning
+[2026-05-15 12:29:03] job_heartbeat stage=before job=observe_morning pid=84272 lock_pid=84272
+[2026-05-15 12:29:03] observe_morning -> /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --mode observe --workers 1
+[2026-05-15 12:30:14] 任务完成：observe_morning
+[2026-05-15 13:05:00] heartbeat pid=84272 lock_pid=84272 project=/Users/liujunying/Downloads/project/my-first
+[2026-05-15 13:20:00] job_heartbeat stage=before job=observe_afternoon pid=84272 lock_pid=84272
+[2026-05-15 13:20:00] observe_afternoon -> /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --mode observe --workers 1
+[2026-05-15 13:21:10] 任务完成：observe_afternoon
+[2026-05-15 14:05:00] heartbeat pid=84272 lock_pid=84272 project=/Users/liujunying/Downloads/project/my-first
+[2026-05-15 14:15:02] 收到退出信号 15，清理 scheduler.lock
+调度器退出。
+[2026-05-15 14:15:05] 删除旧日志文件: 20260504_observe_morning.log
+[2026-05-15 14:15:05] 删除旧日志文件: 20260504_preflight.log
+================================================================================
+测试二买系统自动调度器已启动
+项目目录：/Users/liujunying/Downloads/project/my-first
+Python：/Users/liujunying/.pyenv/versions/3.11.1/bin/python
+时区：Asia/Shanghai
+日志目录：/Users/liujunying/Downloads/project/my-first/logs/scheduler
+单例锁：/Users/liujunying/Downloads/project/my-first/data/scheduler_state/scheduler.lock
+PID：7062
+================================================================================
+可用任务：
+- preflight | cron=15 9 * * 1-5 | timeout=300s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --coverage
+- observe_morning | cron=45 9 * * 1-5 | timeout=1200s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --mode observe --workers 1
+- watchlist_refresh_1030 | cron=30 10 * * 1-5 | timeout=600s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --watchlist-refresh --workers 1
+- watchlist_refresh_1120 | cron=20 11 * * 1-5 | timeout=600s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --watchlist-refresh --workers 1
+- track_positions_midday | cron=30 11 * * 1-5 | timeout=300s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_positions.py --track
+- observe_afternoon | cron=20 13 * * 1-5 | timeout=1200s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --mode observe --workers 1
+- watchlist_refresh_1420 | cron=20 14 * * 1-5 | timeout=600s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --watchlist-refresh --workers 1
+- observe_gate_v270 | cron=40 14 * * 1-5 | timeout=1800s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/run_v270_jobs_once.py --job observe
+- tail_confirm | cron=50 14 * * 1-5 | timeout=600s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/run_v270_jobs_once.py --job tail
+- buy_bridge_v280 | cron=52 14 * * 1-5 | timeout=600s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/build_buy_bridge_v280.py
+- track_positions_tail | cron=55 14 * * 1-5 | timeout=300s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_positions.py --track
+- after_close | cron=30 17 * * 1-5 | timeout=5400s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --refresh-daily-existing --daily-limit 1200 --daily-workers 1
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --build-universe --workers 1
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --mode after_close --workers 1
+- track_positions_evening | cron=0 20 * * 1-5 | timeout=300s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_positions.py --track
+- daily_report_v290_build | cron=25 20 * * 1-5 | timeout=3600s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/build_daily_report_v290.py
+- daily_report | cron=30 20 * * 1-5 | timeout=600s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --daily-report
+- night_cache_expand | cron=30 22 * * 1-5 | timeout=3600s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --build-daily-cache --daily-limit 300 --daily-workers 1
+- daily_maintenance | cron=0 23 * * 1-5 | timeout=600s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/daily_maintenance.py --expire-days 5 --log-days 30
+- refresh_trading_calendar | cron=0 8 * * 1 | timeout=300s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/refresh_trading_calendar.py
+- ml_retrain_monthly | cron=0 2 1 * * | timeout=1800s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/build_and_train_ml.py --limit 500 --backend xgboost
+- ml_monitor_check | cron=0 21 * * 1-5 | timeout=120s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/check_ml_health.py
+
+说明：
+- 调度配置文件：/Users/liujunying/Downloads/project/my-first/config/scheduler_jobs.json
+- 若配置文件缺失，脚本会回退到内置默认任务表
+================================================================================
+按 Ctrl+C 停止调度器
+================================================================================
+[2026-05-15 14:15:05] 今日 watchlist 已存在，启动时不补跑 observe
+[2026-05-15 14:20:00] job_heartbeat stage=before job=watchlist_refresh_1420 pid=7062 lock_pid=7062
+[2026-05-15 14:20:00] watchlist_refresh_1420 -> /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --watchlist-refresh --workers 1
+[2026-05-15 14:20:12] 任务完成：watchlist_refresh_1420
+[2026-05-15 14:40:00] job_heartbeat stage=before job=observe_gate_v270 pid=7062 lock_pid=7062
+[2026-05-15 14:40:00] observe_gate_v270 -> /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/run_v270_jobs_once.py --job observe
+[2026-05-15 14:40:14] 任务完成：observe_gate_v270
+[2026-05-15 14:50:00] job_heartbeat stage=before job=tail_confirm pid=7062 lock_pid=7062
+[2026-05-15 14:50:00] tail_confirm -> /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/run_v270_jobs_once.py --job tail
+[2026-05-15 14:50:00] 任务完成：tail_confirm
+[2026-05-15 14:52:00] job_heartbeat stage=before job=buy_bridge_v280 pid=7062 lock_pid=7062
+[2026-05-15 14:52:00] buy_bridge_v280 -> /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/build_buy_bridge_v280.py
+[2026-05-15 14:52:00] 任务完成：buy_bridge_v280
+[2026-05-15 14:53:54] 收到退出信号 15，清理 scheduler.lock
+调度器退出。
+[2026-05-15 14:56:28] 删除旧日志文件: 20260504_track_positions_evening.log
+[2026-05-15 14:56:28] 删除旧日志文件: 20260504_track_positions_midday.log
+[2026-05-15 14:56:28] 删除旧日志文件: 20260504_track_positions_tail.log
+================================================================================
+测试二买系统自动调度器已启动
+项目目录：/Users/liujunying/Downloads/project/my-first
+Python：/Users/liujunying/.pyenv/versions/3.11.1/bin/python
+时区：Asia/Shanghai
+日志目录：/Users/liujunying/Downloads/project/my-first/logs/scheduler
+单例锁：/Users/liujunying/Downloads/project/my-first/data/scheduler_state/scheduler.lock
+PID：16716
+================================================================================
+可用任务：
+- preflight | cron=15 9 * * 1-5 | timeout=300s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --coverage
+- observe_morning | cron=45 9 * * 1-5 | timeout=1200s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --mode observe --workers 1
+- watchlist_refresh_1030 | cron=30 10 * * 1-5 | timeout=600s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --watchlist-refresh --workers 1
+- watchlist_refresh_1120 | cron=20 11 * * 1-5 | timeout=600s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --watchlist-refresh --workers 1
+- track_positions_midday | cron=30 11 * * 1-5 | timeout=300s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_positions.py --track
+- observe_afternoon | cron=20 13 * * 1-5 | timeout=1200s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --mode observe --workers 1
+- watchlist_refresh_1420 | cron=20 14 * * 1-5 | timeout=600s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --watchlist-refresh --workers 1
+- observe_gate_v270 | cron=40 14 * * 1-5 | timeout=1800s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/run_v270_jobs_once.py --job observe
+- tail_confirm | cron=50 14 * * 1-5 | timeout=600s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/run_v270_jobs_once.py --job tail
+- buy_bridge_v280 | cron=52 14 * * 1-5 | timeout=600s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/build_buy_bridge_v280.py
+- track_positions_tail | cron=55 14 * * 1-5 | timeout=300s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_positions.py --track
+- after_close | cron=30 17 * * 1-5 | timeout=5400s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --refresh-daily-existing --daily-limit 1200 --daily-workers 1
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --build-universe --workers 1
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --mode after_close --workers 1
+- track_positions_evening | cron=0 20 * * 1-5 | timeout=300s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_positions.py --track
+- daily_report_v290_build | cron=25 20 * * 1-5 | timeout=3600s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/build_daily_report_v290.py
+- daily_report | cron=30 20 * * 1-5 | timeout=600s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --daily-report
+- night_cache_expand | cron=30 22 * * 1-5 | timeout=3600s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --build-daily-cache --daily-limit 300 --daily-workers 1
+- daily_maintenance | cron=0 23 * * 1-5 | timeout=600s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/daily_maintenance.py --expire-days 5 --log-days 30
+- refresh_trading_calendar | cron=0 8 * * 1 | timeout=300s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/refresh_trading_calendar.py
+- ml_retrain_monthly | cron=0 2 1 * * | timeout=1800s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/build_and_train_ml.py --limit 500 --backend xgboost
+- ml_monitor_check | cron=0 21 * * 1-5 | timeout=120s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/check_ml_health.py
+- strategy_health_check | cron=30 8 * * 1 | timeout=300s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/run_health_check.py
+
+说明：
+- 调度配置文件：/Users/liujunying/Downloads/project/my-first/config/scheduler_jobs.json
+- 若配置文件缺失，脚本会回退到内置默认任务表
+================================================================================
+按 Ctrl+C 停止调度器
+================================================================================
+[2026-05-15 15:05:00] heartbeat pid=16716 lock_pid=16716 project=/Users/liujunying/Downloads/project/my-first
+[2026-05-15 15:47:02] 收到退出信号 15，清理 scheduler.lock
+调度器退出。
+================================================================================
+测试二买系统自动调度器已启动
+项目目录：/Users/liujunying/Downloads/project/my-first
+Python：/Users/liujunying/.pyenv/versions/3.11.1/bin/python
+时区：Asia/Shanghai
+日志目录：/Users/liujunying/Downloads/project/my-first/logs/scheduler
+单例锁：/Users/liujunying/Downloads/project/my-first/data/scheduler_state/scheduler.lock
+PID：25172
+================================================================================
+可用任务：
+- preflight | cron=15 9 * * 1-5 | timeout=300s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --coverage
+- observe_morning | cron=45 9 * * 1-5 | timeout=1200s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --mode observe --workers 1
+- watchlist_refresh_1030 | cron=30 10 * * 1-5 | timeout=600s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --watchlist-refresh --workers 1
+- watchlist_refresh_1120 | cron=20 11 * * 1-5 | timeout=600s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --watchlist-refresh --workers 1
+- track_positions_midday | cron=30 11 * * 1-5 | timeout=300s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_positions.py --track
+- observe_afternoon | cron=20 13 * * 1-5 | timeout=1200s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --mode observe --workers 1
+- watchlist_refresh_1420 | cron=20 14 * * 1-5 | timeout=600s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --watchlist-refresh --workers 1
+- observe_gate_v270 | cron=40 14 * * 1-5 | timeout=1800s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/run_v270_jobs_once.py --job observe
+- tail_confirm | cron=50 14 * * 1-5 | timeout=600s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/run_v270_jobs_once.py --job tail
+- buy_bridge_v280 | cron=52 14 * * 1-5 | timeout=600s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/build_buy_bridge_v280.py
+- track_positions_tail | cron=55 14 * * 1-5 | timeout=300s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_positions.py --track
+- after_close | cron=30 17 * * 1-5 | timeout=5400s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --refresh-daily-existing --daily-limit 1200 --daily-workers 1
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --build-universe --workers 1
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --mode after_close --workers 1
+- track_positions_evening | cron=0 20 * * 1-5 | timeout=300s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_positions.py --track
+- daily_report_v290_build | cron=25 20 * * 1-5 | timeout=3600s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/build_daily_report_v290.py
+- daily_report | cron=30 20 * * 1-5 | timeout=600s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --daily-report
+- night_cache_expand | cron=30 22 * * 1-5 | timeout=3600s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --build-daily-cache --daily-limit 300 --daily-workers 1
+- daily_maintenance | cron=0 23 * * 1-5 | timeout=600s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/daily_maintenance.py --expire-days 5 --log-days 30
+- refresh_trading_calendar | cron=0 8 * * 1 | timeout=300s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/refresh_trading_calendar.py
+- ml_retrain_monthly | cron=0 2 1 * * | timeout=1800s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/build_and_train_ml.py --limit 500 --backend xgboost
+- ml_monitor_check | cron=0 21 * * 1-5 | timeout=120s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/check_ml_health.py
+- strategy_health_check | cron=30 8 * * 1 | timeout=300s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/run_health_check.py
+- agent_daily_check | cron=0 9 * * 1-5 | timeout=120s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/run_agent_daily.py
+- factor_weight_adjust | cron=0 3 * * 1 | timeout=300s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/run_factor_adjust.py
+- refresh_sector_data | cron=40 9 * * 1-5 | timeout=60s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/refresh_sector.py
+
+说明：
+- 调度配置文件：/Users/liujunying/Downloads/project/my-first/config/scheduler_jobs.json
+- 若配置文件缺失，脚本会回退到内置默认任务表
+================================================================================
+按 Ctrl+C 停止调度器
+================================================================================
+[2026-05-15 17:05:00] heartbeat pid=25172 lock_pid=25172 project=/Users/liujunying/Downloads/project/my-first
+[2026-05-15 17:30:00] job_heartbeat stage=before job=after_close pid=25172 lock_pid=25172
+[2026-05-15 17:30:00] after_close -> /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --refresh-daily-existing --daily-limit 1200 --daily-workers 1
+[2026-05-15 17:31:26] 收到退出信号 15，清理 scheduler.lock
+调度器退出。
+================================================================================
+测试二买系统自动调度器已启动
+项目目录：/Users/liujunying/Downloads/project/my-first
+Python：/Users/liujunying/.pyenv/versions/3.11.1/bin/python
+时区：Asia/Shanghai
+日志目录：/Users/liujunying/Downloads/project/my-first/logs/scheduler
+单例锁：/Users/liujunying/Downloads/project/my-first/data/scheduler_state/scheduler.lock
+PID：48215
+================================================================================
+可用任务：
+- preflight | cron=15 9 * * 1-5 | timeout=300s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --coverage
+- observe_morning | cron=45 9 * * 1-5 | timeout=1200s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --mode observe --workers 1
+- watchlist_refresh_1030 | cron=30 10 * * 1-5 | timeout=600s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --watchlist-refresh --workers 1
+- watchlist_refresh_1120 | cron=20 11 * * 1-5 | timeout=600s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --watchlist-refresh --workers 1
+- track_positions_midday | cron=30 11 * * 1-5 | timeout=300s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_positions.py --track
+- observe_afternoon | cron=20 13 * * 1-5 | timeout=1200s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --mode observe --workers 1
+- watchlist_refresh_1420 | cron=20 14 * * 1-5 | timeout=600s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --watchlist-refresh --workers 1
+- observe_gate_v270 | cron=40 14 * * 1-5 | timeout=1800s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/run_v270_jobs_once.py --job observe
+- tail_confirm | cron=50 14 * * 1-5 | timeout=600s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/run_v270_jobs_once.py --job tail
+- buy_bridge_v280 | cron=52 14 * * 1-5 | timeout=600s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/build_buy_bridge_v280.py
+- track_positions_tail | cron=55 14 * * 1-5 | timeout=300s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_positions.py --track
+- after_close | cron=30 17 * * 1-5 | timeout=5400s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --refresh-daily-existing --daily-limit 1200 --daily-workers 1
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --build-universe --workers 1
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --mode after_close --workers 1
+- track_positions_evening | cron=0 20 * * 1-5 | timeout=300s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_positions.py --track
+- daily_report_v290_build | cron=25 20 * * 1-5 | timeout=3600s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/build_daily_report_v290.py
+- daily_report | cron=30 20 * * 1-5 | timeout=600s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --daily-report
+- night_cache_expand | cron=30 22 * * 1-5 | timeout=3600s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --build-daily-cache --daily-limit 300 --daily-workers 1
+- daily_maintenance | cron=0 23 * * 1-5 | timeout=600s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/daily_maintenance.py --expire-days 5 --log-days 30
+- refresh_trading_calendar | cron=0 8 * * 1 | timeout=300s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/refresh_trading_calendar.py
+- ml_retrain_monthly | cron=0 2 1 * * | timeout=1800s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/build_and_train_ml.py --limit 500 --backend xgboost
+- ml_monitor_check | cron=0 21 * * 1-5 | timeout=120s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/check_ml_health.py
+- strategy_health_check | cron=30 8 * * 1 | timeout=300s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/run_health_check.py
+- agent_daily_check | cron=0 9 * * 1-5 | timeout=120s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/run_agent_daily.py
+- factor_weight_adjust | cron=0 3 * * 1 | timeout=300s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/run_factor_adjust.py
+- refresh_sector_data | cron=40 9 * * 1-5 | timeout=60s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/refresh_sector.py
+
+说明：
+- 调度配置文件：/Users/liujunying/Downloads/project/my-first/config/scheduler_jobs.json
+- 若配置文件缺失，脚本会回退到内置默认任务表
+================================================================================
+按 Ctrl+C 停止调度器
+================================================================================
+[2026-05-15 20:00:00] job_heartbeat stage=before job=track_positions_evening pid=48215 lock_pid=48215
+[2026-05-15 20:00:00] track_positions_evening -> /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_positions.py --track
+[2026-05-15 20:00:01] 任务完成：track_positions_evening
+[2026-05-15 20:05:00] heartbeat pid=48215 lock_pid=48215 project=/Users/liujunying/Downloads/project/my-first
+[2026-05-15 20:16:17] 收到退出信号 15，清理 scheduler.lock
+调度器退出。
+[2026-05-15 20:16:36] 删除旧日志文件: 20260504_watchlist_refresh_1030.log
+================================================================================
+测试二买系统自动调度器已启动
+项目目录：/Users/liujunying/Downloads/project/my-first
+Python：/Users/liujunying/.pyenv/versions/3.11.1/bin/python
+时区：Asia/Shanghai
+日志目录：/Users/liujunying/Downloads/project/my-first/logs/scheduler
+单例锁：/Users/liujunying/Downloads/project/my-first/data/scheduler_state/scheduler.lock
+PID：29008
+================================================================================
+可用任务：
+- preflight | cron=15 9 * * 1-5 | timeout=300s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --coverage
+- observe_morning | cron=45 9 * * 1-5 | timeout=1200s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --mode observe --workers 1
+- watchlist_refresh_1030 | cron=30 10 * * 1-5 | timeout=600s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --watchlist-refresh --workers 1
+- watchlist_refresh_1120 | cron=20 11 * * 1-5 | timeout=600s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --watchlist-refresh --workers 1
+- track_positions_midday | cron=30 11 * * 1-5 | timeout=300s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_positions.py --track
+- observe_afternoon | cron=20 13 * * 1-5 | timeout=1200s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --mode observe --workers 1
+- watchlist_refresh_1420 | cron=20 14 * * 1-5 | timeout=600s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --watchlist-refresh --workers 1
+- observe_gate_v270 | cron=40 14 * * 1-5 | timeout=1800s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/run_v270_jobs_once.py --job observe
+- tail_confirm | cron=50 14 * * 1-5 | timeout=600s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/run_v270_jobs_once.py --job tail
+- buy_bridge_v280 | cron=52 14 * * 1-5 | timeout=600s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/build_buy_bridge_v280.py
+- track_positions_tail | cron=55 14 * * 1-5 | timeout=300s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_positions.py --track
+- after_close | cron=30 17 * * 1-5 | timeout=5400s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --refresh-daily-existing --daily-limit 1200 --daily-workers 1
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --build-universe --workers 1
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --mode after_close --workers 1
+- track_positions_evening | cron=0 20 * * 1-5 | timeout=300s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_positions.py --track
+- daily_report_v290_build | cron=25 20 * * 1-5 | timeout=3600s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/build_daily_report_v290.py
+- daily_report | cron=30 20 * * 1-5 | timeout=600s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --daily-report
+- night_cache_expand | cron=30 22 * * 1-5 | timeout=3600s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --build-daily-cache --daily-limit 300 --daily-workers 1
+- daily_maintenance | cron=0 23 * * 1-5 | timeout=600s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/daily_maintenance.py --expire-days 5 --log-days 30
+- refresh_trading_calendar | cron=0 8 * * 1 | timeout=300s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/refresh_trading_calendar.py
+- ml_retrain_monthly | cron=0 2 1 * * | timeout=1800s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/build_and_train_ml.py --limit 500 --backend xgboost
+- ml_monitor_check | cron=0 21 * * 1-5 | timeout=120s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/check_ml_health.py
+- strategy_health_check | cron=30 8 * * 1 | timeout=300s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/run_health_check.py
+- agent_daily_check | cron=0 9 * * 1-5 | timeout=120s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/run_agent_daily.py
+- factor_weight_adjust | cron=0 3 * * 1 | timeout=300s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/run_factor_adjust.py
+- refresh_sector_data | cron=40 9 * * 1-5 | timeout=60s
+  /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/refresh_sector.py
+
+说明：
+- 调度配置文件：/Users/liujunying/Downloads/project/my-first/config/scheduler_jobs.json
+- 若配置文件缺失，脚本会回退到内置默认任务表
+================================================================================
+按 Ctrl+C 停止调度器
+================================================================================
+[2026-05-15 20:25:00] job_heartbeat stage=before job=daily_report_v290_build pid=29008 lock_pid=29008
+[2026-05-15 20:25:00] daily_report_v290_build -> /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/build_daily_report_v290.py
+[2026-05-15 20:25:00] 任务完成：daily_report_v290_build
+[2026-05-15 20:30:00] job_heartbeat stage=before job=daily_report pid=29008 lock_pid=29008
+[2026-05-15 20:30:00] daily_report -> /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --daily-report
+[2026-05-15 20:30:56] 任务完成：daily_report
+[2026-05-15 21:00:00] job_heartbeat stage=before job=ml_monitor_check pid=29008 lock_pid=29008
+[2026-05-15 21:00:00] ml_monitor_check -> /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/check_ml_health.py
+[2026-05-15 21:00:00] 任务完成：ml_monitor_check
+[2026-05-15 22:05:00] heartbeat pid=29008 lock_pid=29008 project=/Users/liujunying/Downloads/project/my-first
+[2026-05-15 22:30:00] job_heartbeat stage=before job=night_cache_expand pid=29008 lock_pid=29008
+[2026-05-15 22:30:00] night_cache_expand -> /Users/liujunying/.pyenv/versions/3.11.1/bin/python run_scan.py --build-daily-cache --daily-limit 300 --daily-workers 1
+[2026-05-15 22:30:58] 任务完成：night_cache_expand
+[2026-05-15 23:00:00] job_heartbeat stage=before job=daily_maintenance pid=29008 lock_pid=29008
+[2026-05-15 23:00:00] daily_maintenance -> /Users/liujunying/.pyenv/versions/3.11.1/bin/python scripts/daily_maintenance.py --expire-days 5 --log-days 30
+[2026-05-15 23:00:00] 任务完成：daily_maintenance

@@ -543,8 +543,96 @@ def run_scan(args, market_state: Dict[str, Any]) -> List[Dict[str, Any]]:
         plan = save_trade_plan(results, mode=mode, market_state=market_state)
         record_signal_results(results, mode=mode)
         update_forward_stats()
+        # 信号质量追踪
+        try:
+            from core.signal_tracker import update_signal_tracking
+            tracking = update_signal_tracking()
+            print(f"📈 信号追踪: {tracking.get('message', '')}")
+        except Exception as te:
+            logger.debug(f"信号追踪失败: {te}")
         print(f"📌 watchlist 已更新：{len(watch)} 条")
         print(f"📝 trade_plan 已生成：{len(plan)} 条")
+    # ===== V2 信号引擎增强（如果配置启用） =====
+    try:
+        import yaml
+        config_path = os.path.join(os.path.dirname(__file__), "config", "strategy_optimized_v1.yml")
+        if os.path.exists(config_path):
+            with open(config_path, "r", encoding="utf-8") as f:
+                strategy_config = yaml.safe_load(f)
+        else:
+            strategy_config = {}
+        
+        v2_config = strategy_config.get("final_signal_v2")
+        if v2_config and v2_config.get("gate_mode"):
+            from core.score_enricher_v2 import enrich_candidate_scores
+            from core.final_signal_engine_v2 import build_final_signal_v2, is_buy_signal
+            
+            v2_buy_signals = []
+            for item in results:
+                try:
+                    enriched = enrich_candidate_scores(item, daily_bars=None)
+                    signal = build_final_signal_v2(enriched, config=strategy_config, mode=mode)
+                    item["v2_signal_status"] = signal.get("signal_status")
+                    item["v2_composite_score"] = signal.get("composite_score")
+                    item["v2_should_write"] = signal.get("should_write_paper_trade", False)
+                    if is_buy_signal(signal):
+                        v2_buy_signals.append(item)
+                except Exception:
+                    pass
+            
+            if v2_buy_signals:
+                logger.info(f"V2引擎产生 {len(v2_buy_signals)} 个买入信号")
+                print(f"🎯 V2引擎买入信号: {len(v2_buy_signals)} 只")
+                # 闭环通知：推送买入信号
+                try:
+                    from core.notify_lifecycle import notify_buy_signal
+                    ms = market_state.get("state", "") if market_state else ""
+                    near_count = sum(1 for r in results if r.get("v2_signal_status") == "NEAR_TRIGGER")
+                    notify_buy_signal(v2_buy_signals, market_state=ms, near_trigger_count=near_count)
+                except Exception as ne:
+                    logger.debug(f"V2买入通知失败: {ne}")
+                
+                # 自动写入纸面交易（模拟交易）
+                try:
+                    process_scan_results_for_paper(v2_buy_signals, market_state=market_state, mode=mode)
+                    print(f"📝 V2买入信号已写入纸面交易: {len(v2_buy_signals)} 只")
+                except Exception as pe:
+                    logger.debug(f"V2纸面交易写入失败: {pe}")
+            
+            # V2 结果持久化到 parquet（覆盖旧的 tail_confirm_results）
+            try:
+                import polars as pl
+                from datetime import datetime as _dt
+                v2_rows = []
+                for item in results:
+                    if item.get("v2_signal_status"):
+                        v2_rows.append({
+                            "code": item.get("code", ""),
+                            "name": item.get("name", ""),
+                            "signal_status": item.get("v2_signal_status", ""),
+                            "composite_score": item.get("v2_composite_score", 0),
+                            "total_score": item.get("total_score", 0),
+                            "daily_2buy_score": item.get("total_score", 0),
+                            "risk_pct": item.get("risk_pct", 0),
+                            "current_price": item.get("entry_price", 0),
+                            "trigger_price": item.get("trigger_price", 0),
+                            "stop_loss": item.get("stop_loss", 0),
+                            "target_1": item.get("take_profit_1", 0),
+                            "target_2": item.get("take_profit_2", 0),
+                            "trade_date": _dt.now().strftime("%Y-%m-%d"),
+                            "market_state": market_state.get("state", "") if market_state else "",
+                        })
+                if v2_rows:
+                    v2_df = pl.DataFrame(v2_rows)
+                    # 注意：写入 v2_signals.parquet（独立路径），避免和真正的
+                    # tail_confirm_results_v265.parquet 互相覆盖。
+                    v2_df.write_parquet("data/v2_signals.parquet")
+                    logger.info(f"V2结果已写入 v2_signals.parquet: {len(v2_rows)} 行")
+            except Exception as pe:
+                logger.debug(f"V2结果持久化失败: {pe}")
+    except Exception as e:
+        logger.debug(f"V2信号引擎未启用或异常: {e}")
+
     # ===== 方案S：纸面交易买入触发/T+1账本 =====
     try:
         process_scan_results_for_paper(results, market_state=market_state, mode=mode)

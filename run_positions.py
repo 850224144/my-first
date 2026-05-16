@@ -72,6 +72,15 @@ def main():
         content = generate_position_report()
         print(content)
         _push_position_report(content, no_push=args.no_push)
+        # 闭环通知：每日持仓摘要（20:00 触发时推送）
+        try:
+            from core.position_tracker import load_positions
+            from core.notify_lifecycle import notify_position_daily
+            positions = load_positions(open_only=True)
+            if not positions.is_empty():
+                notify_position_daily(positions.to_dicts())
+        except Exception:
+            pass
         return
 
     if args.add_position:

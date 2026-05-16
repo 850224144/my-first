@@ -571,6 +571,40 @@ def track_positions(update: bool = True) -> pl.DataFrame:
         action_result = _decide_position_action(pos)
         rows.append(action_result)
         
+        # ===== 闭环通知：止盈/止损/时间退出 =====
+        try:
+            from core.notify_lifecycle import (
+                notify_take_profit, notify_stop_loss_warning,
+                notify_stop_loss_triggered, notify_time_stop,
+            )
+            action = action_result.get("action", "")
+            code = action_result.get("code", "")
+            name = action_result.get("name", "")
+            current_price = action_result.get("current_price", 0)
+            buy_price = action_result.get("buy_price", 0)
+            stop_loss_val = action_result.get("stop_loss", 0)
+            hold_days = action_result.get("hold_days", 0)
+            tp1 = action_result.get("take_profit_1", 0)
+            tp2 = action_result.get("take_profit_2", 0)
+            
+            if action == "EXIT_STOP":
+                notify_stop_loss_triggered(code, name, current_price, buy_price, hold_days)
+            elif action == "REDUCE_TARGET1":
+                notify_take_profit(code, name, current_price, buy_price, tp1, stage=1,
+                                   hold_days=hold_days, new_stop_loss=buy_price)
+            elif action == "TAKE_PROFIT_2":
+                notify_take_profit(code, name, current_price, buy_price, tp2, stage=2,
+                                   hold_days=hold_days, new_stop_loss=tp1 or buy_price)
+            elif action == "TIME_EXIT_WARN" and hold_days >= 20:
+                notify_time_stop(code, name, current_price, buy_price, hold_days, max_days=20)
+            elif action == "HOLD" and stop_loss_val > 0 and current_price > 0:
+                # 止损预警：距止损<3%
+                dist = (current_price / stop_loss_val - 1) * 100 if stop_loss_val > 0 else 999
+                if 0 < dist < 3:
+                    notify_stop_loss_warning(code, name, current_price, buy_price, stop_loss_val, hold_days)
+        except Exception:
+            pass
+        
         # ===== 生命周期管理：持仓状态自动更新 =====
         try:
             from core.lifecycle_integration import process_position_for_lifecycle

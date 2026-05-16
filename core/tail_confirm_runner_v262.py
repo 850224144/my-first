@@ -1,5 +1,9 @@
 """
 v2.6.2 Tail Focus 尾盘确认 Runner。
+
+⚠️ DEPRECATED：当前生产链路使用 `tail_confirm_runner_v265.run_tail_confirm_from_tail_focus_v265`，
+此模块仅保留作历史回放/诊断之用，不要在新代码中引用。
+
 v2.6.3 修复：
 - tail_confirm_results.parquet 写入时使用 write_parquet_safe_v263
 - 避免 weekly_flags 等字段 list/string 混列导致 pyarrow 报错

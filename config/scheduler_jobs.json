@@ -3,115 +3,378 @@
   "jobs": [
     {
       "name": "preflight",
-      "schedule": { "kind": "cron", "expr": "15 9 * * 1-5" },
-      "commands": [["run_scan.py", "--coverage"]],
+      "schedule": {
+        "kind": "cron",
+        "expr": "15 9 * * 1-5"
+      },
+      "commands": [
+        [
+          "run_scan.py",
+          "--coverage"
+        ]
+      ],
       "timeoutSeconds": 300
     },
     {
       "name": "observe_morning",
-      "schedule": { "kind": "cron", "expr": "45 9 * * 1-5" },
-      "commands": [["run_scan.py", "--mode", "observe", "--workers", "1"]],
+      "schedule": {
+        "kind": "cron",
+        "expr": "45 9 * * 1-5"
+      },
+      "commands": [
+        [
+          "run_scan.py",
+          "--mode",
+          "observe",
+          "--workers",
+          "1"
+        ]
+      ],
       "timeoutSeconds": 1200
     },
     {
       "name": "watchlist_refresh_1030",
-      "schedule": { "kind": "cron", "expr": "30 10 * * 1-5" },
-      "commands": [["run_scan.py", "--watchlist-refresh", "--workers", "1"]],
+      "schedule": {
+        "kind": "cron",
+        "expr": "30 10 * * 1-5"
+      },
+      "commands": [
+        [
+          "run_scan.py",
+          "--watchlist-refresh",
+          "--workers",
+          "1"
+        ]
+      ],
       "timeoutSeconds": 600
     },
     {
       "name": "watchlist_refresh_1120",
-      "schedule": { "kind": "cron", "expr": "20 11 * * 1-5" },
-      "commands": [["run_scan.py", "--watchlist-refresh", "--workers", "1"]],
+      "schedule": {
+        "kind": "cron",
+        "expr": "20 11 * * 1-5"
+      },
+      "commands": [
+        [
+          "run_scan.py",
+          "--watchlist-refresh",
+          "--workers",
+          "1"
+        ]
+      ],
       "timeoutSeconds": 600
     },
     {
       "name": "track_positions_midday",
-      "schedule": { "kind": "cron", "expr": "30 11 * * 1-5" },
-      "commands": [["run_positions.py", "--track"]],
+      "schedule": {
+        "kind": "cron",
+        "expr": "30 11 * * 1-5"
+      },
+      "commands": [
+        [
+          "run_positions.py",
+          "--track"
+        ]
+      ],
       "timeoutSeconds": 300
     },
     {
       "name": "observe_afternoon",
-      "schedule": { "kind": "cron", "expr": "20 13 * * 1-5" },
-      "commands": [["run_scan.py", "--mode", "observe", "--workers", "1"]],
+      "schedule": {
+        "kind": "cron",
+        "expr": "20 13 * * 1-5"
+      },
+      "commands": [
+        [
+          "run_scan.py",
+          "--mode",
+          "observe",
+          "--workers",
+          "1"
+        ]
+      ],
       "timeoutSeconds": 1200
     },
     {
       "name": "watchlist_refresh_1420",
-      "schedule": { "kind": "cron", "expr": "20 14 * * 1-5" },
-      "commands": [["run_scan.py", "--watchlist-refresh", "--workers", "1"]],
+      "schedule": {
+        "kind": "cron",
+        "expr": "20 14 * * 1-5"
+      },
+      "commands": [
+        [
+          "run_scan.py",
+          "--watchlist-refresh",
+          "--workers",
+          "1"
+        ]
+      ],
       "timeoutSeconds": 600
     },
     {
       "name": "observe_gate_v270",
-      "schedule": { "kind": "cron", "expr": "40 14 * * 1-5" },
-      "commands": [["scripts/run_v270_jobs_once.py", "--job", "observe"]],
+      "schedule": {
+        "kind": "cron",
+        "expr": "40 14 * * 1-5"
+      },
+      "commands": [
+        [
+          "scripts/run_v270_jobs_once.py",
+          "--job",
+          "observe"
+        ]
+      ],
       "timeoutSeconds": 1800
     },
     {
       "name": "tail_confirm",
-      "schedule": { "kind": "cron", "expr": "50 14 * * 1-5" },
-      "commands": [["scripts/run_v270_jobs_once.py", "--job", "tail"]],
+      "schedule": {
+        "kind": "cron",
+        "expr": "50 14 * * 1-5"
+      },
+      "commands": [
+        [
+          "scripts/run_v270_jobs_once.py",
+          "--job",
+          "tail"
+        ]
+      ],
       "timeoutSeconds": 600
     },
     {
       "name": "buy_bridge_v280",
-      "schedule": { "kind": "cron", "expr": "52 14 * * 1-5" },
-      "commands": [["scripts/build_buy_bridge_v280.py"]],
+      "schedule": {
+        "kind": "cron",
+        "expr": "52 14 * * 1-5"
+      },
+      "commands": [
+        [
+          "scripts/build_buy_bridge_v280.py"
+        ]
+      ],
       "timeoutSeconds": 600
     },
     {
       "name": "track_positions_tail",
-      "schedule": { "kind": "cron", "expr": "55 14 * * 1-5" },
-      "commands": [["run_positions.py", "--track"]],
+      "schedule": {
+        "kind": "cron",
+        "expr": "55 14 * * 1-5"
+      },
+      "commands": [
+        [
+          "run_positions.py",
+          "--track"
+        ]
+      ],
       "timeoutSeconds": 300
     },
     {
       "name": "after_close",
-      "schedule": { "kind": "cron", "expr": "30 17 * * 1-5" },
+      "schedule": {
+        "kind": "cron",
+        "expr": "30 17 * * 1-5"
+      },
       "commands": [
-        ["run_scan.py", "--refresh-daily-existing", "--daily-limit", "1200", "--daily-workers", "1"],
-        ["run_scan.py", "--build-universe", "--workers", "1"],
-        ["run_scan.py", "--mode", "after_close", "--workers", "1"]
+        [
+          "run_scan.py",
+          "--refresh-daily-existing",
+          "--daily-limit",
+          "1200",
+          "--daily-workers",
+          "1"
+        ],
+        [
+          "run_scan.py",
+          "--build-universe",
+          "--workers",
+          "1"
+        ],
+        [
+          "run_scan.py",
+          "--mode",
+          "after_close",
+          "--workers",
+          "1"
+        ]
       ],
       "timeoutSeconds": 5400
     },
     {
       "name": "track_positions_evening",
-      "schedule": { "kind": "cron", "expr": "0 20 * * 1-5" },
-      "commands": [["run_positions.py", "--track"]],
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 20 * * 1-5"
+      },
+      "commands": [
+        [
+          "run_positions.py",
+          "--track"
+        ]
+      ],
       "timeoutSeconds": 300
     },
     {
       "name": "daily_report_v290_build",
-      "schedule": { "kind": "cron", "expr": "25 20 * * 1-5" },
-      "commands": [["scripts/build_daily_report_v290.py"]],
+      "schedule": {
+        "kind": "cron",
+        "expr": "25 20 * * 1-5"
+      },
+      "commands": [
+        [
+          "scripts/build_daily_report_v290.py"
+        ]
+      ],
       "timeoutSeconds": 3600
     },
     {
       "name": "daily_report",
-      "schedule": { "kind": "cron", "expr": "30 20 * * 1-5" },
-      "commands": [["run_scan.py", "--daily-report"]],
+      "schedule": {
+        "kind": "cron",
+        "expr": "30 20 * * 1-5"
+      },
+      "commands": [
+        [
+          "run_scan.py",
+          "--daily-report"
+        ]
+      ],
       "timeoutSeconds": 600
     },
     {
       "name": "night_cache_expand",
-      "schedule": { "kind": "cron", "expr": "30 22 * * 1-5" },
-      "commands": [["run_scan.py", "--build-daily-cache", "--daily-limit", "300", "--daily-workers", "1"]],
+      "schedule": {
+        "kind": "cron",
+        "expr": "30 22 * * 1-5"
+      },
+      "commands": [
+        [
+          "run_scan.py",
+          "--build-daily-cache",
+          "--daily-limit",
+          "300",
+          "--daily-workers",
+          "1"
+        ]
+      ],
       "timeoutSeconds": 3600
     },
     {
       "name": "daily_maintenance",
-      "schedule": { "kind": "cron", "expr": "0 23 * * 1-5" },
-      "commands": [["scripts/daily_maintenance.py", "--expire-days", "5", "--log-days", "30"]],
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 23 * * 1-5"
+      },
+      "commands": [
+        [
+          "scripts/daily_maintenance.py",
+          "--expire-days",
+          "5",
+          "--log-days",
+          "30"
+        ]
+      ],
       "timeoutSeconds": 600
     },
     {
       "name": "refresh_trading_calendar",
-      "schedule": { "kind": "cron", "expr": "0 8 * * 1" },
-      "commands": [["scripts/refresh_trading_calendar.py"]],
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 8 * * 1"
+      },
+      "commands": [
+        [
+          "scripts/refresh_trading_calendar.py"
+        ]
+      ],
       "timeoutSeconds": 300
+    },
+    {
+      "name": "ml_retrain_monthly",
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 2 1 * *"
+      },
+      "commands": [
+        [
+          "scripts/build_and_train_ml.py",
+          "--limit",
+          "500",
+          "--backend",
+          "xgboost"
+        ]
+      ],
+      "timeoutSeconds": 1800,
+      "comment": "每月1号凌晨2点自动重训ML模型"
+    },
+    {
+      "name": "ml_monitor_check",
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 21 * * 1-5"
+      },
+      "commands": [
+        [
+          "scripts/check_ml_health.py"
+        ]
+      ],
+      "timeoutSeconds": 120,
+      "comment": "每个交易日21点检查ML模型健康度"
+    },
+    {
+      "name": "strategy_health_check",
+      "schedule": {
+        "kind": "cron",
+        "expr": "30 8 * * 1"
+      },
+      "commands": [
+        [
+          "scripts/run_health_check.py"
+        ]
+      ],
+      "timeoutSeconds": 300,
+      "comment": "每周一早上8:30生成策略健康体检报告"
+    },
+    {
+      "name": "agent_daily_check",
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 9 * * 1-5"
+      },
+      "commands": [
+        [
+          "scripts/run_agent_daily.py"
+        ]
+      ],
+      "timeoutSeconds": 120,
+      "comment": "每交易日9点运行智能体检查"
+    },
+    {
+      "name": "factor_weight_adjust",
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 3 * * 1"
+      },
+      "commands": [
+        [
+          "scripts/run_factor_adjust.py"
+        ]
+      ],
+      "timeoutSeconds": 300,
+      "comment": "每周一凌晨3点自动调权"
+    },
+    {
+      "name": "refresh_sector_data",
+      "schedule": {
+        "kind": "cron",
+        "expr": "40 9 * * 1-5"
+      },
+      "commands": [
+        [
+          "scripts/refresh_sector.py"
+        ]
+      ],
+      "timeoutSeconds": 60,
+      "comment": "每交易日9:40刷新板块数据（在observe之前）"
     }
   ]
 }

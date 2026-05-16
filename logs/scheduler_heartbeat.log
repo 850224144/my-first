@@ -160,3 +160,106 @@
 [2026-05-08 11:20:00] job_heartbeat stage=before job=watchlist_refresh_1120 pid=98774 lock_pid=98774
 [2026-05-08 11:30:00] job_heartbeat stage=before job=track_positions_midday pid=98774 lock_pid=98774
 [2026-05-08 12:05:00] heartbeat pid=72203 lock_pid=72203 project=/Users/liujunying/Downloads/project/my-first
+[2026-05-08 13:05:00] heartbeat pid=74102 lock_pid=74102 project=/Users/liujunying/Downloads/project/my-first
+[2026-05-08 13:20:00] job_heartbeat stage=before job=observe_afternoon pid=74102 lock_pid=74102
+[2026-05-08 14:05:00] heartbeat pid=74102 lock_pid=74102 project=/Users/liujunying/Downloads/project/my-first
+[2026-05-08 14:20:00] job_heartbeat stage=before job=watchlist_refresh_1420 pid=74102 lock_pid=74102
+[2026-05-08 14:40:00] job_heartbeat stage=before job=observe_gate_v270 pid=74102 lock_pid=74102
+[2026-05-08 14:50:00] job_heartbeat stage=before job=tail_confirm pid=74102 lock_pid=74102
+[2026-05-08 14:52:00] job_heartbeat stage=before job=buy_bridge_v280 pid=74102 lock_pid=74102
+[2026-05-08 14:55:00] job_heartbeat stage=before job=track_positions_tail pid=74102 lock_pid=74102
+[2026-05-08 15:05:00] heartbeat pid=74102 lock_pid=74102 project=/Users/liujunying/Downloads/project/my-first
+[2026-05-08 17:05:00] heartbeat pid=74102 lock_pid=74102 project=/Users/liujunying/Downloads/project/my-first
+[2026-05-08 17:30:00] job_heartbeat stage=before job=after_close pid=74102 lock_pid=74102
+[2026-05-08 20:00:00] job_heartbeat stage=before job=track_positions_evening pid=74102 lock_pid=74102
+[2026-05-08 20:05:00] heartbeat pid=74102 lock_pid=74102 project=/Users/liujunying/Downloads/project/my-first
+[2026-05-08 20:25:00] job_heartbeat stage=before job=daily_report_v290_build pid=74102 lock_pid=74102
+[2026-05-08 20:30:00] job_heartbeat stage=before job=daily_report pid=74102 lock_pid=74102
+[2026-05-08 22:05:00] heartbeat pid=74102 lock_pid=74102 project=/Users/liujunying/Downloads/project/my-first
+[2026-05-08 22:30:00] job_heartbeat stage=before job=night_cache_expand pid=74102 lock_pid=74102
+[2026-05-08 23:00:00] job_heartbeat stage=before job=daily_maintenance pid=74102 lock_pid=74102
+[2026-05-09 14:52:00] job_heartbeat stage=before job=buy_bridge_v280 pid=74102 lock_pid=74102
+[2026-05-09 17:30:00] job_heartbeat stage=before job=after_close pid=74102 lock_pid=74102
+[2026-05-09 20:25:00] job_heartbeat stage=before job=daily_report_v290_build pid=74102 lock_pid=74102
+[2026-05-09 20:30:00] job_heartbeat stage=before job=daily_report pid=74102 lock_pid=74102
+[2026-05-09 22:30:00] job_heartbeat stage=before job=night_cache_expand pid=74102 lock_pid=74102
+[2026-05-09 23:00:00] job_heartbeat stage=before job=daily_maintenance pid=74102 lock_pid=74102
+[2026-05-11 09:05:00] heartbeat pid=74102 lock_pid=74102 project=/Users/liujunying/Downloads/project/my-first
+[2026-05-11 10:05:00] heartbeat pid=74102 lock_pid=74102 project=/Users/liujunying/Downloads/project/my-first
+[2026-05-11 11:05:00] heartbeat pid=74102 lock_pid=74102 project=/Users/liujunying/Downloads/project/my-first
+[2026-05-11 11:52:18] job_heartbeat stage=before job=track_positions_midday pid=99053 lock_pid=74102
+[2026-05-11 11:52:33] job_heartbeat stage=before job=track_positions_midday pid=99312 lock_pid=74102
+[2026-05-11 12:05:00] heartbeat pid=74102 lock_pid=74102 project=/Users/liujunying/Downloads/project/my-first
+[2026-05-11 13:05:00] heartbeat pid=74102 lock_pid=74102 project=/Users/liujunying/Downloads/project/my-first
+[2026-05-11 14:05:00] heartbeat pid=74102 lock_pid=74102 project=/Users/liujunying/Downloads/project/my-first
+[2026-05-11 15:05:00] heartbeat pid=74102 lock_pid=74102 project=/Users/liujunying/Downloads/project/my-first
+[2026-05-11 17:05:00] heartbeat pid=74102 lock_pid=74102 project=/Users/liujunying/Downloads/project/my-first
+[2026-05-11 20:05:00] heartbeat pid=74102 lock_pid=74102 project=/Users/liujunying/Downloads/project/my-first
+[2026-05-11 22:05:00] heartbeat pid=74102 lock_pid=74102 project=/Users/liujunying/Downloads/project/my-first
+[2026-05-12 08:00:00] job_heartbeat stage=before job=refresh_trading_calendar pid=74102 lock_pid=74102
+[2026-05-12 09:05:00] heartbeat pid=74102 lock_pid=74102 project=/Users/liujunying/Downloads/project/my-first
+[2026-05-12 09:15:00] job_heartbeat stage=before job=preflight pid=74102 lock_pid=74102
+[2026-05-12 09:45:00] job_heartbeat stage=before job=observe_morning pid=74102 lock_pid=74102
+[2026-05-12 10:05:00] heartbeat pid=74102 lock_pid=74102 project=/Users/liujunying/Downloads/project/my-first
+[2026-05-12 10:30:00] job_heartbeat stage=before job=watchlist_refresh_1030 pid=74102 lock_pid=74102
+[2026-05-12 11:05:00] heartbeat pid=74102 lock_pid=74102 project=/Users/liujunying/Downloads/project/my-first
+[2026-05-12 11:20:00] job_heartbeat stage=before job=watchlist_refresh_1120 pid=74102 lock_pid=74102
+[2026-05-12 11:30:00] job_heartbeat stage=before job=track_positions_midday pid=74102 lock_pid=74102
+[2026-05-12 12:05:00] heartbeat pid=74102 lock_pid=74102 project=/Users/liujunying/Downloads/project/my-first
+[2026-05-12 13:05:00] heartbeat pid=74102 lock_pid=74102 project=/Users/liujunying/Downloads/project/my-first
+[2026-05-12 13:20:00] job_heartbeat stage=before job=observe_afternoon pid=74102 lock_pid=74102
+[2026-05-12 14:05:00] heartbeat pid=74102 lock_pid=74102 project=/Users/liujunying/Downloads/project/my-first
+[2026-05-12 14:20:00] job_heartbeat stage=before job=watchlist_refresh_1420 pid=74102 lock_pid=74102
+[2026-05-12 14:40:00] job_heartbeat stage=before job=observe_gate_v270 pid=74102 lock_pid=74102
+[2026-05-12 14:50:00] job_heartbeat stage=before job=tail_confirm pid=74102 lock_pid=74102
+[2026-05-12 14:52:00] job_heartbeat stage=before job=buy_bridge_v280 pid=74102 lock_pid=74102
+[2026-05-12 14:55:00] job_heartbeat stage=before job=track_positions_tail pid=74102 lock_pid=74102
+[2026-05-12 15:05:00] heartbeat pid=74102 lock_pid=74102 project=/Users/liujunying/Downloads/project/my-first
+[2026-05-12 17:05:00] heartbeat pid=74102 lock_pid=74102 project=/Users/liujunying/Downloads/project/my-first
+[2026-05-12 17:30:00] job_heartbeat stage=before job=after_close pid=74102 lock_pid=74102
+[2026-05-12 20:00:00] job_heartbeat stage=before job=track_positions_evening pid=74102 lock_pid=74102
+[2026-05-12 20:05:00] heartbeat pid=74102 lock_pid=74102 project=/Users/liujunying/Downloads/project/my-first
+[2026-05-12 20:25:00] job_heartbeat stage=before job=daily_report_v290_build pid=74102 lock_pid=74102
+[2026-05-12 20:30:00] job_heartbeat stage=before job=daily_report pid=74102 lock_pid=74102
+[2026-05-12 22:05:00] heartbeat pid=74102 lock_pid=74102 project=/Users/liujunying/Downloads/project/my-first
+[2026-05-12 22:30:00] job_heartbeat stage=before job=night_cache_expand pid=74102 lock_pid=74102
+[2026-05-12 23:00:00] job_heartbeat stage=before job=daily_maintenance pid=74102 lock_pid=74102
+[2026-05-13 09:05:00] heartbeat pid=74102 lock_pid=74102 project=/Users/liujunying/Downloads/project/my-first
+[2026-05-13 09:15:00] job_heartbeat stage=before job=preflight pid=74102 lock_pid=74102
+[2026-05-13 09:45:00] job_heartbeat stage=before job=observe_morning pid=74102 lock_pid=74102
+[2026-05-13 10:05:00] heartbeat pid=74102 lock_pid=74102 project=/Users/liujunying/Downloads/project/my-first
+[2026-05-13 10:30:00] job_heartbeat stage=before job=watchlist_refresh_1030 pid=74102 lock_pid=74102
+[2026-05-13 11:05:00] heartbeat pid=74102 lock_pid=74102 project=/Users/liujunying/Downloads/project/my-first
+[2026-05-13 11:20:00] job_heartbeat stage=before job=watchlist_refresh_1120 pid=74102 lock_pid=74102
+[2026-05-13 11:30:00] job_heartbeat stage=before job=track_positions_midday pid=74102 lock_pid=74102
+[2026-05-13 12:05:00] heartbeat pid=74102 lock_pid=74102 project=/Users/liujunying/Downloads/project/my-first
+[2026-05-13 13:05:00] heartbeat pid=74102 lock_pid=74102 project=/Users/liujunying/Downloads/project/my-first
+[2026-05-13 13:20:00] job_heartbeat stage=before job=observe_afternoon pid=74102 lock_pid=74102
+[2026-05-13 14:05:00] heartbeat pid=74102 lock_pid=74102 project=/Users/liujunying/Downloads/project/my-first
+[2026-05-13 14:20:00] job_heartbeat stage=before job=watchlist_refresh_1420 pid=74102 lock_pid=74102
+[2026-05-13 14:40:00] job_heartbeat stage=before job=observe_gate_v270 pid=74102 lock_pid=74102
+[2026-05-13 14:50:00] job_heartbeat stage=before job=tail_confirm pid=74102 lock_pid=74102
+[2026-05-13 14:52:00] job_heartbeat stage=before job=buy_bridge_v280 pid=74102 lock_pid=74102
+[2026-05-13 14:55:00] job_heartbeat stage=before job=track_positions_tail pid=74102 lock_pid=74102
+[2026-05-13 15:05:00] heartbeat pid=74102 lock_pid=74102 project=/Users/liujunying/Downloads/project/my-first
+[2026-05-15 12:29:03] job_heartbeat stage=before job=observe_morning pid=84272 lock_pid=84272
+[2026-05-15 12:57:43] job_heartbeat stage=before job=after_close pid=2703 lock_pid=84272
+[2026-05-15 13:05:00] heartbeat pid=84272 lock_pid=84272 project=/Users/liujunying/Downloads/project/my-first
+[2026-05-15 13:20:00] job_heartbeat stage=before job=observe_afternoon pid=84272 lock_pid=84272
+[2026-05-15 14:05:00] heartbeat pid=84272 lock_pid=84272 project=/Users/liujunying/Downloads/project/my-first
+[2026-05-15 14:20:00] job_heartbeat stage=before job=watchlist_refresh_1420 pid=7062 lock_pid=7062
+[2026-05-15 14:25:49] job_heartbeat stage=before job=tail_confirm pid=11756 lock_pid=7062
+[2026-05-15 14:40:00] job_heartbeat stage=before job=observe_gate_v270 pid=7062 lock_pid=7062
+[2026-05-15 14:50:00] job_heartbeat stage=before job=tail_confirm pid=7062 lock_pid=7062
+[2026-05-15 14:52:00] job_heartbeat stage=before job=buy_bridge_v280 pid=7062 lock_pid=7062
+[2026-05-15 15:05:00] heartbeat pid=16716 lock_pid=16716 project=/Users/liujunying/Downloads/project/my-first
+[2026-05-15 17:05:00] heartbeat pid=25172 lock_pid=25172 project=/Users/liujunying/Downloads/project/my-first
+[2026-05-15 17:30:00] job_heartbeat stage=before job=after_close pid=25172 lock_pid=25172
+[2026-05-15 20:00:00] job_heartbeat stage=before job=track_positions_evening pid=48215 lock_pid=48215
+[2026-05-15 20:05:00] heartbeat pid=48215 lock_pid=48215 project=/Users/liujunying/Downloads/project/my-first
+[2026-05-15 20:25:00] job_heartbeat stage=before job=daily_report_v290_build pid=29008 lock_pid=29008
+[2026-05-15 20:30:00] job_heartbeat stage=before job=daily_report pid=29008 lock_pid=29008
+[2026-05-15 21:00:00] job_heartbeat stage=before job=ml_monitor_check pid=29008 lock_pid=29008
+[2026-05-15 22:05:00] heartbeat pid=29008 lock_pid=29008 project=/Users/liujunying/Downloads/project/my-first
+[2026-05-15 22:30:00] job_heartbeat stage=before job=night_cache_expand pid=29008 lock_pid=29008
+[2026-05-15 23:00:00] job_heartbeat stage=before job=daily_maintenance pid=29008 lock_pid=29008

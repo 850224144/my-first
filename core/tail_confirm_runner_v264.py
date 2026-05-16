@@ -1,6 +1,9 @@
 """
 v2.6.4 Tail Focus 尾盘确认 Runner。
 
+⚠️ DEPRECATED：当前生产链路使用 `tail_confirm_runner_v265.run_tail_confirm_from_tail_focus_v265`，
+此模块仅保留作历史回放/诊断之用，不要在新代码中引用。
+
 基于 v2.6.3：
 - 使用安全 Parquet 写入
 - 使用 v2.6.4 原因解释与报告
